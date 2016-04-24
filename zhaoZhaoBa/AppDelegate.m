@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XYRootTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[XYRootTabBarViewController alloc]init];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:myTypes categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }else {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:myTypes];
+    }
+    
+//    // 在 App 启动时注册百度云推送服务，需要提供 Apikey
+//    [BPush registerChannel:launchOptions apiKey:@"qtD61KoRTrz38WKoVIEvqq9k" pushMode:BPushModeProduction withFirstAction:nil withSecondAction:nil withCategory:nil isDebug:YES];
+//    // App 是用户点击推送消息启动
+//    NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+//    if (userInfo) {
+//        NSLog(@"从消息启动:%@",userInfo);
+//        [BPush handleNotification:userInfo];
+//    }
+//    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+    [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     return YES;
 }
 

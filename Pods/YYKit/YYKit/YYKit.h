@@ -12,7 +12,6 @@
  */
 
 #ifndef __IPHONE_6_0
-#error YYKit only support iOS 6.0 and later
 #endif
 
 #import <YYKit/YYKitMacro.h>

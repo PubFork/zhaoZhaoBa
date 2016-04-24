@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  XYHomeFuncationTableViewCell.h
 //  zhaoZhaoBa
 //
 //  Created by apple on 16/4/24.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface XYHomeFuncationTableViewCell : UITableViewCell
 
 @end
-
