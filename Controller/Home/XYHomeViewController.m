@@ -9,14 +9,19 @@
 #import "XYHomeViewController.h"
 #import "XYHomeTableViewCell.h"
 #import "XYHomeFuncationTableViewCell.h"
+#import "XYHomeHeaderTableViewCell.h"
+
+#import "XYHomeNaviBar.h"
 
 static NSString * funcationCell_key = @"funcationCell_key";
 static NSString * cell_key = @"cell_key";
+static NSString * headerCell_key = @"headerCell_key";
 
 @interface XYHomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)NSMutableArray * groupArray;
+@property (nonatomic, strong)XYHomeNaviBar * homeNaviBar;
 @end
 
 @implementation XYHomeViewController
@@ -34,15 +39,10 @@ static NSString * cell_key = @"cell_key";
     // Do any additional setup after loading the view from its nib.
     
     [self.view addSubview:self.tableView];
-    
-    self.title = @"111";
-    
     [self setNavigationBar];
     
     self.groupArray = @[].mutableCopy;
-    
     for (int i = 0 ; i < 10; i ++) {
-        
         [self.groupArray addObject:@(0.1 * i)];
     }
     
@@ -52,6 +52,15 @@ static NSString * cell_key = @"cell_key";
 #pragma mark Inner Method
 - (void)setNavigationBar
 {
+    [self removeBackBtn];
+    [self removeTitleLabel];
+    [self.naviBar removeFromSuperview];
+
+    self.homeNaviBar = [XYHomeNaviBar shareHomeNaviBar];
+    
+    [self.navigationController.navigationBar addSubview:self.homeNaviBar];
+  
+    
     
 }
 
@@ -84,13 +93,25 @@ static NSString * cell_key = @"cell_key";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.section) {
+    if (indexPath.section == 2) {
         XYHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_key forIndexPath:indexPath];
         cell.startRateView.scorePercent = [self.groupArray[indexPath.row] floatValue];
         return cell;
     }
     
-    XYHomeFuncationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:funcationCell_key forIndexPath:indexPath];
+    
+    if (indexPath.section == 1) {
+        XYHomeFuncationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:funcationCell_key forIndexPath:indexPath];
+        
+        [cell clickFuncationCell:^(XYHomeFuncationTableViewCell *cell, NSInteger clickIndex) {
+            NSLog(@" home - setClickFuncationCell - %d",clickIndex);
+        }];
+        
+        return cell;
+    }
+    
+    
+    XYHomeHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:headerCell_key forIndexPath:indexPath];
     
     return cell;
 }
@@ -99,6 +120,12 @@ static NSString * cell_key = @"cell_key";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 0) {
+        return 200;
+    }
+    if (indexPath.section == 1) {
+        return 242;
+    }
     return 75;
 }
 
@@ -113,6 +140,7 @@ static NSString * cell_key = @"cell_key";
         _tableView.backgroundColor = kDefaultBackgroudColor;
         [_tableView registerNib:[UINib nibWithNibName:@"XYHomeTableViewCell" bundle:nil] forCellReuseIdentifier:cell_key];
         [_tableView registerNib:[UINib nibWithNibName:@"XYHomeFuncationTableViewCell" bundle:nil] forCellReuseIdentifier:funcationCell_key];
+        [_tableView registerNib:[UINib nibWithNibName:@"XYHomeHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:headerCell_key];
         
     }
     return _tableView;

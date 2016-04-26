@@ -25,11 +25,12 @@
     // Do any additional setup after loading the view.
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
     self.activeIV = [[MyActivityIndicatorView alloc]init];
-    
     [self setBackBtn];
 
+    
+    [self.navigationController.navigationBar addSubview:self.naviBar];
+    
     
 
 }
@@ -40,17 +41,47 @@
 - (void)setBackBtn
 {
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 25, 25);
+    btn.frame = CGRectMake(0, 20, 25, 25);
     [btn setImage:kImage(@"back") forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(clickLeftBtn) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    [self.naviBar addSubview:btn];
+    self.leftBtn = btn;
 }
 
 - (void)removeBackBtn
 {
-    self.navigationItem.leftBarButtonItem = nil;
+    [self removeView:self.leftBtn];
+   
 }
+
+- (void)removeTitleLabel
+{
+    [self removeView:self.titleLabel];
+}
+
+- (void)setRightBtnWithText:(NSString *)text
+{
+    
+}
+- (void)setRightBtnWithImageName:(NSString *)imageName
+{
+    
+}
+- (void)removeRightBtn
+{
+    [self removeView:self.rightBtn];
+
+}
+
+#pragma mark -------------------------------------------------------
+#pragma mark inner Method
+
+- (void)removeView:(UIView *)view
+{
+    [view removeFromSuperview];
+}
+
 
 - (void)clickLeftBtn
 {
@@ -90,6 +121,25 @@
     [kWindow addSubview:_activeIV.clearView];
     [kWindow addSubview:_activeIV];
     
+}
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark Lazy Loading
+- (UIView *)naviBar
+{
+    if (!_naviBar) {
+        _naviBar = [[UIView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 44)];
+        _naviBar.backgroundColor = kWhiteColor;
+        
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 100, 20)];
+        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textColor = kNavigationBarTextColor;
+        _titleLabel.center = CGPointMake(kScreenWidth / 2, 22);
+        
+    }
+    return _naviBar;
 }
 
 

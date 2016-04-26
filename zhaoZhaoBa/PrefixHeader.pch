@@ -16,6 +16,8 @@
 #import "Color.h"
 #import "YYKit.h"
 #import "Size.h"
+#import "Time.h"
+#import "DispatchQueueManager.h"
 
 
 #define kNotificationCenter [NSNotificationCenter defaultCenter]

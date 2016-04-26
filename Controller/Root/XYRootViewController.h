@@ -12,8 +12,21 @@
 
 @interface XYRootViewController : UIViewController
 
+@property (nonatomic, strong)UIView * naviBar;
+
+@property (nonatomic, strong)UIButton * rightBtn;
+@property (nonatomic, strong)UIButton * leftBtn;
+@property (nonatomic, strong)UILabel * titleLabel;
+
+
 - (void)setBackBtn;
 - (void)removeBackBtn;
+
+- (void)removeTitleLabel;
+
+- (void)setRightBtnWithText:(NSString *)text;
+- (void)setRightBtnWithImageName:(NSString *)imageName;
+- (void)removeRightBtn;
 
 - (void)clickLeftBtn;
 - (void)clickRightBtn;
