@@ -12,6 +12,7 @@
 #import "XYHomeHeaderTableViewCell.h"
 
 #import "XYHomeNaviBar.h"
+#import "XYCityTableView.h"
 
 static NSString * funcationCell_key = @"funcationCell_key";
 static NSString * cell_key = @"cell_key";
@@ -22,6 +23,7 @@ static NSString * headerCell_key = @"headerCell_key";
 @property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)NSMutableArray * groupArray;
 @property (nonatomic, strong)XYHomeNaviBar * homeNaviBar;
+@property (nonatomic, strong)XYCityTableView * cityTableView;
 @end
 
 @implementation XYHomeViewController
@@ -57,11 +59,32 @@ static NSString * headerCell_key = @"headerCell_key";
     [self.naviBar removeFromSuperview];
 
     self.homeNaviBar = [XYHomeNaviBar shareHomeNaviBar];
-    
     [self.navigationController.navigationBar addSubview:self.homeNaviBar];
   
     
+    WeakSelf(weakSelf);
     
+    [self.homeNaviBar clickCityBtn_block:^(XYHomeNaviBar *homeNavBar) {
+        
+        NSInteger height = - weakSelf.cityTableView.selfHeight;
+        if (homeNavBar.cityBtn.isShow) {
+            height = 0;
+        }
+        
+        [UIView animateWithDuration:kHomeCityAnimate_time animations:^{
+            weakSelf.cityTableView.mj_y = height;
+        }];
+        
+    }];
+    
+    [self.homeNaviBar clickSaoBtn_block:^(XYHomeNaviBar *homeNavBar) {
+        
+    }];
+
+    
+    [self.homeNaviBar clickMessageBtn_block:^(XYHomeNaviBar *homeNavBar) {
+        
+    }];
 }
 
 
@@ -146,6 +169,18 @@ static NSString * headerCell_key = @"headerCell_key";
     return _tableView;
 }
 
+
+- (XYCityTableView *)cityTableView
+{
+    if (!_cityTableView) {
+        _cityTableView = [[XYCityTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigationBar_Height - kTabBar_Height)];
+        _cityTableView.mj_y = -_cityTableView.selfHeight;
+        [self.view addSubview:_cityTableView];
+        
+        _cityTableView.backgroundColor = [UIColor orangeColor];
+    }
+    return _cityTableView;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

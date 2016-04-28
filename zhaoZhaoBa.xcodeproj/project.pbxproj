@@ -89,6 +89,8 @@
 		1890519C1CCCFE05003697A2 /* progress_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 189051941CCCFE05003697A2 /* progress_8.png */; };
 		189051A01CCCFFF4003697A2 /* b27_icon_star_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1890519E1CCCFFF4003697A2 /* b27_icon_star_gray@2x.png */; };
 		189051A11CCCFFF4003697A2 /* b27_icon_star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1890519F1CCCFFF4003697A2 /* b27_icon_star_yellow@2x.png */; };
+		1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1890653B1CD1FA5F00597FFE /* XYAddActionView.m */; };
+		1890653F1CD1FF0C00597FFE /* XYCityTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1890653E1CD1FF0C00597FFE /* XYCityTableView.m */; };
 		6F66DBAEEBD3F4D846791F53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73E4F5F113F0080CD28BE16 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -219,6 +221,10 @@
 		189051941CCCFE05003697A2 /* progress_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_8.png; sourceTree = "<group>"; };
 		1890519E1CCCFFF4003697A2 /* b27_icon_star_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b27_icon_star_gray@2x.png"; sourceTree = "<group>"; };
 		1890519F1CCCFFF4003697A2 /* b27_icon_star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b27_icon_star_yellow@2x.png"; sourceTree = "<group>"; };
+		1890653A1CD1FA5F00597FFE /* XYAddActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddActionView.h; sourceTree = "<group>"; };
+		1890653B1CD1FA5F00597FFE /* XYAddActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddActionView.m; sourceTree = "<group>"; };
+		1890653D1CD1FF0C00597FFE /* XYCityTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCityTableView.h; sourceTree = "<group>"; };
+		1890653E1CD1FF0C00597FFE /* XYCityTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCityTableView.m; sourceTree = "<group>"; };
 		DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E73E4F5F113F0080CD28BE16 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -446,6 +452,7 @@
 		1890514A1CCCD595003697A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				189065391CD1FA4F00597FFE /* XYAddActionView */,
 				1887EDFD1CCE36EC006DED7A /* XYBtn */,
 				185820171CCE1F2E00A191BF /* SearchBar */,
 				18581FA61CCE070C00A191BF /* CarousePicture */,
@@ -482,6 +489,8 @@
 				18581FA31CCE058700A191BF /* XYHomeHeaderTableViewCell.xib */,
 				185820211CCE247200A191BF /* XYHomeNaviBar.h */,
 				185820221CCE247200A191BF /* XYHomeNaviBar.m */,
+				1890653D1CD1FF0C00597FFE /* XYCityTableView.h */,
+				1890653E1CD1FF0C00597FFE /* XYCityTableView.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -580,6 +589,15 @@
 				1890519F1CCCFFF4003697A2 /* b27_icon_star_yellow@2x.png */,
 			);
 			path = RatingBar;
+			sourceTree = "<group>";
+		};
+		189065391CD1FA4F00597FFE /* XYAddActionView */ = {
+			isa = PBXGroup;
+			children = (
+				1890653A1CD1FA5F00597FFE /* XYAddActionView.h */,
+				1890653B1CD1FA5F00597FFE /* XYAddActionView.m */,
+			);
+			path = XYAddActionView;
 			sourceTree = "<group>";
 		};
 		5F69259A61E69FBB352C6717 /* Pods */ = {
@@ -844,6 +862,7 @@
 				1890516D1CCCD80F003697A2 /* XYCommunityViewController.m in Sources */,
 				1858201A1CCE1F5100A191BF /* XYSearchBar.m in Sources */,
 				189051571CCCD79E003697A2 /* XYRootViewController.m in Sources */,
+				1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */,
 				181529B01CCCCE940060E4FC /* main.m in Sources */,
 				185820231CCE247200A191BF /* XYHomeNaviBar.m in Sources */,
 				1858201F1CCE222100A191BF /* DispatchQueueManager.m in Sources */,
@@ -851,6 +870,7 @@
 				18581FA41CCE058700A191BF /* XYHomeHeaderTableViewCell.m in Sources */,
 				1890514D1CCCD5AF003697A2 /* XYRootTabBarViewController.m in Sources */,
 				189051791CCCF1BE003697A2 /* MyActivityIndicatorView.m in Sources */,
+				1890653F1CD1FF0C00597FFE /* XYCityTableView.m in Sources */,
 				1890515E1CCCD7C3003697A2 /* XYMyViewController.m in Sources */,
 				18581FB31CCE08F300A191BF /* XYCarousePicture.m in Sources */,
 				18581FAD1CCE072C00A191BF /* XYCarousePictureCollectionCell.m in Sources */,

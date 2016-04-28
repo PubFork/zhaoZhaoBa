@@ -18,6 +18,20 @@
     return self;
 }
 
+#pragma mark -------------------------------------------------------
+#pragma mark Method 
+
+- (void)searchBarEndEdit:(void (^)(XYSearchBar *))searchBarEndEdit
+{
+    self.searchBarEndEdit = searchBarEndEdit;
+}
+
+- (void)searchBarBegainEdit:(void (^)(XYSearchBar *))searchBarBegainEdit
+{
+    self.searchBarBegainEdit = searchBarBegainEdit;
+}
+
+
 
 #pragma mark -------------------------------------------------------
 #pragma mark inner Method
@@ -46,12 +60,12 @@
 #pragma mark TextField Delegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    
+    self.searchBarBegainEdit ? self.searchBarBegainEdit(self) : 0;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    self.searchBarEndEdit ? self.searchBarEndEdit(self) : 0;
 }
 
 
@@ -72,5 +86,6 @@
     }
     return _textField;
 }
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "XYHomeNaviBar.h"
-
+#import "XYHomeViewController.h"
 
 
 @implementation XYHomeNaviBar
@@ -41,6 +41,7 @@ static NSString * saoImageName = @"扫一扫";
 {
     
     self.cityBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 12, 60, 20)];
+    
     [self addSubview:self.cityBtn];
     
     
@@ -61,30 +62,76 @@ static NSString * saoImageName = @"扫一扫";
     self.searchBar = [[XYSearchBar alloc] initWithFrame:CGRectMake(0, 0, self.width - (CGRectGetMaxX(self.cityBtn.frame) + 5) * 2, 30)];
     self.searchBar.center = CGPointMake(self.width / 2, self.height / 2);
     [self addSubview:self.searchBar];
+    
+    
+    WeakSelf(weakSelf);
+    XYHomeViewController * home = [XYHomeViewController shareHomeViewController];
+    [self.searchBar setSearchBarBegainEdit:^(XYSearchBar *searchBar) {
+        [home.view addSubview:weakSelf.backgourdView];
+    }];
 
+    [self.searchBar setSearchBarEndEdit:^(XYSearchBar *searchBar) {
+        [weakSelf.backgourdView removeFromSuperview];
+    }];
     
     
+    [self.cityBtn clickCityBtn_block_xyButton:^(XYButton *view) {
+        self.clickCityBtn_block ? self.clickCityBtn_block(self) : 0;
+    }];
     
 }
+
+#pragma mark -------------------------------------------------------
+#pragma mark Method
+
+- (void)clickMessageBtn_block:(void (^)(XYHomeNaviBar *))clickMessageBtn_block
+{
+    self.clickMessageBtn_block = clickMessageBtn_block;
+}
+
+- (void)clickSaoBtn_block:(void (^)(XYHomeNaviBar *))clickSaoBtn_block
+{
+    self.clickSaoBtn_block = clickSaoBtn_block;
+}
+
+- (void)clickCityBtn_block:(void (^)(XYHomeNaviBar *))clickCityBtn_block
+{
+    self.clickCityBtn_block = clickCityBtn_block;
+}
+
 
 #pragma mark -------------------------------------------------------
 #pragma mark Click Method
 
 - (void)clickMessageBtn
 {
-    
+    self.clickMessageBtn_block ? self.clickMessageBtn_block(self) : 0;
 }
 
 - (void)clickSaoBtn
 {
-    
+    self.clickSaoBtn_block ? self.clickSaoBtn_block(self) : 0;
 }
 
-- (void)clickCityBtn
+#pragma mark -------------------------------------------------------
+#pragma mark Lazy Loading
+
+- (XYAddActionView *)backgourdView
 {
-    
-}
+    if (!_backgourdView) {
+        _backgourdView = [[XYAddActionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        _backgourdView.backgroundColor = [UIColor blackColor];
+        _backgourdView.alpha = .7;
+        
+        WeakSelf(weakSelf);
 
+        [_backgourdView setClickView:^(UIView *view) {
+            [weakSelf.searchBar.textField resignFirstResponder];
+            [view removeFromSuperview];
+        }];
+    }
+    return _backgourdView;
+}
 
 
 @end

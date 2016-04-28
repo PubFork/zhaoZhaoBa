@@ -7,7 +7,6 @@
 //
 
 #import "XYButton.h"
-
 @implementation XYButton
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -35,10 +34,19 @@
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    self.isShow = !self.isShow;
+    self.clickCityBtn_block_xyButton ? self.clickCityBtn_block_xyButton(self) : 0;
     
     [UIView animateWithDuration:kHomeCityAnimate_time animations:^{
         self.imageView.transform = CGAffineTransformRotate(self.imageView.transform, M_PI);
     }];
+    
+    
+}
+
+- (void)clickCityBtn_block_xyButton:(void (^)(XYButton *))clickCityBtn_block_xyButton
+{
+    self.clickCityBtn_block_xyButton = clickCityBtn_block_xyButton;
 }
 
 @end
