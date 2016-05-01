@@ -17,16 +17,21 @@
 #import "YYKit.h"
 #import "Size.h"
 #import "Time.h"
+#import "Keys.h"
+#import "MyShowLabel.h"
 #import "DispatchQueueManager.h"
 
+#define kShowLabel [MyShowLabel shareShowLabel]
 
 #define kNotificationCenter [NSNotificationCenter defaultCenter]
 #define kUserD [NSUserDefaults standardUserDefaults]
 #define kWindow [UIApplication sharedApplication].keyWindow
-#define kSystemVersionFloat [[[UIDevice currentDevice] systemVersion] floatValue]
 #define WeakSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
 
 
+#define iOS7 (kSystemVersion > 7.0 ? YES : NO)
+#define iOS8 (kSystemVersion > 8.0 ? YES : NO)
+#define iOS9 (kSystemVersion > 9.0 ? YES : NO)
 /**
  *  给 计算出来的Szie 取整
  *

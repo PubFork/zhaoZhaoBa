@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 #import "XYRootTabBarViewController.h"
 
-@interface AppDelegate ()
+#import <CoreLocation/CoreLocation.h>
 
+@interface AppDelegate () <CLLocationManagerDelegate>
+@property (nonatomic, strong)CLLocationManager * locationManager;
 @end
 
 @implementation AppDelegate
@@ -42,12 +44,47 @@
 //    }
 //    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    if (iOS8) {
+        [_locationManager requestWhenInUseAuthorization];
+    }
+    _locationManager.delegate = self;
+    [_locationManager startUpdatingLocation];
+    
+    
     [self.window makeKeyAndVisible];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     return YES;
 }
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *newLocation = [locations lastObject];
+    [manager stopUpdatingLocation];
+    
+    CLGeocoder * geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark * place = placemarks.firstObject;
+        [kUserD setValue:place.locality forKey:kLocationCityName_Key];
+        [kUserD synchronize];
+    }];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    if ([error code] == kCLErrorDenied)
+    {
+        //访问被拒绝
+    }
+    if ([error code] == kCLErrorLocationUnknown) {
+        //无法获取位置信息
+    }
+    NSLog(@"定位失败 -- %@",error);
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

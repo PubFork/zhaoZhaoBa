@@ -91,6 +91,14 @@
 		189051A11CCCFFF4003697A2 /* b27_icon_star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1890519F1CCCFFF4003697A2 /* b27_icon_star_yellow@2x.png */; };
 		1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1890653B1CD1FA5F00597FFE /* XYAddActionView.m */; };
 		1890653F1CD1FF0C00597FFE /* XYCityTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1890653E1CD1FF0C00597FFE /* XYCityTableView.m */; };
+		18BC61DA1CD59F0000AE8747 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61D91CD59F0000AE8747 /* area.plist */; };
+		18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61DE1CD5B03200AE8747 /* MyShowLabel.m */; };
+		18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61E21CD5B39400AE8747 /* QRViewController.m */; };
+		18BC61EB1CD5B3A500AE8747 /* QRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61E61CD5B3A500AE8747 /* QRView.m */; };
+		18BC61EC1CD5B3A500AE8747 /* QRMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61E81CD5B3A500AE8747 /* QRMenu.m */; };
+		18BC61ED1CD5B3A500AE8747 /* QRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61EA1CD5B3A500AE8747 /* QRItem.m */; };
+		18BC61F21CD5BC9B00AE8747 /* qr_scan_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61F11CD5BC9B00AE8747 /* qr_scan_line@2x.png */; };
+		18BC61F41CD5BF2B00AE8747 /* Scan_Success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61F31CD5BF2B00AE8747 /* Scan_Success@2x.png */; };
 		6F66DBAEEBD3F4D846791F53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73E4F5F113F0080CD28BE16 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +233,20 @@
 		1890653B1CD1FA5F00597FFE /* XYAddActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddActionView.m; sourceTree = "<group>"; };
 		1890653D1CD1FF0C00597FFE /* XYCityTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCityTableView.h; sourceTree = "<group>"; };
 		1890653E1CD1FF0C00597FFE /* XYCityTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCityTableView.m; sourceTree = "<group>"; };
+		18BC61D91CD59F0000AE8747 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		18BC61DB1CD5AFAA00AE8747 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
+		18BC61DD1CD5B03200AE8747 /* MyShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShowLabel.h; sourceTree = "<group>"; };
+		18BC61DE1CD5B03200AE8747 /* MyShowLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShowLabel.m; sourceTree = "<group>"; };
+		18BC61E11CD5B39400AE8747 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
+		18BC61E21CD5B39400AE8747 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
+		18BC61E51CD5B3A500AE8747 /* QRView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRView.h; sourceTree = "<group>"; };
+		18BC61E61CD5B3A500AE8747 /* QRView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRView.m; sourceTree = "<group>"; };
+		18BC61E71CD5B3A500AE8747 /* QRMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRMenu.h; sourceTree = "<group>"; };
+		18BC61E81CD5B3A500AE8747 /* QRMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRMenu.m; sourceTree = "<group>"; };
+		18BC61E91CD5B3A500AE8747 /* QRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRItem.h; sourceTree = "<group>"; };
+		18BC61EA1CD5B3A500AE8747 /* QRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRItem.m; sourceTree = "<group>"; };
+		18BC61F11CD5BC9B00AE8747 /* qr_scan_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_scan_line@2x.png"; sourceTree = "<group>"; };
+		18BC61F31CD5BF2B00AE8747 /* Scan_Success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scan_Success@2x.png"; sourceTree = "<group>"; };
 		DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E73E4F5F113F0080CD28BE16 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -258,6 +280,7 @@
 		181529A21CCCCE940060E4FC = {
 			isa = PBXGroup;
 			children = (
+				18BC61D91CD59F0000AE8747 /* area.plist */,
 				1858201C1CCE220E00A191BF /* Manager */,
 				1890514A1CCCD595003697A2 /* View */,
 				189051481CCCD582003697A2 /* Controller */,
@@ -293,6 +316,7 @@
 				1890514E1CCCD5E9003697A2 /* Color.h */,
 				1890517A1CCCF3B0003697A2 /* Size.h */,
 				186094F31CCF72CE00E5C8F9 /* Time.h */,
+				18BC61DB1CD5AFAA00AE8747 /* Keys.h */,
 				181529AE1CCCCE940060E4FC /* Supporting Files */,
 			);
 			path = zhaoZhaoBa;
@@ -428,6 +452,7 @@
 		189051481CCCD582003697A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18BC61E01CD5B38E00AE8747 /* ScanCode */,
 				189051531CCCD785003697A2 /* My */,
 				1890514F1CCCD746003697A2 /* Home */,
 				189051511CCCD772003697A2 /* Community */,
@@ -452,12 +477,14 @@
 		1890514A1CCCD595003697A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18BC61DC1CD5B03200AE8747 /* ShowLabel */,
 				189065391CD1FA4F00597FFE /* XYAddActionView */,
 				1887EDFD1CCE36EC006DED7A /* XYBtn */,
 				185820171CCE1F2E00A191BF /* SearchBar */,
 				18581FA61CCE070C00A191BF /* CarousePicture */,
 				189051851CCCFA12003697A2 /* RatingBar */,
 				1890516F1CCCE975003697A2 /* Root */,
+				18BC61E41CD5B39D00AE8747 /* ScanCode */,
 				189051541CCCD789003697A2 /* My */,
 				189051521CCCD775003697A2 /* Community */,
 				189051501CCCD749003697A2 /* Home */,
@@ -541,6 +568,7 @@
 		189051731CCCEF4B003697A2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				18BC61EE1CD5B63C00AE8747 /* ScanCode */,
 				185820161CCE0EB000A191BF /* TabBar */,
 				18581FB41CCE0E6500A191BF /* Home */,
 				1890519D1CCCFFF1003697A2 /* RatingBar */,
@@ -598,6 +626,46 @@
 				1890653B1CD1FA5F00597FFE /* XYAddActionView.m */,
 			);
 			path = XYAddActionView;
+			sourceTree = "<group>";
+		};
+		18BC61DC1CD5B03200AE8747 /* ShowLabel */ = {
+			isa = PBXGroup;
+			children = (
+				18BC61DD1CD5B03200AE8747 /* MyShowLabel.h */,
+				18BC61DE1CD5B03200AE8747 /* MyShowLabel.m */,
+			);
+			path = ShowLabel;
+			sourceTree = "<group>";
+		};
+		18BC61E01CD5B38E00AE8747 /* ScanCode */ = {
+			isa = PBXGroup;
+			children = (
+				18BC61E11CD5B39400AE8747 /* QRViewController.h */,
+				18BC61E21CD5B39400AE8747 /* QRViewController.m */,
+			);
+			path = ScanCode;
+			sourceTree = "<group>";
+		};
+		18BC61E41CD5B39D00AE8747 /* ScanCode */ = {
+			isa = PBXGroup;
+			children = (
+				18BC61E51CD5B3A500AE8747 /* QRView.h */,
+				18BC61E61CD5B3A500AE8747 /* QRView.m */,
+				18BC61E71CD5B3A500AE8747 /* QRMenu.h */,
+				18BC61E81CD5B3A500AE8747 /* QRMenu.m */,
+				18BC61E91CD5B3A500AE8747 /* QRItem.h */,
+				18BC61EA1CD5B3A500AE8747 /* QRItem.m */,
+			);
+			path = ScanCode;
+			sourceTree = "<group>";
+		};
+		18BC61EE1CD5B63C00AE8747 /* ScanCode */ = {
+			isa = PBXGroup;
+			children = (
+				18BC61F11CD5BC9B00AE8747 /* qr_scan_line@2x.png */,
+				18BC61F31CD5BF2B00AE8747 /* Scan_Success@2x.png */,
+			);
+			path = ScanCode;
 			sourceTree = "<group>";
 		};
 		5F69259A61E69FBB352C6717 /* Pods */ = {
@@ -739,6 +807,7 @@
 				185820081CCE0E6500A191BF /* 试题@2x.png in Resources */,
 				181529BE1CCCCE940060E4FC /* LaunchScreen.storyboard in Resources */,
 				189051A11CCCFFF4003697A2 /* b27_icon_star_yellow@2x.png in Resources */,
+				18BC61F41CD5BF2B00AE8747 /* Scan_Success@2x.png in Resources */,
 				189051841CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.xib in Resources */,
 				18581FFA1CCE0E6500A191BF /* 新手上路@3x.png in Resources */,
 				18581FF31CCE0E6500A191BF /* 搜索标签@2x.png in Resources */,
@@ -753,6 +822,7 @@
 				1858200C1CCE0E6500A191BF /* 车展@3x.png in Resources */,
 				18581FF41CCE0E6500A191BF /* 搜索标签@3x.png in Resources */,
 				189051951CCCFE05003697A2 /* progress_1.png in Resources */,
+				18BC61F21CD5BC9B00AE8747 /* qr_scan_line@2x.png in Resources */,
 				18581FAE1CCE072C00A191BF /* XYCarousePictureCollectionCell.xib in Resources */,
 				185820041CCE0E6500A191BF /* 积分兑换.png in Resources */,
 				189051641CCCD7CB003697A2 /* XYHomeViewController.xib in Resources */,
@@ -765,6 +835,7 @@
 				18581FA51CCE058700A191BF /* XYHomeHeaderTableViewCell.xib in Resources */,
 				18581FE91CCE0E6500A191BF /* 必知晓.png in Resources */,
 				1890517F1CCCF473003697A2 /* XYHomeTableViewCell.xib in Resources */,
+				18BC61DA1CD59F0000AE8747 /* area.plist in Resources */,
 				181529BB1CCCCE940060E4FC /* Assets.xcassets in Resources */,
 				18581FF21CCE0E6500A191BF /* 搜索标签.png in Resources */,
 				185820061CCE0E6500A191BF /* 积分兑换@3x.png in Resources */,
@@ -857,19 +928,24 @@
 			files = (
 				181529B31CCCCE940060E4FC /* AppDelegate.m in Sources */,
 				189051631CCCD7CB003697A2 /* XYHomeViewController.m in Sources */,
+				18BC61EC1CD5B3A500AE8747 /* QRMenu.m in Sources */,
 				1887EE001CCE36F5006DED7A /* XYButton.m in Sources */,
 				1890515A1CCCD7B4003697A2 /* XYRootNavigationController.m in Sources */,
 				1890516D1CCCD80F003697A2 /* XYCommunityViewController.m in Sources */,
 				1858201A1CCE1F5100A191BF /* XYSearchBar.m in Sources */,
 				189051571CCCD79E003697A2 /* XYRootViewController.m in Sources */,
 				1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */,
+				18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */,
 				181529B01CCCCE940060E4FC /* main.m in Sources */,
 				185820231CCE247200A191BF /* XYHomeNaviBar.m in Sources */,
 				1858201F1CCE222100A191BF /* DispatchQueueManager.m in Sources */,
+				18BC61ED1CD5B3A500AE8747 /* QRItem.m in Sources */,
 				189051831CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.m in Sources */,
 				18581FA41CCE058700A191BF /* XYHomeHeaderTableViewCell.m in Sources */,
 				1890514D1CCCD5AF003697A2 /* XYRootTabBarViewController.m in Sources */,
 				189051791CCCF1BE003697A2 /* MyActivityIndicatorView.m in Sources */,
+				18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */,
+				18BC61EB1CD5B3A500AE8747 /* QRView.m in Sources */,
 				1890653F1CD1FF0C00597FFE /* XYCityTableView.m in Sources */,
 				1890515E1CCCD7C3003697A2 /* XYMyViewController.m in Sources */,
 				18581FB31CCE08F300A191BF /* XYCarousePicture.m in Sources */,

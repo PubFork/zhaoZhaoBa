@@ -21,9 +21,9 @@
 {
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width - 12, self.height)];
     _titleLabel.textColor = kNavigationBarTextColor;
-    _titleLabel.font = [UIFont systemFontOfSize:10];
+    _titleLabel.font = [UIFont systemFontOfSize:9];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
-    _titleLabel.text = @"呼和浩特";
+    _titleLabel.text = @"正在定位..";
     
     [self addSubview:self.titleLabel];
     

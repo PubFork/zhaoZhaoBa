@@ -17,7 +17,7 @@
     static XYHomeNaviBar * homeNaviBar = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        homeNaviBar = [[XYHomeNaviBar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+        homeNaviBar = [[XYHomeNaviBar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kNavigationBar_Height)];
         [homeNaviBar layoutViews];
     });
     return homeNaviBar;
@@ -39,28 +39,32 @@ static NSString * saoImageName = @"扫一扫";
 
 - (void)layoutViews
 {
+    self.backgroundColor = kWhiteColor;
     
-    self.cityBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 12, 60, 20)];
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+    view.backgroundColor = [UIColor blackColor];
+    [self addSubview:view];
     
+    self.cityBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 32, 60, 20)];
     [self addSubview:self.cityBtn];
     
     
     self.messageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.messageBtn.frame = CGRectMake(self.width - 5 - 24, self.height / 2 - messageBtn_height / 2, messageBtn_width, messageBtn_height);
+    self.messageBtn.frame = CGRectMake(self.width - 5 - 24, 22 - messageBtn_height / 2 + 20, messageBtn_width, messageBtn_height);
     [self.messageBtn setImage:kImage(unMessageImageName) forState:UIControlStateNormal];
     [self.messageBtn addTarget:self action:@selector(clickMessageBtn) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.messageBtn];
     
     
     self.saoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.saoBtn.frame = CGRectMake(self.messageBtn.frame.origin.x - saoBtn_width - 10, self.height / 2 - soaBtn_height / 2, saoBtn_width, soaBtn_height);
+    self.saoBtn.frame = CGRectMake(self.messageBtn.frame.origin.x - saoBtn_width - 10, 22 - soaBtn_height / 2 + 20, saoBtn_width, soaBtn_height);
     [self.saoBtn setImage:kImage(saoImageName) forState:UIControlStateNormal];
     [self.saoBtn addTarget:self action:@selector(clickSaoBtn) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.saoBtn];
     
 
-    self.searchBar = [[XYSearchBar alloc] initWithFrame:CGRectMake(0, 0, self.width - (CGRectGetMaxX(self.cityBtn.frame) + 5) * 2, 30)];
-    self.searchBar.center = CGPointMake(self.width / 2, self.height / 2);
+    self.searchBar = [[XYSearchBar alloc] initWithFrame:CGRectMake(0, 20, self.width - (CGRectGetMaxX(self.cityBtn.frame) + 5) * 2, 30)];
+    self.searchBar.center = CGPointMake(self.width / 2, 42);
     [self addSubview:self.searchBar];
     
     
@@ -119,7 +123,7 @@ static NSString * saoImageName = @"扫一扫";
 - (XYAddActionView *)backgourdView
 {
     if (!_backgourdView) {
-        _backgourdView = [[XYAddActionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        _backgourdView = [[XYAddActionView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, kScreenHeight)];
         _backgourdView.backgroundColor = [UIColor blackColor];
         _backgourdView.alpha = .7;
         

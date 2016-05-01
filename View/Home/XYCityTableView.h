@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^selectIsShow)(BOOL isShow, NSString * selectCity);
+
 @interface XYCityTableView : UIView
 
 /**
@@ -25,4 +27,10 @@
  *  市
  */
 @property (nonatomic, strong)UITableView * municipalityTableView;
+
+
+@property (nonatomic, copy)selectIsShow selectIsShow;
+
+- (void)isShow:(BOOL)isShow selectIsShow:(void(^)(BOOL isShow, NSString * selectCity))selectIsShow;
+
 @end

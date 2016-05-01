@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
+    self.view.backgroundColor = [UIColor blackColor];
     
     // Do any additional setup after loading the view.
     
@@ -29,7 +31,7 @@
     [self setBackBtn];
 
     
-    [self.navigationController.navigationBar addSubview:self.naviBar];
+    [self.view addSubview:self.naviBar];
     
     
 
@@ -137,7 +139,6 @@
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = kNavigationBarTextColor;
         _titleLabel.center = CGPointMake(kScreenWidth / 2, 22);
-        
     }
     return _naviBar;
 }

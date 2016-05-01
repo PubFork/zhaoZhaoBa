@@ -13,17 +13,26 @@
 
 #import "XYHomeNaviBar.h"
 #import "XYCityTableView.h"
+#import "QRViewController.h"
+
+#import <CoreLocation/CoreLocation.h>
+
 
 static NSString * funcationCell_key = @"funcationCell_key";
 static NSString * cell_key = @"cell_key";
 static NSString * headerCell_key = @"headerCell_key";
 
-@interface XYHomeViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface XYHomeViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
 @property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)NSMutableArray * groupArray;
 @property (nonatomic, strong)XYHomeNaviBar * homeNaviBar;
 @property (nonatomic, strong)XYCityTableView * cityTableView;
+
+
+
+@property (nonatomic, strong)CLLocationManager * locationManager;
+
 @end
 
 @implementation XYHomeViewController
@@ -36,11 +45,23 @@ static NSString * headerCell_key = @"headerCell_key";
     });
     return homeVC;
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.cityTableView];
+
     [self setNavigationBar];
     
     self.groupArray = @[].mutableCopy;
@@ -48,6 +69,16 @@ static NSString * headerCell_key = @"headerCell_key";
         [self.groupArray addObject:@(0.1 * i)];
     }
     
+    
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    if (iOS8) {
+        [_locationManager requestWhenInUseAuthorization];
+    }
+    _locationManager.delegate = self;
+    [_locationManager startUpdatingLocation];
+    
+
 }
 
 #pragma mark -------------------------------------------------------
@@ -59,33 +90,34 @@ static NSString * headerCell_key = @"headerCell_key";
     [self.naviBar removeFromSuperview];
 
     self.homeNaviBar = [XYHomeNaviBar shareHomeNaviBar];
-    [self.navigationController.navigationBar addSubview:self.homeNaviBar];
+    [self.view addSubview:self.homeNaviBar];
   
     
     WeakSelf(weakSelf);
     
     [self.homeNaviBar clickCityBtn_block:^(XYHomeNaviBar *homeNavBar) {
-        
-        NSInteger height = - weakSelf.cityTableView.selfHeight;
-        if (homeNavBar.cityBtn.isShow) {
-            height = 0;
-        }
-        
-        [UIView animateWithDuration:kHomeCityAnimate_time animations:^{
-            weakSelf.cityTableView.mj_y = height;
+        [weakSelf.cityTableView isShow:homeNavBar.cityBtn.isShow selectIsShow:^(BOOL isShow, NSString * selectCity) {
+            homeNavBar.cityBtn.isShow = isShow;
+            homeNavBar.cityBtn.titleLabel.text = selectCity;
         }];
-        
     }];
     
     [self.homeNaviBar clickSaoBtn_block:^(XYHomeNaviBar *homeNavBar) {
-        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] &&
+            [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]) {
+            
+            QRViewController *qrVC = [[QRViewController alloc] init];
+            qrVC.hidesBottomBarWhenPushed = YES;
+            [weakSelf.navigationController pushViewController:qrVC animated:YES];
+        }
+        [kShowLabel setText:@"没有摄像头或摄像头不可用" position:1];
     }];
 
     
     [self.homeNaviBar clickMessageBtn_block:^(XYHomeNaviBar *homeNavBar) {
         
     }];
-}
+    }
 
 
 
@@ -103,11 +135,11 @@ static NSString * headerCell_key = @"headerCell_key";
     return 1;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 1;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 4;
@@ -115,13 +147,11 @@ static NSString * headerCell_key = @"headerCell_key";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if (indexPath.section == 2) {
         XYHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_key forIndexPath:indexPath];
         cell.startRateView.scorePercent = [self.groupArray[indexPath.row] floatValue];
         return cell;
     }
-    
     
     if (indexPath.section == 1) {
         XYHomeFuncationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:funcationCell_key forIndexPath:indexPath];
@@ -133,13 +163,10 @@ static NSString * headerCell_key = @"headerCell_key";
         return cell;
     }
     
-    
     XYHomeHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:headerCell_key forIndexPath:indexPath];
     
     return cell;
 }
-
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -153,11 +180,43 @@ static NSString * headerCell_key = @"headerCell_key";
 }
 
 #pragma mark -------------------------------------------------------
+#pragma mark CLLocationManager Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *newLocation = [locations lastObject];
+    [manager stopUpdatingLocation];
+    
+    CLGeocoder * geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark * place = placemarks.firstObject;
+        [kUserD setValue:place.locality forKey:kLocationCityName_Key];
+        [kUserD synchronize];
+        self.homeNaviBar.cityBtn.titleLabel.text = place.locality;
+    }];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    
+    self.homeNaviBar.cityBtn.titleLabel.text = [kUserD objectForKey:kLocationCityName_Key];
+    
+    if ([error code] == kCLErrorDenied) {
+        //访问被拒绝
+         [kShowLabel setText:@"请您去设置里打开定位服务" position:1];
+    }
+    if ([error code] == kCLErrorLocationUnknown) {
+        //无法获取位置信息
+        [kShowLabel setText:@"无法获取位置信息" position:1];
+    }
+    NSLog(@"定位失败 -- %@",error);
+}
+#pragma mark -------------------------------------------------------
 #pragma mark Lazy Loading
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigationBar_Height - kTabBar_Height) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, kScreenHeight - kNavigationBar_Height - kTabBar_Height) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = kDefaultBackgroudColor;
@@ -173,11 +232,8 @@ static NSString * headerCell_key = @"headerCell_key";
 - (XYCityTableView *)cityTableView
 {
     if (!_cityTableView) {
-        _cityTableView = [[XYCityTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigationBar_Height - kTabBar_Height)];
+        _cityTableView = [[XYCityTableView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, kScreenHeight - kNavigationBar_Height - kTabBar_Height)];
         _cityTableView.mj_y = -_cityTableView.selfHeight;
-        [self.view addSubview:_cityTableView];
-        
-        _cityTableView.backgroundColor = [UIColor orangeColor];
     }
     return _cityTableView;
 }
