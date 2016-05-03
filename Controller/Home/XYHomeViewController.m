@@ -15,6 +15,10 @@
 #import "XYCityTableView.h"
 #import "QRViewController.h"
 
+//各个模块
+#import "XYMustKnowViewController.h"
+#import "XYNearDriverSchoolViewController.h"
+
 #import <CoreLocation/CoreLocation.h>
 
 
@@ -24,7 +28,6 @@ static NSString * headerCell_key = @"headerCell_key";
 
 @interface XYHomeViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
-@property (nonatomic, strong)UITableView * tableView;
 @property (nonatomic, strong)NSMutableArray * groupArray;
 @property (nonatomic, strong)XYHomeNaviBar * homeNaviBar;
 @property (nonatomic, strong)XYCityTableView * cityTableView;
@@ -42,6 +45,17 @@ static NSString * headerCell_key = @"headerCell_key";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         homeVC = [[XYHomeViewController alloc] init];
+        
+        
+        UITableView * tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, kScreenHeight - kNavigationBar_Height - kTabBar_Height) style:UITableViewStyleGrouped];
+        tableview.delegate = homeVC;
+        tableview.dataSource = homeVC;
+        tableview.backgroundColor = kDefaultBackgroudColor;
+        [tableview registerNib:[UINib nibWithNibName:@"XYHomeTableViewCell" bundle:nil] forCellReuseIdentifier:cell_key];
+        [tableview registerNib:[UINib nibWithNibName:@"XYHomeFuncationTableViewCell" bundle:nil] forCellReuseIdentifier:funcationCell_key];
+        [tableview registerNib:[UINib nibWithNibName:@"XYHomeHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:headerCell_key];
+        
+        homeVC.tableView = tableview;
     });
     return homeVC;
 }
@@ -98,7 +112,7 @@ static NSString * headerCell_key = @"headerCell_key";
     [self.homeNaviBar clickCityBtn_block:^(XYHomeNaviBar *homeNavBar) {
         [weakSelf.cityTableView isShow:homeNavBar.cityBtn.isShow selectIsShow:^(BOOL isShow, NSString * selectCity) {
             homeNavBar.cityBtn.isShow = isShow;
-            homeNavBar.cityBtn.titleLabel.text = selectCity;
+            [homeNavBar.cityBtn setTitle:selectCity];
         }];
     }];
     
@@ -157,7 +171,19 @@ static NSString * headerCell_key = @"headerCell_key";
         XYHomeFuncationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:funcationCell_key forIndexPath:indexPath];
         
         [cell clickFuncationCell:^(XYHomeFuncationTableViewCell *cell, NSInteger clickIndex) {
-            NSLog(@" home - setClickFuncationCell - %d",clickIndex);
+            UIViewController * vc = nil;
+            switch (clickIndex) {
+                case 0: {
+                    vc = [[XYMustKnowViewController alloc] init];
+                    break;
+                }
+                case 1: {
+                    vc = [[XYNearDriverSchoolViewController alloc] init];
+                }
+            }
+            
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }];
         
         return cell;
@@ -198,8 +224,7 @@ static NSString * headerCell_key = @"headerCell_key";
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    
-    self.homeNaviBar.cityBtn.titleLabel.text = [kUserD objectForKey:kLocationCityName_Key];
+    [self.homeNaviBar.cityBtn setTitle:[kUserD objectForKey:kLocationCityName_Key]];
     
     if ([error code] == kCLErrorDenied) {
         //访问被拒绝
@@ -213,21 +238,6 @@ static NSString * headerCell_key = @"headerCell_key";
 }
 #pragma mark -------------------------------------------------------
 #pragma mark Lazy Loading
-- (UITableView *)tableView
-{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, kScreenHeight - kNavigationBar_Height - kTabBar_Height) style:UITableViewStyleGrouped];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.backgroundColor = kDefaultBackgroudColor;
-        [_tableView registerNib:[UINib nibWithNibName:@"XYHomeTableViewCell" bundle:nil] forCellReuseIdentifier:cell_key];
-        [_tableView registerNib:[UINib nibWithNibName:@"XYHomeFuncationTableViewCell" bundle:nil] forCellReuseIdentifier:funcationCell_key];
-        [_tableView registerNib:[UINib nibWithNibName:@"XYHomeHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:headerCell_key];
-        
-    }
-    return _tableView;
-}
-
 
 - (XYCityTableView *)cityTableView
 {

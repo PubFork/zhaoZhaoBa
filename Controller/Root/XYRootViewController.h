@@ -10,13 +10,17 @@
 #import "MyActivityIndicatorView.h"
 #import "MJRefresh.h"
 
-@interface XYRootViewController : UIViewController
+@interface XYRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong)UIView * naviBar;
 
 @property (nonatomic, strong)UIButton * rightBtn;
 @property (nonatomic, strong)UIButton * leftBtn;
 @property (nonatomic, strong)UILabel * titleLabel;
+
+
+@property (nonatomic, strong)UITableView * tableView;
+- (void)addTableViewIsGroup:(BOOL)isGroup;
 
 
 - (void)setBackBtn;
@@ -32,7 +36,7 @@
 - (void)clickRightBtn;
 
 
-
+- (void)setTitleLabelText:(NSString *)text;
 
 @property (nonatomic,strong)MyActivityIndicatorView * activeIV;
 /**

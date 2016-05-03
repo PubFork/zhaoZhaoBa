@@ -8,21 +8,25 @@
 
 #import "XYRootViewController.h"
 
-@interface XYRootViewController ()
-
+@interface XYRootViewController () 
 @end
 
 @implementation XYRootViewController
 
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = kDefaultBackgroudColor;
     
     // Do any additional setup after loading the view.
     
@@ -40,13 +44,28 @@
 #pragma mark -------------------------------------------------------
 #pragma mark Method
 
+- (void)addTableViewIsGroup:(BOOL)isGroup
+{
+    UITableViewStyle style = UITableViewStylePlain;
+    if (isGroup) {
+        style = UITableViewStyleGrouped;
+    }
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height + 1, kScreenWidth, kScreenHeight - kNavigationBar_Height - 1) style:style];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundColor = kDefaultBackgroudColor;
+    _tableView.tableFooterView = [UIView new];
+
+    [self.view addSubview:self.tableView];
+}
+
 - (void)setBackBtn
 {
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 20, 25, 25);
+    btn.frame = CGRectMake(0, 30, 25, 25);
     [btn setImage:kImage(@"back") forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(clickLeftBtn) forControlEvents:UIControlEventTouchUpInside];
-    
+    btn.backgroundColor = [UIColor orangeColor];
     [self.naviBar addSubview:btn];
     self.leftBtn = btn;
 }
@@ -75,6 +94,13 @@
     [self removeView:self.rightBtn];
 
 }
+
+- (void)setTitleLabelText:(NSString *)text
+{
+    self.titleLabel.text = text;
+}
+
+
 
 #pragma mark -------------------------------------------------------
 #pragma mark inner Method
@@ -131,17 +157,25 @@
 - (UIView *)naviBar
 {
     if (!_naviBar) {
-        _naviBar = [[UIView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 44)];
+        _naviBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
         _naviBar.backgroundColor = kWhiteColor;
+        
+        
+        UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+        view.backgroundColor = [UIColor blackColor];
+        [_naviBar addSubview:view];
         
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 100, 20)];
         _titleLabel.font = [UIFont systemFontOfSize:14];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = kNavigationBarTextColor;
-        _titleLabel.center = CGPointMake(kScreenWidth / 2, 22);
+        _titleLabel.center = CGPointMake(kScreenWidth / 2, 42);
+        [_naviBar addSubview:_titleLabel];
     }
     return _naviBar;
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {

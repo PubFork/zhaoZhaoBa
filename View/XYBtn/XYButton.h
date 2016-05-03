@@ -13,11 +13,11 @@ typedef void(^ clickCityBtn_block_xyButton)(XYButton * view);
 
 @interface XYButton : UIView
 
-
-
 @property (nonatomic, strong)UILabel * titleLabel;
 @property (nonatomic, strong)UIImageView * imageView;
 
+- (void)setTitle:(NSString *)title;
+- (void)touchesEnded;
 /**
  *  是否 是 显示模式  YES  显示
  */

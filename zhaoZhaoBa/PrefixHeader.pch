@@ -19,6 +19,7 @@
 #import "Time.h"
 #import "Keys.h"
 #import "MyShowLabel.h"
+#import "UIView+MJExtension.h"
 #import "DispatchQueueManager.h"
 
 #define kShowLabel [MyShowLabel shareShowLabel]
