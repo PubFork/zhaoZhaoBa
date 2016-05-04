@@ -74,9 +74,6 @@ static NSString * cell_key = @"cell";
     
     
     self.selectTableView.backgroudView.hidden = !self.showBtn.isShow;
-    if (!self.showBtn) {
-        self.selectTableView.backgroudView.hidden = NO;
-    }
 }
 
 
@@ -146,7 +143,7 @@ static NSString * cell_key = @"cell";
             }
            
             
-            if (self.oldBtn != btn && self.oldBtn.isShow) {
+            if (self.oldBtn != btn) {
                 [self.oldBtn touchesEnded:[NSSet set] withEvent:nil];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kHomeCityAnimate_time / 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [weakSelf clickSelectViewWithBth:btn];
