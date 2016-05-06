@@ -20,6 +20,7 @@
 
 
 @property (nonatomic, strong)UITableView * tableView;
+
 - (void)addTableViewIsGroup:(BOOL)isGroup;
 
 
@@ -32,10 +33,16 @@
 - (void)setRightBtnWithImageName:(NSString *)imageName;
 - (void)removeRightBtn;
 
+
 - (void)clickLeftBtn;
 - (void)clickRightBtn;
 
 
+/**
+ *  设置 title  别用系统的
+ *
+ *  @param text
+ */
 - (void)setTitleLabelText:(NSString *)text;
 
 @property (nonatomic,strong)MyActivityIndicatorView * activeIV;

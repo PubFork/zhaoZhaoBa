@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06235F9DE19128C8F5441B816DA5AAA1</key>
+		<key>25613D36E687854F41BA4C665834947F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>745175184C8600014E6A32E8CF8D21C4</key>
+		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>41B9BB1C1372503928417F8FFAFF31BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8929315E9265E096B589E1F873149EDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -48,11 +63,6 @@
 			<true/>
 		</dict>
 		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AC8E5372F327EAE59ADA52B5284EAE02</key>
 		<dict>
 			<key>primary</key>
 			<true/>

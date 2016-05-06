@@ -8,6 +8,9 @@
 
 #import "XYRootViewController.h"
 
+/**
+ *  必知晓
+ */
 @interface XYMustKnowViewController : XYRootViewController
 
 @end
