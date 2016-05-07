@@ -19,6 +19,13 @@
 		181529BE1CCCCE940060E4FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181529BC1CCCCE940060E4FC /* LaunchScreen.storyboard */; };
 		181529C91CCCCE940060E4FC /* zhaoZhaoBaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181529C81CCCCE940060E4FC /* zhaoZhaoBaTests.m */; };
 		181529D41CCCCE940060E4FC /* zhaoZhaoBaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181529D31CCCCE940060E4FC /* zhaoZhaoBaUITests.m */; };
+		184C14101CDDE40100C7D7BB /* XYShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C140F1CDDE40100C7D7BB /* XYShareTool.m */; };
+		184C14141CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C14121CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m */; };
+		184C14151CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C14131CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.xib */; };
+		184C141A1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C14181CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.m */; };
+		184C141B1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C14191CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib */; };
+		184C141F1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C141D1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.m */; };
+		184C14201CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C141E1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.xib */; };
 		18581FA41CCE058700A191BF /* XYHomeHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18581FA21CCE058700A191BF /* XYHomeHeaderTableViewCell.m */; };
 		18581FA51CCE058700A191BF /* XYHomeHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18581FA31CCE058700A191BF /* XYHomeHeaderTableViewCell.xib */; };
 		18581FAD1CCE072C00A191BF /* XYCarousePictureCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18581FA81CCE072C00A191BF /* XYCarousePictureCollectionCell.m */; };
@@ -172,6 +179,17 @@
 		181529CF1CCCCE940060E4FC /* zhaoZhaoBaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhaoZhaoBaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		181529D31CCCCE940060E4FC /* zhaoZhaoBaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhaoZhaoBaUITests.m; sourceTree = "<group>"; };
 		181529D51CCCCE940060E4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184C140E1CDDE40100C7D7BB /* XYShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShareTool.h; sourceTree = "<group>"; };
+		184C140F1CDDE40100C7D7BB /* XYShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShareTool.m; sourceTree = "<group>"; wrapsLines = 0; };
+		184C14111CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShareGetMoneyViewController.h; sourceTree = "<group>"; };
+		184C14121CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShareGetMoneyViewController.m; sourceTree = "<group>"; };
+		184C14131CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYShareGetMoneyViewController.xib; sourceTree = "<group>"; };
+		184C14171CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShareGetMoneyShareTableViewCell.h; sourceTree = "<group>"; };
+		184C14181CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShareGetMoneyShareTableViewCell.m; sourceTree = "<group>"; };
+		184C14191CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYShareGetMoneyShareTableViewCell.xib; sourceTree = "<group>"; };
+		184C141C1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShareGetMoneyTableViewCell.h; sourceTree = "<group>"; };
+		184C141D1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShareGetMoneyTableViewCell.m; sourceTree = "<group>"; };
+		184C141E1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYShareGetMoneyTableViewCell.xib; sourceTree = "<group>"; };
 		18581FA11CCE058700A191BF /* XYHomeHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYHomeHeaderTableViewCell.h; sourceTree = "<group>"; };
 		18581FA21CCE058700A191BF /* XYHomeHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYHomeHeaderTableViewCell.m; sourceTree = "<group>"; };
 		18581FA31CCE058700A191BF /* XYHomeHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYHomeHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -433,11 +451,37 @@
 			path = zhaoZhaoBaUITests;
 			sourceTree = "<group>";
 		};
-		184C140C1CDDE19600C7D7BB /* Share */ = {
+		184C140C1CDDE19600C7D7BB /* ShareGetMoney */ = {
 			isa = PBXGroup;
 			children = (
+				184C14111CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.h */,
+				184C14121CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m */,
+				184C14131CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.xib */,
 			);
+			name = ShareGetMoney;
 			path = Share;
+			sourceTree = "<group>";
+		};
+		184C140D1CDDE3F500C7D7BB /* ShareTool */ = {
+			isa = PBXGroup;
+			children = (
+				184C140E1CDDE40100C7D7BB /* XYShareTool.h */,
+				184C140F1CDDE40100C7D7BB /* XYShareTool.m */,
+			);
+			path = ShareTool;
+			sourceTree = "<group>";
+		};
+		184C14161CDDEC4700C7D7BB /* ShareTool */ = {
+			isa = PBXGroup;
+			children = (
+				184C14171CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.h */,
+				184C14181CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.m */,
+				184C14191CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib */,
+				184C141C1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.h */,
+				184C141D1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.m */,
+				184C141E1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.xib */,
+			);
+			path = ShareTool;
 			sourceTree = "<group>";
 		};
 		18581FA61CCE070C00A191BF /* CarousePicture */ = {
@@ -645,7 +689,7 @@
 				1890515B1CCCD7C3003697A2 /* XYMyViewController.h */,
 				1890515C1CCCD7C3003697A2 /* XYMyViewController.m */,
 				1890515D1CCCD7C3003697A2 /* XYMyViewController.xib */,
-				184C140C1CDDE19600C7D7BB /* Share */,
+				184C140C1CDDE19600C7D7BB /* ShareGetMoney */,
 				1814761D1CDD89A4004980B1 /* MyMessage */,
 			);
 			path = My;
@@ -660,6 +704,7 @@
 				181476181CDD8247004980B1 /* XYMyMessageTableViewCell.h */,
 				181476191CDD8247004980B1 /* XYMyMessageTableViewCell.m */,
 				1814761A1CDD8247004980B1 /* XYMyMessageTableViewCell.xib */,
+				184C14161CDDEC4700C7D7BB /* ShareTool */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -739,6 +784,7 @@
 		18A07C2E1CDCAC8C00725B8E /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				184C140D1CDDE3F500C7D7BB /* ShareTool */,
 				18A07C2F1CDCAC9500725B8E /* NetTool */,
 			);
 			path = Tool;
@@ -1057,6 +1103,7 @@
 				18581FAE1CCE072C00A191BF /* XYCarousePictureCollectionCell.xib in Resources */,
 				185820041CCE0E6500A191BF /* 积分兑换.png in Resources */,
 				189051641CCCD7CB003697A2 /* XYHomeViewController.xib in Resources */,
+				184C141B1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib in Resources */,
 				18581FF71CCE0E6500A191BF /* 教练榜@3x.png in Resources */,
 				18581FF61CCE0E6500A191BF /* 教练榜@2x.png in Resources */,
 				185820131CCE0E6500A191BF /* 驾校好评.png in Resources */,
@@ -1083,6 +1130,7 @@
 				189051A01CCCFFF4003697A2 /* b27_icon_star_gray@2x.png in Resources */,
 				185820051CCE0E6500A191BF /* 积分兑换@2x.png in Resources */,
 				185820071CCE0E6500A191BF /* 试题.png in Resources */,
+				184C14201CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.xib in Resources */,
 				1890519A1CCCFE05003697A2 /* progress_6.png in Resources */,
 				185820151CCE0E6500A191BF /* 驾校好评@3x.png in Resources */,
 				18A07C4F1CDCB9EB00725B8E /* XYDriverSchoolViewController.xib in Resources */,
@@ -1093,6 +1141,7 @@
 				18D358271CD5F74D00E539E7 /* XYMustKnowDetailViewController.xib in Resources */,
 				18A07C6F1CDCC7F000725B8E /* XYCoachTableViewCell.xib in Resources */,
 				18581FEB1CCE0E6500A191BF /* 必知晓@3x.png in Resources */,
+				184C14151CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1177,6 +1226,7 @@
 				1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */,
 				18982C6C1CD8C4E300C7DC85 /* XYDriverSchoolSelectTableView.m in Sources */,
 				18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */,
+				184C14101CDDE40100C7D7BB /* XYShareTool.m in Sources */,
 				18A07C631CDCBFF900725B8E /* XYSelectView.m in Sources */,
 				181529B01CCCCE940060E4FC /* main.m in Sources */,
 				185820231CCE247200A191BF /* XYHomeNaviBar.m in Sources */,
@@ -1188,11 +1238,13 @@
 				18A07C4E1CDCB9EB00725B8E /* XYDriverSchoolViewController.m in Sources */,
 				18581FA41CCE058700A191BF /* XYHomeHeaderTableViewCell.m in Sources */,
 				18D358211CD5F54700E539E7 /* XYMustKnowTableViewCell.m in Sources */,
+				184C141F1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.m in Sources */,
 				1890514D1CCCD5AF003697A2 /* XYRootTabBarViewController.m in Sources */,
 				181476161CDD823C004980B1 /* XYMyTableViewCell.m in Sources */,
 				189051791CCCF1BE003697A2 /* MyActivityIndicatorView.m in Sources */,
 				18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */,
 				18BC61EB1CD5B3A500AE8747 /* QRView.m in Sources */,
+				184C141A1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.m in Sources */,
 				1890653F1CD1FF0C00597FFE /* XYCityTableView.m in Sources */,
 				18A07C361CDCB6DC00725B8E /* XYHomeNetTool.m in Sources */,
 				1890515E1CCCD7C3003697A2 /* XYMyViewController.m in Sources */,
@@ -1205,6 +1257,7 @@
 				18A07C591CDCBF8900725B8E /* XYCoachViewController.m in Sources */,
 				18D358261CD5F74D00E539E7 /* XYMustKnowDetailViewController.m in Sources */,
 				18A07C6E1CDCC7F000725B8E /* XYCoachTableViewCell.m in Sources */,
+				184C14141CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m in Sources */,
 				18D3581B1CD5F1C100E539E7 /* XYMustKnowViewController.m in Sources */,
 				181476211CDD89CA004980B1 /* XYMyMessageViewController.m in Sources */,
 			);

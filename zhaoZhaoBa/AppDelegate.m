@@ -11,6 +11,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+#import "UMSocial.h"
+
+
 @interface AppDelegate () <CLLocationManagerDelegate>
 @property (nonatomic, strong)CLLocationManager * locationManager;
 @end
@@ -25,6 +28,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[XYRootTabBarViewController alloc]init];
     
+    
+    //push
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
         UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:myTypes categories:nil];
@@ -45,6 +50,15 @@
 //    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     
+    //UM
+    [UMSocialData setAppKey:um_key];
+
+    
+    
+    
+    
+    
+    // location
     self.locationManager = [[CLLocationManager alloc] init];
     if (iOS8) {
         [_locationManager requestWhenInUseAuthorization];

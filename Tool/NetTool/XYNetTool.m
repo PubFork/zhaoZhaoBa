@@ -58,7 +58,7 @@
         success ? success(task, responseObject) : 0;
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [viewController removeActiveIVFromSelfView];
-        [kShowLabel setText:@"网络未连接" position:1];
+        [kShowLabel setText:@"网络未连接"];
         
         failure ? failure(task, error) : 0;
     }];
@@ -83,7 +83,7 @@
         success ? success(task, responseObject) : 0;
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [viewController removeActiveIVFromSelfView];
-        [kShowLabel setText:@"网络未连接" position:1];
+        [kShowLabel setText:@"网络未连接"];
         
         failure ? failure(task, error) : 0;
     }];

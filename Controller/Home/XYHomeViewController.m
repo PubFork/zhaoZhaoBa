@@ -125,7 +125,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
             qrVC.hidesBottomBarWhenPushed = YES;
             [weakSelf.navigationController pushViewController:qrVC animated:YES];
         }
-        [kShowLabel setText:@"没有摄像头或摄像头不可用" position:1];
+        [kShowLabel setText:@"没有摄像头或摄像头不可用"];
     }];
 
     
@@ -240,11 +240,11 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
     
     if ([error code] == kCLErrorDenied) {
         //访问被拒绝
-         [kShowLabel setText:@"请您去设置里打开定位服务" position:1];
+         [kShowLabel setText:@"请您去设置里打开定位服务"];
     }
     if ([error code] == kCLErrorLocationUnknown) {
         //无法获取位置信息
-        [kShowLabel setText:@"无法获取位置信息" position:1];
+        [kShowLabel setText:@"无法获取位置信息"];
     }
     NSLog(@"定位失败 -- %@",error);
 }

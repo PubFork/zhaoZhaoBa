@@ -26,6 +26,7 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - MJRefresh (2.4.12)
+  - UMengSocial (4.2.5)
   - YYKit (0.2.0):
     - YYKit/no-arc (= 0.2.0)
   - YYKit/no-arc (0.2.0)
@@ -34,12 +35,14 @@ DEPENDENCIES:
   - AFNetworking
   - FMDB
   - MJRefresh
+  - UMengSocial
   - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
+  UMengSocial: 76fb557ec9d2749a63dde17c28ab915f4642e52d
   YYKit: 1bd14a07d96fb80d08471a8a07c5e3425a3d2a45
 
 COCOAPODS: 0.39.0

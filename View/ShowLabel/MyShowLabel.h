@@ -22,20 +22,18 @@
  *  @param position 如果是1 在屏幕中间显示 如果是0 在屏幕下方显示
  */
 - (void)setText:(NSString *)text position:(int)position;
+/**
+ *  提示的文字
+ *
+ *  @param text     文字
+  默认在下面
+ */
+- (void)setText:(NSString *)text;
+
 
 /**
  *  计时器 该视图在 1秒后 消失
  */
 @property (nonatomic,strong)NSTimer * timer;
 
-
-/**
- *  显示 同一天 同一门只能贴一次
- */
-- (void)showAgainDoorCard;
-
-/**
- *  显示  成功的贴了一个门帖
- */
-- (void)showAddCardSucceed;
 @end

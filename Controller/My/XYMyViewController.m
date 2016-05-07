@@ -9,6 +9,7 @@
 #import "XYMyViewController.h"
 #import "XYMyTableViewCell.h"
 #import "XYMyMessageTableViewCell.h"
+#import "XYShareGetMoneyViewController.h"
 
 @interface XYMyViewController ()
 /**
@@ -152,6 +153,9 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    UIViewController * vc = nil;
+    
     switch (indexPath.section) {
         case 0: {
             
@@ -169,7 +173,7 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
                     break;
                 }
                 case 2: {
-                    
+                    vc = [[XYShareGetMoneyViewController alloc] init];
                     break;
                 }
             }
@@ -201,6 +205,9 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
             }
             break;
         }
+    }
+    if(vc) {
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

@@ -47,18 +47,29 @@
     self.layer.cornerRadius = 21;
 }
 
-- (void)showAgainDoorCard
-{
-    
-    [kShowLabel setText:@"同一天同一门，只能贴一次" position:2];
-}
-
-- (void)showAddCardSucceed
-{
-    [kShowLabel setText:@"成功贴了1个门贴" position:5];
-}
 
 - (void)setText:(NSString *)text position:(int)position
+{
+    [self setText:text];
+    
+    self.frame = CGRectMake(0, 0, [self getStringWidthWithString:text] + 10, 40);
+    if (position == 1) {
+        self.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
+    }else if(position == -1)
+    {
+        self.center = CGPointMake(kScreenWidth/2, kScreenHeight - 100);
+    }else if (position == 0)
+    {
+        self.center = CGPointMake(kScreenWidth/2, kScreenHeight - 70);
+    } else {
+        self.frame = CGRectMake(0, 0, 300, 45);
+        self.center = CGPointMake(kScreenWidth / 2, kScreenHeight - 25 - 22.5);
+        self.font = [UIFont systemFontOfSize:17];
+        self.layer.cornerRadius = 21;
+    }
+}
+
+- (void)setText:(NSString *)text
 {
     [super setText:text];
     
@@ -66,26 +77,8 @@
     
     [self layoutSelf];
     
-    if (position == 5) {
-        self.width = 235;
-        self.center = CGPointMake(kScreenWidth / 2, kScreenHeight - 25 - 22.5);
-    }
     
-//    self.frame = CGRectMake(0, 0, [self getStringWidthWithString:text] + 10, 40);
-//    if (position == 1) {
-//         self.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
-//    }else if(position == -1)
-//    {
-//        self.center = CGPointMake(kScreenWidth/2, kScreenHeight - 100);
-//    }else if (position == 0)
-//    {
-//        self.center = CGPointMake(kScreenWidth/2, kScreenHeight - 70);
-//    } else {
-//        self.frame = CGRectMake(0, 0, 300, 45);
-//        self.center = CGPointMake(XJScreenWidth / 2, XJScreenHeight - 25 - 22.5);
-//        self.font = [UIFont systemFontOfSize:17];
-//        self.layer.cornerRadius = 21;
-//    }
+
    
    
     
