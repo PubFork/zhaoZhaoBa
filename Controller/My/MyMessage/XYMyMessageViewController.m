@@ -20,17 +20,6 @@
     
     [self setRightBtnWithText:@"个人信息"];
     
-    [self addTableViewIsGroup:YES];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 4;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
 }
 
 

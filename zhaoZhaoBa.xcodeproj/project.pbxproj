@@ -433,6 +433,13 @@
 			path = zhaoZhaoBaUITests;
 			sourceTree = "<group>";
 		};
+		184C140C1CDDE19600C7D7BB /* Share */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		18581FA61CCE070C00A191BF /* CarousePicture */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +645,7 @@
 				1890515B1CCCD7C3003697A2 /* XYMyViewController.h */,
 				1890515C1CCCD7C3003697A2 /* XYMyViewController.m */,
 				1890515D1CCCD7C3003697A2 /* XYMyViewController.xib */,
+				184C140C1CDDE19600C7D7BB /* Share */,
 				1814761D1CDD89A4004980B1 /* MyMessage */,
 			);
 			path = My;

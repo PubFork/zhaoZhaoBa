@@ -14,7 +14,58 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jj-bI-kMs">
+                    <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVX-yn-2gJ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="503"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CRs-fZ-Uum">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sj-bY-OM7">
+                                            <rect key="frame" x="17" y="8" width="21" height="24"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WV4-jC-mfN">
+                                            <rect key="frame" x="277" y="8" width="11" height="24"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-ev-ueW">
+                                            <rect key="frame" x="231" y="8" width="30" height="30"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpD-zB-XIb">
+                                            <rect key="frame" x="46" y="9" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="503" id="GeZ-vh-URx"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="XVX-yn-2gJ" firstAttribute="top" secondItem="0Jj-bI-kMs" secondAttribute="top" id="BEE-lU-Dgc"/>
+                        <constraint firstAttribute="trailing" secondItem="XVX-yn-2gJ" secondAttribute="trailing" id="J6m-eO-56s"/>
+                        <constraint firstAttribute="bottom" secondItem="XVX-yn-2gJ" secondAttribute="bottom" id="ccH-D1-dgQ"/>
+                        <constraint firstItem="XVX-yn-2gJ" firstAttribute="centerX" secondItem="0Jj-bI-kMs" secondAttribute="centerX" id="huE-4S-q1A"/>
+                        <constraint firstItem="XVX-yn-2gJ" firstAttribute="leading" secondItem="0Jj-bI-kMs" secondAttribute="leading" id="leK-eR-UCo"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="0Jj-bI-kMs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Eni-4n-WJV"/>
+                <constraint firstAttribute="trailing" secondItem="0Jj-bI-kMs" secondAttribute="trailing" id="Nqh-KA-hdu"/>
+                <constraint firstAttribute="bottom" secondItem="0Jj-bI-kMs" secondAttribute="bottom" id="oQg-Mj-1wl"/>
+                <constraint firstItem="0Jj-bI-kMs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="sy1-qq-itA"/>
+            </constraints>
             <point key="canvasLocation" x="406" y="428"/>
         </view>
     </objects>
