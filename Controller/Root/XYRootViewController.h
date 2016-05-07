@@ -21,6 +21,11 @@
 
 @property (nonatomic, strong)UITableView * tableView;
 
+/**
+ *  添加 TableView
+ *
+ *  @param isGroup 是否是 group type
+ */
 - (void)addTableViewIsGroup:(BOOL)isGroup;
 
 

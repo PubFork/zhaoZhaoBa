@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181476161CDD823C004980B1 /* XYMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181476141CDD823C004980B1 /* XYMyTableViewCell.m */; };
+		181476171CDD823C004980B1 /* XYMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181476151CDD823C004980B1 /* XYMyTableViewCell.xib */; };
+		1814761B1CDD8247004980B1 /* XYMyMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181476191CDD8247004980B1 /* XYMyMessageTableViewCell.m */; };
+		1814761C1CDD8247004980B1 /* XYMyMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1814761A1CDD8247004980B1 /* XYMyMessageTableViewCell.xib */; };
+		181476211CDD89CA004980B1 /* XYMyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1814761F1CDD89CA004980B1 /* XYMyMessageViewController.m */; };
+		181476221CDD89CA004980B1 /* XYMyMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181476201CDD89CA004980B1 /* XYMyMessageViewController.xib */; };
 		181529B01CCCCE940060E4FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 181529AF1CCCCE940060E4FC /* main.m */; };
 		181529B31CCCCE940060E4FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 181529B21CCCCE940060E4FC /* AppDelegate.m */; };
 		181529BB1CCCCE940060E4FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181529BA1CCCCE940060E4FC /* Assets.xcassets */; };
@@ -144,6 +150,15 @@
 
 /* Begin PBXFileReference section */
 		08B4B600780B2ECF1A1DA6E7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		181476131CDD823C004980B1 /* XYMyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMyTableViewCell.h; sourceTree = "<group>"; };
+		181476141CDD823C004980B1 /* XYMyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMyTableViewCell.m; sourceTree = "<group>"; };
+		181476151CDD823C004980B1 /* XYMyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYMyTableViewCell.xib; sourceTree = "<group>"; };
+		181476181CDD8247004980B1 /* XYMyMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMyMessageTableViewCell.h; sourceTree = "<group>"; };
+		181476191CDD8247004980B1 /* XYMyMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMyMessageTableViewCell.m; sourceTree = "<group>"; };
+		1814761A1CDD8247004980B1 /* XYMyMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYMyMessageTableViewCell.xib; sourceTree = "<group>"; };
+		1814761E1CDD89CA004980B1 /* XYMyMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMyMessageViewController.h; sourceTree = "<group>"; };
+		1814761F1CDD89CA004980B1 /* XYMyMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMyMessageViewController.m; sourceTree = "<group>"; };
+		181476201CDD89CA004980B1 /* XYMyMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYMyMessageViewController.xib; sourceTree = "<group>"; };
 		181529AB1CCCCE940060E4FC /* zhaoZhaoBa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhaoZhaoBa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181529AF1CCCCE940060E4FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		181529B11CCCCE940060E4FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -336,6 +351,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1814761D1CDD89A4004980B1 /* MyMessage */ = {
+			isa = PBXGroup;
+			children = (
+				1814761E1CDD89CA004980B1 /* XYMyMessageViewController.h */,
+				1814761F1CDD89CA004980B1 /* XYMyMessageViewController.m */,
+				181476201CDD89CA004980B1 /* XYMyMessageViewController.xib */,
+			);
+			path = MyMessage;
+			sourceTree = "<group>";
+		};
 		181529A21CCCCE940060E4FC = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +638,7 @@
 				1890515B1CCCD7C3003697A2 /* XYMyViewController.h */,
 				1890515C1CCCD7C3003697A2 /* XYMyViewController.m */,
 				1890515D1CCCD7C3003697A2 /* XYMyViewController.xib */,
+				1814761D1CDD89A4004980B1 /* MyMessage */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -620,6 +646,12 @@
 		189051541CCCD789003697A2 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				181476131CDD823C004980B1 /* XYMyTableViewCell.h */,
+				181476141CDD823C004980B1 /* XYMyTableViewCell.m */,
+				181476151CDD823C004980B1 /* XYMyTableViewCell.xib */,
+				181476181CDD8247004980B1 /* XYMyMessageTableViewCell.h */,
+				181476191CDD8247004980B1 /* XYMyMessageTableViewCell.m */,
+				1814761A1CDD8247004980B1 /* XYMyMessageTableViewCell.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -999,7 +1031,9 @@
 				18BC61F41CD5BF2B00AE8747 /* Scan_Success@2x.png in Resources */,
 				189051841CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.xib in Resources */,
 				18581FFA1CCE0E6500A191BF /* 新手上路@3x.png in Resources */,
+				181476221CDD89CA004980B1 /* XYMyMessageViewController.xib in Resources */,
 				18581FF31CCE0E6500A191BF /* 搜索标签@2x.png in Resources */,
+				181476171CDD823C004980B1 /* XYMyTableViewCell.xib in Resources */,
 				18581FF91CCE0E6500A191BF /* 新手上路@2x.png in Resources */,
 				1858200F1CCE0E6500A191BF /* 附近驾校@3x.png in Resources */,
 				18581FFE1CCE0E6500A191BF /* 消息1@3x.png in Resources */,
@@ -1021,6 +1055,7 @@
 				18581FF81CCE0E6500A191BF /* 新手上路.png in Resources */,
 				18581FF51CCE0E6500A191BF /* 教练榜.png in Resources */,
 				189051991CCCFE05003697A2 /* progress_5.png in Resources */,
+				1814761C1CDD8247004980B1 /* XYMyMessageTableViewCell.xib in Resources */,
 				18581FA51CCE058700A191BF /* XYHomeHeaderTableViewCell.xib in Resources */,
 				18581FE91CCE0E6500A191BF /* 必知晓.png in Resources */,
 				18A07C711CDCC98600725B8E /* aaa.png in Resources */,
@@ -1146,12 +1181,14 @@
 				18581FA41CCE058700A191BF /* XYHomeHeaderTableViewCell.m in Sources */,
 				18D358211CD5F54700E539E7 /* XYMustKnowTableViewCell.m in Sources */,
 				1890514D1CCCD5AF003697A2 /* XYRootTabBarViewController.m in Sources */,
+				181476161CDD823C004980B1 /* XYMyTableViewCell.m in Sources */,
 				189051791CCCF1BE003697A2 /* MyActivityIndicatorView.m in Sources */,
 				18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */,
 				18BC61EB1CD5B3A500AE8747 /* QRView.m in Sources */,
 				1890653F1CD1FF0C00597FFE /* XYCityTableView.m in Sources */,
 				18A07C361CDCB6DC00725B8E /* XYHomeNetTool.m in Sources */,
 				1890515E1CCCD7C3003697A2 /* XYMyViewController.m in Sources */,
+				1814761B1CDD8247004980B1 /* XYMyMessageTableViewCell.m in Sources */,
 				18581FB31CCE08F300A191BF /* XYCarousePicture.m in Sources */,
 				18581FAD1CCE072C00A191BF /* XYCarousePictureCollectionCell.m in Sources */,
 				1890517E1CCCF473003697A2 /* XYHomeTableViewCell.m in Sources */,
@@ -1161,6 +1198,7 @@
 				18D358261CD5F74D00E539E7 /* XYMustKnowDetailViewController.m in Sources */,
 				18A07C6E1CDCC7F000725B8E /* XYCoachTableViewCell.m in Sources */,
 				18D3581B1CD5F1C100E539E7 /* XYMustKnowViewController.m in Sources */,
+				181476211CDD89CA004980B1 /* XYMyMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
