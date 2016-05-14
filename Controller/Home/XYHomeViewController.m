@@ -23,6 +23,13 @@
 #import <CoreLocation/CoreLocation.h>
 
 
+
+
+
+#import "XYSignUpViewController.h"
+
+
+
 static NSString * home_funcationCell_key = @"home_funcationCell_key";
 static NSString * home_cell_key = @"home_cell_key";
 static NSString * home_headerCell_key = @"home_headerCell_key";
@@ -190,6 +197,10 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
                 }
                 case 3: {
                     vc = [[XYCoachViewController alloc] init];
+                    break;
+                }
+                case 7:{
+                    vc = [[XYSignUpViewController alloc] init];
                     break;
                 }
             }

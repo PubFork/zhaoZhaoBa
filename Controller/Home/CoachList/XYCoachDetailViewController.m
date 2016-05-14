@@ -7,6 +7,7 @@
 //
 
 #import "XYCoachDetailViewController.h"
+#import "XYSignUpViewController.h"
 
 @interface XYCoachDetailViewController ()
 

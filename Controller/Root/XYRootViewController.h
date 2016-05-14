@@ -10,7 +10,7 @@
 #import "MyActivityIndicatorView.h"
 #import "MJRefresh.h"
 
-@interface XYRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface XYRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong)UIView * naviBar;
 

@@ -8,7 +8,8 @@
 
 #import "XYRootViewController.h"
 
-@interface XYRootViewController () 
+@interface XYRootViewController ()
+
 @end
 
 @implementation XYRootViewController
@@ -21,6 +22,11 @@
     
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 
+}
+
+- (void)dealloc
+{
+    [kNotificationCenter removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -38,8 +44,10 @@
     [self.view addSubview:self.naviBar];
     
     
+    
 
 }
+
 
 #pragma mark -------------------------------------------------------
 #pragma mark Method
@@ -152,6 +160,64 @@
 }
 
 
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark Text Delegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [self animateTextView:textView up:YES];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [self animateTextView:textView up:NO];
+
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextView:textField up:YES];
+
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextView:textField up:NO];
+
+}
+
+
+- (void)animateTextView:(UIView *)view up:(BOOL) up
+{
+   //键盘高度
+    NSInteger keyBoard_height = 253;
+    
+    if ([(UITextField *)view keyboardType] == UIKeyboardTypeNumberPad) {
+        keyBoard_height = 216;
+    }
+    
+    
+    CGRect frame = [view.superview convertRect:view.frame toView:kWindow];
+
+    //如果 text 的视图被键盘挡住 就往上
+    NSInteger x = CGRectGetMaxY(frame) > kScreenHeight - keyBoard_height ? CGRectGetMaxY(frame) - kScreenHeight + keyBoard_height : 0;
+    
+    NSInteger movementDistance = x; // tweak as needed
+    
+    const CGFloat movementDuration = 0.3f; // tweak as needed
+    
+    NSInteger movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    
+    [UIView commitAnimations];
+}
 #pragma mark -------------------------------------------------------
 #pragma mark Lazy Loading
 - (UIView *)naviBar
@@ -174,6 +240,12 @@
     }
     return _naviBar;
 }
+
+
+
+
+
+
 
 
 

@@ -11,7 +11,12 @@
 #import "AFNetworking.h"
 #import "XYRootViewController.h"
 
+
+
 NS_ASSUME_NONNULL_BEGIN
+
+static NSString * root_URL = @"12";
+
 @interface XYNetTool : NSObject
 
 + (nullable AFHTTPSessionManager *)getDefaultManager;
