@@ -21,6 +21,9 @@
 #import "MyShowLabel.h"
 #import "UIView+MJExtension.h"
 #import "DispatchQueueManager.h"
+#import "Manager.h"
+
+#define kManager [Manager shareManager]
 
 #define kShowLabel [MyShowLabel shareShowLabel]
 

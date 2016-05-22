@@ -21,4 +21,14 @@
     // Configure the view for the selected state
 }
 
+
+- (void)setMyData:(NSDictionary *)myData
+{
+    _myData = myData;
+    NSLog(@" -- %@",myData);
+    
+    self.titleLabel.text = myData[mustKown_mk_Title];
+//    self.myImageView
+}
+
 @end

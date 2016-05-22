@@ -122,12 +122,10 @@
     _type = type;
     
     switch (type) {
-        case XYPictureViewType_DriverSchool: self.isHasLabel = YES;
+        case XYPictureViewType_DriverSchool:
         case XYPictureViewType_NewDriver:
-        {
-            if (type == XYPictureViewType_NewDriver) {
-                self.isHasLabel = NO;
-            }
+        case XYPictureViewType_Community: {
+            self.isHasLabel = type == XYPictureViewType_DriverSchool;
             self.leftOrRightMargin = 8;
             self.pictureViewMargin = 5;
             self.numberOfPictureViewInLine = 3;

@@ -9,5 +9,5 @@
 #import "XYRootViewController.h"
 
 @interface XYDriverSchoolDetailViewController : XYRootViewController
-
+@property (nonatomic, assign)NSInteger driverSchoolID;
 @end

@@ -8,10 +8,16 @@
 
 #import "XYSignUpViewController.h"
 #import "XYSignUpSelecCarTypeView.h"
+#import "XYSignUpNetTool.h"
 
 @interface XYSignUpViewController () 
-@property (nonatomic, strong)NSMutableArray * groupArray;
 @property (nonatomic, strong)XYSignUpSelecCarTypeView * signUpSelectCarTypeView;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTf;
+@property (weak, nonatomic) IBOutlet UITextField *IDCardTF;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTF;
+
+
 @end
 
 
@@ -25,15 +31,37 @@
 
     [self.signUpSelectCarTypeView addSignUpSelectCarTypeViewWithSuperView:self.view];
     
-    self.groupArray = @[@"C1 (手动挡小车)", @"C2 (自动挡小车)",@"B2 (大型货车)"].mutableCopy;
-    self.signUpSelectCarTypeView.groupArray = self.groupArray;
+    [self requestData];
     
+}
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    [XYSignUpNetTool getCareTypeWithIsRefresh:YES viewController:self success:^(NSArray * _Nonnull array) {
+        weakSelf.signUpSelectCarTypeView.groupArray = array;
+    } failure:nil];
 }
 
 - (IBAction)clickSelectCarType:(id)sender {
     [self.signUpSelectCarTypeView showView];
 }
 
+- (IBAction)clickSignUpBtn:(id)sender {
+    
+//    [XYSignUpNetTool signUpWithName:self.nameTf.text
+//                             IDCard:self.IDCardTF.text
+//                              phone:self.phoneTF.text
+//                     driverSchoolID:<#(nonnull NSString *)#>
+//                             userID:<#(nonnull NSString *)#>
+//                            coachID:<#(nonnull NSString *)#>
+//                            carType:<#(nonnull NSString *)#>
+//                           sRefresh:YES
+//                     viewController:self
+//                            success:^{
+//                                
+//                            } failure:nil];
+}
 
 #pragma mark -------------------------------------------------------
 #pragma mark Lazy Loading

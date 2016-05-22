@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/YYAnimatedImageView.h
+../../../YYKit/YYKit/Image/YYAnimatedImageView.h

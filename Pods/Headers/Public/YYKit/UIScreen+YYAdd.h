@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/UIScreen+YYAdd.h
+../../../YYKit/YYKit/Base/UIKit/UIScreen+YYAdd.h

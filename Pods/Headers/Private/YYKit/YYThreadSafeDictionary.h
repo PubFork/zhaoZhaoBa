@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/YYThreadSafeDictionary.h
+../../../YYKit/YYKit/Utility/YYThreadSafeDictionary.h

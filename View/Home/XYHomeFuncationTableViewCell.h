@@ -21,4 +21,6 @@ typedef void(^clickFuncationCell)(XYHomeFuncationTableViewCell * cell, NSInteger
 @property (nonatomic, copy)clickFuncationCell clickFuncationCell;
 
 - (void)clickFuncationCell:(void(^)(XYHomeFuncationTableViewCell * cell, NSInteger clickIndex))clickFuncationCell;
+
+
 @end

@@ -18,6 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet CWStarRateView *startRateView;
 
-
+@property (nonatomic, strong)NSDictionary * myData;
 
 @end

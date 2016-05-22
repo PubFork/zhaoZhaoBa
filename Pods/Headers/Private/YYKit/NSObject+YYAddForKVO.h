@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/NSObject+YYAddForKVO.h
+../../../YYKit/YYKit/Base/Foundation/NSObject+YYAddForKVO.h

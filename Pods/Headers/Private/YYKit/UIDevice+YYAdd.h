@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/UIDevice+YYAdd.h
+../../../YYKit/YYKit/Base/UIKit/UIDevice+YYAdd.h

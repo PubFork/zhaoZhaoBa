@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/YYFileHash.h
+../../../YYKit/YYKit/Utility/YYFileHash.h

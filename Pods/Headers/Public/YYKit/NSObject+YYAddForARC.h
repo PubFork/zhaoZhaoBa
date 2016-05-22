@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/NSObject+YYAddForARC.h
+../../../YYKit/YYKit/Base/Foundation/NSObject+YYAddForARC.h

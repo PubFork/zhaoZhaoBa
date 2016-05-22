@@ -1,5 +1,5 @@
-pod "YYKit"
 pod "MJRefresh"
 pod "FMDB"
 pod "AFNetworking"
 pod "UMengSocial"
+pod "YYKit"

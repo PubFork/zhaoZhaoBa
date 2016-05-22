@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/NSNotificationCenter+YYAdd.h
+../../../YYKit/YYKit/Base/Foundation/NSNotificationCenter+YYAdd.h

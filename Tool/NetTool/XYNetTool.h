@@ -15,7 +15,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString * root_URL = @"12";
+static NSString * root_URL = @"http://examplezzb.ngrok.cc/";
+
+static NSInteger pageSize = 10;
 
 @interface XYNetTool : NSObject
 
@@ -57,7 +59,7 @@ static NSString * root_URL = @"12";
 #pragma mark -------------------------------------------------------
 #pragma mark Super Request
 
-- (nullable NSURLSessionDataTask *)getWithUrl:(NSString *)URLString
++ (nullable NSURLSessionDataTask *)getWithUrl:(NSString *)URLString
                                    parameters:(nullable id)parameters
                                     isRefresh:(BOOL)isRefresh
                                viewController:(XYRootViewController *)viewController
@@ -65,12 +67,19 @@ static NSString * root_URL = @"12";
                                       failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 
-- (nullable NSURLSessionDataTask *)postWithUrl:(NSString *)URLString
++ (nullable NSURLSessionDataTask *)postWithUrl:(NSString *)URLString
                                     parameters:(nullable id)parameters
                                     isRefresh:(BOOL)isRefresh
                                 viewController:(XYRootViewController *)viewController
                                     success:(nullable void (^)(NSURLSessionDataTask *task, id responseObject))success
                                     failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark Method
+
+
 
 @end
 NS_ASSUME_NONNULL_END

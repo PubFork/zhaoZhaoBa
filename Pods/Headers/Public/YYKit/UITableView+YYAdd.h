@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/UITableView+YYAdd.h
+../../../YYKit/YYKit/Base/UIKit/UITableView+YYAdd.h

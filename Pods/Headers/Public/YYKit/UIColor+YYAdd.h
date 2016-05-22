@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/UIColor+YYAdd.h
+../../../YYKit/YYKit/Base/UIKit/UIColor+YYAdd.h

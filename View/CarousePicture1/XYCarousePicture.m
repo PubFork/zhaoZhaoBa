@@ -11,25 +11,9 @@
 
 @implementation XYCarousePicture
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (void)layoutSubviews
 {
-    if ([super initWithFrame:frame]) {
-        [self addSubview:self.collectionView];
-        [self addSubview:self.pageControl];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if ([super initWithCoder:aDecoder]) {
-        
-    }
-    return self;
-}
-
-- (void)awakeFromNib
-{
+    [super layoutSubviews];
     [self addSubview:self.collectionView];
     [self addSubview:self.pageControl];
 }
@@ -79,13 +63,19 @@
 {
     
     XYCarousePictureCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"a" forIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:self.groupArray[indexPath.row]];
+//    [cell.imageView setim]
+
+    cell.myData = self.groupArray[indexPath.row];
+    cell.imageView.backgroundColor = kRGB(arc4random()%255 , arc4random()%255 , arc4random()%255 );
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    XYCarousePictureCollectionCell * cell = (XYCarousePictureCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
+    self.clickPicture ? self.clickPicture(cell.myData[carousePicture_link]) : 0;
+
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -99,12 +89,14 @@
     if (!groupArray || ![groupArray isKindOfClass:NSArray.class] ||  groupArray.count == 0) {
         return;
     }
+    
+    
     NSMutableArray * array = [NSMutableArray arrayWithArray:groupArray];
     
     [array insertObject:array.lastObject atIndex:0];
     [array insertObject:array[1] atIndex:array.count];
     
-    _groupArray = array;
+    _groupArray = [array copy];
     
     self.pageControl.numberOfPages = array.count - 2;
     
@@ -115,6 +107,11 @@
     self.timer = nil;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(nextImage:) userInfo:nil repeats:YES];
     
+}
+
+- (void)carousePictureClickPictureWithBlock:(CarousePictureClickPicture)clickPicture
+{
+    self.clickPicture = clickPicture;
 }
 
 
@@ -175,11 +172,10 @@
 - (UIPageControl *)pageControl
 {
     if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.collectionView.frame.size.height - 40, kScreenWidth, 20)];
+        _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.collectionView.frame.size.height - 20, self.width, 20)];
         _pageControl.currentPage = 0;
         _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
         _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
-        
     }
     return _pageControl;
 }

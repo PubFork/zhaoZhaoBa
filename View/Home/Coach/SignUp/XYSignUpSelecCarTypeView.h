@@ -14,7 +14,7 @@ static CGFloat signUpSelectCarType_animalTime = .4;
 @class XYAddActionView;
 @interface XYSignUpSelecCarTypeView : UIView <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)UITableView * tableView;
-@property (nonatomic, strong)NSMutableArray * groupArray;
+@property (nonatomic, copy)NSArray * groupArray;
 
 
 @property (nonatomic, strong)XYAddActionView * backgroudView;

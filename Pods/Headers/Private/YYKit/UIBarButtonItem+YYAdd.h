@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/UIBarButtonItem+YYAdd.h
+../../../YYKit/YYKit/Base/UIKit/UIBarButtonItem+YYAdd.h

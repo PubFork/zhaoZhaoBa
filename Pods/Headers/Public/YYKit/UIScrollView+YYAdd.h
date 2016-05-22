@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/UIScrollView+YYAdd.h
+../../../YYKit/YYKit/Base/UIKit/UIScrollView+YYAdd.h

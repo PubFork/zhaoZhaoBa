@@ -9,11 +9,13 @@
 #import "XYMustKnowViewController.h"
 #import "XYMustKnowTableViewCell.h"
 #import "XYMustKnowDetailViewController.h"
+#import "XYMustKnowNetTool.h"
 
 @interface XYMustKnowViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)NSMutableArray * groupArray;
 
+@property (nonatomic, assign)NSInteger page;
 @end
 
 
@@ -28,9 +30,44 @@ static NSString * cellKey = @"cell";
     
     [self setTitleLabelText:@"必知晓"];
     
+    self.groupArray = @[].mutableCopy;
+    
     [self addTableViewIsGroup:NO];
     
-     [self.tableView registerNib:[UINib nibWithNibName:@"XYMustKnowTableViewCell" bundle:nil] forCellReuseIdentifier:cellKey];
+    [self.tableView registerNib:[UINib nibWithNibName:@"XYMustKnowTableViewCell" bundle:nil] forCellReuseIdentifier:cellKey];
+    
+    WeakSelf(weakSelf);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 1;
+        [weakSelf.groupArray removeAllObjects];
+        [weakSelf requestData];
+    }];
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestData];
+    }];
+    
+    [self.tableView.header beginRefreshing];
+}
+
+#pragma mark -------------------------------------------------------
+#pragma mark requestData
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    [XYMustKnowNetTool getMustKnowWithPage:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        [weakSelf endRefresh];
+        
+        [weakSelf.groupArray addObjectsFromArray:array];
+        [weakSelf.tableView reloadData];
+        
+        weakSelf.page += [weakSelf handleFooterWithCount:array.count];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+    }];
 }
 
 
@@ -43,19 +80,20 @@ static NSString * cellKey = @"cell";
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
     return self.groupArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYMustKnowTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellKey forIndexPath:indexPath];
+    cell.myData = self.groupArray[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYMustKnowDetailViewController * detailVC = [[XYMustKnowDetailViewController alloc] init];
+    detailVC.mustKnowID = [self.groupArray[indexPath.row][mustKown_mk_id] integerValue];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

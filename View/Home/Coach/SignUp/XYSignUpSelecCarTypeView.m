@@ -64,7 +64,7 @@ static NSString * signUp_cell_key = @"signUp_cell_key";
 #pragma mark -------------------------------------------------------
 #pragma mark Setting Method
 
-- (void)setGroupArray:(NSMutableArray *)groupArray
+- (void)setGroupArray:(NSArray *)groupArray
 {
     _groupArray = groupArray;
     [self.tableView reloadData];
@@ -105,7 +105,8 @@ static NSString * signUp_cell_key = @"signUp_cell_key";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYSignUpTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:signUp_cell_key forIndexPath:indexPath];
-    cell.titleLabel.text = self.groupArray[indexPath.row];
+    
+    cell.titleLabel.text = self.groupArray[indexPath.row][sign_up_ct_title];
     return cell;
 }
 

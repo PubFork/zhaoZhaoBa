@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/UIApplication+YYAdd.h
+../../../YYKit/YYKit/Base/UIKit/UIApplication+YYAdd.h

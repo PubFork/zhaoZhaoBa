@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/YYGestureRecognizer.h
+../../../YYKit/YYKit/Utility/YYGestureRecognizer.h

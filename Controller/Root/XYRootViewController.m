@@ -7,6 +7,7 @@
 //
 
 #import "XYRootViewController.h"
+#import "XYNetTool.h"
 
 @interface XYRootViewController ()
 
@@ -44,13 +45,34 @@
     [self.view addSubview:self.naviBar];
     
     
-    
-
 }
 
 
 #pragma mark -------------------------------------------------------
 #pragma mark Method
+////////////////////////////////// 网络请求相关 ////////////////////////////////////////
+
+- (void)endRefresh
+{
+    [self.tableView.header endRefreshing];
+    [self.tableView.footer endRefreshing];
+}
+
+- (void)hiddenFooter
+{
+    self.tableView.footer.hidden = YES;
+}
+- (void)showFooter
+{
+    self.tableView.footer.hidden = NO;
+}
+
+- (NSInteger)handleFooterWithCount:(NSInteger)count
+{
+    self.tableView.footer.hidden = !(count >= pageSize);
+    return self.tableView.footer.hidden ? 0 : 1;
+}
+////////////////////////////////// 界面 相关 ////////////////////////////////////////
 
 - (void)addTableViewIsGroup:(BOOL)isGroup
 {
@@ -58,11 +80,13 @@
     if (isGroup) {
         style = UITableViewStyleGrouped;
     }
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height + 1, kScreenWidth, kScreenHeight - kNavigationBar_Height - 1) style:style];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height , kScreenWidth, kScreenHeight - kNavigationBar_Height) style:style];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = kDefaultBackgroudColor;
     _tableView.tableFooterView = [UIView new];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 
     [self.view addSubview:self.tableView];
 }
@@ -70,10 +94,10 @@
 - (void)setBackBtn
 {
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 30, 25, 25);
+    btn.frame = CGRectMake(0, 30, 32, 30);
+    btn.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     [btn setImage:kImage(@"back") forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(clickLeftBtn) forControlEvents:UIControlEventTouchUpInside];
-    btn.backgroundColor = [UIColor orangeColor];
     [self.naviBar addSubview:btn];
     self.leftBtn = btn;
 }
@@ -237,6 +261,12 @@
         _titleLabel.textColor = kNavigationBarTextColor;
         _titleLabel.center = CGPointMake(kScreenWidth / 2, 42);
         [_naviBar addSubview:_titleLabel];
+        
+        
+        
+        UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 63, kScreenWidth, 1)];
+        lineView.backgroundColor = kDefaultBackgroudColor;
+        [_naviBar addSubview:lineView];
     }
     return _naviBar;
 }

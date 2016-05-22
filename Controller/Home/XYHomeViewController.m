@@ -19,14 +19,17 @@
 #import "XYMustKnowViewController.h"
 #import "XYDriverSchoolViewController.h"
 #import "XYCoachViewController.h"
+#import "XYNoviceOfRoadViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 
 
+#import "XYHomeNetTool.h"
 
 
 
-#import "XYSignUpViewController.h"
+
+
 
 
 
@@ -36,13 +39,32 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 
 @interface XYHomeViewController () <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
-@property (nonatomic, strong)NSMutableArray * groupArray;
+/**
+ *  列表数组
+ */
+@property (nonatomic, strong)NSMutableArray * listArray;
+
+/**
+ *  首页轮播图
+ */
+@property (nonatomic, copy)NSArray * homeCarousePictureImagesArray;
+
+/**
+ *  首页小轮播图
+ */
+@property (nonatomic, copy)NSArray * homeSmallCarousePictureImagesArray;
+
 @property (nonatomic, strong)XYHomeNaviBar * homeNaviBar;
 @property (nonatomic, strong)XYCityTableView * cityTableView;
 
 
 
 @property (nonatomic, strong)CLLocationManager * locationManager;
+
+/**
+ *  请求数量
+ */
+@property (nonatomic, assign)NSInteger requestNumber;
 
 @end
 
@@ -62,6 +84,13 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
         [tableview registerNib:[UINib nibWithNibName:@"XYHomeTableViewCell" bundle:nil] forCellReuseIdentifier:home_cell_key];
         [tableview registerNib:[UINib nibWithNibName:@"XYHomeFuncationTableViewCell" bundle:nil] forCellReuseIdentifier:home_funcationCell_key];
         [tableview registerNib:[UINib nibWithNibName:@"XYHomeHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:home_headerCell_key];
+        
+        tableview.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [homeVC requestData];
+        }];
+        
+//        tableview.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        }];
         
         homeVC.tableView = tableview;
     });
@@ -86,10 +115,8 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 
     [self setNavigationBar];
     
-    self.groupArray = @[].mutableCopy;
-    for (int i = 0 ; i < 10; i ++) {
-        [self.groupArray addObject:@(0.1 * i)];
-    }
+    self.listArray = @[].mutableCopy;
+    
     
     
     
@@ -101,7 +128,57 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
     [_locationManager startUpdatingLocation];
     
 
+    [self.tableView.header beginRefreshing];
 }
+
+- (void)requestData
+{
+    
+    self.requestNumber = 3;
+    
+    
+    WeakSelf(weakSelf);
+    
+    [XYHomeNetTool getCarousePictureWithBannerType:CarousePictureBannerType_home isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        weakSelf.homeCarousePictureImagesArray = array;
+        
+        [self isEndRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self isEndRefresh];
+    }];
+    
+    [XYHomeNetTool getCarousePictureWithBannerType:CarousePictureBannerType_home_small isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        weakSelf.homeSmallCarousePictureImagesArray = array;
+        
+        [self isEndRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self isEndRefresh];
+    }];
+    
+    
+    [XYDriverSchoolNetTool getDriverSchoolWithSortType:DriverSchoolSortType_recommend
+                                            isSortRule:DrvierSchoolSortRule_desc
+                                                  page:1
+                                             isRefresh:NO
+                                        viewController:self
+                                               success:^(NSArray * _Nonnull array) {
+        [weakSelf.listArray addObjectsFromArray:array];
+        
+        [self isEndRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [self isEndRefresh];
+    }];
+    
+}
+
+- (void)isEndRefresh
+{
+    if (!(-- self.requestNumber)) {
+        [self.tableView.header endRefreshing];
+        [self.tableView reloadData];
+    }
+}
+
 
 #pragma mark -------------------------------------------------------
 #pragma mark Inner Method
@@ -152,7 +229,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 2) {
-        return self.groupArray.count;
+        return self.listArray.count;
     }
     return 1;
 }
@@ -171,12 +248,18 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 {
     if (indexPath.section == 2) {
         XYHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:home_cell_key forIndexPath:indexPath];
-        cell.startRateView.scorePercent = [self.groupArray[indexPath.row] floatValue];
+        cell.myData = self.listArray[indexPath.row];
         return cell;
     }
     
     if (indexPath.section == 1) {
         XYHomeFuncationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:home_funcationCell_key forIndexPath:indexPath];
+        
+        cell.carousePicture.groupArray = self.homeSmallCarousePictureImagesArray;
+        [cell.carousePicture carousePictureClickPictureWithBlock:^(NSString *url) {
+            NSLog(@" -- %@",url);
+        }];
+        
         
         [cell clickFuncationCell:^(XYHomeFuncationTableViewCell *cell, NSInteger clickIndex) {
             UIViewController * vc = nil;
@@ -199,8 +282,11 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
                     vc = [[XYCoachViewController alloc] init];
                     break;
                 }
+                case 6: {
+                    vc = [[XYNoviceOfRoadViewController alloc] init];
+                    break;
+                }
                 case 7:{
-                    vc = [[XYSignUpViewController alloc] init];
                     break;
                 }
             }
@@ -213,7 +299,12 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
     }
     
     XYHomeHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:home_headerCell_key forIndexPath:indexPath];
-    
+    cell.carousePicture.groupArray = self.homeCarousePictureImagesArray;
+
+
+    [cell.carousePicture carousePictureClickPictureWithBlock:^(NSString *url) {
+        NSLog(@" -- %@",url);
+    }];
     return cell;
 }
 
@@ -234,7 +325,12 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     CLLocation *newLocation = [locations lastObject];
-    [manager stopUpdatingLocation];
+//    [manager stopUpdatingLocation];
+    
+    
+    [kUserD setValue:[NSString stringWithFormat:@"%f",newLocation.coordinate.latitude] forKey:kLocation_latitude];
+    [kUserD setValue:[NSString stringWithFormat:@"%f",newLocation.coordinate.longitude] forKey:kLocation_longitude];
+
     
     CLGeocoder * geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {

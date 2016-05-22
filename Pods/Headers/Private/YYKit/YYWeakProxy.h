@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/YYWeakProxy.h
+../../../YYKit/YYKit/Utility/YYWeakProxy.h

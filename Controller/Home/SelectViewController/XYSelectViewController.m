@@ -19,12 +19,13 @@
 - (void)viewDidLoad {
     
     
-    [self.view addSubview:self.selectTableView.backgroudView];
-    [self.selectTableView.backgroudView clickView:^(UIView *view) {
-        [self.showBtn touchesEnded:[NSSet set] withEvent:nil];
-    }];
+//    [self.view addSubview:self.selectTableView.backgroudView];
     
-    [self.view addSubview:self.selectTableView];
+//    [self.selectTableView.backgroudView clickView:^(UIView *view) {
+//        [self.showBtn touchesEnded:[NSSet set] withEvent:nil];
+//    }];
+    
+//    [self.view addSubview:self.selectTableView];
     
 
     

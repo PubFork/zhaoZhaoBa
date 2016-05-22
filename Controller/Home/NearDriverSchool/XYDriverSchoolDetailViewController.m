@@ -10,6 +10,10 @@
 #import "XYPictureView.h"
 #import "XYCoachCollectionView.h"
 
+
+#import "XYDriverSchoolNetTool.h"
+#import "XYCommunityViewController.h"
+
 @interface XYDriverSchoolDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewContentHeight;
@@ -80,8 +84,18 @@
     
     [self.pictureView setImagesArray:@[@"picture1",@"picture2",@"picture3"] type:XYPictureViewType_DriverSchool];
     
+    [self requestData];
 }
 
+- (void)requestData
+{
+    [XYDriverSchoolNetTool getDriverSchoolDetailWithID:self.driverSchoolID
+                                             isRefresh:YES
+                                        viewController:self
+                                               success:^(NSDictionary * _Nonnull dic) {
+                                                   NSLog(@" school Detail = %@",dic);
+                                               } failure:nil];
+}
 #pragma mark -------------------------------------------------------
 #pragma mark Click Method
 
@@ -89,6 +103,9 @@
 }
 
 - (IBAction)clickSeeDetailOfComment:(UIButton *)sender {
+    XYCommunityViewController * communityVC = [[XYCommunityViewController alloc] init];
+    communityVC.style = CommunityStyle_DriverSchool;
+    [self.navigationController pushViewController:communityVC animated:YES];
 }
 
 - (IBAction)clickSeeDetailOfCollectionView:(id)sender {

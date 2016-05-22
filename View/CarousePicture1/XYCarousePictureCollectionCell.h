@@ -11,4 +11,5 @@
 @interface XYCarousePictureCollectionCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (nonatomic, strong)NSDictionary * myData;
 @end

@@ -1,1 +1,1 @@
-../../../YYKit/YYKit/NSBundle+YYAdd.h
+../../../YYKit/YYKit/Base/Foundation/NSBundle+YYAdd.h

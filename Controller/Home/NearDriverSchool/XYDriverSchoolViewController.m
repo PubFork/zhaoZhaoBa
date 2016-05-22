@@ -10,8 +10,11 @@
 #import "XYDriverSchoolDetailViewController.h"
 #import "XYHomeTableViewCell.h"
 
+#import "XYDriverSchoolNetTool.h"
 
 @interface XYDriverSchoolViewController ()
+
+@property (nonatomic, assign)NSInteger page;
 @end
 
 @implementation XYDriverSchoolViewController
@@ -31,23 +34,42 @@
     
     
     
-    NSMutableArray * array = @[].mutableCopy;
-    
-    for (int i = 0 ; i < [self getArray].count; i ++) {
-        NSMutableArray * a = @[].mutableCopy;
-        
-        for (int i = 0 ; i < arc4random()% 40; i ++) {
-            [a addObject:[NSString stringWithFormat:@"%d",arc4random()% 100]];
-        }
-        
-        [array addObject:a];
-    }
-  
-    self.selectTableViewArray = array.copy;
-    
     [self selectSort_blockWithBlock:^(NSString *key) {
         NSLog(@"-- %@",key);
     }];
+    
+    
+    
+    WeakSelf(weakSelf);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 1;
+        [weakSelf.groupArray removeAllObjects];
+        [weakSelf requestData];
+    }];
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestData];
+    }];
+    
+    [self.tableView.header beginRefreshing];
+
+}
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    [XYDriverSchoolNetTool getDriverSchoolWithSortType:DriverSchoolSortType_default
+                                            isSortRule:DrvierSchoolSortRule_desc
+                                                  page:self.page
+                                             isRefresh:NO
+                                        viewController:self
+                                               success:^(NSArray * _Nonnull array) {
+                                                   [weakSelf.groupArray addObjectsFromArray:array];
+                                                   
+                                                   [weakSelf endRefresh];
+                                               } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+                                                   [weakSelf endRefresh];
+                                               }];
 }
 
 #pragma mark -------------------------------------------------------
@@ -73,7 +95,6 @@
 #pragma mark TableView Delegate & DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
     return self.groupArray.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -98,12 +119,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYHomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:select_cell_key forIndexPath:indexPath];
+    cell.myData = self.groupArray[indexPath.row];
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYDriverSchoolDetailViewController * driverSchoolDetailVC = [[XYDriverSchoolDetailViewController alloc] init];
+    driverSchoolDetailVC.driverSchoolID = 
     [self.navigationController pushViewController:driverSchoolDetailVC animated:YES];
 }
 

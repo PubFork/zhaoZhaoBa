@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void(^CarousePictureClickPicture)(NSString * url);
+
+
 @interface XYCarousePicture : UIView  <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong)UICollectionView * collectionView;
@@ -21,4 +25,11 @@
  *  小点
  */
 @property (nonatomic,strong)UIPageControl * pageControl;
+
+
+
+@property (nonatomic, copy)CarousePictureClickPicture clickPicture;
+
+- (void)carousePictureClickPictureWithBlock:(CarousePictureClickPicture)clickPicture;
+
 @end

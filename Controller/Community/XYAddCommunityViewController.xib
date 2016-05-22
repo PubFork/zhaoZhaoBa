@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XYAddCommunityViewController">
+            <connections>
+                <outlet property="textView" destination="St7-kw-JGj" id="cEO-Bn-hd1"/>
+                <outlet property="updatePictureView" destination="JMS-dG-HD1" id="y6T-5l-I6E"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="St7-kw-JGj">
+                    <rect key="frame" x="0.0" y="64" width="320" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="RtJ-qE-VFW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMS-dG-HD1" customClass="XYAddCommunityUpdatePictureView">
+                    <rect key="frame" x="0.0" y="224" width="320" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="FDZ-Cq-HbN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="St7-kw-JGj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="0SU-Pt-T5h"/>
+                <constraint firstAttribute="trailing" secondItem="JMS-dG-HD1" secondAttribute="trailing" id="1V3-dm-Art"/>
+                <constraint firstItem="St7-kw-JGj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R9r-KI-DYx"/>
+                <constraint firstItem="JMS-dG-HD1" firstAttribute="top" secondItem="St7-kw-JGj" secondAttribute="bottom" constant="32" id="TTI-qm-tuH"/>
+                <constraint firstAttribute="trailing" secondItem="St7-kw-JGj" secondAttribute="trailing" id="W0T-Sp-wQJ"/>
+                <constraint firstItem="JMS-dG-HD1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wJt-ed-1EV"/>
+            </constraints>
+            <point key="canvasLocation" x="334" y="428"/>
+        </view>
+    </objects>
+</document>

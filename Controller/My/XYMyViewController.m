@@ -37,7 +37,7 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    [self removeBackBtn];
     [self setTitleLabelText:@"我的"];
     [self addTableViewIsGroup:YES];
     
@@ -50,32 +50,32 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
     self.tableView.backgroundColor = kWhiteColor;
     
     self.sectionOneArray = @[
-                              @{my_vc_custom_imageUrl:@"",
+                              @{my_vc_custom_imageUrl:@"我的驾校",
                                 my_vc_custom_title:@"我的驾校",
                                 my_vc_custom_prompt:@"未报考驾校"},
                               
-                              @{my_vc_custom_imageUrl:@"",
+                              @{my_vc_custom_imageUrl:@"积分商城",
                                 my_vc_custom_title:@"积分商城"},
                               
-                              @{my_vc_custom_imageUrl:@"",
+                              @{my_vc_custom_imageUrl:@"分享赚现金",
                                 my_vc_custom_title:@"分享赚现金"},
                           ];
     
     
     self.sectionTwoArray = @[
-                             @{my_vc_custom_imageUrl:@"",
+                             @{my_vc_custom_imageUrl:@"我的消息",
                                my_vc_custom_title:@"我的消息"},
                              
-                             @{my_vc_custom_imageUrl:@"",
+                             @{my_vc_custom_imageUrl:@"一键清理",
                                my_vc_custom_title:@"一键清理"},
                              
-                             @{my_vc_custom_imageUrl:@"",
+                             @{my_vc_custom_imageUrl:@"我们在这",
                                my_vc_custom_title:@"我们在这"},
                              
-                             @{my_vc_custom_imageUrl:@"",
+                             @{my_vc_custom_imageUrl:@"版本介绍",
                                my_vc_custom_title:@"版本介绍"},
                              
-                             @{my_vc_custom_imageUrl:@"",
+                             @{my_vc_custom_imageUrl:@"在线反馈",
                                my_vc_custom_title:@"在线反馈"}
                              ];
 }

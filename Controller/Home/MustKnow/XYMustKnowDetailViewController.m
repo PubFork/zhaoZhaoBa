@@ -7,6 +7,7 @@
 //
 
 #import "XYMustKnowDetailViewController.h"
+#import "XYMustKnowNetTool.h"
 
 @interface XYMustKnowDetailViewController ()
 
@@ -19,6 +20,15 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setTitleLabelText:@"必知晓"];
+    
+    [self requestData];
+}
+
+- (void)requestData
+{
+    [XYMustKnowNetTool getMustKnowDetailWithID:self.mustKnowID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+        NSLog(@" -- %@",dic);
+    } failure:nil];
 }
 
 - (void)didReceiveMemoryWarning {

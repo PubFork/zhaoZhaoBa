@@ -23,6 +23,10 @@ typedef NS_ENUM(NSInteger, XYPictureViewType) {
      *  新手上路
      */
     XYPictureViewType_NewDriver     = 0x11,
+    /**
+     *  社区
+     */
+    XYPictureViewType_Community     = 0x21,
 };
 
 

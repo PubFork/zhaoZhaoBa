@@ -21,6 +21,22 @@
 
 @property (nonatomic, strong)UITableView * tableView;
 
+
+
+
+////////////////////////////////// 网络请求相关 ////////////////////////////////////////
+- (void)endRefresh;
+
+- (void)hiddenFooter;
+- (void)showFooter;
+
+/**
+ *  处理 footer 看是否需要 隐藏 如果不需要隐藏 那么返回1 如果隐藏 返回0
+ *  举个栗子：  weakSelf.page += [weakSelf handleFooterWithCount:array.count];
+ */
+- (NSInteger)handleFooterWithCount:(NSInteger)count;
+
+////////////////////////////////// 界面 相关 ////////////////////////////////////////
 /**
  *  添加 TableView
  *

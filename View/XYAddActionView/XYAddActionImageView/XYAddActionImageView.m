@@ -19,4 +19,9 @@
 {
     self.clickView ? self.clickView(self) : 0;
 }
+
+
+
+
+
 @end

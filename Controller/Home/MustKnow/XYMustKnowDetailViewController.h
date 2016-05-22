@@ -9,5 +9,5 @@
 #import "XYRootViewController.h"
 
 @interface XYMustKnowDetailViewController : XYRootViewController
-
+@property (nonatomic, assign)NSInteger mustKnowID;
 @end

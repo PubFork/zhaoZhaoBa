@@ -41,7 +41,7 @@
 #pragma mark -------------------------------------------------------
 #pragma mark Super Request
 
-- (nullable NSURLSessionDataTask *)getWithUrl:(NSString *)URLString
++ (nullable NSURLSessionDataTask *)getWithUrl:(NSString *)URLString
                                    parameters:(nullable id)parameters
                                     isRefresh:(BOOL)isRefresh
                                viewController:(XYRootViewController *)viewController
@@ -55,7 +55,11 @@
     return [self.class GET:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         [viewController removeActiveIVFromSelfView];
         
-        success ? success(task, responseObject) : 0;
+        if ([responseObject[@"ret"] integerValue] == 0) {
+            success ? success(task, responseObject) : 0;
+        } else {
+            [kShowLabel setText:responseObject[@"msg"]];
+        }
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [viewController removeActiveIVFromSelfView];
         [kShowLabel setText:@"网络未连接"];
@@ -66,7 +70,7 @@
 
 
 
-- (nullable NSURLSessionDataTask *)postWithUrl:(NSString *)URLString
++ (nullable NSURLSessionDataTask *)postWithUrl:(NSString *)URLString
                                     parameters:(nullable id)parameters
                                      isRefresh:(BOOL)isRefresh
                                 viewController:(XYRootViewController *)viewController
@@ -80,7 +84,12 @@
     return [self.class POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         [viewController removeActiveIVFromSelfView];
         
-        success ? success(task, responseObject) : 0;
+        if ([responseObject[@"ret"] integerValue] == 0) {
+            success ? success(task, responseObject) : 0;
+        } else {
+            [kShowLabel setText:responseObject[@"msg"]];
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [viewController removeActiveIVFromSelfView];
         [kShowLabel setText:@"网络未连接"];

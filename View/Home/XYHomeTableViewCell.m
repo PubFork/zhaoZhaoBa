@@ -16,6 +16,15 @@
     self.startRateView.numberOfStars = 5;
 }
 
+
+- (void)setMyData:(NSDictionary *)myData
+{
+    _myData = myData;
+    
+    self.nameLaebl.text = myData[driverSchool_schoolname];
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
