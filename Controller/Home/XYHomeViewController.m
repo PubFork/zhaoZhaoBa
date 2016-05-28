@@ -20,6 +20,7 @@
 #import "XYDriverSchoolViewController.h"
 #import "XYCoachViewController.h"
 #import "XYNoviceOfRoadViewController.h"
+#import "XYShoppingViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -280,6 +281,10 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
                 }
                 case 3: {
                     vc = [[XYCoachViewController alloc] init];
+                    break;
+                }
+                case 5: {
+                    vc = [[XYShoppingViewController alloc] init];
                     break;
                 }
                 case 6: {

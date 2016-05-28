@@ -8,11 +8,17 @@
 //
 
 #import "XYShoppingViewController.h"
+#import "XYShoppingCollectionViewCell.h"
+#import "XYShoppingHeaderCollectionViewCell.h"
 
-@interface XYShoppingViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface XYShoppingViewController () <UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)UICollectionView * collectionView;
 @property (nonatomic, strong)NSMutableArray * groupArray;
 @end
+
+
+static NSString * shopping_header_cell_key = @"shopping_header_cell_key";
+static NSString * shopping_cell_key = @"shopping_cell_key";
 
 @implementation XYShoppingViewController
 
@@ -21,9 +27,63 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setTitleLabelText:@"积分商城"];
+    [self.view addSubview:self.collectionView];
     
     
 }
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark CollectionView DataSources & Delegate
+
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 1;
+    }
+    return 10;
+    return self.groupArray.count;
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return CGSizeMake(kScreenWidth, 215);
+    }
+    return CGSizeMake(kScreenWidth / 2 - 1.5, 123);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        XYShoppingHeaderCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:shopping_header_cell_key forIndexPath:indexPath];
+        return cell;
+    }
+    
+    XYShoppingCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:shopping_cell_key forIndexPath:indexPath];
+    return cell;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    if (section == 0) {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    return UIEdgeInsetsMake(1, 1, 1, 1);
+}
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark Lazy Loading
+
+
 
 - (UICollectionView *)collectionView
 {
@@ -33,15 +93,18 @@
         layout.minimumLineSpacing = 1;
 //        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeight - kNavigationBar_Height - kTabBar_Height) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth,kScreenHeight - kNavigationBar_Height) collectionViewLayout:layout];
 //        _collectionView.pagingEnabled = YES;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
 //        _collectionView.alwaysBounceVertical = NO;
-        _collectionView.showsHorizontalScrollIndicator = NO;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = [UIColor whiteColor];
-        [_collectionView registerNib:[UINib nibWithNibName:@"HomePageHeaderCollectionViewCell1" bundle:nil] forCellWithReuseIdentifier:@"a"];
+//        _collectionView.showsHorizontalScrollIndicator = NO;
+//        _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.backgroundColor = kDefaultBackgroudColor;
+        
+        [_collectionView registerNib:[UINib nibWithNibName:@"XYShoppingCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:shopping_cell_key];
+        [_collectionView registerNib:[UINib nibWithNibName:@"XYShoppingHeaderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:shopping_header_cell_key];
+
     }
     return _collectionView;
 }

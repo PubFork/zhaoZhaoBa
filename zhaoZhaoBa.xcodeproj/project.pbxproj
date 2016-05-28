@@ -237,6 +237,10 @@
 		18A07C6E1CDCC7F000725B8E /* XYCoachTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A07C6C1CDCC7F000725B8E /* XYCoachTableViewCell.m */; };
 		18A07C6F1CDCC7F000725B8E /* XYCoachTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A07C6D1CDCC7F000725B8E /* XYCoachTableViewCell.xib */; };
 		18A07C711CDCC98600725B8E /* aaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A07C701CDCC98600725B8E /* aaa.png */; };
+		18A9521A1CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952181CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.m */; };
+		18A9521B1CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952191CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib */; };
+		18A9521F1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9521D1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m */; };
+		18A952201CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A9521E1CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib */; };
 		18BC61DA1CD59F0000AE8747 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61D91CD59F0000AE8747 /* area.plist */; };
 		18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61DE1CD5B03200AE8747 /* MyShowLabel.m */; };
 		18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61E21CD5B39400AE8747 /* QRViewController.m */; };
@@ -573,6 +577,12 @@
 		18A07C6C1CDCC7F000725B8E /* XYCoachTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCoachTableViewCell.m; sourceTree = "<group>"; };
 		18A07C6D1CDCC7F000725B8E /* XYCoachTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCoachTableViewCell.xib; sourceTree = "<group>"; };
 		18A07C701CDCC98600725B8E /* aaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaa.png; sourceTree = "<group>"; };
+		18A952171CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShoppingHeaderCollectionViewCell.h; sourceTree = "<group>"; };
+		18A952181CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShoppingHeaderCollectionViewCell.m; sourceTree = "<group>"; };
+		18A952191CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYShoppingHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		18A9521C1CF94B4200CBF26D /* XYShoppingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShoppingCollectionViewCell.h; sourceTree = "<group>"; };
+		18A9521D1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShoppingCollectionViewCell.m; sourceTree = "<group>"; };
+		18A9521E1CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYShoppingCollectionViewCell.xib; sourceTree = "<group>"; };
 		18BC61D91CD59F0000AE8747 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		18BC61DB1CD5AFAA00AE8747 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		18BC61DD1CD5B03200AE8747 /* MyShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShowLabel.h; sourceTree = "<group>"; };
@@ -1169,6 +1179,7 @@
 				185820221CCE247200A191BF /* XYHomeNaviBar.m */,
 				1890653D1CD1FF0C00597FFE /* XYCityTableView.h */,
 				1890653E1CD1FF0C00597FFE /* XYCityTableView.m */,
+				18A952161CF94B2200CBF26D /* Shopping */,
 				1806670E1CF00F3500CCC3CF /* NoviceOfRoad */,
 				18D3581D1CD5F53800E539E7 /* MustKnow */,
 				18D358331CD5FE5B00E539E7 /* DriverSchool */,
@@ -1395,6 +1406,19 @@
 			path = Coach;
 			sourceTree = "<group>";
 		};
+		18A952161CF94B2200CBF26D /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				18A952171CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.h */,
+				18A952181CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.m */,
+				18A952191CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib */,
+				18A9521C1CF94B4200CBF26D /* XYShoppingCollectionViewCell.h */,
+				18A9521D1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m */,
+				18A9521E1CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
 		18BC61DC1CD5B03200AE8747 /* ShowLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1616,6 +1640,7 @@
 				1890515F1CCCD7C3003697A2 /* XYMyViewController.xib in Resources */,
 				1890519B1CCCFE05003697A2 /* progress_7.png in Resources */,
 				18581FFD1CCE0E6500A191BF /* 消息1@2x.png in Resources */,
+				18A9521B1CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib in Resources */,
 				1806671D1CF0123000CCC3CF /* XYNoviceOfRoadDetailViewController.xib in Resources */,
 				180666D81CEFF66D00CCC3CF /* 社区汇赞.png in Resources */,
 				180667011CF0041300CCC3CF /* 添加图片@3x.png in Resources */,
@@ -1768,6 +1793,7 @@
 				180666A61CEFEAAF00CCC3CF /* 报名@3x.png in Resources */,
 				18A07C691CDCC1B900725B8E /* XYSelectViewController.xib in Resources */,
 				180A4BAC1CE6DAE00033E5BD /* XYSignUpViewController.xib in Resources */,
+				18A952201CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib in Resources */,
 				180667051CF0041900CCC3CF /* 提交.png in Resources */,
 				18D358271CD5F74D00E539E7 /* XYMustKnowDetailViewController.xib in Resources */,
 				18A07C6F1CDCC7F000725B8E /* XYCoachTableViewCell.xib in Resources */,
@@ -1847,6 +1873,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A9521A1CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.m in Sources */,
 				181529B31CCCCE940060E4FC /* AppDelegate.m in Sources */,
 				180A4BB91CE6ED670033E5BD /* XYSignUpSelecCarTypeView.m in Sources */,
 				18153EDB1CF13BAF00119811 /* XYMustKnowNetTool.m in Sources */,
@@ -1873,6 +1900,7 @@
 				180666E41CEFF9A700CCC3CF /* XYCommunityDetailViewController.m in Sources */,
 				18BC61ED1CD5B3A500AE8747 /* QRItem.m in Sources */,
 				189051831CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.m in Sources */,
+				18A9521F1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m in Sources */,
 				180A4BB51CE6EC220033E5BD /* XYSignUpTableViewCell.m in Sources */,
 				180A4BB01CE6EB980033E5BD /* XYEndEidtView.m in Sources */,
 				18A07C5E1CDCBFAA00725B8E /* XYCoachDetailViewController.m in Sources */,
