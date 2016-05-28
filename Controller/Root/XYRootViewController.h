@@ -10,7 +10,7 @@
 #import "MyActivityIndicatorView.h"
 #import "MJRefresh.h"
 
-@interface XYRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate>
+@interface XYRootViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong)UIView * naviBar;
 
@@ -20,6 +20,7 @@
 
 
 @property (nonatomic, strong)UITableView * tableView;
+@property (nonatomic, strong)UICollectionView * collectionView;
 
 
 
@@ -43,7 +44,7 @@
  *  @param isGroup 是否是 group type
  */
 - (void)addTableViewIsGroup:(BOOL)isGroup;
-
+- (void)addCollectionView;
 
 - (void)setBackBtn;
 - (void)removeBackBtn;

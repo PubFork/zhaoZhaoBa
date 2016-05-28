@@ -30,6 +30,11 @@ static NSString * car_show_one_type_cell_key = @"car_show_one_type_cell_key d";
     return self;
 }
 
+- (void)getDidSelectItemWtihBlock:(DidSelectItemBlock)block
+{
+    self.didSelectItemBlock = block;
+}
+
 - (void)show
 {
     self.isShow = YES;
@@ -97,7 +102,7 @@ static NSString * car_show_one_type_cell_key = @"car_show_one_type_cell_key d";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    self.didSelectItemBlock ? self.didSelectItemBlock(indexPath) : 0;
 }
 
 

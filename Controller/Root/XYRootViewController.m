@@ -54,23 +54,23 @@
 
 - (void)endRefresh
 {
-    [self.tableView.header endRefreshing];
-    [self.tableView.footer endRefreshing];
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 - (void)hiddenFooter
 {
-    self.tableView.footer.hidden = YES;
+    self.tableView.mj_footer.hidden = YES;
 }
 - (void)showFooter
 {
-    self.tableView.footer.hidden = NO;
+    self.tableView.mj_footer.hidden = NO;
 }
 
 - (NSInteger)handleFooterWithCount:(NSInteger)count
 {
-    self.tableView.footer.hidden = !(count >= pageSize);
-    return self.tableView.footer.hidden ? 0 : 1;
+    self.tableView.mj_footer.hidden = !(count >= pageSize);
+    return self.tableView.mj_footer.hidden ? 0 : 1;
 }
 ////////////////////////////////// 界面 相关 ////////////////////////////////////////
 
@@ -89,6 +89,19 @@
 
 
     [self.view addSubview:self.tableView];
+}
+
+- (void)addCollectionView
+{
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumInteritemSpacing = 1;
+    layout.minimumLineSpacing = 1;
+    
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth,kScreenHeight - kNavigationBar_Height) collectionViewLayout:layout];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    _collectionView.backgroundColor = kDefaultBackgroudColor;
+    [self.view addSubview:self.collectionView];
 }
 
 - (void)setBackBtn

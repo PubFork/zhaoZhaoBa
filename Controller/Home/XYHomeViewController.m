@@ -87,7 +87,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
         [tableview registerNib:[UINib nibWithNibName:@"XYHomeFuncationTableViewCell" bundle:nil] forCellReuseIdentifier:home_funcationCell_key];
         [tableview registerNib:[UINib nibWithNibName:@"XYHomeHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:home_headerCell_key];
         
-        tableview.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [homeVC requestData];
         }];
         

@@ -11,7 +11,7 @@
 #import "XYCarShowTableViewCell.h"
 #import "XYTableIndexView.h"
 #import "XYCarShowOneTypeTableView.h"
-
+#import "XYCarShowAlbumViewController.h"
 
 @interface XYCarShowViewController ()
 @property (nonatomic, strong)XYCarShowTypeView * carShowTypeView;
@@ -26,6 +26,13 @@
 static NSString * car_show_cell_key = @"car_show_cell_key";
 
 @implementation XYCarShowViewController
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.showOneTableView deselectRowAtIndexPath:[self.showOneTableView indexPathForSelectedRow] animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -136,7 +143,11 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
 {
     if (!_showOneTableView) {
         _showOneTableView = [[XYCarShowOneTypeTableView alloc] initWithFrame:CGRectMake(kScreenWidth, self.tableView.mj_y, kScreenWidth - 80, self.tableView.height)];
-        
+        WeakSelf(weakSelf);
+        [_showOneTableView getDidSelectItemWtihBlock:^(NSIndexPath *indexPatch) {
+            XYCarShowAlbumViewController * vc = [[XYCarShowAlbumViewController alloc] init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }];
     }
     return _showOneTableView;
 }

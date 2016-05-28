@@ -11,8 +11,7 @@
 #import "XYShoppingCollectionViewCell.h"
 #import "XYShoppingHeaderCollectionViewCell.h"
 
-@interface XYShoppingViewController () <UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-@property (nonatomic, strong)UICollectionView * collectionView;
+@interface XYShoppingViewController ()
 @property (nonatomic, strong)NSMutableArray * groupArray;
 @end
 
@@ -27,6 +26,13 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
     // Do any additional setup after loading the view from its nib.
     
     [self setTitleLabelText:@"积分商城"];
+    
+    
+    [self addCollectionView];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"XYShoppingCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:shopping_cell_key];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"XYShoppingHeaderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:shopping_header_cell_key];
+
     [self.view addSubview:self.collectionView];
     
     
@@ -80,34 +86,6 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
 }
 
 
-#pragma mark -------------------------------------------------------
-#pragma mark Lazy Loading
-
-
-
-- (UICollectionView *)collectionView
-{
-    if (!_collectionView) {
-        UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumInteritemSpacing = 1;
-        layout.minimumLineSpacing = 1;
-//        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth,kScreenHeight - kNavigationBar_Height) collectionViewLayout:layout];
-//        _collectionView.pagingEnabled = YES;
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-//        _collectionView.alwaysBounceVertical = NO;
-//        _collectionView.showsHorizontalScrollIndicator = NO;
-//        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.backgroundColor = kDefaultBackgroudColor;
-        
-        [_collectionView registerNib:[UINib nibWithNibName:@"XYShoppingCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:shopping_cell_key];
-        [_collectionView registerNib:[UINib nibWithNibName:@"XYShoppingHeaderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:shopping_header_cell_key];
-
-    }
-    return _collectionView;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

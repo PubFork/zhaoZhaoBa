@@ -252,6 +252,14 @@
 		18A9527C1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9527B1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m */; };
 		18A952801CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9527E1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m */; };
 		18A952811CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A9527F1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib */; };
+		18A952851CF9928A00CBF26D /* XYCarShowAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952831CF9928A00CBF26D /* XYCarShowAlbumViewController.m */; };
+		18A952861CF9928A00CBF26D /* XYCarShowAlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952841CF9928A00CBF26D /* XYCarShowAlbumViewController.xib */; };
+		18A9528A1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952881CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m */; };
+		18A9528B1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952891CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.xib */; };
+		18A952901CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9528E1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.m */; };
+		18A952911CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A9528F1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib */; };
+		18A952951CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952931CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m */; };
+		18A952961CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952941CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib */; };
 		18BC61DA1CD59F0000AE8747 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61D91CD59F0000AE8747 /* area.plist */; };
 		18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61DE1CD5B03200AE8747 /* MyShowLabel.m */; };
 		18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61E21CD5B39400AE8747 /* QRViewController.m */; };
@@ -613,6 +621,18 @@
 		18A9527D1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowOneTypeTableViewCell.h; sourceTree = "<group>"; };
 		18A9527E1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowOneTypeTableViewCell.m; sourceTree = "<group>"; };
 		18A9527F1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowOneTypeTableViewCell.xib; sourceTree = "<group>"; };
+		18A952821CF9928A00CBF26D /* XYCarShowAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowAlbumViewController.h; sourceTree = "<group>"; };
+		18A952831CF9928A00CBF26D /* XYCarShowAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowAlbumViewController.m; sourceTree = "<group>"; };
+		18A952841CF9928A00CBF26D /* XYCarShowAlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowAlbumViewController.xib; sourceTree = "<group>"; };
+		18A952871CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowAlbumDetailViewController.h; sourceTree = "<group>"; };
+		18A952881CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowAlbumDetailViewController.m; sourceTree = "<group>"; };
+		18A952891CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowAlbumDetailViewController.xib; sourceTree = "<group>"; };
+		18A9528D1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowAlubumCollectionViewCell.h; sourceTree = "<group>"; };
+		18A9528E1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowAlubumCollectionViewCell.m; sourceTree = "<group>"; };
+		18A9528F1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowAlubumCollectionViewCell.xib; sourceTree = "<group>"; };
+		18A952921CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowAlbumCollectionReusableView.h; sourceTree = "<group>"; };
+		18A952931CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowAlbumCollectionReusableView.m; sourceTree = "<group>"; };
+		18A952941CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowAlbumCollectionReusableView.xib; sourceTree = "<group>"; };
 		18BC61D91CD59F0000AE8747 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		18BC61DB1CD5AFAA00AE8747 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		18BC61DD1CD5B03200AE8747 /* MyShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShowLabel.h; sourceTree = "<group>"; };
@@ -1459,6 +1479,12 @@
 				18A952221CF9529600CBF26D /* XYCarShowViewController.h */,
 				18A952231CF9529600CBF26D /* XYCarShowViewController.m */,
 				18A952241CF9529600CBF26D /* XYCarShowViewController.xib */,
+				18A952821CF9928A00CBF26D /* XYCarShowAlbumViewController.h */,
+				18A952831CF9928A00CBF26D /* XYCarShowAlbumViewController.m */,
+				18A952841CF9928A00CBF26D /* XYCarShowAlbumViewController.xib */,
+				18A952871CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.h */,
+				18A952881CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m */,
+				18A952891CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.xib */,
 			);
 			path = CarShow;
 			sourceTree = "<group>";
@@ -1478,6 +1504,7 @@
 				18A952321CF962DE00CBF26D /* XYCarShowTableViewCell.h */,
 				18A952331CF962DE00CBF26D /* XYCarShowTableViewCell.m */,
 				18A952341CF962DE00CBF26D /* XYCarShowTableViewCell.xib */,
+				18A9528C1CF9947400CBF26D /* CarShowCollection */,
 			);
 			path = CarShow;
 			sourceTree = "<group>";
@@ -1498,6 +1525,19 @@
 				18A952391CF9678C00CBF26D /* XYTableIndexView.m */,
 			);
 			path = TableIndexView;
+			sourceTree = "<group>";
+		};
+		18A9528C1CF9947400CBF26D /* CarShowCollection */ = {
+			isa = PBXGroup;
+			children = (
+				18A9528D1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.h */,
+				18A9528E1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.m */,
+				18A9528F1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib */,
+				18A952921CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.h */,
+				18A952931CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m */,
+				18A952941CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib */,
+			);
+			path = CarShowCollection;
 			sourceTree = "<group>";
 		};
 		18BC61DC1CD5B03200AE8747 /* ShowLabel */ = {
@@ -1711,6 +1751,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A952961CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib in Resources */,
 				180666C61CEFEF4D00CCC3CF /* 定位.png in Resources */,
 				1826FA471CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.xib in Resources */,
 				180666B61CEFEE9C00CCC3CF /* 踩@3x.png in Resources */,
@@ -1765,6 +1806,7 @@
 				18BC61F41CD5BF2B00AE8747 /* Scan_Success@2x.png in Resources */,
 				180667631CF045A800CCC3CF /* 一键清理.png in Resources */,
 				180667061CF0041900CCC3CF /* 提交@2x.png in Resources */,
+				18A952911CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib in Resources */,
 				180666A41CEFEAAF00CCC3CF /* 报名.png in Resources */,
 				189051841CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.xib in Resources */,
 				18581FFA1CCE0E6500A191BF /* 新手上路@3x.png in Resources */,
@@ -1787,11 +1829,13 @@
 				1858200C1CCE0E6500A191BF /* 车展@3x.png in Resources */,
 				18581FF41CCE0E6500A191BF /* 搜索标签@3x.png in Resources */,
 				180666D51CEFF66D00CCC3CF /* 社区汇评论.png in Resources */,
+				18A952861CF9928A00CBF26D /* XYCarShowAlbumViewController.xib in Resources */,
 				189051951CCCFE05003697A2 /* progress_1.png in Resources */,
 				18BC61F21CD5BC9B00AE8747 /* qr_scan_line@2x.png in Resources */,
 				180666F91CF0036100CCC3CF /* 回顶部.png in Resources */,
 				18581FAE1CCE072C00A191BF /* XYCarousePictureCollectionCell.xib in Resources */,
 				180666D61CEFF66D00CCC3CF /* 社区汇评论@2x.png in Resources */,
+				18A9528B1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.xib in Resources */,
 				185820041CCE0E6500A191BF /* 积分兑换.png in Resources */,
 				189051641CCCD7CB003697A2 /* XYHomeViewController.xib in Resources */,
 				184C141B1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib in Resources */,
@@ -1995,13 +2039,17 @@
 				180A4B541CE6AAE70033E5BD /* XYPictureView.m in Sources */,
 				18A07C681CDCC1B900725B8E /* XYSelectViewController.m in Sources */,
 				18A07C4E1CDCB9EB00725B8E /* XYDriverSchoolViewController.m in Sources */,
+				18A9528A1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m in Sources */,
 				180A4BAB1CE6DAE00033E5BD /* XYSignUpViewController.m in Sources */,
 				180666F51CF0021200CCC3CF /* XYAddCommunityUpdatePictureView.m in Sources */,
 				1826FA411CE8229E002D30D1 /* XYCoachDetailHeaderTableViewCell.m in Sources */,
 				180A4B581CE6B3E10033E5BD /* XYAddActionImageView.m in Sources */,
 				18581FA41CCE058700A191BF /* XYHomeHeaderTableViewCell.m in Sources */,
+				18A952951CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m in Sources */,
 				18D358211CD5F54700E539E7 /* XYMustKnowTableViewCell.m in Sources */,
 				184C141F1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.m in Sources */,
+				18A952851CF9928A00CBF26D /* XYCarShowAlbumViewController.m in Sources */,
+				18A952901CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.m in Sources */,
 				1890514D1CCCD5AF003697A2 /* XYRootTabBarViewController.m in Sources */,
 				181476161CDD823C004980B1 /* XYMyTableViewCell.m in Sources */,
 				18A9522E1CF9560C00CBF26D /* XYAddActionLabel.m in Sources */,
