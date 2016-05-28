@@ -241,6 +241,17 @@
 		18A9521B1CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952191CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib */; };
 		18A9521F1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9521D1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m */; };
 		18A952201CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A9521E1CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib */; };
+		18A952251CF9529600CBF26D /* XYCarShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952231CF9529600CBF26D /* XYCarShowViewController.m */; };
+		18A952261CF9529600CBF26D /* XYCarShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952241CF9529600CBF26D /* XYCarShowViewController.xib */; };
+		18A9522A1CF954FC00CBF26D /* XYCarShowTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952291CF954FC00CBF26D /* XYCarShowTypeView.m */; };
+		18A9522E1CF9560C00CBF26D /* XYAddActionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9522D1CF9560C00CBF26D /* XYAddActionLabel.m */; };
+		18A952311CF95F2D00CBF26D /* XYSelectLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952301CF95F2D00CBF26D /* XYSelectLabel.m */; };
+		18A952351CF962DE00CBF26D /* XYCarShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952331CF962DE00CBF26D /* XYCarShowTableViewCell.m */; };
+		18A952361CF962DE00CBF26D /* XYCarShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952341CF962DE00CBF26D /* XYCarShowTableViewCell.xib */; };
+		18A9523A1CF9678C00CBF26D /* XYTableIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952391CF9678C00CBF26D /* XYTableIndexView.m */; };
+		18A9527C1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9527B1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m */; };
+		18A952801CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9527E1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m */; };
+		18A952811CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A9527F1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib */; };
 		18BC61DA1CD59F0000AE8747 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61D91CD59F0000AE8747 /* area.plist */; };
 		18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61DE1CD5B03200AE8747 /* MyShowLabel.m */; };
 		18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61E21CD5B39400AE8747 /* QRViewController.m */; };
@@ -583,6 +594,25 @@
 		18A9521C1CF94B4200CBF26D /* XYShoppingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShoppingCollectionViewCell.h; sourceTree = "<group>"; };
 		18A9521D1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShoppingCollectionViewCell.m; sourceTree = "<group>"; };
 		18A9521E1CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYShoppingCollectionViewCell.xib; sourceTree = "<group>"; };
+		18A952221CF9529600CBF26D /* XYCarShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowViewController.h; sourceTree = "<group>"; };
+		18A952231CF9529600CBF26D /* XYCarShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowViewController.m; sourceTree = "<group>"; };
+		18A952241CF9529600CBF26D /* XYCarShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowViewController.xib; sourceTree = "<group>"; };
+		18A952281CF954FC00CBF26D /* XYCarShowTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowTypeView.h; sourceTree = "<group>"; };
+		18A952291CF954FC00CBF26D /* XYCarShowTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowTypeView.m; sourceTree = "<group>"; };
+		18A9522C1CF9560C00CBF26D /* XYAddActionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddActionLabel.h; sourceTree = "<group>"; };
+		18A9522D1CF9560C00CBF26D /* XYAddActionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddActionLabel.m; sourceTree = "<group>"; };
+		18A9522F1CF95F2D00CBF26D /* XYSelectLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSelectLabel.h; sourceTree = "<group>"; };
+		18A952301CF95F2D00CBF26D /* XYSelectLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSelectLabel.m; sourceTree = "<group>"; };
+		18A952321CF962DE00CBF26D /* XYCarShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowTableViewCell.h; sourceTree = "<group>"; };
+		18A952331CF962DE00CBF26D /* XYCarShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowTableViewCell.m; sourceTree = "<group>"; };
+		18A952341CF962DE00CBF26D /* XYCarShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowTableViewCell.xib; sourceTree = "<group>"; };
+		18A952381CF9678C00CBF26D /* XYTableIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTableIndexView.h; sourceTree = "<group>"; };
+		18A952391CF9678C00CBF26D /* XYTableIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTableIndexView.m; sourceTree = "<group>"; };
+		18A9527A1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowOneTypeTableView.h; sourceTree = "<group>"; };
+		18A9527B1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowOneTypeTableView.m; sourceTree = "<group>"; };
+		18A9527D1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowOneTypeTableViewCell.h; sourceTree = "<group>"; };
+		18A9527E1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowOneTypeTableViewCell.m; sourceTree = "<group>"; };
+		18A9527F1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowOneTypeTableViewCell.xib; sourceTree = "<group>"; };
 		18BC61D91CD59F0000AE8747 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		18BC61DB1CD5AFAA00AE8747 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		18BC61DD1CD5B03200AE8747 /* MyShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShowLabel.h; sourceTree = "<group>"; };
@@ -1140,6 +1170,7 @@
 				1890516F1CCCE975003697A2 /* Root */,
 				18BC61E41CD5B39D00AE8747 /* ScanCode */,
 				189051541CCCD789003697A2 /* My */,
+				18A952371CF9678500CBF26D /* TableIndexView */,
 				189051521CCCD775003697A2 /* Community */,
 				18A07C601CDCBFE900725B8E /* SelectView */,
 				189051501CCCD749003697A2 /* Home */,
@@ -1153,6 +1184,7 @@
 				189051601CCCD7CB003697A2 /* XYHomeViewController.h */,
 				189051611CCCD7CB003697A2 /* XYHomeViewController.m */,
 				189051621CCCD7CB003697A2 /* XYHomeViewController.xib */,
+				18A952211CF9527300CBF26D /* CarShow */,
 				180667691CF049E000CCC3CF /* Shopping */,
 				180667081CF00F0100CCC3CF /* NoviceOfRoad */,
 				18A07C641CDCC1A600725B8E /* SelectViewController */,
@@ -1179,6 +1211,7 @@
 				185820221CCE247200A191BF /* XYHomeNaviBar.m */,
 				1890653D1CD1FF0C00597FFE /* XYCityTableView.h */,
 				1890653E1CD1FF0C00597FFE /* XYCityTableView.m */,
+				18A952271CF9533A00CBF26D /* CarShow */,
 				18A952161CF94B2200CBF26D /* Shopping */,
 				1806670E1CF00F3500CCC3CF /* NoviceOfRoad */,
 				18D3581D1CD5F53800E539E7 /* MustKnow */,
@@ -1317,6 +1350,7 @@
 			children = (
 				1890653A1CD1FA5F00597FFE /* XYAddActionView.h */,
 				1890653B1CD1FA5F00597FFE /* XYAddActionView.m */,
+				18A9522B1CF955ED00CBF26D /* XYAddActionLabel */,
 				180A4B551CE6B3D20033E5BD /* XYAddActionImageView */,
 			);
 			path = XYAddActionView;
@@ -1417,6 +1451,53 @@
 				18A9521E1CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib */,
 			);
 			path = Shopping;
+			sourceTree = "<group>";
+		};
+		18A952211CF9527300CBF26D /* CarShow */ = {
+			isa = PBXGroup;
+			children = (
+				18A952221CF9529600CBF26D /* XYCarShowViewController.h */,
+				18A952231CF9529600CBF26D /* XYCarShowViewController.m */,
+				18A952241CF9529600CBF26D /* XYCarShowViewController.xib */,
+			);
+			path = CarShow;
+			sourceTree = "<group>";
+		};
+		18A952271CF9533A00CBF26D /* CarShow */ = {
+			isa = PBXGroup;
+			children = (
+				18A9522F1CF95F2D00CBF26D /* XYSelectLabel.h */,
+				18A952301CF95F2D00CBF26D /* XYSelectLabel.m */,
+				18A952281CF954FC00CBF26D /* XYCarShowTypeView.h */,
+				18A952291CF954FC00CBF26D /* XYCarShowTypeView.m */,
+				18A9527A1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.h */,
+				18A9527B1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m */,
+				18A9527D1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.h */,
+				18A9527E1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m */,
+				18A9527F1CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib */,
+				18A952321CF962DE00CBF26D /* XYCarShowTableViewCell.h */,
+				18A952331CF962DE00CBF26D /* XYCarShowTableViewCell.m */,
+				18A952341CF962DE00CBF26D /* XYCarShowTableViewCell.xib */,
+			);
+			path = CarShow;
+			sourceTree = "<group>";
+		};
+		18A9522B1CF955ED00CBF26D /* XYAddActionLabel */ = {
+			isa = PBXGroup;
+			children = (
+				18A9522C1CF9560C00CBF26D /* XYAddActionLabel.h */,
+				18A9522D1CF9560C00CBF26D /* XYAddActionLabel.m */,
+			);
+			path = XYAddActionLabel;
+			sourceTree = "<group>";
+		};
+		18A952371CF9678500CBF26D /* TableIndexView */ = {
+			isa = PBXGroup;
+			children = (
+				18A952381CF9678C00CBF26D /* XYTableIndexView.h */,
+				18A952391CF9678C00CBF26D /* XYTableIndexView.m */,
+			);
+			path = TableIndexView;
 			sourceTree = "<group>";
 		};
 		18BC61DC1CD5B03200AE8747 /* ShowLabel */ = {
@@ -1633,6 +1714,7 @@
 				180666C61CEFEF4D00CCC3CF /* 定位.png in Resources */,
 				1826FA471CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.xib in Resources */,
 				180666B61CEFEE9C00CCC3CF /* 踩@3x.png in Resources */,
+				18A952811CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.xib in Resources */,
 				180666C21CEFEEC200CCC3CF /* 教练加V@3x.png in Resources */,
 				18581FFC1CCE0E6500A191BF /* 消息1.png in Resources */,
 				180666C71CEFEF4D00CCC3CF /* 定位@2x.png in Resources */,
@@ -1645,6 +1727,7 @@
 				180666D81CEFF66D00CCC3CF /* 社区汇赞.png in Resources */,
 				180667011CF0041300CCC3CF /* 添加图片@3x.png in Resources */,
 				180667181CF0102900CCC3CF /* XYNoviceOfRoadTableViewCell1.xib in Resources */,
+				18A952261CF9529600CBF26D /* XYCarShowViewController.xib in Resources */,
 				1858200A1CCE0E6500A191BF /* 车展.png in Resources */,
 				1806676E1CF049E800CCC3CF /* XYShoppingViewController.xib in Resources */,
 				185820091CCE0E6500A191BF /* 试题@3x.png in Resources */,
@@ -1785,6 +1868,7 @@
 				1858200E1CCE0E6500A191BF /* 附近驾校@2x.png in Resources */,
 				185820001CCE0E6500A191BF /* 消息@3x.png in Resources */,
 				180666DF1CEFF89100CCC3CF /* 添加@2x.png in Resources */,
+				18A952361CF962DE00CBF26D /* XYCarShowTableViewCell.xib in Resources */,
 				180666D91CEFF66D00CCC3CF /* 社区汇赞@2x.png in Resources */,
 				18581FF11CCE0E6500A191BF /* 扫一扫@3x.png in Resources */,
 				180666DE1CEFF89100CCC3CF /* 添加.png in Resources */,
@@ -1879,6 +1963,7 @@
 				18153EDB1CF13BAF00119811 /* XYMustKnowNetTool.m in Sources */,
 				189051631CCCD7CB003697A2 /* XYHomeViewController.m in Sources */,
 				18A07C321CDCAE1000725B8E /* XYNetTool.m in Sources */,
+				18A9522A1CF954FC00CBF26D /* XYCarShowTypeView.m in Sources */,
 				18BC61EC1CD5B3A500AE8747 /* QRMenu.m in Sources */,
 				1887EE001CCE36F5006DED7A /* XYButton.m in Sources */,
 				1890515A1CCCD7B4003697A2 /* XYRootNavigationController.m in Sources */,
@@ -1893,8 +1978,10 @@
 				184C14101CDDE40100C7D7BB /* XYShareTool.m in Sources */,
 				18A07C631CDCBFF900725B8E /* XYSelectView.m in Sources */,
 				181529B01CCCCE940060E4FC /* main.m in Sources */,
+				18A9527C1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m in Sources */,
 				18153EE31CF1527600119811 /* XYDriverSchoolNetTool.m in Sources */,
 				185820231CCE247200A191BF /* XYHomeNaviBar.m in Sources */,
+				18A9523A1CF9678C00CBF26D /* XYTableIndexView.m in Sources */,
 				18153EDF1CF1494900119811 /* XYSignUpNetTool.m in Sources */,
 				1858201F1CCE222100A191BF /* DispatchQueueManager.m in Sources */,
 				180666E41CEFF9A700CCC3CF /* XYCommunityDetailViewController.m in Sources */,
@@ -1917,6 +2004,7 @@
 				184C141F1CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.m in Sources */,
 				1890514D1CCCD5AF003697A2 /* XYRootTabBarViewController.m in Sources */,
 				181476161CDD823C004980B1 /* XYMyTableViewCell.m in Sources */,
+				18A9522E1CF9560C00CBF26D /* XYAddActionLabel.m in Sources */,
 				189051791CCCF1BE003697A2 /* MyActivityIndicatorView.m in Sources */,
 				180667171CF0102900CCC3CF /* XYNoviceOfRoadTableViewCell1.m in Sources */,
 				18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */,
@@ -1924,6 +2012,8 @@
 				18BC61EB1CD5B3A500AE8747 /* QRView.m in Sources */,
 				1826FA461CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.m in Sources */,
 				1806676D1CF049E800CCC3CF /* XYShoppingViewController.m in Sources */,
+				18A952311CF95F2D00CBF26D /* XYSelectLabel.m in Sources */,
+				18A952801CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m in Sources */,
 				184C141A1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.m in Sources */,
 				180A4B9F1CE6C2AB0033E5BD /* XYCoachCollectionViewCell.m in Sources */,
 				180666CC1CEFF05A00CCC3CF /* XYCommunityTableViewCell.m in Sources */,
@@ -1944,7 +2034,9 @@
 				18A07C6E1CDCC7F000725B8E /* XYCoachTableViewCell.m in Sources */,
 				184C14141CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m in Sources */,
 				18D3581B1CD5F1C100E539E7 /* XYMustKnowViewController.m in Sources */,
+				18A952251CF9529600CBF26D /* XYCarShowViewController.m in Sources */,
 				180666EE1CEFFC1D00CCC3CF /* XYCommunityDetailTableViewCell.m in Sources */,
+				18A952351CF962DE00CBF26D /* XYCarShowTableViewCell.m in Sources */,
 				181476211CDD89CA004980B1 /* XYMyMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,6 +21,7 @@
 #import "XYCoachViewController.h"
 #import "XYNoviceOfRoadViewController.h"
 #import "XYShoppingViewController.h"
+#import "XYCarShowViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -292,6 +293,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
                     break;
                 }
                 case 7:{
+                    vc = [[XYCarShowViewController alloc] init];
                     break;
                 }
             }
