@@ -41,6 +41,11 @@
     self.selectSort_block = selectSort_block;
 }
 
+- (void)getSelectSort_name_with_block:(selectSort_name_block)block
+{
+    self.selectSort_name_block = block;
+}
+
 #pragma mark -------------------------------------------------------
 #pragma mark Innder Method
 
@@ -68,24 +73,28 @@
         _selectView = [[XYSelectView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, 30)];
         
         WeakSelf(weakSelf);
+        
         [_selectView clickSelectView_blockWithBlock:^(XYButton *btn) {
             
-            if (btn.isShow) {
-                self.showBtn = btn;
-                self.selectTableView.backgroudView.hidden = NO;
-                
-                weakSelf.selectTableView.groupArray = self.selectTableViewArray[btn.tag - buttonTag];
-            }
             
+            self.selectSort_name_block ? self.selectSort_name_block(btn.titleLabel.text,btn.isShow) : 0;
             
-            if (self.oldBtn != btn && self.oldBtn.isShow) {
-                [self.oldBtn touchesEnded:[NSSet set] withEvent:nil];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kHomeCityAnimate_time / 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [weakSelf clickSelectViewWithBth:btn];
-                });
-            } else {
-                [weakSelf clickSelectViewWithBth:btn];
-            }
+//            if (btn.isShow) {
+//                self.showBtn = btn;
+//                self.selectTableView.backgroudView.hidden = NO;
+//                
+//                weakSelf.selectTableView.groupArray = self.selectTableViewArray[btn.tag - buttonTag];
+//            }
+//            
+//            
+//            if (self.oldBtn != btn && self.oldBtn.isShow) {
+//                [self.oldBtn touchesEnded:[NSSet set] withEvent:nil];
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kHomeCityAnimate_time / 2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [weakSelf clickSelectViewWithBth:btn];
+//                });
+//            } else {
+//                [weakSelf clickSelectViewWithBth:btn];
+//            }
         }];
     }
     return _selectView;
@@ -97,6 +106,8 @@
         _selectTableView = [[XYDriverSchoolSelectTableView alloc] initWithFrame:CGRectMake(0, - kScreenHeight, kScreenWidth, kScreenHeight - kNavigationBar_Height)];
         
         WeakSelf(weakSelf);
+        
+        
         [_selectTableView didSelectRowWithBlock:^(XYDriverSchoolSelectTableView *tableView, NSIndexPath *indexPath) {
             
             [weakSelf.showBtn touchesEnded:[NSSet set] withEvent:nil];

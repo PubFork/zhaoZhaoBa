@@ -15,16 +15,30 @@
 @interface XYDriverSchoolViewController ()
 
 @property (nonatomic, assign)NSInteger page;
+
+
+@property (nonatomic, copy)NSString * sortType;
+@property (nonatomic, assign)BOOL rule;
+
 @end
+
+
+
 
 @implementation XYDriverSchoolViewController
 
 - (void)viewDidLoad {
     
+    
+    self.sortType = DriverSchoolSortType_default;
+    self.rule = DrvierSchoolSortRule_desc;
+    self.groupArray = @[].mutableCopy;
+    
     //tableView 在最下面
     [self addTableViewIsGroup:YES];
     [self.tableView registerNib:[UINib nibWithNibName:@"XYHomeTableViewCell" bundle:nil] forCellReuseIdentifier:select_cell_key];
-    self.tableView.mj_y = CGRectGetMaxY(self.selectView.frame) + 1;
+    self.tableView.mj_y = CGRectGetMaxY(self.selectView.frame);
+    self.tableView.height = kScreenHeight - self.tableView.mj_y;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -32,22 +46,31 @@
     [self setTitleLabelText:[self getTitle]];
     [self.selectView setArray:[self getArray]];
     
-    
+    WeakSelf(weakSelf);
+
     
     [self selectSort_blockWithBlock:^(NSString *key) {
         NSLog(@"-- %@",key);
     }];
     
     
+    [self getSelectSort_name_with_block:^(NSString *sortName, BOOL isShow) {
+        weakSelf.rule = isShow;
+        weakSelf.sortType = [kManager getDriverSchoolSortTypeWithChineseSortType:sortName];
+        
+        [weakSelf.tableView.mj_header beginRefreshing];
+    }];
     
-    WeakSelf(weakSelf);
+    
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.page = 1;
         [weakSelf.groupArray removeAllObjects];
         [weakSelf requestData];
     }];
     
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.page ++;
         [weakSelf requestData];
     }];
     
@@ -58,8 +81,11 @@
 - (void)requestData
 {
     WeakSelf(weakSelf);
-    [XYDriverSchoolNetTool getDriverSchoolWithSortType:DriverSchoolSortType_default
-                                            isSortRule:DrvierSchoolSortRule_desc
+    
+    NSString * rule = self.rule ? DrvierSchoolSortRule_asc : DrvierSchoolSortRule_desc;
+    
+    [XYDriverSchoolNetTool getDriverSchoolWithSortType:self.sortType
+                                            isSortRule:rule
                                                   page:self.page
                                              isRefresh:NO
                                         viewController:self
@@ -67,6 +93,10 @@
                                                    [weakSelf.groupArray addObjectsFromArray:array];
                                                    
                                                    [weakSelf endRefresh];
+                                                   
+                                                    weakSelf.tableView.mj_footer.hidden = array.count < pageSize;
+                                                   [weakSelf.tableView reloadData];
+                                                   
                                                } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                                                    [weakSelf endRefresh];
                                                }];
@@ -75,11 +105,19 @@
 #pragma mark -------------------------------------------------------
 #pragma mark Innder Method
 
+
+
 - (NSArray *)getArray
 {
     switch (self.type) {
-        case driverSchoolType_Near  : return @[@"默认排序",@"价格",@"距离",@"报名人数"];
-        case driverSchoolType_Praise: return @[@"默认排序",@"服务",@"环境",@"车辆"];
+        case driverSchoolType_Near  : return @[driver_school_sort_type_default,
+                                               driver_school_sort_type_price,
+                                               driver_school_sort_type_distance,
+                                               driver_school_sort_type_sign_up_number];
+        case driverSchoolType_Praise: return @[driver_school_sort_type_default,
+                                               driver_school_sort_type_service,
+                                               driver_school_sort_type_environment,
+                                               driver_school_sort_type_car];
     }
 }
 - (NSString *)getTitle
@@ -127,7 +165,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYDriverSchoolDetailViewController * driverSchoolDetailVC = [[XYDriverSchoolDetailViewController alloc] init];
-//    driverSchoolDetailVC.driverSchoolID = 
+    driverSchoolDetailVC.driverSchoolID = [self.groupArray[indexPath.row][driverSchool_school_id] integerValue];
+    NSLog(@" -- %@",self.groupArray[indexPath.row]);
     [self.navigationController pushViewController:driverSchoolDetailVC animated:YES];
 }
 

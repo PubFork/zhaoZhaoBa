@@ -13,7 +13,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.startRateView.numberOfStars = 5;
 }
 
 
@@ -22,6 +21,14 @@
     _myData = myData;
     
     self.nameLaebl.text = myData[driverSchool_schoolname];
+    [self.pictureImageView setImageWithURL:[NSURL URLWithString:[myData[driverSchool_school_logo] stringByReplacingOccurrencesOfString:@" " withString:@""]] placeholder:kDefaultImage];
+    
+    self.priceLabel.text = [kManager getStringWithObj:myData[driverSchool_school_fee]];
+    self.numberLabel.text = [kManager getStringAddNumberWithObj:myData[driverSchool_school_number]];
+    self.distanceLabel.text = [kManager getStringAddKMWithObj:myData[driverSchool_school_distance]];
+    
+    self.startRateView.scorePercent = [myData[driverScholl_school_str] floatValue] / 5.0;
+    
 }
 
 

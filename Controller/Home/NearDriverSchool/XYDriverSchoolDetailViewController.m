@@ -44,7 +44,7 @@
 
 //////////////////////////////////教练展示////////////////////////////
 
-@property (weak, nonatomic) IBOutlet XYCoachCollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet XYCoachCollectionView *coachCollectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeight;
 
 
@@ -89,6 +89,7 @@
 
 - (void)requestData
 {
+    WeakSelf(weakSelf);
     [XYDriverSchoolNetTool getDriverSchoolDetailWithID:self.driverSchoolID
                                              isRefresh:YES
                                         viewController:self

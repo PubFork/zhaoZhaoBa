@@ -27,7 +27,7 @@
 - (void)requestData
 {
     [XYMustKnowNetTool getMustKnowDetailWithID:self.mustKnowID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
-        NSLog(@" -- %@",dic);
+        NSLog(@" -- %@",dic[mustKnow_mk_content]);
     } failure:nil];
 }
 

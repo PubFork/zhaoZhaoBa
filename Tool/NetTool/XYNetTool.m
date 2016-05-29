@@ -80,16 +80,13 @@
     if (isRefresh) {
         [viewController addActiveIVToMySelfView];
     }
-    
     return [self.class POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         [viewController removeActiveIVFromSelfView];
         
-        if ([responseObject[@"ret"] integerValue] == 0) {
-            success ? success(task, responseObject) : 0;
-        } else {
+        if ([responseObject[@"ret"] integerValue] != 0) {
             [kShowLabel setText:responseObject[@"msg"]];
         }
-        
+        success ? success(task, responseObject) : 0;
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [viewController removeActiveIVFromSelfView];
         [kShowLabel setText:@"网络未连接"];

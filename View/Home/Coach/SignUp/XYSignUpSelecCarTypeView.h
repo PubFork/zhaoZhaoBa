@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
+typedef void(^SelectCarTypeBlock)(NSString * carTypeID);
+
+
 static CGFloat signUpSelectCarType_animalTime = .4;
 
 @class XYAddActionView;
@@ -25,6 +28,8 @@ static CGFloat signUpSelectCarType_animalTime = .4;
 @property (nonatomic, strong)UIButton * cancleBtn;
 
 
+@property (nonatomic, copy)SelectCarTypeBlock selectCarTypeBlock;
+- (void)getSelectCarTypeWithBlock:(SelectCarTypeBlock)block;
 
 /**
  *  添加 这个 View

@@ -35,6 +35,7 @@ static NSString * cellKey = @"cell";
     [self addTableViewIsGroup:NO];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"XYMustKnowTableViewCell" bundle:nil] forCellReuseIdentifier:cellKey];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     WeakSelf(weakSelf);
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -43,7 +44,7 @@ static NSString * cellKey = @"cell";
         [weakSelf requestData];
     }];
     
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [weakSelf requestData];
     }];
     
@@ -86,6 +87,9 @@ static NSString * cellKey = @"cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYMustKnowTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellKey forIndexPath:indexPath];
+    if (indexPath.row >= self.groupArray.count) {
+        return cell;
+    }
     cell.myData = self.groupArray[indexPath.row];
     return cell;
 }

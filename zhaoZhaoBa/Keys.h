@@ -10,6 +10,8 @@
 #define Keys_h
 
 
+
+
 #pragma mark -------------------------------------------------------
 #pragma mark UM
 /**
@@ -45,6 +47,106 @@ static NSString * kLocation_latitude = @"latitude";
 static NSString * kLocation_longitude = @"longitude";
 
 
+
+//////////////////////////////////驾校列表类型////////////////////////////////////////
+
+
+/**
+ *  默认
+ */
+static NSString * driver_school_sort_type_default = @"默认排序";
+
+/**
+ *  价格
+ */
+static NSString * driver_school_sort_type_price = @"价格";
+
+/**
+ *  距离
+ */
+static NSString * driver_school_sort_type_distance = @"距离";
+
+/**
+ *  报名人数
+ */
+static NSString * driver_school_sort_type_sign_up_number = @"报名人数";
+
+/**
+ *  服务
+ */
+static NSString * driver_school_sort_type_service = @"服务";
+
+/**
+ *  车辆
+ */
+static NSString * driver_school_sort_type_car = @"车辆";
+
+/**
+ *  环境
+ */
+static NSString * driver_school_sort_type_environment = @"环境";
+
+
+
+
+
+/**
+ *  默认
+ */
+static NSString * DriverSchoolSortType_default = @"default";
+
+/**
+ *  推荐
+ */
+static NSString * DriverSchoolSortType_recommend = @"recommend";
+
+/**
+ *  价格
+ */
+static NSString * DriverSchoolSortType_price = @"price";
+
+/**
+ *  距离
+ */
+static NSString * DriverSchoolSortType_distance = @"distance";
+
+/**
+ *  报名人数
+ */
+static NSString * DriverSchoolSortType_signnumber = @"signnumber";
+
+
+/**
+ *  服务
+ */
+static NSString * DriverSchoolSortType_service = @"";
+
+/**
+ *  车辆
+ */
+static NSString * DriverSchoolSortType_car = @"";
+
+/**
+ *  环境
+ */
+static NSString * DriverSchoolSortType_environment = @"";
+
+////////////////////////////////// 驾校 排序 ////////////////////////////////////////
+
+/**
+ *  驾校列表 升序
+ */
+static NSString * DrvierSchoolSortRule_asc = @"asc";
+
+/**
+ *  驾校列表 降序
+ */
+static NSString * DrvierSchoolSortRule_desc = @"desc";
+
+
+
+
+
 //////////////////////////////////我的 VC////////////////////////////////////////
 
 /**
@@ -76,25 +178,58 @@ static NSString * my_shareGetMoney_vc_shareCell_title = @"my_shareGetMoney_vc_sh
 #pragma mark -------------------------------------------------------
 #pragma mark 网络数据 key
 
+
+
 //////////////////////////////////轮播图////////////////////////////////////////
 
 /**
  *  轮播图  图片地址
  */
-static NSString * carousePicture_imageUrl = @"imgurl";
+static NSString * carousePicture_imageUrl = @"pl_img";
 
 /**
  *  轮播图  链接地址
  */
-static NSString * carousePicture_link = @"link";
+static NSString * carousePicture_link = @"pl_link";
 
 
 //////////////////////////////////驾校 ////////////////////////////////////////
 
 /**
+ *  星级
+ */
+static NSString * driverScholl_school_str = @"schoolstar";
+
+/**
+ *  驾校 id
+ */
+static NSString * driverSchool_school_id = @"schoolid";
+
+/**
+ *  驾校 费用
+ */
+static NSString * driverSchool_school_fee = @"fee";
+
+
+/**
+ *  驾校 距离
+ */
+static NSString * driverSchool_school_distance = @"distance";
+
+/**
+ *  驾校 报名人数
+ */
+static NSString * driverSchool_school_number = @"number";
+
+/**
  *  驾校名字
  */
 static NSString * driverSchool_schoolname = @"schoolname";
+
+/**
+ *  驾校 logo
+ */
+static NSString * driverSchool_school_logo = @"schoollogo";
 
 
 ////////////////////////////////// 必知晓 ////////////////////////////////////////

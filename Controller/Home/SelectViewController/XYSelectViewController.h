@@ -14,6 +14,11 @@
 
 
 
+/**
+ *  返回点击的 label 如果isShow是YES 箭头是朝下的
+ */
+typedef void(^selectSort_name_block)(NSString * sortName, BOOL isShow);
+
 
 
 /**
@@ -72,6 +77,10 @@ static NSString * select_cell_key = @"cell";
 - (void)selectSort_blockWithBlock:(void(^)(NSString * key))selectSort_block;
 
 
+
+
+@property (nonatomic, copy)selectSort_name_block selectSort_name_block;
+- (void)getSelectSort_name_with_block:(selectSort_name_block)block;
 @end
 
 

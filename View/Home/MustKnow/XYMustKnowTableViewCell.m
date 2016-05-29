@@ -28,7 +28,7 @@
     NSLog(@" -- %@",myData);
     
     self.titleLabel.text = myData[mustKown_mk_Title];
-//    self.myImageView
+    [self.myImageView setImageWithURL:[NSURL URLWithString:[myData[mustKnow_mk_img] stringByReplacingOccurrencesOfString:@" " withString:@""]] placeholder:kDefaultImage];
 }
 
 @end

@@ -1,0 +1,35 @@
+//
+//  XYCoachNetTool.h
+//  zhaoZhaoBa
+//
+//  Created by apple on 16/5/29.
+//  Copyright © 2016年 apple. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "XYNetTool.h"
+NS_ASSUME_NONNULL_BEGIN
+@interface XYCoachNetTool : NSObject
+
+
+/**
+ *  获取教练 列表
+ *
+ *  @param type           排序 类型
+ *  @param sortRule       升序 还是 降序
+ *  @param page           第几页
+ *  @param isRefresh      是否刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)getCoachWithSortType:(NSString *)type
+                        rule:(NSString *)rule
+                        page:(NSInteger)page
+                   isRefresh:(BOOL)isRefresh
+              viewController:(XYRootViewController *)viewController
+                     success:(nullable void (^)(NSArray * array))success
+                     failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+@end
+NS_ASSUME_NONNULL_END

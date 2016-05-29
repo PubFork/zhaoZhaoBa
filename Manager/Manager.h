@@ -13,4 +13,28 @@
 + (Manager *)shareManager;
 
 - (void)createAlertOnceSureWithMessage:(NSString *)message title:(NSString *)title;
+
+/**
+ *  转换 为 String
+ */
+- (NSString *)getStringWithObj:(id)obj;
+
+/**
+ *  添加  人已报名
+ *
+ */
+- (NSString *)getStringAddNumberWithObj:(id)obj;
+
+/**
+ *  添加  km
+ *
+ */
+- (NSString *)getStringAddKMWithObj:(id)obj;
+
+
+/**
+ *  获取驾校排序类型
+ */
+- (NSString *)getDriverSchoolSortTypeWithChineseSortType:(NSString *)chinese;
+
 @end

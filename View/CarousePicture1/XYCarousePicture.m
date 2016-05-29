@@ -30,14 +30,17 @@
     page ++;
     
     //如果到了最后一张
-    if (page == self.groupArray.count - 1) {
+    if (page == self.groupArray.count) {
         self.pageControl.currentPage = 0;
         
     } else {
         self.pageControl.currentPage = page - 1;
     }
     
+    
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:page inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+    
+    
     if (page == self.groupArray.count - 1) {
         [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(moveCollectionView) userInfo:nil repeats:NO];
     }
@@ -63,10 +66,9 @@
 {
     
     XYCarousePictureCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"a" forIndexPath:indexPath];
-//    [cell.imageView setim]
+    [cell.imageView setImageWithURL:[NSURL URLWithString:self.groupArray[indexPath.row][carousePicture_imageUrl]] placeholder:kDefaultImage];
 
     cell.myData = self.groupArray[indexPath.row];
-    cell.imageView.backgroundColor = kRGB(arc4random()%255 , arc4random()%255 , arc4random()%255 );
     return cell;
 }
 
@@ -127,7 +129,7 @@
 {
     [self.timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:3]];
     
-    NSInteger page = scrollView.contentOffset.x / kScreenWidth;
+    NSInteger page = scrollView.contentOffset.x / self.width;
     if (page == 0) {
         page = self.groupArray.count;
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:page - 2 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];

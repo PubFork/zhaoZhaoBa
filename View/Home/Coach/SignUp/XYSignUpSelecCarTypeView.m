@@ -61,6 +61,11 @@ static NSString * signUp_cell_key = @"signUp_cell_key";
     }];
 }
 
+- (void)getSelectCarTypeWithBlock:(SelectCarTypeBlock)block
+{
+    self.selectCarTypeBlock = block;
+}
+
 #pragma mark -------------------------------------------------------
 #pragma mark Setting Method
 
@@ -105,7 +110,6 @@ static NSString * signUp_cell_key = @"signUp_cell_key";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYSignUpTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:signUp_cell_key forIndexPath:indexPath];
-    
     cell.titleLabel.text = self.groupArray[indexPath.row][sign_up_ct_title];
     return cell;
 }
@@ -113,6 +117,8 @@ static NSString * signUp_cell_key = @"signUp_cell_key";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    self.selectCarTypeBlock ? self.selectCarTypeBlock([kManager getStringWithObj:self.groupArray[indexPath.row][sign_up_ct_id]]) : 0;
 }
 
 

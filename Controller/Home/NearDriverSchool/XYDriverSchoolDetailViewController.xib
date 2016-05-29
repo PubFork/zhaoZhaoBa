@@ -8,7 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XYDriverSchoolDetailViewController">
             <connections>
                 <outlet property="allPriceLabel" destination="jMT-30-BPD" id="Ivu-Gi-ilK"/>
-                <outlet property="collectionView" destination="pgc-5J-g7g" id="qcm-be-kYl"/>
+                <outlet property="coachCollectionView" destination="pgc-5J-g7g" id="PHJ-Sr-hJh"/>
+                <outlet property="collectionViewHeight" destination="f5A-YD-HjJ" id="8X5-mW-0BQ"/>
                 <outlet property="commentContentHeight" destination="p6P-u7-xqF" id="dlg-gs-wYs"/>
                 <outlet property="commentContentLabel" destination="CeZ-2s-Vun" id="GKk-k3-jhZ"/>
                 <outlet property="commentHeadBtn" destination="1ct-jL-iyo" id="gG8-Uz-WJe"/>

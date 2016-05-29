@@ -192,6 +192,9 @@
 		185820231CCE247200A191BF /* XYHomeNaviBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820221CCE247200A191BF /* XYHomeNaviBar.m */; };
 		185820241CCE247200A191BF /* XYHomeNaviBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820221CCE247200A191BF /* XYHomeNaviBar.m */; };
 		1887EE001CCE36F5006DED7A /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887EDFF1CCE36F5006DED7A /* XYButton.m */; };
+		188FBF0E1CFAD35D0014B79E /* XYWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FBF0C1CFAD35D0014B79E /* XYWebViewViewController.m */; };
+		188FBF0F1CFAD35D0014B79E /* XYWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188FBF0D1CFAD35D0014B79E /* XYWebViewViewController.xib */; };
+		188FBF131CFAEBE80014B79E /* XYCoachNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FBF121CFAEBE80014B79E /* XYCoachNetTool.m */; };
 		1890514D1CCCD5AF003697A2 /* XYRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1890514C1CCCD5AF003697A2 /* XYRootTabBarViewController.m */; };
 		189051571CCCD79E003697A2 /* XYRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189051561CCCD79E003697A2 /* XYRootViewController.m */; };
 		1890515A1CCCD7B4003697A2 /* XYRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189051591CCCD7B4003697A2 /* XYRootNavigationController.m */; };
@@ -260,6 +263,8 @@
 		18A952911CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A9528F1CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib */; };
 		18A952951CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952931CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m */; };
 		18A952961CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A952941CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib */; };
+		18A9529A1CF9985D00CBF26D /* XYAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A952991CF9985D00CBF26D /* XYAlbumViewController.m */; };
+		18A9529F1CF99A6100CBF26D /* XYAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A9529D1CF99A6100CBF26D /* XYAlbumCollectionViewCell.m */; };
 		18BC61DA1CD59F0000AE8747 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61D91CD59F0000AE8747 /* area.plist */; };
 		18BC61DF1CD5B03200AE8747 /* MyShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61DE1CD5B03200AE8747 /* MyShowLabel.m */; };
 		18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61E21CD5B39400AE8747 /* QRViewController.m */; };
@@ -526,6 +531,11 @@
 		186094F31CCF72CE00E5C8F9 /* Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		1887EDFE1CCE36F5006DED7A /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
 		1887EDFF1CCE36F5006DED7A /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
+		188FBF0B1CFAD35D0014B79E /* XYWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYWebViewViewController.h; sourceTree = "<group>"; };
+		188FBF0C1CFAD35D0014B79E /* XYWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWebViewViewController.m; sourceTree = "<group>"; };
+		188FBF0D1CFAD35D0014B79E /* XYWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYWebViewViewController.xib; sourceTree = "<group>"; };
+		188FBF111CFAEBE80014B79E /* XYCoachNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCoachNetTool.h; sourceTree = "<group>"; };
+		188FBF121CFAEBE80014B79E /* XYCoachNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCoachNetTool.m; sourceTree = "<group>"; };
 		189051471CCCD54B003697A2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		1890514B1CCCD5AF003697A2 /* XYRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRootTabBarViewController.h; sourceTree = "<group>"; };
 		1890514C1CCCD5AF003697A2 /* XYRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRootTabBarViewController.m; sourceTree = "<group>"; };
@@ -633,6 +643,10 @@
 		18A952921CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCarShowAlbumCollectionReusableView.h; sourceTree = "<group>"; };
 		18A952931CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCarShowAlbumCollectionReusableView.m; sourceTree = "<group>"; };
 		18A952941CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCarShowAlbumCollectionReusableView.xib; sourceTree = "<group>"; };
+		18A952981CF9985D00CBF26D /* XYAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAlbumViewController.h; sourceTree = "<group>"; };
+		18A952991CF9985D00CBF26D /* XYAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAlbumViewController.m; sourceTree = "<group>"; };
+		18A9529C1CF99A6100CBF26D /* XYAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAlbumCollectionViewCell.h; sourceTree = "<group>"; };
+		18A9529D1CF99A6100CBF26D /* XYAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		18BC61D91CD59F0000AE8747 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		18BC61DB1CD5AFAA00AE8747 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		18BC61DD1CD5B03200AE8747 /* MyShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShowLabel.h; sourceTree = "<group>"; };
@@ -1150,9 +1164,30 @@
 			path = XYBtn;
 			sourceTree = "<group>";
 		};
+		188FBF0A1CFAD34F0014B79E /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				188FBF0B1CFAD35D0014B79E /* XYWebViewViewController.h */,
+				188FBF0C1CFAD35D0014B79E /* XYWebViewViewController.m */,
+				188FBF0D1CFAD35D0014B79E /* XYWebViewViewController.xib */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		188FBF101CFAEBDC0014B79E /* Coach */ = {
+			isa = PBXGroup;
+			children = (
+				188FBF111CFAEBE80014B79E /* XYCoachNetTool.h */,
+				188FBF121CFAEBE80014B79E /* XYCoachNetTool.m */,
+			);
+			path = Coach;
+			sourceTree = "<group>";
+		};
 		189051481CCCD582003697A2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				188FBF0A1CFAD34F0014B79E /* WebView */,
+				18A952971CF9983F00CBF26D /* Album */,
 				18BC61E01CD5B38E00AE8747 /* ScanCode */,
 				189051531CCCD785003697A2 /* My */,
 				1890514F1CCCD746003697A2 /* Home */,
@@ -1194,6 +1229,7 @@
 				189051521CCCD775003697A2 /* Community */,
 				18A07C601CDCBFE900725B8E /* SelectView */,
 				189051501CCCD749003697A2 /* Home */,
+				18A9529B1CF99A5100CBF26D /* Album */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1395,6 +1431,7 @@
 				18153ED81CF13BA500119811 /* MustKnow */,
 				18153ED41CF130AD00119811 /* User */,
 				18A07C331CDCB6A500725B8E /* HomeNetTool */,
+				188FBF101CFAEBDC0014B79E /* Coach */,
 			);
 			path = NetTool;
 			sourceTree = "<group>";
@@ -1538,6 +1575,24 @@
 				18A952941CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib */,
 			);
 			path = CarShowCollection;
+			sourceTree = "<group>";
+		};
+		18A952971CF9983F00CBF26D /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				18A952981CF9985D00CBF26D /* XYAlbumViewController.h */,
+				18A952991CF9985D00CBF26D /* XYAlbumViewController.m */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		18A9529B1CF99A5100CBF26D /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				18A9529C1CF99A6100CBF26D /* XYAlbumCollectionViewCell.h */,
+				18A9529D1CF99A6100CBF26D /* XYAlbumCollectionViewCell.m */,
+			);
+			path = Album;
 			sourceTree = "<group>";
 		};
 		18BC61DC1CD5B03200AE8747 /* ShowLabel */ = {
@@ -1715,6 +1770,7 @@
 				TargetAttributes = {
 					181529AA1CCCCE940060E4FC = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4MUMJ6BUER;
 					};
 					181529C31CCCCE940060E4FC = {
 						CreatedOnToolsVersion = 7.3;
@@ -1782,6 +1838,7 @@
 				180667521CF045A800CCC3CF /* 版本介绍@2x.png in Resources */,
 				1806675D1CF045A800CCC3CF /* 我的消息.png in Resources */,
 				18D358221CD5F54700E539E7 /* XYMustKnowTableViewCell.xib in Resources */,
+				188FBF0F1CFAD35D0014B79E /* XYWebViewViewController.xib in Resources */,
 				18581FEA1CCE0E6500A191BF /* 必知晓@2x.png in Resources */,
 				189051961CCCFE05003697A2 /* progress_2.png in Resources */,
 				180666C01CEFEEC200CCC3CF /* 教练加V.png in Resources */,
@@ -2034,8 +2091,11 @@
 				18A9521F1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m in Sources */,
 				180A4BB51CE6EC220033E5BD /* XYSignUpTableViewCell.m in Sources */,
 				180A4BB01CE6EB980033E5BD /* XYEndEidtView.m in Sources */,
+				18A9529F1CF99A6100CBF26D /* XYAlbumCollectionViewCell.m in Sources */,
 				18A07C5E1CDCBFAA00725B8E /* XYCoachDetailViewController.m in Sources */,
 				180666E91CEFFA3600CCC3CF /* XYAddCommunityViewController.m in Sources */,
+				18A9529A1CF9985D00CBF26D /* XYAlbumViewController.m in Sources */,
+				188FBF0E1CFAD35D0014B79E /* XYWebViewViewController.m in Sources */,
 				180A4B541CE6AAE70033E5BD /* XYPictureView.m in Sources */,
 				18A07C681CDCC1B900725B8E /* XYSelectViewController.m in Sources */,
 				18A07C4E1CDCB9EB00725B8E /* XYDriverSchoolViewController.m in Sources */,
@@ -2060,6 +2120,7 @@
 				18BC61EB1CD5B3A500AE8747 /* QRView.m in Sources */,
 				1826FA461CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.m in Sources */,
 				1806676D1CF049E800CCC3CF /* XYShoppingViewController.m in Sources */,
+				188FBF131CFAEBE80014B79E /* XYCoachNetTool.m in Sources */,
 				18A952311CF95F2D00CBF26D /* XYSelectLabel.m in Sources */,
 				18A952801CF9705F00CBF26D /* XYCarShowOneTypeTableViewCell.m in Sources */,
 				184C141A1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.m in Sources */,
@@ -2221,7 +2282,8 @@
 			baseConfigurationReference = 08B4B600780B2ECF1A1DA6E7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lingwei wang (D79TTCTL42)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhaoZhaoBa/PrefixHeader.pch";
 				INFOPLIST_FILE = zhaoZhaoBa/Info.plist;
@@ -2229,7 +2291,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4a3f098c-4e78-40f6-9be9-61b40705022e";
+				PROVISIONING_PROFILE = "a2fe3702-6576-4b0d-a48c-19afdc8e588d";
 			};
 			name = Debug;
 		};
@@ -2238,7 +2300,8 @@
 			baseConfigurationReference = DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lingwei wang (D79TTCTL42)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhaoZhaoBa/PrefixHeader.pch";
 				INFOPLIST_FILE = zhaoZhaoBa/Info.plist;
@@ -2246,7 +2309,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4a3f098c-4e78-40f6-9be9-61b40705022e";
+				PROVISIONING_PROFILE = "a2fe3702-6576-4b0d-a48c-19afdc8e588d";
 			};
 			name = Release;
 		};

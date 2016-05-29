@@ -15,6 +15,8 @@
 #import "XYCityTableView.h"
 #import "QRViewController.h"
 
+#import "XYWebViewViewController.h"
+
 //各个模块
 #import "XYMustKnowViewController.h"
 #import "XYDriverSchoolViewController.h"
@@ -91,7 +93,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
             [homeVC requestData];
         }];
         
-//        tableview.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        tableview.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
 //        }];
         
         homeVC.tableView = tableview;
@@ -130,7 +132,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
     [_locationManager startUpdatingLocation];
     
 
-    [self.tableView.header beginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)requestData
@@ -176,7 +178,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 - (void)isEndRefresh
 {
     if (!(-- self.requestNumber)) {
-        [self.tableView.header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
     }
 }
@@ -220,6 +222,13 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
     }];
     }
 
+- (void)pushWebViewWithUrl:(NSString *)url
+{
+    XYWebViewViewController * wbVC = [XYWebViewViewController shareXYWebViewViewController];
+    wbVC.url = url;
+    wbVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:wbVC animated:YES];
+}
 
 
 #pragma mark -------------------------------------------------------
@@ -254,12 +263,14 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
         return cell;
     }
     
+    WeakSelf(weakSelf);
     if (indexPath.section == 1) {
         XYHomeFuncationTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:home_funcationCell_key forIndexPath:indexPath];
         
         cell.carousePicture.groupArray = self.homeSmallCarousePictureImagesArray;
+        
         [cell.carousePicture carousePictureClickPictureWithBlock:^(NSString *url) {
-            NSLog(@" -- %@",url);
+            [weakSelf pushWebViewWithUrl:url];
         }];
         
         
@@ -299,7 +310,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
             }
             
             vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
         }];
         
         return cell;
@@ -308,10 +319,10 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
     XYHomeHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:home_headerCell_key forIndexPath:indexPath];
     cell.carousePicture.groupArray = self.homeCarousePictureImagesArray;
 
-
     [cell.carousePicture carousePictureClickPictureWithBlock:^(NSString *url) {
-        NSLog(@" -- %@",url);
+        [weakSelf pushWebViewWithUrl:url];        
     }];
+    
     return cell;
 }
 

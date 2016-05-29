@@ -11,47 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-//////////////////////////////////驾校列表类型////////////////////////////////////////
-
-/**
- *  默认
- */
-static NSString * DriverSchoolSortType_default = @"default";
-
-/**
- *  推荐
- */
-static NSString * DriverSchoolSortType_recommend = @"recommend";
-
-/**
- *  价格
- */
-static NSString * DriverSchoolSortType_price = @"price";
-
-/**
- *  距离
- */
-static NSString * DriverSchoolSortType_distance = @"distance";
-
-/**
- *  报名人数
- */
-static NSString * DriverSchoolSortType_signnumber = @"signnumber";
-
-
-
-
-////////////////////////////////// 驾校 排序 ////////////////////////////////////////
-
-/**
- *  驾校列表 升序
- */
-static NSString * DrvierSchoolSortRule_asc = @"asc";
-
-/**
- *  驾校列表 降序
- */
-static NSString * DrvierSchoolSortRule_desc = @"desc";
 
 @interface XYDriverSchoolNetTool : NSObject
 

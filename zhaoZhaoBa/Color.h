@@ -19,4 +19,6 @@
 #define kWhiteColor [UIColor whiteColor]
 
 
+#define kDefaultImage [UIImage imageNamed:@""]
+
 #endif /* Color_h */

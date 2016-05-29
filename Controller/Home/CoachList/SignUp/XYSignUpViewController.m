@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 
 
+@property (nonatomic, copy)NSString * carTypeID;
+
 @end
 
 
@@ -30,6 +32,10 @@
     [self setTitleLabelText:@"报名"];
 
     [self.signUpSelectCarTypeView addSignUpSelectCarTypeViewWithSuperView:self.view];
+    WeakSelf(weakSelf);
+    [self.signUpSelectCarTypeView getSelectCarTypeWithBlock:^(NSString *carTypeID) {
+        weakSelf.carTypeID = carTypeID;
+    }];
     
     [self requestData];
     
@@ -55,7 +61,7 @@
 //                     driverSchoolID:<#(nonnull NSString *)#>
 //                             userID:<#(nonnull NSString *)#>
 //                            coachID:<#(nonnull NSString *)#>
-//                            carType:<#(nonnull NSString *)#>
+//                            carType:self.carTypeID
 //                           sRefresh:YES
 //                     viewController:self
 //                            success:^{
@@ -70,7 +76,6 @@
 {
     if (!_signUpSelectCarTypeView) {
         _signUpSelectCarTypeView = [[XYSignUpSelecCarTypeView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, 30 + 44 * 3 + 30)];
-        
     }
     return _signUpSelectCarTypeView;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "XYCarShowAlbumDetailViewController.h"
+#import "XYAlbumViewController.h"
 
 @interface XYCarShowAlbumDetailViewController ()
 
@@ -53,7 +54,11 @@ static NSString * car_show_album_detail_cell_key = @"car_show_album_detail_cell_
 }
 
 
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    XYAlbumViewController * albumVC = [XYAlbumViewController shareXYAlbumViewController];
+    [self.navigationController pushViewController:albumVC animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {
