@@ -11,9 +11,9 @@
 @interface XYCoachDetailHeaderTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *imageBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameLbale;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameLabelWidth;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentLabelHeight;
 
+
+@property (nonatomic, strong)NSDictionary * myData;
 @end

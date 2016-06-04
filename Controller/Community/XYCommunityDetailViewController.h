@@ -9,5 +9,5 @@
 #import "XYRootViewController.h"
 
 @interface XYCommunityDetailViewController : XYRootViewController
-
+@property (nonatomic, strong)NSNumber * communityID;
 @end

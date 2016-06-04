@@ -25,7 +25,6 @@
 - (void)setMyData:(NSDictionary *)myData
 {
     _myData = myData;
-    NSLog(@" -- %@",myData);
     
     self.titleLabel.text = myData[mustKown_mk_Title];
     [self.myImageView setImageWithURL:[NSURL URLWithString:[myData[mustKnow_mk_img] stringByReplacingOccurrencesOfString:@" " withString:@""]] placeholder:kDefaultImage];

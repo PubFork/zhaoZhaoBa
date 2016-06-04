@@ -9,10 +9,9 @@
 #import "XYCommunityDetailViewController.h"
 #import "XYCommunityDetailTableViewCell.h"
 #import "XYAddCommunityViewController.h"
-
+#import "XYCommunityNetTool.h"
 
 @interface XYCommunityDetailViewController ()
-@property (nonatomic, strong)NSMutableArray * groupArray;
 @end
 
 static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
@@ -29,7 +28,17 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"XYCommunityDetailTableViewCell" bundle:nil] forCellReuseIdentifier:communtiy_detail_cell_key];
     self.tableView.height -= 50;
+    
+    [self addMJHeader];
+    [self addMJFooter];
+    
 }
+
+- (void)requestData
+{
+    
+}
+
 - (IBAction)clickAddCommunity:(id)sender {
     
     XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];

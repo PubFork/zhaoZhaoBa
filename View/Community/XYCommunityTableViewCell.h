@@ -25,6 +25,8 @@ typedef void(^clickCommunityBtnBlock)();
 @property (weak, nonatomic) IBOutlet UIButton *praiseBtn;
 @property (weak, nonatomic) IBOutlet UIButton *communityBtn;
 
+@property (nonatomic, strong)NSDictionary * myData;
+
 
 @property (nonatomic, copy)clickPraiseBtnBlock clickPraiseBtnBlock;
 - (void)clickPraiseBtnWithBlock:(clickPraiseBtnBlock)block;

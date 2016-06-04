@@ -13,9 +13,6 @@
 
 @interface XYMustKnowViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong)NSMutableArray * groupArray;
-
-@property (nonatomic, assign)NSInteger page;
 @end
 
 
@@ -37,16 +34,8 @@ static NSString * cellKey = @"cell";
     [self.tableView registerNib:[UINib nibWithNibName:@"XYMustKnowTableViewCell" bundle:nil] forCellReuseIdentifier:cellKey];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
-    WeakSelf(weakSelf);
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        weakSelf.page = 1;
-        [weakSelf.groupArray removeAllObjects];
-        [weakSelf requestData];
-    }];
-    
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf requestData];
-    }];
+    [self addMJHeader];
+    [self addMJFooter];
     
     [self.tableView.mj_header beginRefreshing];
 }
@@ -63,7 +52,7 @@ static NSString * cellKey = @"cell";
         [weakSelf.groupArray addObjectsFromArray:array];
         [weakSelf.tableView reloadData];
         
-        weakSelf.page += [weakSelf handleFooterWithCount:array.count];
+        [weakSelf handleFooterWithCount:array.count];
         
         
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {

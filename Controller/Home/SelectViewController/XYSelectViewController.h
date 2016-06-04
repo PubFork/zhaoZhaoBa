@@ -64,10 +64,6 @@ static NSString * select_cell_key = @"cell";
 @property (nonatomic, weak)XYButton * showBtn;
 
 
-/**
- *  主 tableView 数据
- */
-@property (nonatomic, strong)NSMutableArray * groupArray;
 
 
 /**

@@ -20,6 +20,12 @@ static NSString * coachCollectionView_cell_key = @"coachCollectionView_cell_key"
     [self.collectionView reloadData];
 }
 
+- (void)setGroupArray:(NSArray *)groupArray
+{
+    _groupArray = groupArray.copy;
+    
+    [self.collectionView reloadData];
+}
 
 
 #pragma mark -------------------------------------------------------
@@ -33,13 +39,13 @@ static NSString * coachCollectionView_cell_key = @"coachCollectionView_cell_key"
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 4;
     return self.groupArray.count > 4 ? 4 : self.groupArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCoachCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:coachCollectionView_cell_key forIndexPath:indexPath];
+    cell.myData = self.groupArray[indexPath.row];
     return cell;
 }
 

@@ -12,7 +12,6 @@
 #import "XYShoppingHeaderCollectionViewCell.h"
 
 @interface XYShoppingViewController ()
-@property (nonatomic, strong)NSMutableArray * groupArray;
 @end
 
 

@@ -13,8 +13,11 @@
 #import "XYSignUpViewController.h"
 
 
+#import "XYCoachNetTool.h"
+
 @interface XYCoachDetailViewController ()
-@property (nonatomic, strong)NSMutableArray * groupArray;
+@property (nonatomic, strong)NSDictionary * coachDic;
+
 @end
 
 static NSString * coachDetail_header_cell_key = @"coachDetail_header_cell_key";
@@ -34,7 +37,57 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
     [self.tableView registerNib:[UINib nibWithNibName:@"XYCoachDetailCommentListTableViewCell" bundle:nil] forCellReuseIdentifier:coachDetail_comment_cell_key];
 
     self.tableView.height -= 50;
+    
+    [self requestCoachData];
+    
+    
+    [self addMJHeader];
+    [self addMJFooter];
+    
+    [self.tableView.mj_header beginRefreshing];
 }
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    
+   
+    [XYCoachNetTool getCoachCommentWithID:self.coachID page:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        
+        NSMutableArray * newArr = @[].mutableCopy;
+        for (NSDictionary * dic in array) {
+            NSString * content = dic[community_content];
+            NSInteger height = [content boundingRectWithSize:CGSizeMake(kScreenWidth - 74, 22222) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height + 95;
+            NSMutableDictionary * dics = dic.mutableCopy;
+            [dics setValue:@(height) forKey:@"cell_height"];
+            [newArr addObject:dics];
+        }
+        
+        [weakSelf.groupArray addObjectsFromArray:newArr];
+        [weakSelf endRefresh];
+        
+        weakSelf.tableView.mj_footer.hidden = array.count < pageSize;
+        [weakSelf.tableView reloadData];
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+        weakSelf.tableView.mj_footer.hidden = YES;
+        [weakSelf.tableView reloadData];
+    }];
+
+}
+
+- (void)requestCoachData
+{
+    WeakSelf(weakSelf);
+    
+    [XYCoachNetTool getCoachDetailWithID:self.coachID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+        weakSelf.coachDic = dic;
+        [weakSelf.tableView reloadData];
+    } failure:nil];
+}
+
+
 - (IBAction)clickSignUp:(id)sender {
     
     XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
@@ -51,8 +104,6 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
     if (section == 0) {
         return 1;
     }
-    
-    return 10;
     return self.groupArray.count;
 }
 
@@ -60,11 +111,12 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
 {
     if (indexPath.section == 0) {
         XYCoachDetailHeaderTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:coachDetail_header_cell_key forIndexPath:indexPath];
+        cell.myData = self.coachDic;
         return cell;
     }
     
     XYCoachDetailCommentListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:coachDetail_comment_cell_key forIndexPath:indexPath];
-    
+    cell.myData = self.groupArray[indexPath.row];
     return cell;
 }
 
@@ -102,9 +154,12 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 166;
+        NSString * content = self.coachDic[coach_c_profile];
+        NSInteger height = [content boundingRectWithSize:CGSizeMake(kScreenWidth - 16, 22222) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size.height;
+        
+        return 130 + height;
     }
-    return 128;
+    return [self.groupArray[indexPath.section][@"cell_height"] integerValue];
 }
 
 - (void)didReceiveMemoryWarning {

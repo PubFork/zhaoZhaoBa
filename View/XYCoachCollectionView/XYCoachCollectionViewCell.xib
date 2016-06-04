@@ -39,7 +39,7 @@
                             <constraint firstAttribute="width" constant="36" id="Wuc-Dm-Db5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="20" image="aaa.png">
+                        <state key="normal" title="20" image="顶.png">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -51,7 +51,7 @@
                             <constraint firstAttribute="width" constant="36" id="rS0-hi-uqo"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="20" image="aaa.png">
+                        <state key="normal" title="20" image="踩.png">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -94,10 +94,18 @@
                 <constraint firstAttribute="trailing" secondItem="2MW-hN-NEl" secondAttribute="trailing" constant="8" id="nGa-ZL-EGL"/>
             </constraints>
             <size key="customSize" width="259" height="264"/>
+            <connections>
+                <outlet property="coachDetail" destination="5yK-P7-SDQ" id="amG-I4-lR6"/>
+                <outlet property="imageView" destination="VTn-qt-cWU" id="R04-0f-Ht7"/>
+                <outlet property="nameLabel" destination="2MW-hN-NEl" id="IGg-8O-fNO"/>
+                <outlet property="praiseBtn" destination="scs-AB-Ccz" id="lGK-lN-JwR"/>
+                <outlet property="unPraisaBtn" destination="nPs-FU-AWr" id="5Rk-Kq-WrD"/>
+            </connections>
             <point key="canvasLocation" x="438" y="437"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="aaa.png" width="21" height="23"/>
+        <image name="踩.png" width="10" height="10"/>
+        <image name="顶.png" width="10" height="10"/>
     </resources>
 </document>

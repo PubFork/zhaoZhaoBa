@@ -12,7 +12,6 @@
 #import "XYNoviceOfRoadDetailViewController.h"
 
 @interface XYNoviceOfRoadViewController ()
-@property (nonatomic, strong)NSMutableArray * groupArray;
 @end
 
 static NSString * novice_of_road_cell_key = @"novice_of_road_cell_key";

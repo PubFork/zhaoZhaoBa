@@ -14,7 +14,6 @@
 
 @interface XYDriverSchoolViewController ()
 
-@property (nonatomic, assign)NSInteger page;
 
 
 @property (nonatomic, copy)NSString * sortType;
@@ -99,6 +98,8 @@
                                                    
                                                } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                                                    [weakSelf endRefresh];
+                                                   weakSelf.tableView.mj_footer.hidden = YES;
+                                                   [weakSelf.tableView reloadData];
                                                }];
 }
 
@@ -166,7 +167,6 @@
 {
     XYDriverSchoolDetailViewController * driverSchoolDetailVC = [[XYDriverSchoolDetailViewController alloc] init];
     driverSchoolDetailVC.driverSchoolID = [self.groupArray[indexPath.row][driverSchool_school_id] integerValue];
-    NSLog(@" -- %@",self.groupArray[indexPath.row]);
     [self.navigationController pushViewController:driverSchoolDetailVC animated:YES];
 }
 

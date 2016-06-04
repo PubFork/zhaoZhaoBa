@@ -8,6 +8,7 @@
 
 #import "XYRootViewController.h"
 
-@interface XYCoachDetailViewController : XYRootViewController
 
+@interface XYCoachDetailViewController : XYRootViewController
+@property (nonatomic, strong)NSNumber * coachID;
 @end

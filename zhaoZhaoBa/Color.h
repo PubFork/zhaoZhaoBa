@@ -19,6 +19,6 @@
 #define kWhiteColor [UIColor whiteColor]
 
 
-#define kDefaultImage [UIImage imageNamed:@""]
+#define kDefaultImage [UIImage imageNamed:@"占位图"]
 
 #endif /* Color_h */

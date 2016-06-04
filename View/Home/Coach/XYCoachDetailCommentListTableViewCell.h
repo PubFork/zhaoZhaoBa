@@ -19,4 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
+@property (nonatomic, strong)NSDictionary * myData;
+
 @end

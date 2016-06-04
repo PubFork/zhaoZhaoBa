@@ -71,7 +71,7 @@
         pictureView.backgroundColor = kWhiteColor;
         pictureView.tag = xYPictureView_BaseTag + i;
         [pictureView clickView:^(UIImageView *view) {
-            NSLog(@" clickImageView tag = %d",view.tag - xYPictureView_BaseTag);
+            NSLog(@" clickImageView tag = %ld",view.tag - xYPictureView_BaseTag);
         }];
         [self addSubview:pictureView];
         [self.subviewsArray addObject:pictureView];
@@ -86,8 +86,6 @@
         label.hidden = YES;
         [self.labelsArray addObject:label];
         
-        NSLog(@" -- %@",pictureView);
-        pictureView.backgroundColor = [UIColor orangeColor];
         x ++;
     }
     
@@ -102,7 +100,12 @@
     for (int i = 0 ; i < allSubviews; i ++) {
         XYAddActionImageView * pictureView = self.subviewsArray[i];
         pictureView.hidden = NO;
-        pictureView.image = kImage(self.imagesArray[i]);
+        
+        
+        id obj = self.imagesArray[i];
+        if ([obj isKindOfClass:[NSDictionary class]] && self.type == XYPictureViewType_DriverSchool) {
+            [pictureView setImageWithURL:[NSURL URLWithString:obj[carousePicture_imageUrl]] placeholder:kDefaultImage];
+        }
         
         UILabel * label = self.labelsArray[i];
         label.hidden = !self.isHasLabel;

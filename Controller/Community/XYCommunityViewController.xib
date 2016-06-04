@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLN-ra-ywv">
-                    <rect key="frame" x="269" y="476" width="33" height="33"/>
+                    <rect key="frame" x="269" y="515" width="33" height="33"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="33" id="gAk-ec-cbE"/>
                         <constraint firstAttribute="height" constant="33" id="ibM-hq-IqU"/>
@@ -27,7 +27,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zds-VU-89o">
-                    <rect key="frame" x="269" y="435" width="33" height="33"/>
+                    <rect key="frame" x="269" y="474" width="33" height="33"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="33" id="LOe-XQ-gPg"/>
                         <constraint firstAttribute="height" constant="33" id="pcj-PV-dWP"/>
@@ -42,7 +42,7 @@
             <constraints>
                 <constraint firstItem="CLN-ra-ywv" firstAttribute="top" secondItem="zds-VU-89o" secondAttribute="bottom" constant="8" id="1JB-JL-18L"/>
                 <constraint firstAttribute="trailing" secondItem="zds-VU-89o" secondAttribute="trailing" constant="18" id="NH6-BR-eyP"/>
-                <constraint firstAttribute="bottom" secondItem="CLN-ra-ywv" secondAttribute="bottom" constant="59" id="aD2-d0-sge"/>
+                <constraint firstAttribute="bottom" secondItem="CLN-ra-ywv" secondAttribute="bottom" constant="20" id="aD2-d0-sge"/>
                 <constraint firstAttribute="trailing" secondItem="CLN-ra-ywv" secondAttribute="trailing" constant="18" id="pp5-Eo-XWn"/>
             </constraints>
             <point key="canvasLocation" x="334" y="300"/>

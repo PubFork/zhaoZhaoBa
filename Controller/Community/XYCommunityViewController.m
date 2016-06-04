@@ -11,9 +11,9 @@
 #import "XYCommunityDetailViewController.h"
 #import "XYAddCommunityViewController.h"
 
-@interface XYCommunityViewController ()
+#import "XYCommunityNetTool.h"
 
-@property (nonatomic, strong)NSMutableArray * groupArray;
+@interface XYCommunityViewController ()
 
 @end
 
@@ -39,16 +39,52 @@ static NSString * community_cell_key = @"community_cell_key";
     
     [self.view sendSubviewToBack:self.tableView];
     
-    
     if (!self.style) {
-        [self removeBackBtn];
         [self setTitleLabelText:@"社区汇"];
-        self.tableView.height -= kTabBar_Height;
+        
+        [self addMJHeader];
+        [self addMJFooter];
+        
+        
     } else {
         [self setTitleLabelText:@"评论"];
     }
     
+    [self.tableView.mj_header beginRefreshing];
+
 }
+
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    
+    [XYCommunityNetTool getCommunityListWithPage:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        
+        NSMutableArray * newArr = @[].mutableCopy;
+        for (NSDictionary * dic in array) {
+            NSString * content = dic[community_content];
+            NSInteger height = [content boundingRectWithSize:CGSizeMake(kScreenWidth - 16, 22222) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height + 100;
+            NSMutableDictionary * dics = dic.mutableCopy;
+            [dics setValue:@(height) forKey:@"cell_height"];
+            [newArr addObject:dics];
+        }
+        
+        [weakSelf.groupArray addObjectsFromArray:newArr];
+        
+        [weakSelf endRefresh];
+        
+        [weakSelf handleFooterWithCount:array.count];
+        [weakSelf.tableView reloadData];
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+        weakSelf.tableView.mj_footer.hidden = YES;
+        [weakSelf.tableView reloadData];
+    }];
+    
+}
+
 - (IBAction)clickAddBtn:(id)sender {
     
     XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
@@ -68,7 +104,6 @@ static NSString * community_cell_key = @"community_cell_key";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
     return self.groupArray.count;
 }
 
@@ -80,6 +115,9 @@ static NSString * community_cell_key = @"community_cell_key";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCommunityTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:community_cell_key forIndexPath:indexPath];
+    
+    cell.myData = self.groupArray[indexPath.section];
+    
     WeakSelf(weakSelf);
     [cell clickPraiseBtnWithBlock:^{
         
@@ -97,7 +135,7 @@ static NSString * community_cell_key = @"community_cell_key";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 203;
+    return [self.groupArray[indexPath.section][@"cell_height"] integerValue];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -113,8 +151,8 @@ static NSString * community_cell_key = @"community_cell_key";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCommunityDetailViewController * communityDetailVC = [[XYCommunityDetailViewController alloc] init];
-    communityDetailVC.hidesBottomBarWhenPushed = YES;
-
+    communityDetailVC.communityID = self.groupArray[indexPath.section][community_communityid];
+    
     [self.navigationController pushViewController:communityDetailVC animated:YES];
 }
 

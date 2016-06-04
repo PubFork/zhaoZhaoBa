@@ -116,7 +116,7 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
             [self.showOneTableView hidden];
             //如果点击的不是高亮的，那么做数据的处理，如果是高亮 不做任何动作
             if (!isHighlighted) {
-                NSLog(@"处理数据。。。 --- %d",index);
+                NSLog(@"处理数据。。。 --- %ld",(long)index);
 
             }
         }];

@@ -15,7 +15,6 @@
     UICollectionView * _collectionView;
 }
 
-@property (nonatomic, copy)NSArray * groupArray;
 @end
 
 
@@ -40,7 +39,7 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.collectionView];
     
-    self.groupArray = @[@"picture1",@"picture2",@"picture3"];
+    self.groupArray = @[@"picture1",@"picture2",@"picture3"].mutableCopy;
 }
 
 

@@ -31,10 +31,27 @@
  */
 - (NSString *)getStringAddKMWithObj:(id)obj;
 
+/**
+ *  添加  元
+ *
+ */
+- (NSString *)getStringAddYuanWithObj:(id)obj;
+
+/**
+ *  添加 XX年教龄
+ *
+ */
+- (NSString *)getStringAddXXYearWithObj:(id)obj;
+
+
 
 /**
  *  获取驾校排序类型
  */
 - (NSString *)getDriverSchoolSortTypeWithChineseSortType:(NSString *)chinese;
 
+/**
+ *  获取教练排序类型
+ */
+- (NSString *)getCoachSortTypeWithChineseSortType:(NSString *)chinese;
 @end

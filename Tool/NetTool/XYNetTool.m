@@ -80,6 +80,14 @@
     if (isRefresh) {
         [viewController addActiveIVToMySelfView];
     }
+    
+    NSString * url_ = [URLString stringByAppendingString:@"?"];
+    for (NSString * key in [parameters allKeys]) {
+        url_ = [url_ stringByAppendingFormat:@"%@=%@&",key,parameters[key]];
+    }
+    
+    NSLog(@" Request URL ===>  %@",url_);
+    
     return [self.class POST:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         [viewController removeActiveIVFromSelfView];
         

@@ -26,6 +26,30 @@
 }
 
 
+- (void)setMyData:(NSDictionary *)myData
+{
+    _myData = myData;
+    
+    [self.userImageView setImageWithURL:[NSURL URLWithString:myData[community_userimg]] forState:UIControlStateNormal placeholder:kDefaultImage];
+    self.nameLabel.text = myData[community_username];
+    self.timeLabel.text = myData[community_time];
+    self.contentLabel.text = myData[community_content];
+    self.driverSchoolLabel.text = myData[driverSchool_schoolname];
+    
+    NSString * praise = [kManager getStringWithObj:myData[community_praise_number]];
+    if (praise.integerValue > 999) {
+        praise = @"999+";
+    }
+    [self.praiseBtn setTitle:praise forState:UIControlStateNormal];
+    
+    praise = [kManager getStringWithObj:myData[community_replynumber]];
+    if (praise.integerValue > 999) {
+        praise = @"999+";
+    }
+    
+    [self.communityBtn setTitle:praise forState:UIControlStateNormal];
+}
+
 - (IBAction)clickPraiseBtn:(id)sender {
     
     self.clickPraiseBtnBlock ? self.clickPraiseBtnBlock() : 0;

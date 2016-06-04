@@ -22,12 +22,20 @@
     [self setTitleLabelText:@"必知晓"];
     
     [self requestData];
+    
+    
+   
 }
 
 - (void)requestData
 {
-    [XYMustKnowNetTool getMustKnowDetailWithID:self.mustKnowID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+    [XYMustKnowNetTool getMustKnowDetailWithID:1 isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
         NSLog(@" -- %@",dic[mustKnow_mk_content]);
+        UIWebView * webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64)];
+        [self.view addSubview:webView];
+        [webView loadHTMLString:dic[mustKnow_mk_content] baseURL:nil];
+        
+        
     } failure:nil];
 }
 

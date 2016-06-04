@@ -23,6 +23,8 @@
 @property (nonatomic, strong)UICollectionView * collectionView;
 
 
+@property (nonatomic, assign)NSInteger page;
+@property (nonatomic, strong)NSMutableArray * groupArray;
 
 
 ////////////////////////////////// 网络请求相关 ////////////////////////////////////////
@@ -31,11 +33,15 @@
 - (void)hiddenFooter;
 - (void)showFooter;
 
+
+- (void)addMJHeader;
+- (void)addMJFooter;
+- (void)requestData;
+
 /**
- *  处理 footer 看是否需要 隐藏 如果不需要隐藏 那么返回1 如果隐藏 返回0
- *  举个栗子：  weakSelf.page += [weakSelf handleFooterWithCount:array.count];
+ *  处理 footer 看是否需要 隐藏
  */
-- (NSInteger)handleFooterWithCount:(NSInteger)count;
+- (void)handleFooterWithCount:(NSInteger)count;
 
 ////////////////////////////////// 界面 相关 ////////////////////////////////////////
 /**

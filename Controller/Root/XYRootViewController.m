@@ -15,6 +15,11 @@
 
 @implementation XYRootViewController
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {return 0;};
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {return 0;};
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {return nil;};
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {return nil;};
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -67,10 +72,14 @@
     self.tableView.mj_footer.hidden = NO;
 }
 
-- (NSInteger)handleFooterWithCount:(NSInteger)count
+- (void)handleFooterWithCount:(NSInteger)count
 {
     self.tableView.mj_footer.hidden = !(count >= pageSize);
-    return self.tableView.mj_footer.hidden ? 0 : 1;
+    
+    NSInteger is__ = self.tableView.mj_footer.hidden ? 0 : 1;
+    self.page += is__;
+    self.tableView.mj_footer.hidden = is__;
+    
 }
 ////////////////////////////////// 界面 相关 ////////////////////////////////////////
 
@@ -89,6 +98,34 @@
 
 
     [self.view addSubview:self.tableView];
+}
+
+- (void)addMJHeader
+{
+    self.groupArray ? 0 : (self.groupArray = @[].mutableCopy);
+    
+    WeakSelf(weakSelf);
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 1;
+        [weakSelf.groupArray removeAllObjects];
+        [weakSelf requestData];
+    }];
+    
+    
+}
+- (void)addMJFooter
+{
+    self.groupArray ? 0 : (self.groupArray = @[].mutableCopy);
+
+    WeakSelf(weakSelf);
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestData];
+    }];
+}
+
+- (void)requestData
+{
+    
 }
 
 - (void)addCollectionView

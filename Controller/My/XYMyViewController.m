@@ -37,7 +37,6 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self removeBackBtn];
     [self setTitleLabelText:@"我的"];
     [self addTableViewIsGroup:YES];
     

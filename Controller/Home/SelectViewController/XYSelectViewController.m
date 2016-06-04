@@ -72,7 +72,6 @@
     if (!_selectView) {
         _selectView = [[XYSelectView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, 30)];
         
-        WeakSelf(weakSelf);
         
         [_selectView clickSelectView_blockWithBlock:^(XYButton *btn) {
             

@@ -41,6 +41,7 @@ static NSInteger xYPictureView_BaseTag = 2312532;
  */
 - (void)setImagesArray:(NSArray *)imagesArray type:(XYPictureViewType)type;
 
+@property (nonatomic, strong)NSArray * allArray;
 //别直接给这两个赋值
 @property (nonatomic, assign)XYPictureViewType type;
 @property (nonatomic, copy)NSArray * imagesArray;

@@ -43,6 +43,19 @@
     return [NSString stringWithFormat:@"%@km",obj];
 }
 
+- (NSString *)getStringAddYuanWithObj:(id)obj
+{
+    return [NSString stringWithFormat:@"%@元",obj];
+}
+
+/**
+ *  添加 XX年教龄
+ *
+ */
+- (NSString *)getStringAddXXYearWithObj:(id)obj
+{
+    return [NSString stringWithFormat:@"%@年教龄",obj];
+}
 
 /**
  *  获取驾校排序类型
@@ -63,6 +76,21 @@
         return DriverSchoolSortType_car;
     } else if ([chinese isEqualToString:driver_school_sort_type_environment]) {
         return DriverSchoolSortType_environment;
+    }
+    return @"";
+}
+
+/**
+ *  获取教练排序类型
+ */
+- (NSString *)getCoachSortTypeWithChineseSortType:(NSString *)chinese
+{
+    if ([chinese isEqualToString:coach_list_chinese_type_default]) {
+        return coach_list_type_default;
+    } else if ([chinese isEqualToString:coach_list_chinese_type_praisenumber]) {
+        return coach_list_type_praisenumber;
+    } else if ([chinese isEqualToString:coach_list_chinese_type_distance]) {
+        return coach_list_type_distance;
     }
     return @"";
 }

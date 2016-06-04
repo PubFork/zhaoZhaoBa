@@ -47,6 +47,8 @@ static NSString * kLocation_latitude = @"latitude";
 static NSString * kLocation_longitude = @"longitude";
 
 
+#pragma mark -------------------------------------------------------
+#pragma mark 驾校列表类型
 
 //////////////////////////////////驾校列表类型////////////////////////////////////////
 
@@ -131,7 +133,11 @@ static NSString * DriverSchoolSortType_car = @"";
  */
 static NSString * DriverSchoolSortType_environment = @"";
 
-////////////////////////////////// 驾校 排序 ////////////////////////////////////////
+
+#pragma mark -------------------------------------------------------
+#pragma mark 驾校 & 教练 排序
+
+////////////////////////////////// 驾校 & 教练 排序 ////////////////////////////////////////
 
 /**
  *  驾校列表 升序
@@ -144,8 +150,48 @@ static NSString * DrvierSchoolSortRule_asc = @"asc";
 static NSString * DrvierSchoolSortRule_desc = @"desc";
 
 
+#pragma mark -------------------------------------------------------
+#pragma mark 教练列表 类型
+
+////////////////////////////////// 教练列表 类型 ////////////////////////////////////////
 
 
+/**
+ *  默认
+ */
+static NSString * coach_list_chinese_type_default = @"好评";
+
+/**
+ *  点赞次数
+ */
+static NSString * coach_list_chinese_type_praisenumber = @"点赞次数";
+
+/**
+ *  最近教练
+ */
+static NSString * coach_list_chinese_type_distance = @"最近教练";
+
+
+
+
+/**
+ *  默认
+ */
+static NSString * coach_list_type_default = @"star";
+
+/**
+ *  点赞次数
+ */
+static NSString * coach_list_type_praisenumber = @"praisenumber";
+
+/**
+ *  距离
+ */
+static NSString * coach_list_type_distance = @"distance";
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark 我的 VC
 
 //////////////////////////////////我的 VC////////////////////////////////////////
 
@@ -180,6 +226,9 @@ static NSString * my_shareGetMoney_vc_shareCell_title = @"my_shareGetMoney_vc_sh
 
 
 
+#pragma mark -------------------------------------------------------
+#pragma mark 轮播图
+
 //////////////////////////////////轮播图////////////////////////////////////////
 
 /**
@@ -192,6 +241,9 @@ static NSString * carousePicture_imageUrl = @"pl_img";
  */
 static NSString * carousePicture_link = @"pl_link";
 
+
+#pragma mark -------------------------------------------------------
+#pragma mark 驾校
 
 //////////////////////////////////驾校 ////////////////////////////////////////
 
@@ -232,6 +284,62 @@ static NSString * driverSchool_schoolname = @"schoolname";
 static NSString * driverSchool_school_logo = @"schoollogo";
 
 
+/**
+ *  图片列表
+ */
+static NSString * driverSchool_detail_imglist = @"imglist";
+
+/**
+ *  最后交易时间
+ */
+static NSString * driverSchool_detail_lastordertime = @"lastordertime";
+
+/**
+ *  报名人数(半年交易人数？)
+ */
+static NSString * driverSchool_detail_transnumber = @"transnumber";
+/**
+ *  总交易额
+ */
+
+static NSString * driverSchool_detail_transamount = @"transamount";
+
+
+/**
+ *  优惠价
+ */
+static NSString * driverSchool_detail_discountprice = @"discountprice";
+
+/**
+ *  评论
+ */
+static NSString * driverSchool_detail_comment = @"comment";
+
+/**
+ *  教练列表
+ */
+static NSString * driverSchool_detail_coachlist = @"coachlist";
+
+
+/**
+ *  驾校 简介
+ */
+static NSString * driverSchool_detail_profile = @"profile";
+
+/**
+ *  驾校 特色
+ */
+static NSString * driverSchool_detail_characteristic = @"characteristic";
+
+/**
+ *  驾校 说明
+ */
+static NSString * driverSchool_detail_explain = @"explain";
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark 必知晓
+
 ////////////////////////////////// 必知晓 ////////////////////////////////////////
 
 /**
@@ -264,6 +372,10 @@ static NSString * mustKnow_mk_time   = @"mk_time";
  */
 static NSString * mustKnow_mk_content   = @"mk_content";
 
+
+#pragma mark -------------------------------------------------------
+#pragma mark 报名
+
 ////////////////////////////////// 报名 ////////////////////////////////////////
 
 /**
@@ -275,5 +387,150 @@ static NSString * sign_up_ct_id = @"ct_id";
  *  车型 名称
  */
 static NSString * sign_up_ct_title = @"ct_title";
+
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark 教练
+
+////////////////////////////////// 教练 ////////////////////////////////////////
+
+
+/**
+ *  教练 ID
+ */
+static NSString * coach_c_id = @"c_id";
+
+/**
+ *  驾龄
+ */
+static NSString * coach_c_driving = @"c_driving";
+
+/**
+ *  通过率
+ */
+static NSString * coach_passrate = @"passrate";
+
+/**
+ *  教练的驾校ID
+ */
+static NSString * coach_c_dsid = @"c_dsid";
+
+/**
+ *  教练 图片
+ */
+static NSString * coach_c_img = @"c_img";
+
+/**
+ *  教练 姓名
+ */
+static NSString * coach_c_name = @"c_name";
+
+/**
+ *  电话
+ */
+static NSString * coach_c_phone = @"c_phone";
+
+/**
+ *  简介
+ */
+static NSString * coach_c_profile = @"c_profile";
+
+/**
+ *  教练 历史
+ */
+static NSString * coach_c_praiseNubmer = @"c_praiseNubmer";
+
+/**
+ *  教练 类型
+ */
+static NSString * coach_c_type = @"c_type";
+
+/**
+ *  教练 喜欢
+ */
+static NSString * coach_like = @"like";
+
+/**
+ *  教练 不喜欢
+ */
+static NSString * coach_unlike = @"unlike";
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark 社区汇
+////////////////////////////////// 社区汇 ////////////////////////////////////////
+
+/**
+ *  社区id
+ */
+static NSString * community_communityid = @"communityid";
+
+/**
+ *  发布内容
+ */
+static NSString * community_content = @"content";
+
+/**
+ *  发布时间
+ */
+static NSString * community_time = @"time";
+
+/**
+ *  用户头像
+ */
+static NSString * community_userimg = @"userimg";
+
+/**
+ *  用户名字
+ */
+static NSString * community_username = @"username";
+
+/**
+ *  点赞数
+ */
+static NSString * community_praise_number = @"star";
+
+/**
+ *  回复人数
+ */
+static NSString * community_replynumber = @"replynumber";
+
+#pragma mark -------------------------------------------------------
+#pragma mark 评论
+
+////////////////////////////////// 评论 ////////////////////////////////////////
+
+/**
+ *  评论id
+ */
+static NSString * comment_pdid = @"pdid";
+
+/**
+ *  评论时间
+ */
+static NSString * comment_time = @"time";
+
+/**
+ *  评论内容
+ */
+static NSString * comment_content = @"content";
+
+/**
+ *  评论 点赞数
+ */
+static NSString * comment_praisepoint = @"praisepoint";
+
+/**
+ *  评论 用户名字
+ */
+static NSString * comment_username = @"username";
+
+/**
+ *  评论 用户头像
+ */
+static NSString * comment_userimg = @"userimg";
+
+
 
 #endif /* Keys_h */

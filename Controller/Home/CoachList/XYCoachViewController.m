@@ -9,9 +9,11 @@
 #import "XYCoachViewController.h"
 #import "XYCoachDetailViewController.h"
 #import "XYCoachTableViewCell.h"
+#import "XYCoachNetTool.h"
 
 @interface XYCoachViewController ()
-
+@property (nonatomic, copy)NSString * sortType;
+@property (nonatomic, assign)BOOL rule;
 @end
 
 @implementation XYCoachViewController
@@ -21,33 +23,58 @@
     //tableView 在最下面
     [self addTableViewIsGroup:YES];
     [self.tableView registerNib:[UINib nibWithNibName:@"XYCoachTableViewCell" bundle:nil] forCellReuseIdentifier:select_cell_key];
-    self.tableView.mj_y = CGRectGetMaxY(self.selectView.frame) + 1;
+    self.tableView.mj_y = CGRectGetMaxY(self.selectView.frame);
+    self.tableView.height = kScreenHeight - self.tableView.mj_y;
+    
+    WeakSelf(weakSelf);
+    [self addMJFooter];
+    [self addMJHeader];
+    
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.selectView setArray:@[@"好评",@"点赞次数",@"最近教练"]];
+    [self.selectView setArray:@[coach_list_chinese_type_default,
+                                coach_list_chinese_type_praisenumber,
+                                coach_list_chinese_type_distance]];
     
+    self.sortType = coach_list_type_default;
+    self.rule = DrvierSchoolSortRule_desc;
     
-    
-    NSMutableArray * array = @[].mutableCopy;
-    
-    for (int i = 0 ; i < 3; i ++) {
-        NSMutableArray * a = @[].mutableCopy;
-        for (int i = 0 ; i < arc4random()% 40; i ++) {
-            [a addObject:[NSString stringWithFormat:@"%d",arc4random()% 100]];
-        }
-        [array addObject:a];
-    }
-    
-    self.selectTableViewArray = array.copy;
-    
-    
-    [self selectSort_blockWithBlock:^(NSString *key) {
-        NSLog(@"-- %@",key);
+    [self getSelectSort_name_with_block:^(NSString *sortName, BOOL isShow) {
+        weakSelf.rule = isShow;
+        weakSelf.sortType = [kManager getCoachSortTypeWithChineseSortType:sortName];
+        
+        [weakSelf.tableView.mj_header beginRefreshing];
     }];
     
     [self setTitleLabelText:@"教练榜"];
+    
+    [self.tableView.mj_header beginRefreshing];
+
+}
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    NSString * rule = self.rule ? DrvierSchoolSortRule_asc : DrvierSchoolSortRule_desc;
+
+    [XYCoachNetTool getCoachWithSortType:self.sortType rule:rule page:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        
+        [weakSelf.groupArray addObjectsFromArray:array];
+        
+        [weakSelf endRefresh];
+        
+        [weakSelf handleFooterWithCount:array.count];
+
+        [weakSelf.tableView reloadData];
+
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+        weakSelf.tableView.mj_footer.hidden = YES;
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 
@@ -55,7 +82,6 @@
 #pragma mark TableView Delegate & DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
     return self.groupArray.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -80,12 +106,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCoachTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:select_cell_key forIndexPath:indexPath];
+    cell.myData = self.groupArray[indexPath.section];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCoachDetailViewController * coachDetailVC = [[XYCoachDetailViewController alloc] init];
+    coachDetailVC.coachID = self.groupArray[indexPath.section][coach_c_id];
+
     [self.navigationController pushViewController:coachDetailVC animated:YES];
 }
 
