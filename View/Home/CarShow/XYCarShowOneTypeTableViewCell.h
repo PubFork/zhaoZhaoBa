@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLbael;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
+@property (nonatomic, strong)NSDictionary * myData;
 @end

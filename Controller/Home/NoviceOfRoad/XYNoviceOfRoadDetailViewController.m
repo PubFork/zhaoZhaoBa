@@ -7,6 +7,7 @@
 //
 
 #import "XYNoviceOfRoadDetailViewController.h"
+#import "XYNoviceOfRoadNetTool.h"
 
 @interface XYNoviceOfRoadDetailViewController ()
 
@@ -17,6 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self requestData];
+}
+
+- (void)requestData
+{
+    [XYNoviceOfRoadNetTool getNoviceOfRoadDetailWithID:self.noviceOfRoadID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+        NSLog(@" -- %@",dic);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

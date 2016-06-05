@@ -50,7 +50,6 @@ static NSString * cellKey = @"cell";
         [weakSelf endRefresh];
         
         [weakSelf.groupArray addObjectsFromArray:array];
-        [weakSelf.tableView reloadData];
         
         [weakSelf handleFooterWithCount:array.count];
         

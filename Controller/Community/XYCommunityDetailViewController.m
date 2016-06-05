@@ -12,6 +12,7 @@
 #import "XYCommunityNetTool.h"
 
 @interface XYCommunityDetailViewController ()
+@property (nonatomic, strong)NSDictionary * groupDic;
 @end
 
 static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
@@ -31,12 +32,31 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
     
     [self addMJHeader];
     [self addMJFooter];
-    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)requestData
 {
-    
+    WeakSelf(weakSelf);
+//    [XYCommunityNetTool getCommunityDetailWithID:self.communityID page:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+//        [weakSelf handleFooterWithCount:array.count];
+//        [weakSelf.groupArray addObjectsFromArray:array];
+//        [weakSelf.tableView reloadData];
+//        [weakSelf endRefresh];
+//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+//        [weakSelf.tableView reloadData];
+//        [weakSelf endRefresh];
+//    }];
+    [XYCommunityNetTool getCommunityDetailWithID:self.communityID page:self.page isRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
+//        [weakSelf handleFooterWithCount:array.count];
+//        [weakSelf.groupArray addObjectsFromArray:array];
+        
+        weakSelf.groupDic = dic;
+        
+        [weakSelf endRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+    }];
 }
 
 - (IBAction)clickAddCommunity:(id)sender {
@@ -51,7 +71,7 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    return 1;
     return self.groupArray.count;
 }
 
@@ -78,7 +98,8 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
     XYCommunityDetailTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:communtiy_detail_cell_key forIndexPath:indexPath];
     
     cell.communtiyBtn.hidden = !indexPath.section;
-    
+//    cell.myData = self.groupArray[indexPath.section];
+    cell.myData = self.groupDic;
     WeakSelf(weakSelf);
     [cell clickCommunityBtnWithBlock:^{
         XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];

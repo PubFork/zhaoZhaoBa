@@ -84,6 +84,7 @@
             <connections>
                 <outlet property="communtiyBtn" destination="isH-dA-ioq" id="Hek-4O-sDp"/>
                 <outlet property="contentLabel" destination="ddB-2r-z2x" id="KqK-rs-khS"/>
+                <outlet property="contentLabelLeft" destination="0Fi-gd-HGU" id="lVq-Ds-y7F"/>
                 <outlet property="nameLabel" destination="VeD-lp-n5p" id="s1X-Zk-95U"/>
                 <outlet property="timeLabel" destination="CUz-bq-pjJ" id="hJ3-RM-Bik"/>
                 <outlet property="userImageView" destination="t3g-tB-77p" id="Ydb-ps-9Pp"/>

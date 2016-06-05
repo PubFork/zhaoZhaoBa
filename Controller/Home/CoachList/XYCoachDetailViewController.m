@@ -64,15 +64,13 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
         }
         
         [weakSelf.groupArray addObjectsFromArray:newArr];
+        [weakSelf handleFooterWithCount:array.count];
+
         [weakSelf endRefresh];
-        
-        weakSelf.tableView.mj_footer.hidden = array.count < pageSize;
-        [weakSelf.tableView reloadData];
 
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [weakSelf endRefresh];
-        weakSelf.tableView.mj_footer.hidden = YES;
-        [weakSelf.tableView reloadData];
+        [weakSelf handleFooterWithCount:0];
     }];
 
 }

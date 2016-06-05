@@ -11,7 +11,7 @@
 @interface XYAddCommunityUpdatePictureView ()
 
 @property (nonatomic, strong)NSMutableArray * allImageViews;
-@property (nonatomic, strong)NSMutableArray * currentImageViews;
+
 @property (nonatomic, assign)NSInteger widthOrHeight;
 @end
 

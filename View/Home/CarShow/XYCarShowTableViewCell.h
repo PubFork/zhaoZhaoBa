@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface XYCarShowTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
+@property (weak, nonatomic) IBOutlet UILabel *carName;
 
+
+@property (nonatomic, strong)NSDictionary * myData;
 @end

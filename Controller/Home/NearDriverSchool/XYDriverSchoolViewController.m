@@ -92,14 +92,12 @@
                                                    [weakSelf.groupArray addObjectsFromArray:array];
                                                    
                                                    [weakSelf endRefresh];
-                                                   
-                                                    weakSelf.tableView.mj_footer.hidden = array.count < pageSize;
-                                                   [weakSelf.tableView reloadData];
+                                                   [weakSelf handleFooterWithCount:array.count];
                                                    
                                                } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                                                    [weakSelf endRefresh];
-                                                   weakSelf.tableView.mj_footer.hidden = YES;
-                                                   [weakSelf.tableView reloadData];
+                                                   [weakSelf handleFooterWithCount:0];
+
                                                }];
 }
 

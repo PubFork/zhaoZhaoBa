@@ -9,5 +9,5 @@
 #import "XYRootViewController.h"
 
 @interface XYNoviceOfRoadDetailViewController : XYRootViewController
-
+@property (nonatomic, strong)NSNumber * noviceOfRoadID;
 @end

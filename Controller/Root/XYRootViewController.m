@@ -61,6 +61,7 @@
 {
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
+    [self.tableView reloadData];
 }
 
 - (void)hiddenFooter
@@ -78,7 +79,7 @@
     
     NSInteger is__ = self.tableView.mj_footer.hidden ? 0 : 1;
     self.page += is__;
-    self.tableView.mj_footer.hidden = is__;
+    self.tableView.mj_footer.hidden = !is__;
     
 }
 ////////////////////////////////// 界面 相关 ////////////////////////////////////////

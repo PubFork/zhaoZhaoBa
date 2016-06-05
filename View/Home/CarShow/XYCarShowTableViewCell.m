@@ -15,6 +15,14 @@
     // Initialization code
 }
 
+- (void)setMyData:(NSDictionary *)myData
+{
+    _myData = myData;
+    
+    [self.carImageView setImageWithURL:[NSURL URLWithString:myData[car_show_logo]] placeholder:kDefaultImage];
+    self.carName.text = myData[car_show_typename];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

@@ -8,10 +8,13 @@
 
 #import "XYAddCommunityViewController.h"
 #import "XYAddCommunityUpdatePictureView.h"
+#import "XYCommunityNetTool.h"
 
 @interface XYAddCommunityViewController ()  <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet XYAddCommunityUpdatePictureView *updatePictureView;
+
+@property (nonatomic, strong)NSData * files;
 
 @property (nonatomic, strong)UIImageView * selectImageView;
 @end
@@ -38,6 +41,32 @@
         UIActionSheet * editActionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
         [editActionSheet showInView:self.view];
     }];
+}
+
+- (void)upLoad
+{
+    
+    NSLog(@" ---- ===> %@",self.updatePictureView.currentImageViews);
+    
+    switch (self.type) {
+        case AddCommunityType_Release: {
+            [XYCommunityNetTool releaseCommunityWithContent:self.textView.text files:self.files isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+                
+            } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+                
+            }];
+             break;
+        }
+        case AddCommunityType_Reply: {
+            [XYCommunityNetTool repleCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+                
+            } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+                
+            }];
+            break;
+        }
+    }
+  
 }
 
 #pragma mark -------------------------------------------------------

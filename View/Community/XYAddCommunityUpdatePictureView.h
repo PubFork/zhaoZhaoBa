@@ -17,7 +17,7 @@ typedef void(^clickImageViewBlock)(UIImageView * view);
 
 @interface XYAddCommunityUpdatePictureView : UIView
 @property (nonatomic, strong)XYAddActionImageView * addImageView;
-
+@property (nonatomic, strong)NSMutableArray * currentImageViews;
 
 @property (nonatomic, copy)clickAddImageViewBlock clickAddImageViewBlock;
 - (void)clickAddImageViewWithBlock:(clickAddImageViewBlock)block;

@@ -12,6 +12,8 @@
 #import "XYTableIndexView.h"
 #import "XYCarShowOneTypeTableView.h"
 #import "XYCarShowAlbumViewController.h"
+#import "XYCareShowNetTool.h"
+
 
 @interface XYCarShowViewController ()
 @property (nonatomic, strong)XYCarShowTypeView * carShowTypeView;
@@ -20,6 +22,9 @@
 
 @property (nonatomic, copy)NSDictionary * groupDic;
 @property (nonatomic, copy)NSArray * allKeys;
+
+
+@property (nonatomic, strong)NSNumber * selectCarID;
 @end
 
 
@@ -45,13 +50,54 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"XYCarShowTableViewCell" bundle:nil] forCellReuseIdentifier:car_show_cell_key];
     
-    self.allKeys = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"G",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
     
     [self.view addSubview:self.carShowTypeView];
     [self.view addSubview:self.tableIndexView];
     [self.view addSubview:self.showOneTableView];
     
-    self.tableIndexView.allKeys = self.allKeys;
+    
+    [self addMJHeader];
+    [self.tableView.mj_header beginRefreshing];
+    
+    
+    WeakSelf(weakSelf);
+    self.showOneTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf requestTypeData];
+    }];
+}
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    [XYCareShowNetTool getCareShowIsRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+        
+        NSMutableDictionary * newDic = @{}.mutableCopy;
+        for (NSString * key in dic.allKeys) {
+            NSArray * array = dic[key];
+            array.count ? [newDic setValue:array forKey:key] : 0;
+        }
+        
+        weakSelf.groupDic = newDic;
+        weakSelf.allKeys = [newDic.allKeys sortedArrayUsingSelector:@selector(compare:)];
+        weakSelf.tableIndexView.allKeys = weakSelf.allKeys;
+
+        [weakSelf endRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+    }];
+}
+
+- (void)requestTypeData
+{
+    WeakSelf(weakSelf);
+    [XYCareShowNetTool getCareShowTypeWithCarID:self.selectCarID isRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
+        [weakSelf.showOneTableView.mj_header endRefreshing];
+        weakSelf.showOneTableView.groupDic = dic;
+        [weakSelf.showOneTableView reloadData];
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf.showOneTableView.mj_header endRefreshing];
+        [weakSelf.showOneTableView reloadData];
+    }];
 }
 
 #pragma mark -------------------------------------------------------
@@ -64,7 +110,6 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arc4random()%5 + 1;
     return [self.groupDic[self.allKeys[section]] count];
 }
 
@@ -94,6 +139,7 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCarShowTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:car_show_cell_key forIndexPath:indexPath];
+    cell.myData = self.groupDic[self.allKeys[indexPath.section]][indexPath.row];
     return cell;
 }
 
@@ -102,6 +148,12 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.showOneTableView show];
+    
+    NSNumber * selectCarID = self.groupDic[self.allKeys[indexPath.section]][indexPath.row][car_show_typeid];
+    if (selectCarID.integerValue != self.selectCarID.integerValue) {
+        self.selectCarID = selectCarID;
+        [self.showOneTableView.mj_header beginRefreshing];
+    }
 }
 
 
@@ -144,10 +196,16 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
     if (!_showOneTableView) {
         _showOneTableView = [[XYCarShowOneTypeTableView alloc] initWithFrame:CGRectMake(kScreenWidth, self.tableView.mj_y, kScreenWidth - 80, self.tableView.height)];
         WeakSelf(weakSelf);
-        [_showOneTableView getDidSelectItemWtihBlock:^(NSIndexPath *indexPatch) {
+        [_showOneTableView getDidSelectItemWtihBlock:^(XYCarShowOneTypeTableView *carShowOneTypeTV) {
+            
             XYCarShowAlbumViewController * vc = [[XYCarShowAlbumViewController alloc] init];
+            
             [weakSelf.navigationController pushViewController:vc animated:YES];
+
         }];
+        
+        
+        
     }
     return _showOneTableView;
 }

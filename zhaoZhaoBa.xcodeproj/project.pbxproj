@@ -241,6 +241,8 @@
 		1890519C1CCCFE05003697A2 /* progress_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 189051941CCCFE05003697A2 /* progress_8.png */; };
 		1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1890653B1CD1FA5F00597FFE /* XYAddActionView.m */; };
 		1890653F1CD1FF0C00597FFE /* XYCityTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1890653E1CD1FF0C00597FFE /* XYCityTableView.m */; };
+		18960CD81D040C9C0062583F /* XYNoviceOfRoadNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18960CD71D040C9C0062583F /* XYNoviceOfRoadNetTool.m */; };
+		18960CDC1D0410690062583F /* XYCareShowNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18960CDB1D0410690062583F /* XYCareShowNetTool.m */; };
 		18982C6C1CD8C4E300C7DC85 /* XYDriverSchoolSelectTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18982C6B1CD8C4E300C7DC85 /* XYDriverSchoolSelectTableView.m */; };
 		18A07C321CDCAE1000725B8E /* XYNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A07C311CDCAE1000725B8E /* XYNetTool.m */; };
 		18A07C361CDCB6DC00725B8E /* XYHomeNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A07C351CDCB6DC00725B8E /* XYHomeNetTool.m */; };
@@ -615,6 +617,10 @@
 		1890653B1CD1FA5F00597FFE /* XYAddActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddActionView.m; sourceTree = "<group>"; };
 		1890653D1CD1FF0C00597FFE /* XYCityTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCityTableView.h; sourceTree = "<group>"; };
 		1890653E1CD1FF0C00597FFE /* XYCityTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCityTableView.m; sourceTree = "<group>"; };
+		18960CD61D040C9C0062583F /* XYNoviceOfRoadNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNoviceOfRoadNetTool.h; sourceTree = "<group>"; };
+		18960CD71D040C9C0062583F /* XYNoviceOfRoadNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNoviceOfRoadNetTool.m; sourceTree = "<group>"; };
+		18960CDA1D0410690062583F /* XYCareShowNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCareShowNetTool.h; sourceTree = "<group>"; };
+		18960CDB1D0410690062583F /* XYCareShowNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCareShowNetTool.m; sourceTree = "<group>"; };
 		18982C6A1CD8C4E300C7DC85 /* XYDriverSchoolSelectTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDriverSchoolSelectTableView.h; sourceTree = "<group>"; };
 		18982C6B1CD8C4E300C7DC85 /* XYDriverSchoolSelectTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDriverSchoolSelectTableView.m; sourceTree = "<group>"; };
 		18A07C301CDCAE1000725B8E /* XYNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNetTool.h; sourceTree = "<group>"; };
@@ -1481,6 +1487,24 @@
 			path = XYAddActionView;
 			sourceTree = "<group>";
 		};
+		18960CD51D040C900062583F /* NoviceOfRoad */ = {
+			isa = PBXGroup;
+			children = (
+				18960CD61D040C9C0062583F /* XYNoviceOfRoadNetTool.h */,
+				18960CD71D040C9C0062583F /* XYNoviceOfRoadNetTool.m */,
+			);
+			path = NoviceOfRoad;
+			sourceTree = "<group>";
+		};
+		18960CD91D0410610062583F /* CareShow */ = {
+			isa = PBXGroup;
+			children = (
+				18960CDA1D0410690062583F /* XYCareShowNetTool.h */,
+				18960CDB1D0410690062583F /* XYCareShowNetTool.m */,
+			);
+			path = CareShow;
+			sourceTree = "<group>";
+		};
 		18A07C2E1CDCAC8C00725B8E /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1495,6 +1519,8 @@
 			children = (
 				18A07C301CDCAE1000725B8E /* XYNetTool.h */,
 				18A07C311CDCAE1000725B8E /* XYNetTool.m */,
+				18960CD91D0410610062583F /* CareShow */,
+				18960CD51D040C900062583F /* NoviceOfRoad */,
 				1830797B1D02CD130063925C /* Community */,
 				18153EE01CF1526100119811 /* DriverSchool */,
 				18153EDC1CF1493E00119811 /* SignUp */,
@@ -2159,10 +2185,12 @@
 				189051571CCCD79E003697A2 /* XYRootViewController.m in Sources */,
 				1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */,
 				180667121CF00F4000CCC3CF /* XYNoviceOfRoadTableViewCell.m in Sources */,
+				18960CDC1D0410690062583F /* XYCareShowNetTool.m in Sources */,
 				18982C6C1CD8C4E300C7DC85 /* XYDriverSchoolSelectTableView.m in Sources */,
 				18BC61E31CD5B39400AE8747 /* QRViewController.m in Sources */,
 				184C14101CDDE40100C7D7BB /* XYShareTool.m in Sources */,
 				18A07C631CDCBFF900725B8E /* XYSelectView.m in Sources */,
+				18960CD81D040C9C0062583F /* XYNoviceOfRoadNetTool.m in Sources */,
 				181529B01CCCCE940060E4FC /* main.m in Sources */,
 				18A9527C1CF96F6E00CBF26D /* XYCarShowOneTypeTableView.m in Sources */,
 				18153EE31CF1527600119811 /* XYDriverSchoolNetTool.m in Sources */,

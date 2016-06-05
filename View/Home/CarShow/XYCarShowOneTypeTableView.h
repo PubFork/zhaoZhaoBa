@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-
-typedef void(^DidSelectItemBlock)(NSIndexPath * indexPatch);
+@class XYCarShowOneTypeTableView;
+typedef void(^DidSelectItemBlock)(XYCarShowOneTypeTableView * carShowOneTypeTV);
 
 @interface XYCarShowOneTypeTableView : UITableView
 
@@ -18,7 +18,7 @@ typedef void(^DidSelectItemBlock)(NSIndexPath * indexPatch);
 - (void)show;
 - (void)hidden;
 
-
+@property (nonatomic, strong)NSDictionary * groupDic;
 
 @property (nonatomic, copy)DidSelectItemBlock didSelectItemBlock;
 

@@ -15,6 +15,14 @@
     // Initialization code
 }
 
+- (void)setMyData:(NSDictionary *)myData
+{
+    _myData = myData;
+    
+    self.titleLabel.text = myData[novice_of_road_nr_Title];
+    [self.myImageView setImageWithURL:[NSURL URLWithString:myData[novice_of_road_nr_img]] placeholder:kDefaultImage];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

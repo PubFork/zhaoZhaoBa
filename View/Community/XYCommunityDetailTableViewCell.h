@@ -17,7 +17,9 @@ typedef void(^clickCommunityBtnBlock)();
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *communtiyBtn;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentLabelLeft;
 
+@property (nonatomic, strong)NSDictionary * myData;
 
 @property (nonatomic, copy)clickCommunityBtnBlock clickCommunityBtnBlock;
 - (void)clickCommunityBtnWithBlock:(clickCommunityBtnBlock)block;

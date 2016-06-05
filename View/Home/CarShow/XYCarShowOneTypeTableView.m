@@ -9,6 +9,7 @@
 #import "XYCarShowOneTypeTableView.h"
 #import "XYCarShowOneTypeTableViewCell.h"
 
+
 @interface XYCarShowOneTypeTableView () <UITableViewDelegate, UITableViewDataSource>
 
 @end
@@ -29,6 +30,12 @@ static NSString * car_show_one_type_cell_key = @"car_show_one_type_cell_key d";
     }
     return self;
 }
+
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark Mothod
+
 
 - (void)getDidSelectItemWtihBlock:(DidSelectItemBlock)block
 {
@@ -72,7 +79,7 @@ static NSString * car_show_one_type_cell_key = @"car_show_one_type_cell_key d";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.groupDic[car_show_list_key] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,18 +98,19 @@ static NSString * car_show_one_type_cell_key = @"car_show_one_type_cell_key d";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"一起打从奥迪";
+    return self.groupDic[car_show_typename];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCarShowOneTypeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:car_show_one_type_cell_key forIndexPath:indexPath];
+    cell.myData = self.groupDic[car_show_list_key][indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.didSelectItemBlock ? self.didSelectItemBlock(indexPath) : 0;
+    self.didSelectItemBlock ? self.didSelectItemBlock(self) : 0;
 }
 
 

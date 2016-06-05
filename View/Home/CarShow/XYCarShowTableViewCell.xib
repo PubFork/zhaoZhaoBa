@@ -30,7 +30,7 @@
                             <constraint firstAttribute="height" constant="21" id="DuM-dt-t8L"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -44,6 +44,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="carImageView" destination="9aW-aG-pjf" id="jrS-Fk-A4S"/>
+                <outlet property="carName" destination="sph-GF-cX6" id="0oy-iW-5Yk"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

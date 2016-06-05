@@ -10,6 +10,7 @@
 #import "XYNoviceOfRoadTableViewCell.h"
 #import "XYNoviceOfRoadTableViewCell1.h"
 #import "XYNoviceOfRoadDetailViewController.h"
+#import "XYNoviceOfRoadNetTool.h"
 
 @interface XYNoviceOfRoadViewController ()
 @end
@@ -30,6 +31,23 @@ static NSString * novice_of_road_cell1_key = @"novice_of_road_cell1_key";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"XYNoviceOfRoadTableViewCell" bundle:nil] forCellReuseIdentifier:novice_of_road_cell_key];
     [self.tableView registerNib:[UINib nibWithNibName:@"XYNoviceOfRoadTableViewCell1" bundle:nil] forCellReuseIdentifier:novice_of_road_cell1_key];
+    
+    [self addMJFooter];
+    [self addMJHeader];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    [XYNoviceOfRoadNetTool getNoviceOfRoadListWithPage:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        [weakSelf handleFooterWithCount:array.count];
+        [weakSelf.groupArray addObjectsFromArray:array];
+        [weakSelf endRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+    }];
 }
 
 #pragma mark -------------------------------------------------------
@@ -37,7 +55,6 @@ static NSString * novice_of_road_cell1_key = @"novice_of_road_cell1_key";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
     return self.groupArray.count;
 }
 
@@ -63,7 +80,7 @@ static NSString * novice_of_road_cell1_key = @"novice_of_road_cell1_key";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYNoviceOfRoadTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:novice_of_road_cell_key forIndexPath:indexPath];
-    
+    cell.myData = self.groupArray[indexPath.section];
 //    XYNoviceOfRoadTableViewCell1 * cell1 = [tableView dequeueReusableCellWithIdentifier:novice_of_road_cell1_key forIndexPath:indexPath];
     
     return cell;
@@ -72,6 +89,7 @@ static NSString * novice_of_road_cell1_key = @"novice_of_road_cell1_key";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYNoviceOfRoadDetailViewController * detailVC = [[XYNoviceOfRoadDetailViewController alloc] init];
+    detailVC.noviceOfRoadID = self.groupArray[indexPath.section][novice_of_road_nr_id];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
