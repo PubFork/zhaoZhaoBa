@@ -47,13 +47,13 @@ static NSString * cellKey = @"cell";
 {
     WeakSelf(weakSelf);
     [XYMustKnowNetTool getMustKnowWithPage:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
-        [weakSelf endRefresh];
         
         [weakSelf.groupArray addObjectsFromArray:array];
         
         [weakSelf handleFooterWithCount:array.count];
         
-        
+        [weakSelf endRefresh];
+
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [weakSelf endRefresh];
     }];

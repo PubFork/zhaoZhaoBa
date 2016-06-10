@@ -9,6 +9,7 @@
 #import "XYAddCommunityViewController.h"
 #import "XYAddCommunityUpdatePictureView.h"
 #import "XYCommunityNetTool.h"
+#import "XYDriverSchoolNetTool.h"
 
 @interface XYAddCommunityViewController ()  <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -47,18 +48,44 @@
 {
     
     NSLog(@" ---- ===> %@",self.updatePictureView.currentImageViews);
+ 
+    if (self.style == CommunityStyle_Default) {
+        switch (self.type) {
+            case AddCommunityType_Release: {
+                [XYCommunityNetTool releaseCommunityWithContent:self.textView.text files:self.files isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+                    
+                } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+                    
+                }];
+                break;
+            }
+            case AddCommunityType_Reply: {
+                [XYCommunityNetTool repleCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+                    
+                } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+                    
+                }];
+                break;
+            }
+        }
+
+        
+        return;
+    }
+    
     
     switch (self.type) {
         case AddCommunityType_Release: {
-            [XYCommunityNetTool releaseCommunityWithContent:self.textView.text files:self.files isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+            [XYDriverSchoolNetTool releaseDSCommunityWithContent:self.textView.text files:self.files pd_dsid:self.communityID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
                 
             } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                 
             }];
-             break;
+            
+            break;
         }
         case AddCommunityType_Reply: {
-            [XYCommunityNetTool repleCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+            [XYDriverSchoolNetTool repleDSCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
                 
             } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                 
@@ -66,7 +93,11 @@
             break;
         }
     }
-  
+
+    
+   
+    
+    
 }
 
 #pragma mark -------------------------------------------------------

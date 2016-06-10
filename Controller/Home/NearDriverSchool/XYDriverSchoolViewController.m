@@ -62,16 +62,9 @@
     
     
     
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        weakSelf.page = 1;
-        [weakSelf.groupArray removeAllObjects];
-        [weakSelf requestData];
-    }];
     
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        weakSelf.page ++;
-        [weakSelf requestData];
-    }];
+    [self addMJFooter];
+    [self addMJHeader];
     
     [self.tableView.mj_header beginRefreshing];
 
@@ -91,8 +84,9 @@
                                                success:^(NSArray * _Nonnull array) {
                                                    [weakSelf.groupArray addObjectsFromArray:array];
                                                    
-                                                   [weakSelf endRefresh];
                                                    [weakSelf handleFooterWithCount:array.count];
+                                                   [weakSelf endRefresh];
+
                                                    
                                                } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                                                    [weakSelf endRefresh];

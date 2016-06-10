@@ -18,6 +18,7 @@
 #import "Size.h"
 #import "Time.h"
 #import "Keys.h"
+#import "ENUM.h"
 #import "MyShowLabel.h"
 #import "UIView+MJExtension.h"
 #import "DispatchQueueManager.h"

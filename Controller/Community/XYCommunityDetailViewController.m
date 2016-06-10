@@ -10,6 +10,7 @@
 #import "XYCommunityDetailTableViewCell.h"
 #import "XYAddCommunityViewController.h"
 #import "XYCommunityNetTool.h"
+#import "XYDriverSchoolNetTool.h"
 
 @interface XYCommunityDetailViewController ()
 @property (nonatomic, strong)NSDictionary * groupDic;
@@ -38,30 +39,38 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
 - (void)requestData
 {
     WeakSelf(weakSelf);
-//    [XYCommunityNetTool getCommunityDetailWithID:self.communityID page:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
-//        [weakSelf handleFooterWithCount:array.count];
-//        [weakSelf.groupArray addObjectsFromArray:array];
-//        [weakSelf.tableView reloadData];
-//        [weakSelf endRefresh];
-//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-//        [weakSelf.tableView reloadData];
-//        [weakSelf endRefresh];
-//    }];
-    [XYCommunityNetTool getCommunityDetailWithID:self.communityID page:self.page isRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
-//        [weakSelf handleFooterWithCount:array.count];
-//        [weakSelf.groupArray addObjectsFromArray:array];
+    
+    if (self.style == CommunityStyle_Default) {
+        [XYCommunityNetTool getCommunityDetailWithID:self.communityID page:self.page isRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
+            
+            weakSelf.groupDic = dic;
+            
+            [weakSelf endRefresh];
+        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+            [weakSelf endRefresh];
+        }];
         
+        return;
+    }
+    
+    [XYDriverSchoolNetTool getDSCommunityDetailWithID:self.communityID page:self.page isRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
         weakSelf.groupDic = dic;
         
         [weakSelf endRefresh];
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
         [weakSelf endRefresh];
     }];
+
+    
+   
 }
 
 - (IBAction)clickAddCommunity:(id)sender {
     
     XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+    addCommuntiyVC.style = self.style;
+    addCommuntiyVC.communityID = self.communityID;
     [self.navigationController pushViewController:addCommuntiyVC animated:YES];
 
 }
@@ -103,6 +112,8 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
     WeakSelf(weakSelf);
     [cell clickCommunityBtnWithBlock:^{
         XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+        addCommuntiyVC.style = self.style;
+        addCommuntiyVC.communityID = self.communityID;
         [weakSelf.navigationController pushViewController:addCommuntiyVC animated:YES];
     }];
     return cell;

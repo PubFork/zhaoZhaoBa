@@ -10,4 +10,7 @@
 
 @interface XYCommunityDetailViewController : XYRootViewController
 @property (nonatomic, strong)NSNumber * communityID;
+
+@property (nonatomic, assign)CommunityStyle style;
+
 @end

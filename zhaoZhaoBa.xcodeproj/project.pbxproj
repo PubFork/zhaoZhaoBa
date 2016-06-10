@@ -211,6 +211,7 @@
 		185820201CCE222100A191BF /* DispatchQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1858201E1CCE222100A191BF /* DispatchQueueManager.m */; };
 		185820231CCE247200A191BF /* XYHomeNaviBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820221CCE247200A191BF /* XYHomeNaviBar.m */; };
 		185820241CCE247200A191BF /* XYHomeNaviBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 185820221CCE247200A191BF /* XYHomeNaviBar.m */; };
+		185E42551D0A58300079DFC3 /* XYShoppingNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E42541D0A58300079DFC3 /* XYShoppingNetTool.m */; };
 		1887EE001CCE36F5006DED7A /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887EDFF1CCE36F5006DED7A /* XYButton.m */; };
 		188FBF0E1CFAD35D0014B79E /* XYWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FBF0C1CFAD35D0014B79E /* XYWebViewViewController.m */; };
 		188FBF0F1CFAD35D0014B79E /* XYWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188FBF0D1CFAD35D0014B79E /* XYWebViewViewController.xib */; };
@@ -568,6 +569,9 @@
 		1858201E1CCE222100A191BF /* DispatchQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueManager.m; sourceTree = "<group>"; };
 		185820211CCE247200A191BF /* XYHomeNaviBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYHomeNaviBar.h; sourceTree = "<group>"; };
 		185820221CCE247200A191BF /* XYHomeNaviBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYHomeNaviBar.m; sourceTree = "<group>"; };
+		185E42531D0A58300079DFC3 /* XYShoppingNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShoppingNetTool.h; sourceTree = "<group>"; };
+		185E42541D0A58300079DFC3 /* XYShoppingNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShoppingNetTool.m; sourceTree = "<group>"; };
+		185E42561D0A5F300079DFC3 /* ENUM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENUM.h; sourceTree = "<group>"; };
 		186094F31CCF72CE00E5C8F9 /* Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		1887EDFE1CCE36F5006DED7A /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
 		1887EDFF1CCE36F5006DED7A /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
@@ -998,6 +1002,7 @@
 				1890517A1CCCF3B0003697A2 /* Size.h */,
 				186094F31CCF72CE00E5C8F9 /* Time.h */,
 				18BC61DB1CD5AFAA00AE8747 /* Keys.h */,
+				185E42561D0A5F300079DFC3 /* ENUM.h */,
 				181529AE1CCCCE940060E4FC /* Supporting Files */,
 			);
 			path = zhaoZhaoBa;
@@ -1223,6 +1228,15 @@
 				180666F11CF0016100CCC3CF /* Manager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		185E42521D0A58210079DFC3 /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				185E42531D0A58300079DFC3 /* XYShoppingNetTool.h */,
+				185E42541D0A58300079DFC3 /* XYShoppingNetTool.m */,
+			);
+			path = Shopping;
 			sourceTree = "<group>";
 		};
 		1887EDFD1CCE36EC006DED7A /* XYBtn */ = {
@@ -1519,6 +1533,7 @@
 			children = (
 				18A07C301CDCAE1000725B8E /* XYNetTool.h */,
 				18A07C311CDCAE1000725B8E /* XYNetTool.m */,
+				185E42521D0A58210079DFC3 /* Shopping */,
 				18960CD91D0410610062583F /* CareShow */,
 				18960CD51D040C900062583F /* NoviceOfRoad */,
 				1830797B1D02CD130063925C /* Community */,
@@ -2213,6 +2228,7 @@
 				180A4B541CE6AAE70033E5BD /* XYPictureView.m in Sources */,
 				18A07C681CDCC1B900725B8E /* XYSelectViewController.m in Sources */,
 				18A07C4E1CDCB9EB00725B8E /* XYDriverSchoolViewController.m in Sources */,
+				185E42551D0A58300079DFC3 /* XYShoppingNetTool.m in Sources */,
 				18A9528A1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m in Sources */,
 				180A4BAB1CE6DAE00033E5BD /* XYSignUpViewController.m in Sources */,
 				180666F51CF0021200CCC3CF /* XYAddCommunityUpdatePictureView.m in Sources */,
@@ -2396,8 +2412,8 @@
 			baseConfigurationReference = 08B4B600780B2ECF1A1DA6E7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lingwei wang (D79TTCTL42)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhaoZhaoBa/PrefixHeader.pch";
 				INFOPLIST_FILE = zhaoZhaoBa/Info.plist;
@@ -2405,7 +2421,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a2fe3702-6576-4b0d-a48c-19afdc8e588d";
+				PROVISIONING_PROFILE = "4a3f098c-4e78-40f6-9be9-61b40705022e";
 			};
 			name = Debug;
 		};
@@ -2414,8 +2430,8 @@
 			baseConfigurationReference = DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: lingwei wang (D79TTCTL42)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhaoZhaoBa/PrefixHeader.pch";
 				INFOPLIST_FILE = zhaoZhaoBa/Info.plist;
@@ -2423,7 +2439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a2fe3702-6576-4b0d-a48c-19afdc8e588d";
+				PROVISIONING_PROFILE = "4a3f098c-4e78-40f6-9be9-61b40705022e";
 			};
 			name = Release;
 		};

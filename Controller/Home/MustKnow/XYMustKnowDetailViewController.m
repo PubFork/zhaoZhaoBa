@@ -29,7 +29,7 @@
 
 - (void)requestData
 {
-    [XYMustKnowNetTool getMustKnowDetailWithID:1 isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+    [XYMustKnowNetTool getMustKnowDetailWithID:27 isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
         NSLog(@" -- %@",dic[mustKnow_mk_content]);
         UIWebView * webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64)];
         [self.view addSubview:webView];

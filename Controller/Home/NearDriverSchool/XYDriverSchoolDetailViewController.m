@@ -66,6 +66,9 @@
 //////////////////////////////////支付说明////////////////////////////
 @property (weak, nonatomic) IBOutlet UILabel *payContentLabel;
 
+
+
+
 @end
 
 @implementation XYDriverSchoolDetailViewController
@@ -96,6 +99,7 @@
 
 - (void)layout:(NSDictionary *)dic
 {
+    
     self.pictureView.allArray = dic[driverSchool_detail_imglist];
     
     [self.pictureView setImagesArray:[self.pictureView.allArray subarrayWithRange:NSMakeRange(0, self.pictureView.allArray.count > 3 ? 3 : self.pictureView.allArray.count)] type:XYPictureViewType_DriverSchool];
@@ -153,6 +157,7 @@
 - (IBAction)clickSeeDetailOfComment:(UIButton *)sender {
     XYCommunityViewController * communityVC = [[XYCommunityViewController alloc] init];
     communityVC.style = CommunityStyle_DriverSchool;
+    communityVC.dsID = @(self.driverSchoolID);
     [self.navigationController pushViewController:communityVC animated:YES];
 }
 

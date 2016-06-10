@@ -26,7 +26,10 @@ typedef NS_ENUM(NSInteger, AddCommunityType) {
 @interface XYAddCommunityViewController : XYRootViewController
 @property (nonatomic, assign)AddCommunityType type;
 
+@property (nonatomic, assign)CommunityStyle style;
+
 
 @property (nonatomic, strong)id communityID;
 @property (nonatomic, strong)id repleUserID;
+
 @end

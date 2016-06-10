@@ -48,6 +48,7 @@
                             <constraint firstAttribute="width" constant="46" id="7y1-20-HlW"/>
                             <constraint firstAttribute="height" constant="30" id="VgE-3d-Dla"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal">
                             <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>

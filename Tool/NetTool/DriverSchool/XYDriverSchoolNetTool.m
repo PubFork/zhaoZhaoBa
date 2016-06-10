@@ -81,4 +81,136 @@
     } failure:failure];
 
 }
+
+
+/**
+ *  驾校详情 评论  列表
+ *
+ *  @param page           页数
+ *  @param dsid           驾校ID
+ *  @param isRefresh      是否刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)getDSCommunityListWithPage:(NSInteger)page
+                         isRefresh:(BOOL)isRefresh
+                              dsid:(id)dsid
+                    viewController:(XYRootViewController *)viewController
+                           success:(nullable void (^)(NSArray * array))success
+                           failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+{
+    NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/praisedslist.htm"];
+    
+    
+    
+    NSDictionary * parmeters = @{@"page":[NSString stringWithFormat:@"%ld",page],
+                                 @"pageSize":@(pageSize),
+                                 @"dsid":dsid};
+    
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSArray * array = responseObject[@"data"];
+        success ? success(array) : 0;
+    } failure:failure];
+}
+
+
+/**
+ *  驾校详情 评论 详情
+ *
+ *  @param ID             ID
+ *  @param page           页数
+ *  @param isRefresh      是否刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)getDSCommunityDetailWithID:(NSNumber *)ID
+                              page:(NSInteger)page
+                         isRefresh:(BOOL)isRefresh
+                    viewController:(XYRootViewController *)viewController
+                           success:(nullable void (^)(NSDictionary * dic))success
+                           failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/praisedsdetail.htm"];
+    
+    
+    
+    NSDictionary * parmeters = @{@"pdid":ID,
+                                 @"page":[NSString stringWithFormat:@"%ld",page],
+                                 @"pageSize":@(pageSize)};
+    
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        success ? success(responseObject[@"data"]) : 0;
+    } failure:failure];
+}
+
+
+/**
+ *  发布评论
+ *
+ *  @param content        内容
+ *  @param files          图片
+ *  @param pd_dsid        驾校ID
+ *  @param isRefresh      是否 刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)releaseDSCommunityWithContent:(NSString *)content
+                                files:(id)files
+                              pd_dsid:(id)pd_dsid
+                            isRefresh:(BOOL)isRefresh
+                       viewController:(XYRootViewController *)viewController
+                              success:(nullable void (^)(NSDictionary * dic))success
+                              failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/addpraiseds.htm"];
+    
+    
+    
+    NSDictionary * parmeters = @{@"pd_uid":[kUserD valueForKey:user_info_userID],
+                                 @"files":files,
+                                 @"pd_dsid":pd_dsid,
+                                 @"pd_content":content};
+    
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        success ? success(responseObject[@"data"]) : 0;
+    } failure:failure];
+}
+
+/**
+ *  发布回复
+ *
+ *  @param content        内容
+ *  @param communityID          评论ID
+ *  @param repleUserID          被回复人的ID
+ *  @param isRefresh      是否 刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)repleDSCommunityWithContent:(NSString *)content
+                        communityID:(id)communityID
+                        repleUserID:(id)repleUserID
+                          isRefresh:(BOOL)isRefresh
+                     viewController:(XYRootViewController *)viewController
+                            success:(nullable void (^)(NSDictionary * dic))success
+                            failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/addpraisedsreply.htm"];
+    
+    
+    
+    NSDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_userID],
+                                 @"r_content":content,
+                                 @"pdid":communityID,
+                                 @"r_repid":repleUserID};
+    
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        success ? success(responseObject[@"data"]) : 0;
+    } failure:failure];
+}
 @end

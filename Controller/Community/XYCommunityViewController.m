@@ -12,6 +12,7 @@
 #import "XYAddCommunityViewController.h"
 
 #import "XYCommunityNetTool.h"
+#import "XYDriverSchoolNetTool.h"
 
 @interface XYCommunityViewController ()
 
@@ -39,13 +40,11 @@ static NSString * community_cell_key = @"community_cell_key";
     
     [self.view sendSubviewToBack:self.tableView];
     
+    [self addMJHeader];
+    [self addMJFooter];
+    
     if (!self.style) {
         [self setTitleLabelText:@"社区汇"];
-        
-        [self addMJHeader];
-        [self addMJFooter];
-        
-        
     } else {
         [self setTitleLabelText:@"评论"];
     }
@@ -59,28 +58,52 @@ static NSString * community_cell_key = @"community_cell_key";
 {
     WeakSelf(weakSelf);
     
-    [XYCommunityNetTool getCommunityListWithPage:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+    if (self.style == CommunityStyle_Default) {
+        [XYCommunityNetTool getCommunityListWithPage:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+            
+            [weakSelf reloadArray:array];
+            
+        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+            [weakSelf handleFooterWithCount:0];
+
+            [weakSelf endRefresh];
+        }];
         
-        NSMutableArray * newArr = @[].mutableCopy;
-        for (NSDictionary * dic in array) {
-            NSString * content = dic[community_content];
-            NSInteger height = [content boundingRectWithSize:CGSizeMake(kScreenWidth - 16, 22222) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height + 100;
-            NSMutableDictionary * dics = dic.mutableCopy;
-            [dics setValue:@(height) forKey:@"cell_height"];
-            [newArr addObject:dics];
-        }
         
-        [weakSelf.groupArray addObjectsFromArray:newArr];
-        
-        [weakSelf endRefresh];
-        
-        [weakSelf handleFooterWithCount:array.count];
+        return;
+    }
+    
+    
+    [XYDriverSchoolNetTool getDSCommunityListWithPage:self.page isRefresh:NO dsid:self.dsID viewController:self success:^(NSArray * _Nonnull array) {
+        [weakSelf reloadArray:array];
 
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf handleFooterWithCount:0];
+        
         [weakSelf endRefresh];
-       [weakSelf handleFooterWithCount:0];
     }];
     
+    
+    
+}
+
+
+- (void)reloadArray:(NSArray *)array
+{
+    NSMutableArray * newArr = @[].mutableCopy;
+    for (NSDictionary * dic in array) {
+        NSString * content = dic[community_content];
+        NSInteger height = [content boundingRectWithSize:CGSizeMake(kScreenWidth - 16, 22222) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height + 100;
+        NSMutableDictionary * dics = dic.mutableCopy;
+        [dics setValue:@(height) forKey:@"cell_height"];
+        [newArr addObject:dics];
+    }
+    
+    [self.groupArray addObjectsFromArray:newArr];
+    [self handleFooterWithCount:array.count];
+
+    [self endRefresh];
+
 }
 
 - (IBAction)clickAddBtn:(id)sender {
@@ -125,7 +148,7 @@ static NSString * community_cell_key = @"community_cell_key";
         
         XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
         addCommuntiyVC.hidesBottomBarWhenPushed = YES;
-
+        addCommuntiyVC.style = self.style;
         [weakSelf.navigationController pushViewController:addCommuntiyVC animated:YES];
     }];
     return cell;
@@ -149,8 +172,15 @@ static NSString * community_cell_key = @"community_cell_key";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCommunityDetailViewController * communityDetailVC = [[XYCommunityDetailViewController alloc] init];
-    communityDetailVC.communityID = self.groupArray[indexPath.section][community_communityid];
     
+    if (self.style == CommunityStyle_Default) {
+        communityDetailVC.communityID = self.groupArray[indexPath.section][community_communityid];
+
+    } else {
+        communityDetailVC.communityID = self.groupArray[indexPath.section][@"pdid"];
+
+    }
+    communityDetailVC.style = self.style;
     [self.navigationController pushViewController:communityDetailVC animated:YES];
 }
 

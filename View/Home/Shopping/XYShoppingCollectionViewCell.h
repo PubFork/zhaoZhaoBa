@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *shoppingImageView;
 @property (weak, nonatomic) IBOutlet UIButton *priceBtn;
 
+
+@property (nonatomic, strong)NSDictionary * myData;
 @end

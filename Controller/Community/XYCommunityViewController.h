@@ -9,22 +9,12 @@
 #import "XYRootViewController.h"
 
 
-/**
- *  评论类型
- */
-typedef NS_ENUM(NSInteger, CommunityStyle) {
-    /**
-     *  社区汇
-     */
-    CommunityStyle_Default = 0,
-    /**
-     *  驾校
-     */
-    CommunityStyle_DriverSchool = 1,
-};
+
 
 @interface XYCommunityViewController : XYRootViewController
 + (XYCommunityViewController *)shareCommunityViewController;
+
+@property (nonatomic, strong)NSNumber * dsID;
 
 @property (nonatomic, assign)CommunityStyle style;
 @end

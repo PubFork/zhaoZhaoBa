@@ -540,6 +540,38 @@ static NSString * coach_like = @"like";
 static NSString * coach_unlike = @"unlike";
 
 
+
+#pragma mark -------------------------------------------------------
+#pragma mark 商城
+////////////////////////////////// 商城 ////////////////////////////////////////
+
+/**
+ *  简介
+ */
+static NSString * shopping_sm_brief = @"sm_brief";
+
+/**
+ *  商城 ID
+ */
+static NSString * shopping_sm_id = @"sm_id";
+
+/**
+ *  商城 图片
+ */
+static NSString * shopping_sm_img = @"sm_img";
+
+/**
+ *  商城 价格
+ */
+static NSString * shopping_sm_price = @"sm_price";
+
+/**
+ *  商城 标题
+ */
+static NSString * shopping_sm_title = @"sm_title";
+
+
+
 #pragma mark -------------------------------------------------------
 #pragma mark 社区汇
 ////////////////////////////////// 社区汇 ////////////////////////////////////////
@@ -613,6 +645,10 @@ static NSString * comment_username = @"username";
  *  评论 用户头像
  */
 static NSString * comment_userimg = @"userimg";
+
+
+
+
 
 
 

@@ -10,6 +10,7 @@
 #import "XYShoppingViewController.h"
 #import "XYShoppingCollectionViewCell.h"
 #import "XYShoppingHeaderCollectionViewCell.h"
+#import "XYShoppingNetTool.h"
 
 @interface XYShoppingViewController ()
 @end
@@ -34,7 +35,23 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
 
     [self.view addSubview:self.collectionView];
     
+    [self addMJFooter];
+    [self addMJHeader];
     
+    [self.collectionView.mj_header beginRefreshing];
+    
+}
+
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    [XYShoppingNetTool getShoppingListWithPage:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        [weakSelf.groupArray addObjectsFromArray:array];
+        [weakSelf handleFooterWithCount:array.count];
+        [weakSelf endRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+    }];
 }
 
 
@@ -52,7 +69,6 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
     if (section == 0) {
         return 1;
     }
-    return 10;
     return self.groupArray.count;
 }
 
@@ -73,6 +89,7 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
     }
     
     XYShoppingCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:shopping_cell_key forIndexPath:indexPath];
+    cell.myData = self.groupArray[indexPath.row];
     return cell;
 }
 

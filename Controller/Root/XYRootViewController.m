@@ -61,25 +61,30 @@
 {
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
+    [self.collectionView.mj_header endRefreshing];
+    [self.collectionView.mj_footer endRefreshing];
+    
+    [self.collectionView reloadData];
     [self.tableView reloadData];
 }
 
 - (void)hiddenFooter
 {
+    self.collectionView.mj_footer.hidden = YES;
     self.tableView.mj_footer.hidden = YES;
 }
 - (void)showFooter
 {
+    self.collectionView.mj_footer.hidden = NO;
     self.tableView.mj_footer.hidden = NO;
 }
 
 - (void)handleFooterWithCount:(NSInteger)count
 {
-    self.tableView.mj_footer.hidden = !(count >= pageSize);
-    
-    NSInteger is__ = self.tableView.mj_footer.hidden ? 0 : 1;
+    NSInteger is__ = count >= pageSize;
     self.page += is__;
     self.tableView.mj_footer.hidden = !is__;
+    self.collectionView.mj_footer.hidden = !is__;
     
 }
 ////////////////////////////////// 界面 相关 ////////////////////////////////////////
@@ -112,6 +117,11 @@
         [weakSelf requestData];
     }];
     
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.page = 1;
+        [weakSelf.groupArray removeAllObjects];
+        [weakSelf requestData];
+    }];
     
 }
 - (void)addMJFooter
@@ -120,6 +130,10 @@
 
     WeakSelf(weakSelf);
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf requestData];
+    }];
+    
+    self.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [weakSelf requestData];
     }];
 }
