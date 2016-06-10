@@ -11,6 +11,7 @@
 #import "XYCoachDetailHeaderTableViewCell.h"
 #import "XYCoachDetailCommentListTableViewCell.h"
 #import "XYSignUpViewController.h"
+#import "XYDriverSchoolDetailViewController.h"
 
 
 #import "XYCoachNetTool.h"
@@ -79,7 +80,7 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
 {
     WeakSelf(weakSelf);
     
-    [XYCoachNetTool getCoachDetailWithID:self.coachID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+    [XYCoachNetTool getCoachDetailWithID:self.coachID isRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
         weakSelf.coachDic = dic;
         [weakSelf.tableView reloadData];
     } failure:nil];
@@ -87,9 +88,11 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
 
 
 - (IBAction)clickSignUp:(id)sender {
-    
-    XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
-    [self.navigationController pushViewController:signVc animated:YES];
+    XYDriverSchoolDetailViewController * dsdVC = [[XYDriverSchoolDetailViewController alloc] init];
+    dsdVC.driverSchoolID = [self.coachDic[coach_c_dsid] integerValue];
+    [self.navigationController pushViewController:dsdVC animated:YES];
+
+  
 
 }
 

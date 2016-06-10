@@ -90,7 +90,8 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 83;
+    return 80;
+    return [self.groupArray[indexPath.section][@"cell_height"] integerValue];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

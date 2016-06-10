@@ -12,5 +12,5 @@
  *  教练
  */
 @interface XYCoachViewController : XYSelectViewController
-
+@property (nonatomic, strong)NSNumber * drvierSchoolID;
 @end

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^clickView)(UIView * view);
+typedef void(^ClickView)(UIView * view);
 
 @interface XYAddActionView : UIView
-@property (nonatomic, copy)clickView clickView;
+@property (nonatomic, copy)ClickView clickView;
 
-- (void)clickView:(void(^)(UIView * view))clickView;
+- (void)clickView:(ClickView)clickView;
 @end

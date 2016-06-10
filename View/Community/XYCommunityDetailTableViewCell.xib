@@ -58,7 +58,7 @@
                             <action selector="clickCommuntiyBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0cp-Ks-3lc"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddB-2r-z2x">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字名字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddB-2r-z2x">
                         <rect key="frame" x="8" y="56" width="304" height="17"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -72,6 +72,7 @@
                     <constraint firstItem="ddB-2r-z2x" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="D1B-v2-hEF"/>
                     <constraint firstItem="isH-dA-ioq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Jg5-4b-ds6"/>
                     <constraint firstItem="CUz-bq-pjJ" firstAttribute="leading" secondItem="t3g-tB-77p" secondAttribute="trailing" constant="8" id="KJb-NU-uTP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ddB-2r-z2x" secondAttribute="bottom" constant="1" id="MUH-SX-lyZ"/>
                     <constraint firstItem="VeD-lp-n5p" firstAttribute="leading" secondItem="t3g-tB-77p" secondAttribute="trailing" constant="8" id="gAb-sf-oO0"/>
                     <constraint firstItem="isH-dA-ioq" firstAttribute="leading" secondItem="VeD-lp-n5p" secondAttribute="trailing" constant="8" id="gUt-AT-1G9"/>
                     <constraint firstItem="CUz-bq-pjJ" firstAttribute="top" secondItem="VeD-lp-n5p" secondAttribute="bottom" constant="8" id="giG-z4-WBF"/>

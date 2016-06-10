@@ -31,7 +31,7 @@
     NSDictionary * parmeters = @{@"page":[NSString stringWithFormat:@"%ld",page],
                                  @"pageSize":@(pageSize)};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSArray * array = responseObject[@"data"];
         success ? success(array) : 0;
@@ -64,7 +64,7 @@
                                  @"page":[NSString stringWithFormat:@"%ld",page],
                                  @"pageSize":@(pageSize)};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         success ? success(responseObject[@"data"]) : 0;
     } failure:failure];
@@ -97,7 +97,7 @@
                                  @"files":files,
                                  @"ct_content":content};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success ? success(responseObject[@"data"]) : 0;
     } failure:failure];
     
@@ -131,7 +131,70 @@
                                  @"r_comid":communityID,
                                  @"r_repid":repleUserID};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        success ? success(responseObject[@"data"]) : 0;
+    } failure:failure];
+}
+
+/**
+ *  点赞 / 取消赞
+ *
+ type  0 => 社区汇 , 1 => 驾校  , 2 => 教练
+ *  @param isRefresh      是否 刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)praiseDSCommunityWithID:(id)ID
+                           type:(CommunityStyle)type
+                      isRefresh:(BOOL)isRefresh
+                 viewController:(XYRootViewController *)viewController
+                        success:(nullable void (^)(NSDictionary * dic))success
+                        failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    
+    NSString * url_key;
+    NSString * dic_key;
+    NSString * dic_user_key;
+    
+    switch (type) {
+        case CommunityStyle_Default: {
+            url_key = @"likecommunity.htm";
+            dic_key = @"cl_comid";
+            dic_user_key = @"cl_uid";
+            break;
+        }
+        case CommunityStyle_DriverSchool: {
+            url_key = @"likepraiseds.htm";
+            dic_key = @"pdl_pdid";
+            dic_user_key = @"pdl_uid";
+
+            break;
+            
+        }
+        case CommunityStyle_Coach: {
+            url_key = @"likepraisecoach.htm";
+            dic_key = @"pcl_pcid";
+            dic_user_key = @"pcl_uid";
+
+            break;
+            
+        }
+
+    }
+    
+    
+    NSString * url = [NSString stringWithFormat:@"%@DrivingSchool/api/%@",root_URL,url_key];
+
+
+    
+    NSDictionary * parmeters = @{
+                                 dic_user_key:[kUserD valueForKey:user_info_userID],
+                                 dic_key:ID
+                                 };
+
+    
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success ? success(responseObject[@"data"]) : 0;
     } failure:failure];
 }

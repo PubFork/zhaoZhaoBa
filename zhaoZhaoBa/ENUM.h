@@ -20,6 +20,10 @@ typedef NS_ENUM(NSInteger, CommunityStyle) {
      *  驾校
      */
     CommunityStyle_DriverSchool = 1,
+    /**
+     *  教练
+     */
+    CommunityStyle_Coach = 2,
 };
 
 

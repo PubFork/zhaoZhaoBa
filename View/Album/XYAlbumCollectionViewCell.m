@@ -65,14 +65,14 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     _scroll.zoomScale = 1;
-    UIImage *img = [UIImage imageNamed:_imgName];
+//    UIImage *img = [UIImage imageNamed:_imgName];
     
     
     _scroll.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigationBar_Height);
     _scroll.contentSize = CGSizeMake(kScreenWidth, kScreenHeight - kNavigationBar_Height);
     
     _imageView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigationBar_Height);
-    [_imageView setImage:img];
+//    [_imageView setImage:img];
     
 }
 

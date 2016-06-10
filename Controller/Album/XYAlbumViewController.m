@@ -39,8 +39,18 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.collectionView];
     
-    self.groupArray = @[@"picture1",@"picture2",@"picture3"].mutableCopy;
+//    self.groupArray = @[@"picture1",@"picture2",@"picture3"].mutableCopy;
+    
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+
+    self.collectionView.contentOffset = CGPointMake(kScreenWidth * self.index, 0);
+}
+
 
 
 
@@ -56,7 +66,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return 10;
     return self.groupArray.count;
 }
 
@@ -64,7 +73,8 @@
 {
     
     XYAlbumCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"a" forIndexPath:indexPath];
-    cell.imgName = self.groupArray[indexPath.row];
+    [cell.imageView setImageURL:[NSURL URLWithString:self.groupArray[indexPath.row][@"pl_img"]]];
+//    cell.imgName = self.groupArray[indexPath.row];
     
     WeakSelf(weakSelf);
     
@@ -107,6 +117,8 @@
     }
     return _collectionView;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

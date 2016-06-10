@@ -32,7 +32,7 @@
     NSDictionary * parmeters = @{@"page":[NSString stringWithFormat:@"%ld",page],
                                  @"pageSize":@(pageSize)};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSArray * array = responseObject[@"data"];
         success ? success(array) : 0;

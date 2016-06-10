@@ -137,11 +137,20 @@ static NSString * community_cell_key = @"community_cell_key";
 {
     XYCommunityTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:community_cell_key forIndexPath:indexPath];
     
+    cell.style = self.style;
     cell.myData = self.groupArray[indexPath.section];
     
     WeakSelf(weakSelf);
-    [cell clickPraiseBtnWithBlock:^{
+    [cell clickPraiseBtnWithBlock:^(id communityID) {
         
+        
+        [XYCommunityNetTool praiseDSCommunityWithID:communityID type:self.style isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+            [weakSelf.tableView.mj_header beginRefreshing];
+        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+            
+        }];
+        
+     
     }];
     
     [cell clickCommunityBtnWithBlock:^{

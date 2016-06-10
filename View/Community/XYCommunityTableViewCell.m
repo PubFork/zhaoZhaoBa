@@ -36,7 +36,11 @@
     self.contentLabel.text = myData[community_content];
     self.driverSchoolLabel.text = myData[driverSchool_schoolname];
     
-    NSString * praise = [kManager getStringWithObj:myData[community_praise_number]];
+    NSString * praise = [kManager getStringWithObj:myData[comment_praisepoint]];
+    if ([praise isEqualToString:@"(null)"]) {
+        praise = [kManager getStringWithObj:myData[community_praise_number]];
+    }
+    
     if (praise.integerValue > 999) {
         praise = @"999+";
     }
@@ -51,8 +55,8 @@
 }
 
 - (IBAction)clickPraiseBtn:(id)sender {
-    
-    self.clickPraiseBtnBlock ? self.clickPraiseBtnBlock() : 0;
+
+    self.clickPraiseBtnBlock ? self.clickPraiseBtnBlock(self.myData[[kManager getPraiseKeyWithStyle:self.style]]) : 0;
 }
 - (IBAction)clickCommityBtn:(id)sender {
     self.clickCommunityBtnBlock ? self.clickCommunityBtnBlock() : 0;

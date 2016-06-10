@@ -9,7 +9,7 @@
 #import "XYCommunityDetailTableViewCell.h"
 
 static NSInteger content_left_default = 8;
-static NSInteger content_left_list = 56;
+static NSInteger content_left_list = 48;
 
 @implementation XYCommunityDetailTableViewCell
 
@@ -31,6 +31,7 @@ static NSInteger content_left_list = 56;
     self.nameLabel.text = myData[community_username];
     [self.userImageView setImageWithURL:[NSURL URLWithString:myData[community_userimg]] forState:UIControlStateNormal placeholder:kDefaultImage];
     self.timeLabel.text = myData[community_time];
+    
 //    [self.communtiyBtn setTitle:[kManager getStringWithObj:myData[community_praise_number]] forState:UIControlStateNormal];
     
 }

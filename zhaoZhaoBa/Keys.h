@@ -229,7 +229,7 @@ static NSString * my_shareGetMoney_vc_shareCell_title = @"my_shareGetMoney_vc_sh
 #pragma mark 用户数据
 ////////////////////////////////// 用户数据 ////////////////////////////////////////
 
-static NSString * user_info_userID = @"";
+static NSString * user_info_userID = @"user_info_userID";
 
 
 #pragma mark -------------------------------------------------------
@@ -341,6 +341,11 @@ static NSString * driverSchool_detail_characteristic = @"characteristic";
  *  驾校 说明
  */
 static NSString * driverSchool_detail_explain = @"explain";
+
+/**
+ *  驾校 支付说明
+ */
+static NSString * driverSchool_detail_payinformation = @"payinformation";
 
 
 #pragma mark -------------------------------------------------------
@@ -520,7 +525,7 @@ static NSString * coach_c_phone = @"c_phone";
 static NSString * coach_c_profile = @"c_profile";
 
 /**
- *  教练 历史
+ *  赞
  */
 static NSString * coach_c_praiseNubmer = @"c_praiseNubmer";
 

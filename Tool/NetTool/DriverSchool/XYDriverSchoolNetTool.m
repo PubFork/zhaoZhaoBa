@@ -44,7 +44,7 @@
                                  @"page":[NSString stringWithFormat:@"%ld",page],
                                  @"pageSize":@(pageSize)};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSLog(@"Driver School -> type = %@",responseObject);
         
         NSArray * array = responseObject[@"data"];
@@ -73,7 +73,7 @@
     
     NSDictionary * parmeters = @{@"dsid":@(ID)};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSLog(@"Driver School -> type = %@",responseObject);
         
         NSDictionary * dic = responseObject[@"data"];
@@ -108,7 +108,7 @@
                                  @"pageSize":@(pageSize),
                                  @"dsid":dsid};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSArray * array = responseObject[@"data"];
         success ? success(array) : 0;
@@ -141,7 +141,7 @@
                                  @"page":[NSString stringWithFormat:@"%ld",page],
                                  @"pageSize":@(pageSize)};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         success ? success(responseObject[@"data"]) : 0;
     } failure:failure];
@@ -176,7 +176,7 @@
                                  @"pd_dsid":pd_dsid,
                                  @"pd_content":content};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success ? success(responseObject[@"data"]) : 0;
     } failure:failure];
 }
@@ -209,8 +209,10 @@
                                  @"pdid":communityID,
                                  @"r_repid":repleUserID};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success ? success(responseObject[@"data"]) : 0;
     } failure:failure];
 }
+
+
 @end

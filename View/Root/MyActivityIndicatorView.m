@@ -16,10 +16,13 @@
     if ([super init]) {
     
         self.frame =  CGRectMake(0, 0, 60, 60);
-        self.center = CGPointMake(kScreenWidth/2, kScreenHeight/2 - 64);
+        self.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
     
         
         self.clearView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        self.clearView.backgroundColor = [UIColor blackColor];
+        self.clearView.alpha = .7;
+        
         self.whiteView = [[UIView alloc]initWithFrame:self.clearView.frame];
         _whiteView.backgroundColor = [UIColor whiteColor];
         UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 60, 60)];

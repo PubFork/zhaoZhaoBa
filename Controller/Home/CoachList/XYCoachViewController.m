@@ -59,7 +59,8 @@
     WeakSelf(weakSelf);
     NSString * rule = self.rule ? DrvierSchoolSortRule_asc : DrvierSchoolSortRule_desc;
 
-    [XYCoachNetTool getCoachWithSortType:self.sortType rule:rule page:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+    
+    [XYCoachNetTool getCoachWithSortType:self.sortType drvierSchoolID:self.drvierSchoolID rule:rule page:self.page isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
         
         [weakSelf.groupArray addObjectsFromArray:array];
         

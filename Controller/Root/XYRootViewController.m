@@ -221,14 +221,14 @@
 #pragma mark ----------------------------------------------------------------------
 - (void)addActiveIVToMySelfView
 {
-    _activeIV.center = CGPointMake(kScreenWidth/2, kScreenHeight/2 - 64);
+    _activeIV.center = CGPointMake(kScreenWidth/2, kScreenHeight/2 );
     [self.view addSubview:_activeIV.clearView];
     [self.view addSubview:_activeIV];
     
 }
 - (void)addWhiteActiveIVToMySelfView
 {
-    _activeIV.center = CGPointMake(kScreenWidth/2, kScreenHeight/2 - 64);
+    _activeIV.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
     [self.view addSubview:_activeIV.whiteView];
     [self.view addSubview:_activeIV];
 }

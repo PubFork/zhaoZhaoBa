@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  获取教练 列表
  *
  *  @param type           排序 类型
+ *  @param drvierSchoolID           驾校ID
  *  @param sortRule       升序 还是 降序
  *  @param page           第几页
  *  @param isRefresh      是否刷新
@@ -24,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure        失败
  */
 + (void)getCoachWithSortType:(NSString *)type
+              drvierSchoolID:(NSNumber *)drvierSchoolID
                         rule:(NSString *)rule
                         page:(NSInteger)page
                    isRefresh:(BOOL)isRefresh

@@ -54,4 +54,8 @@
  *  获取教练排序类型
  */
 - (NSString *)getCoachSortTypeWithChineseSortType:(NSString *)chinese;
+
+
+
+- (NSString *)getPraiseKeyWithStyle:(CommunityStyle)style;
 @end

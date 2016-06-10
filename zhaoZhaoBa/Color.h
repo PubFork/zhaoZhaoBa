@@ -12,7 +12,7 @@
 #define kRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define kRGB(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(1)]
 
-#define kNavigationBarTextColor kRGB(12,182,166)
+#define kNavigationBarTextColor kRGB(22,179,191)
 
 #define kDefaultBackgroudColor kRGB(238,238,238)
 

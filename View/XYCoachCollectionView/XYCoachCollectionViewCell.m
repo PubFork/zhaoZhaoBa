@@ -22,7 +22,7 @@
     [self.imageView setImageWithURL:[NSURL URLWithString:myData[coach_c_img]] placeholder:kDefaultImage];
     self.nameLabel.text = myData[coach_c_name];
     self.coachDetail.text = myData[coach_c_type];
-    [self.praiseBtn setTitle:[kManager getStringWithObj:myData[coach_like]] forState:UIControlStateNormal];
+    [self.praiseBtn setTitle:[kManager getStringWithObj:myData[coach_c_praiseNubmer]] forState:UIControlStateNormal];
     [self.unPraisaBtn setTitle:[kManager getStringWithObj:myData[coach_unlike]] forState:UIControlStateNormal];
     
 }

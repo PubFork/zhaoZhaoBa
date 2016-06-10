@@ -94,4 +94,14 @@
     }
     return @"";
 }
+
+- (NSString *)getPraiseKeyWithStyle:(CommunityStyle)style
+{
+    switch (style) {
+        case CommunityStyle_Default:        return @"";     break;
+        case CommunityStyle_DriverSchool:   return @"pdid"; break;
+        case CommunityStyle_Coach:          return @"";     break;
+    }
+    return @"";
+}
 @end

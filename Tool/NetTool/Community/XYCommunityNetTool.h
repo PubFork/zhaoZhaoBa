@@ -84,7 +84,21 @@ NS_ASSUME_NONNULL_BEGIN
                           failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 
-
+/**
+ *  点赞 / 取消赞
+ *
+ type  0 => 社区汇 , 1 => 驾校  , 2 => 教练
+ *  @param isRefresh      是否 刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)praiseDSCommunityWithID:(id)ID
+                           type:(CommunityStyle)type
+                      isRefresh:(BOOL)isRefresh
+                 viewController:(XYRootViewController *)viewController
+                        success:(nullable void (^)(NSDictionary * dic))success
+                        failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end
 NS_ASSUME_NONNULL_END

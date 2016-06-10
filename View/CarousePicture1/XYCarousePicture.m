@@ -30,7 +30,7 @@
     page ++;
     
     //如果到了最后一张
-    if (page == self.groupArray.count) {
+    if (page >= self.groupArray.count) {
         self.pageControl.currentPage = 0;
         
     } else {

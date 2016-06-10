@@ -10,4 +10,5 @@
 @interface XYAlbumViewController : XYRootViewController
 + (XYAlbumViewController *)shareXYAlbumViewController;
 
+@property (nonatomic, assign)NSInteger index;
 @end

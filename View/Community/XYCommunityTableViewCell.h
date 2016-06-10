@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XYPictureView.h"
 
-typedef void(^clickPraiseBtnBlock)();
+typedef void(^clickPraiseBtnBlock)(id communityID);
 typedef void(^clickCommunityBtnBlock)();
 
 
@@ -25,6 +25,7 @@ typedef void(^clickCommunityBtnBlock)();
 @property (weak, nonatomic) IBOutlet UIButton *praiseBtn;
 @property (weak, nonatomic) IBOutlet UIButton *communityBtn;
 
+@property (nonatomic, assign)CommunityStyle style;
 @property (nonatomic, strong)NSDictionary * myData;
 
 

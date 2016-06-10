@@ -12,9 +12,12 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "UMSocial.h"
-
+#import <BaiduMapKit/BaiduMapAPI_Base/BMKMapManager.h>
 
 @interface AppDelegate () <CLLocationManagerDelegate>
+{
+      BMKMapManager* _mapManager;
+}
 @property (nonatomic, strong)CLLocationManager * locationManager;
 @end
 
@@ -54,6 +57,13 @@
     [UMSocialData setAppKey:um_key];
 
     
+    //百度地图
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"ZpvXrznGjsZ7sabgDwG4bZBgXSC0cNGP"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
     
     
     

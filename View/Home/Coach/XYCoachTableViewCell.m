@@ -29,7 +29,7 @@
     self.nameLabel.text = myData[coach_c_name];
     self.schoolNameLabel.text = myData[driverSchool_schoolname];
     self.coachHistory.text = [kManager getStringAddXXYearWithObj:myData[coach_c_driving]];
-    [self.praiseBtn setTitle:[kManager getStringWithObj:myData[coach_like]] forState:UIControlStateNormal];
+    [self.praiseBtn setTitle:[kManager getStringWithObj:myData[coach_c_praiseNubmer]] forState:UIControlStateNormal];
     [self.unPraiseBtn setTitle:[kManager getStringWithObj:myData[coach_unlike]] forState:UIControlStateNormal];
     [self.distanceBtn setTitle:[kManager getStringAddKMWithObj:myData[DriverSchoolSortType_distance]] forState:UIControlStateNormal];
     self.passPro.text = myData[coach_passrate];

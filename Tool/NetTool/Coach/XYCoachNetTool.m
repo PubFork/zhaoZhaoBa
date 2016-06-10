@@ -13,6 +13,7 @@
  *  获取教练 列表
  *
  *  @param type           排序 类型
+ *  @param drvierSchoolID           驾校ID
  *  @param sortRule       升序 还是 降序
  *  @param page           第几页
  *  @param isRefresh      是否刷新
@@ -21,6 +22,7 @@
  *  @param failure        失败
  */
 + (void)getCoachWithSortType:(NSString *)type
+              drvierSchoolID:(NSNumber *)drvierSchoolID
                         rule:(NSString *)rule
                         page:(NSInteger)page
                    isRefresh:(BOOL)isRefresh
@@ -34,9 +36,11 @@
                                  @"sortby":type,
                                  @"sortrule":rule,
                                  @"page":[NSString stringWithFormat:@"%ld",page],
-                                 @"pageSize":@(pageSize)};
+                                 @"pageSize":@(pageSize)}.mutableCopy;
+
+    drvierSchoolID ? [parmeters setValue:drvierSchoolID forKey:@"dsid"] : 0;
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSLog(@"Coach List -> type = %@",responseObject);
         
         NSArray * array = responseObject[@"data"];
@@ -65,7 +69,7 @@
     
     NSDictionary * parmeters = @{@"cid":coachID};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSLog(@"Coach Detail -> type = %@",responseObject);
         success ? success(responseObject[@"data"]) : 0;
     } failure:failure];
@@ -95,7 +99,7 @@
                                  @"page":[NSString stringWithFormat:@"%ld",page],
                                  @"pageSize":@(pageSize)};
     
-    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:NO viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSLog(@"Coach List -> type = %@",responseObject);
         
         NSArray * array = responseObject[@"data"];

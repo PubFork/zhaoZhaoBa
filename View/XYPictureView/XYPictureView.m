@@ -60,6 +60,8 @@
     NSInteger x = allSubviews % self.numberOfPictureViewInLine;
     NSInteger y = self.subviewsArray.count / self.numberOfPictureViewInLine + (x != 0 ? 1 : 0);
     
+    WeakSelf(weakSelf);
+    
     //如果不够就创建
     for (NSInteger i = self.subviewsArray.count; i < allSubviews; i ++) {
         if (i % self.numberOfPictureViewInLine == 0 && x!= 0) {
@@ -71,14 +73,14 @@
         pictureView.backgroundColor = kWhiteColor;
         pictureView.tag = xYPictureView_BaseTag + i;
         [pictureView clickView:^(UIImageView *view) {
-            NSLog(@" clickImageView tag = %ld",view.tag - xYPictureView_BaseTag);
+            weakSelf.clickImageBlock ? weakSelf.clickImageBlock(weakSelf.allArray,view.tag - xYPictureView_BaseTag ) : 0;
         }];
         [self addSubview:pictureView];
         [self.subviewsArray addObject:pictureView];
         
         
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(pictureViewWidth - 50, pictureViewHeight - 20, 50, 20)];
-        label.text = @"128张";
+        label.text = [NSString stringWithFormat:@"%lu张",(unsigned long)self.allArray.count];
         label.font = [UIFont systemFontOfSize:13];
         label.textColor = kWhiteColor;
         label.textAlignment = NSTextAlignmentRight;
@@ -148,7 +150,10 @@
     self.type = type;
 }
 
-
+- (void)clickImageWithBlock:(ClickImageBlock)clickImageBlock
+{
+    self.clickImageBlock = clickImageBlock;
+}
 
 
 #pragma mark -------------------------------------------------------

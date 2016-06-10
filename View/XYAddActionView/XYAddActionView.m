@@ -10,7 +10,7 @@
 
 @implementation XYAddActionView
 
-- (void)clickView:(void (^)(UIView *))clickView
+- (void)clickView:(ClickView)clickView
 {
     self.userInteractionEnabled = YES;
     self.clickView = clickView;

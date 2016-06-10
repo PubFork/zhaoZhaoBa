@@ -10,6 +10,7 @@
 #import "XYAddActionImageView.h"
 
 
+typedef void(^ClickImageBlock)(NSArray * imagesArray, NSInteger index);
 
 /**
  *  图片控件类型
@@ -45,4 +46,9 @@ static NSInteger xYPictureView_BaseTag = 2312532;
 //别直接给这两个赋值
 @property (nonatomic, assign)XYPictureViewType type;
 @property (nonatomic, copy)NSArray * imagesArray;
+
+
+
+@property (nonatomic, copy)ClickImageBlock clickImageBlock;
+- (void)clickImageWithBlock:(ClickImageBlock)clickImageBlock;
 @end
