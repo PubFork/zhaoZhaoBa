@@ -220,6 +220,10 @@
 		185E42771D0AA2280079DFC3 /* 积分.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E42741D0AA2280079DFC3 /* 积分.png */; };
 		185E42781D0AA2280079DFC3 /* 积分@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E42751D0AA2280079DFC3 /* 积分@2x.png */; };
 		185E42791D0AA2280079DFC3 /* 积分@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E42761D0AA2280079DFC3 /* 积分@3x.png */; };
+		185E427D1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E427B1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.m */; };
+		185E427E1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185E427C1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib */; };
+		185E42811D0AC1300079DFC3 /* 踩副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E427F1D0AC1300079DFC3 /* 踩副本.png */; };
+		185E42821D0AC1300079DFC3 /* 顶副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E42801D0AC1300079DFC3 /* 顶副本.png */; };
 		1887EE001CCE36F5006DED7A /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887EDFF1CCE36F5006DED7A /* XYButton.m */; };
 		188FBF0E1CFAD35D0014B79E /* XYWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FBF0C1CFAD35D0014B79E /* XYWebViewViewController.m */; };
 		188FBF0F1CFAD35D0014B79E /* XYWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188FBF0D1CFAD35D0014B79E /* XYWebViewViewController.xib */; };
@@ -589,6 +593,11 @@
 		185E42741D0AA2280079DFC3 /* 积分.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "积分.png"; sourceTree = "<group>"; };
 		185E42751D0AA2280079DFC3 /* 积分@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "积分@2x.png"; sourceTree = "<group>"; };
 		185E42761D0AA2280079DFC3 /* 积分@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "积分@3x.png"; sourceTree = "<group>"; };
+		185E427A1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddCommunityDSCOViewController.h; sourceTree = "<group>"; };
+		185E427B1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddCommunityDSCOViewController.m; sourceTree = "<group>"; };
+		185E427C1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYAddCommunityDSCOViewController.xib; sourceTree = "<group>"; };
+		185E427F1D0AC1300079DFC3 /* 踩副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "踩副本.png"; sourceTree = "<group>"; };
+		185E42801D0AC1300079DFC3 /* 顶副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顶副本.png"; sourceTree = "<group>"; };
 		186094F31CCF72CE00E5C8F9 /* Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		1887EDFE1CCE36F5006DED7A /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
 		1887EDFF1CCE36F5006DED7A /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
@@ -765,6 +774,8 @@
 		180666A01CEFEAA400CCC3CF /* Coach */ = {
 			isa = PBXGroup;
 			children = (
+				185E427F1D0AC1300079DFC3 /* 踩副本.png */,
+				185E42801D0AC1300079DFC3 /* 顶副本.png */,
 				180666C31CEFEF4D00CCC3CF /* 定位.png */,
 				180666C41CEFEF4D00CCC3CF /* 定位@2x.png */,
 				180666C51CEFEF4D00CCC3CF /* 定位@3x.png */,
@@ -1421,6 +1432,9 @@
 				180666E61CEFFA3600CCC3CF /* XYAddCommunityViewController.h */,
 				180666E71CEFFA3600CCC3CF /* XYAddCommunityViewController.m */,
 				180666E81CEFFA3600CCC3CF /* XYAddCommunityViewController.xib */,
+				185E427A1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.h */,
+				185E427B1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.m */,
+				185E427C1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -1985,6 +1999,7 @@
 				18A9521B1CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib in Resources */,
 				1806671D1CF0123000CCC3CF /* XYNoviceOfRoadDetailViewController.xib in Resources */,
 				180666D81CEFF66D00CCC3CF /* 社区汇赞.png in Resources */,
+				185E42811D0AC1300079DFC3 /* 踩副本.png in Resources */,
 				183079671D028A690063925C /* b27_icon_star_gray@2x.png in Resources */,
 				180667011CF0041300CCC3CF /* 添加图片@3x.png in Resources */,
 				180667181CF0102900CCC3CF /* XYNoviceOfRoadTableViewCell1.xib in Resources */,
@@ -2151,6 +2166,7 @@
 				18A952361CF962DE00CBF26D /* XYCarShowTableViewCell.xib in Resources */,
 				180666D91CEFF66D00CCC3CF /* 社区汇赞@2x.png in Resources */,
 				1830796E1D02A6940063925C /* 我的@3x.png in Resources */,
+				185E42821D0AC1300079DFC3 /* 顶副本.png in Resources */,
 				18581FF11CCE0E6500A191BF /* 扫一扫@3x.png in Resources */,
 				180666DE1CEFF89100CCC3CF /* 添加.png in Resources */,
 				180666B51CEFEE9C00CCC3CF /* 踩@2x.png in Resources */,
@@ -2164,6 +2180,7 @@
 				18D358271CD5F74D00E539E7 /* XYMustKnowDetailViewController.xib in Resources */,
 				18A07C6F1CDCC7F000725B8E /* XYCoachTableViewCell.xib in Resources */,
 				183079641D028A690063925C /* b27_icon_star_yellow@2x.png in Resources */,
+				185E427E1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib in Resources */,
 				180667571CF045A800CCC3CF /* 积分商城.png in Resources */,
 				1830796D1D02A6940063925C /* 我的@2x.png in Resources */,
 				18581FEB1CCE0E6500A191BF /* 必知晓@3x.png in Resources */,
@@ -2274,6 +2291,7 @@
 				180666E41CEFF9A700CCC3CF /* XYCommunityDetailViewController.m in Sources */,
 				18BC61ED1CD5B3A500AE8747 /* QRItem.m in Sources */,
 				189051831CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.m in Sources */,
+				185E427D1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.m in Sources */,
 				18A9521F1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m in Sources */,
 				180A4BB51CE6EC220033E5BD /* XYSignUpTableViewCell.m in Sources */,
 				180A4BB01CE6EB980033E5BD /* XYEndEidtView.m in Sources */,
