@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^clickCommunityBtnBlock)();
+typedef void(^clickCommunityBtnBlock)(NSNumber * replyID);
 
 
 @interface XYCommunityDetailTableViewCell : UITableViewCell

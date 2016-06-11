@@ -126,10 +126,11 @@
     
     
     
-    NSDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_userID],
+    NSMutableDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_userID],
                                  @"r_content":content,
-                                 @"r_comid":communityID,
-                                 @"r_repid":repleUserID};
+                                 @"r_comid":communityID}.mutableCopy;
+    
+    repleUserID ? parmeters[@"r_repid"] = repleUserID : 0;
     
     [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success ? success(responseObject[@"data"]) : 0;

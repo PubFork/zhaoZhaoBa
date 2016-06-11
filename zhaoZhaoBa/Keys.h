@@ -29,6 +29,10 @@ static NSString * shareSina_AppName = @"@找找吧";
 #pragma mark -------------------------------------------------------
 #pragma mark 本地
 
+/**
+ *  cell 的高度
+ */
+static NSString * cell_height_key = @"cell_height_key";
 
 /**
  *  定位的城市名字
@@ -582,6 +586,16 @@ static NSString * shopping_sm_title = @"sm_title";
 ////////////////////////////////// 社区汇 ////////////////////////////////////////
 
 /**
+ *  教练评论 id
+ */
+static NSString * community_coach_id = @"pcid";
+
+/**
+ *  驾校评论id
+ */
+static NSString * community_driver_school_id = @"pdid";
+
+/**
  *  社区id
  */
 static NSString * community_communityid = @"communityid";
@@ -615,6 +629,43 @@ static NSString * community_praise_number = @"star";
  *  回复人数
  */
 static NSString * community_replynumber = @"replynumber";
+
+/**
+ *  回复人 时间
+ */
+static NSString * community_reply_replytime = @"replytime";
+
+/**
+ *  回复人 内容
+ */
+static NSString * community_reply_replycontent = @"replycontent";
+
+/**
+ *  回复人 id
+ */
+static NSString * community_reply_replyuserid = @"replyuserid";
+
+/**
+ *  回复人 名字
+ */
+static NSString * community_reply_replyusername = @"replyusername";
+
+
+/**
+ *  回复人 图片
+ */
+static NSString * community_reply_replyuserimg = @"replyuserimg";
+
+/**
+ *  被回复人 id
+ */
+static NSString * community_reply_bereplyuserid = @"bereplyuserid";
+
+/**
+ *  被回复人 姓名
+ */
+static NSString * community_reply_bereplyusername = @"bereplyusername";
+
 
 #pragma mark -------------------------------------------------------
 #pragma mark 评论

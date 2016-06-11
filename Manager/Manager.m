@@ -98,10 +98,30 @@
 - (NSString *)getPraiseKeyWithStyle:(CommunityStyle)style
 {
     switch (style) {
-        case CommunityStyle_Default:        return @"";     break;
-        case CommunityStyle_DriverSchool:   return @"pdid"; break;
-        case CommunityStyle_Coach:          return @"";     break;
+        case CommunityStyle_Default:        return community_communityid;     break;
+        case CommunityStyle_DriverSchool:   return community_driver_school_id; break;
+        case CommunityStyle_Coach:          return community_coach_id;     break;
     }
     return @"";
+}
+
+
+- (NSMutableDictionary *)addCellHeightWithDic:(NSDictionary *)dic key:(NSString *)key width:(NSInteger)width size:(NSInteger)size otherHeight:(NSInteger)otherHeight
+{
+    NSMutableDictionary * newDic = dic.mutableCopy;
+    NSString * string = newDic[key];
+    
+    NSInteger height = [string boundingRectWithSize:CGSizeMake(width, 222222) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:size]} context:nil].size.height;
+    [newDic setValue:@(height + otherHeight) forKey:cell_height_key];
+    return newDic;
+    
+}
+- (NSMutableArray *)addCellHrightWithArray:(NSArray *)array key:(NSString *)key width:(NSInteger)width size:(NSInteger)size otherHeight:(NSInteger)otherHeight
+{
+    NSMutableArray * newArray = @[].mutableCopy;
+    for (NSDictionary * dic in array) {
+        [newArray addObject:[self addCellHeightWithDic:dic key:key width:width size:size otherHeight:otherHeight]];
+    }
+    return newArray;
 }
 @end

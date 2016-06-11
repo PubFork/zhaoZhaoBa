@@ -33,17 +33,39 @@
                         <constraint firstAttribute="height" constant="70" id="FDZ-Cq-HbN"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdB-Ds-sKE">
+                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="2vn-H1-8KS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="30" maxX="27" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="20"/>
+                    <state key="normal" title="提交" image="提交.png">
+                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="submit:" destination="-1" eventType="touchUpInside" id="IXc-Is-xxD"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="St7-kw-JGj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="0SU-Pt-T5h"/>
                 <constraint firstAttribute="trailing" secondItem="JMS-dG-HD1" secondAttribute="trailing" id="1V3-dm-Art"/>
+                <constraint firstAttribute="bottom" secondItem="bdB-Ds-sKE" secondAttribute="bottom" id="DHC-hW-0BE"/>
                 <constraint firstItem="St7-kw-JGj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R9r-KI-DYx"/>
                 <constraint firstItem="JMS-dG-HD1" firstAttribute="top" secondItem="St7-kw-JGj" secondAttribute="bottom" constant="32" id="TTI-qm-tuH"/>
                 <constraint firstAttribute="trailing" secondItem="St7-kw-JGj" secondAttribute="trailing" id="W0T-Sp-wQJ"/>
+                <constraint firstItem="bdB-Ds-sKE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="i0i-VN-gAO"/>
+                <constraint firstAttribute="trailing" secondItem="bdB-Ds-sKE" secondAttribute="trailing" id="mTs-XL-hFf"/>
                 <constraint firstItem="JMS-dG-HD1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wJt-ed-1EV"/>
             </constraints>
             <point key="canvasLocation" x="334" y="428"/>
         </view>
     </objects>
+    <resources>
+        <image name="提交.png" width="30" height="30"/>
+    </resources>
 </document>

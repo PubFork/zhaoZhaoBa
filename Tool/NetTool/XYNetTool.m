@@ -13,6 +13,7 @@
 + (AFHTTPSessionManager *)getDefaultManager
 {
     AFHTTPSessionManager * manager = [[AFHTTPSessionManager alloc] init];
+    
     return manager;
 }
 

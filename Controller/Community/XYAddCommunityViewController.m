@@ -10,6 +10,7 @@
 #import "XYAddCommunityUpdatePictureView.h"
 #import "XYCommunityNetTool.h"
 #import "XYDriverSchoolNetTool.h"
+#import "XYCoachNetTool.h"
 
 @interface XYAddCommunityViewController ()  <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -29,6 +30,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 
+    self.files = [NSData data];
     
     WeakSelf(weakSelf);
     [self.updatePictureView clickImageViewWithBlock:^(UIImageView *view) {
@@ -44,11 +46,10 @@
     }];
 }
 
-- (void)upLoad
-{
+- (IBAction)submit:(id)sender {
     
     NSLog(@" ---- ===> %@",self.updatePictureView.currentImageViews);
- 
+    WeakSelf(weakSelf);
     if (self.style == CommunityStyle_Default) {
         switch (self.type) {
             case AddCommunityType_Release: {
@@ -61,7 +62,30 @@
             }
             case AddCommunityType_Reply: {
                 [XYCommunityNetTool repleCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+                    [kShowLabel setText:@"回复成功"];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                     
+                }];
+                break;
+            }
+        }
+        
+        
+        return;
+    }
+    
+    
+    if (self.style == CommunityStyle_DriverSchool) {
+        switch (self.type) {
+            case AddCommunityType_Release: {
+                
+                break;
+            }
+            case AddCommunityType_Reply: {
+                [XYDriverSchoolNetTool repleDSCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+                    [kShowLabel setText:@"回复成功"];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
                 } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                     
                 }];
@@ -74,19 +98,17 @@
     }
     
     
+    
     switch (self.type) {
         case AddCommunityType_Release: {
-            [XYDriverSchoolNetTool releaseDSCommunityWithContent:self.textView.text files:self.files pd_dsid:self.communityID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
-                
-            } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-                
-            }];
             
             break;
         }
         case AddCommunityType_Reply: {
-            [XYDriverSchoolNetTool repleDSCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
-                
+            
+            [XYCoachNetTool repleCOCommunityWithContent:self.textView.text communityID:self.communityID repleUserID:self.repleUserID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+                [kShowLabel setText:@"回复成功"];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
             } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                 
             }];
@@ -95,9 +117,7 @@
     }
 
     
-   
-    
-    
+
 }
 
 #pragma mark -------------------------------------------------------

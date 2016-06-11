@@ -12,6 +12,7 @@
 #import "XYCoachDetailCommentListTableViewCell.h"
 #import "XYSignUpViewController.h"
 #import "XYDriverSchoolDetailViewController.h"
+#import "XYCommunityDetailViewController.h"
 
 
 #import "XYCoachNetTool.h"
@@ -119,6 +120,14 @@ static NSString * coachDetail_comment_cell_key = @"coachDetail_comment_cell_key"
     XYCoachDetailCommentListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:coachDetail_comment_cell_key forIndexPath:indexPath];
     cell.myData = self.groupArray[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XYCommunityDetailViewController * communityDetailVC = [[XYCommunityDetailViewController alloc] init];
+    communityDetailVC.communityID = self.groupArray[indexPath.row][[kManager getPraiseKeyWithStyle:CommunityStyle_Coach]];
+    communityDetailVC.style = CommunityStyle_Coach;
+    [self.navigationController pushViewController:communityDetailVC animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

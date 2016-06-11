@@ -15,6 +15,7 @@
 + (XYCommunityViewController *)shareCommunityViewController;
 
 @property (nonatomic, strong)NSNumber * dsID;
+@property (nonatomic, strong)NSNumber * coachID;
 
 @property (nonatomic, assign)CommunityStyle style;
 @end

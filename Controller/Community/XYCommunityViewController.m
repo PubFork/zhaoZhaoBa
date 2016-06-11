@@ -10,6 +10,7 @@
 #import "XYCommunityTableViewCell.h"
 #import "XYCommunityDetailViewController.h"
 #import "XYAddCommunityViewController.h"
+#import "XYAddCommunityDSCOViewController.h"
 
 #import "XYCommunityNetTool.h"
 #import "XYDriverSchoolNetTool.h"
@@ -108,9 +109,18 @@ static NSString * community_cell_key = @"community_cell_key";
 
 - (IBAction)clickAddBtn:(id)sender {
     
-    XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
-    addCommuntiyVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:addCommuntiyVC animated:YES];
+    if (self.style == CommunityStyle_Default) {
+        XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+        [self.navigationController pushViewController:addCommuntiyVC animated:YES];
+        return;
+    }
+    
+    
+    XYAddCommunityDSCOViewController * addDSVC = [[XYAddCommunityDSCOViewController alloc] init];
+    addDSVC.coachID = self.coachID;
+    addDSVC.driverSchoolID = self.dsID;
+    [self.navigationController pushViewController:addDSVC animated:YES];
+    
 }
 
 - (IBAction)clickBackTopBtn:(id)sender {
@@ -149,16 +159,14 @@ static NSString * community_cell_key = @"community_cell_key";
         } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
             
         }];
-        
-     
     }];
     
-    [cell clickCommunityBtnWithBlock:^{
-        
+    [cell clickCommunityBtnWithBlock:^(id communityID) {
         XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
-        addCommuntiyVC.hidesBottomBarWhenPushed = YES;
+        addCommuntiyVC.communityID = communityID;
         addCommuntiyVC.style = self.style;
-        [weakSelf.navigationController pushViewController:addCommuntiyVC animated:YES];
+        addCommuntiyVC.type = AddCommunityType_Reply;
+        [self.navigationController pushViewController:addCommuntiyVC animated:YES];
     }];
     return cell;
 }
@@ -181,14 +189,7 @@ static NSString * community_cell_key = @"community_cell_key";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCommunityDetailViewController * communityDetailVC = [[XYCommunityDetailViewController alloc] init];
-    
-    if (self.style == CommunityStyle_Default) {
-        communityDetailVC.communityID = self.groupArray[indexPath.section][community_communityid];
-
-    } else {
-        communityDetailVC.communityID = self.groupArray[indexPath.section][@"pdid"];
-
-    }
+    communityDetailVC.communityID = self.groupArray[indexPath.section][[kManager getPraiseKeyWithStyle:self.style]];
     communityDetailVC.style = self.style;
     [self.navigationController pushViewController:communityDetailVC animated:YES];
 }

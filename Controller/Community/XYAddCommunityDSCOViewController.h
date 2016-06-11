@@ -9,5 +9,6 @@
 #import "XYRootViewController.h"
 
 @interface XYAddCommunityDSCOViewController : XYRootViewController
-
+@property (nonatomic, strong)NSNumber * driverSchoolID;
+@property (nonatomic, strong)NSNumber * coachID;
 @end

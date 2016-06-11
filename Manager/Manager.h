@@ -57,5 +57,21 @@
 
 
 
+/**
+ *  获取 key 根据 评论 类型
+ */
 - (NSString *)getPraiseKeyWithStyle:(CommunityStyle)style;
+
+
+- (NSMutableDictionary *)addCellHeightWithDic:(NSDictionary *)dic
+                                          key:(NSString *)key
+                                        width:(NSInteger)width
+                                         size:(NSInteger)size
+                                  otherHeight:(NSInteger)otherHeight;
+
+- (NSMutableArray *)addCellHrightWithArray:(NSArray *)array
+                                       key:(NSString *)key
+                                     width:(NSInteger)width
+                                      size:(NSInteger)size
+                               otherHeight:(NSInteger)otherHeight;
 @end

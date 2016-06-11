@@ -91,6 +91,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  发布评论
  *
  *  @param content        内容
+ *  @param servier        服务星际 1-5
+ *  @param envir          环境 1-5
+ *  @param car            车辆 1-5
  *  @param files          图片
  *  @param pd_dsid        驾校ID
  *  @param isRefresh      是否 刷新
@@ -99,6 +102,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure        失败
  */
 + (void)releaseDSCommunityWithContent:(NSString *)content
+                              servier:(NSInteger)servier
+                                envir:(NSInteger)envir
+                                  car:(NSInteger)car
                                 files:(id)files
                               pd_dsid:(id)pd_dsid
                             isRefresh:(BOOL)isRefresh

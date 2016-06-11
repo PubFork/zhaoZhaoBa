@@ -59,7 +59,7 @@
     self.clickPraiseBtnBlock ? self.clickPraiseBtnBlock(self.myData[[kManager getPraiseKeyWithStyle:self.style]]) : 0;
 }
 - (IBAction)clickCommityBtn:(id)sender {
-    self.clickCommunityBtnBlock ? self.clickCommunityBtnBlock() : 0;
+    self.clickCommunityBtnBlock ? self.clickCommunityBtnBlock(self.myData[[kManager getPraiseKeyWithStyle:self.style]]) : 0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -10,7 +10,7 @@
 #import "XYPictureView.h"
 
 typedef void(^clickPraiseBtnBlock)(id communityID);
-typedef void(^clickCommunityBtnBlock)();
+typedef void(^clickCommunityBtnBlock)(id communityID);
 
 
 @interface XYCommunityTableViewCell : UITableViewCell

@@ -152,6 +152,9 @@
  *  发布评论
  *
  *  @param content        内容
+ *  @param servier        服务星际 1-5
+ *  @param envir          环境 1-5
+ *  @param car            车辆 1-5
  *  @param files          图片
  *  @param pd_dsid        驾校ID
  *  @param isRefresh      是否 刷新
@@ -160,12 +163,15 @@
  *  @param failure        失败
  */
 + (void)releaseDSCommunityWithContent:(NSString *)content
+                              servier:(NSInteger)servier
+                                envir:(NSInteger)envir
+                                  car:(NSInteger)car
                                 files:(id)files
                               pd_dsid:(id)pd_dsid
                             isRefresh:(BOOL)isRefresh
                        viewController:(XYRootViewController *)viewController
                               success:(nullable void (^)(NSDictionary * dic))success
-                              failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+                              failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 {
     NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/addpraiseds.htm"];
     
@@ -174,7 +180,10 @@
     NSDictionary * parmeters = @{@"pd_uid":[kUserD valueForKey:user_info_userID],
                                  @"files":files,
                                  @"pd_dsid":pd_dsid,
-                                 @"pd_content":content};
+                                 @"pd_content":content,
+                                 @"pd_service":@(servier),
+                                 @"pd_envir":@(envir),
+                                 @"pd_vehicle":@(car)};
     
     [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success ? success(responseObject[@"data"]) : 0;
@@ -204,10 +213,11 @@
     
     
     
-    NSDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_userID],
-                                 @"r_content":content,
-                                 @"pdid":communityID,
-                                 @"r_repid":repleUserID};
+    NSMutableDictionary * parmeters = @{ @"r_uid":[kUserD valueForKey:user_info_userID],
+                                         @"r_content":content,
+                                         @"pdid":communityID
+                                         }.mutableCopy;
+    repleUserID ? parmeters[@"r_repid"] = repleUserID : 0;
     
     [XYNetTool postWithUrl:url parameters:parmeters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         success ? success(responseObject[@"data"]) : 0;

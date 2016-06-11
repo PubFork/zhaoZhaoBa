@@ -10,7 +10,7 @@
 #import "XYNetTool.h"
 
 @interface XYRootViewController ()
-
+@property (nonatomic, assign)NSInteger moveHight;
 @end
 
 @implementation XYRootViewController
@@ -280,32 +280,53 @@
 
 - (void)animateTextView:(UIView *)view up:(BOOL) up
 {
-   //键盘高度
-    NSInteger keyBoard_height = 253;
-    
-    if ([(UITextField *)view keyboardType] == UIKeyboardTypeNumberPad) {
-        keyBoard_height = 216;
-    }
-    
-    
-    CGRect frame = [view.superview convertRect:view.frame toView:kWindow];
-
-    //如果 text 的视图被键盘挡住 就往上
-    NSInteger x = CGRectGetMaxY(frame) > kScreenHeight - keyBoard_height ? CGRectGetMaxY(frame) - kScreenHeight + keyBoard_height : 0;
-    
-    NSInteger movementDistance = x; // tweak as needed
-    
-    const CGFloat movementDuration = 0.3f; // tweak as needed
-    
-    NSInteger movement = (up ? -movementDistance : movementDistance);
-    
-    [UIView beginAnimations: @"anim" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
-    [UIView setAnimationDuration: movementDuration];
-    
-    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
-    
-    [UIView commitAnimations];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        NSInteger x = self.moveHight;
+        
+        if (up) {
+            //键盘高度
+            NSInteger keyBoard_height = 253;
+            
+            if ([(UITextField *)view keyboardType] == UIKeyboardTypeNumberPad) {
+                keyBoard_height = 216;
+            }
+            
+            
+            CGRect frame = [view.superview convertRect:view.frame toView:kWindow];
+            
+            //如果 text 的视图被键盘挡住 就往上
+            x = CGRectGetMaxY(frame) > kScreenHeight - keyBoard_height ? CGRectGetMaxY(frame) - kScreenHeight + keyBoard_height + 5 : 0;
+            
+            
+            self.moveHight = x;
+        }
+        
+        NSLog(@" move vc.view x = %d",x);
+        
+        if (!x) {
+            return ;
+        }
+        
+        NSInteger movementDistance = x; // tweak as needed
+        
+        const CGFloat movementDuration = 0.3f; // tweak as needed
+        
+        NSInteger movement = (up ? -movementDistance : movementDistance);
+        
+        [UIView beginAnimations: @"anim" context: nil];
+        [UIView setAnimationBeginsFromCurrentState: YES];
+        [UIView setAnimationDuration: movementDuration];
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+            
+            [UIView commitAnimations];
+        });
+        
+        
+    });
 }
 #pragma mark -------------------------------------------------------
 #pragma mark Lazy Loading

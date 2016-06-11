@@ -20,7 +20,7 @@
                             <constraint firstAttribute="height" constant="15" id="JCc-oN-kq3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u0M-Kd-sQD">
@@ -41,15 +41,16 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RC-6b-5tn">
-                        <rect key="frame" x="101" y="86" width="46" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RC-6b-5tn">
+                        <rect key="frame" x="89" y="99" width="58" height="16"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="7y1-20-HlW"/>
-                            <constraint firstAttribute="height" constant="30" id="VgE-3d-Dla"/>
+                            <constraint firstAttribute="width" constant="58" id="p9B-FV-sHg"/>
+                            <constraint firstAttribute="height" constant="16" id="sY7-ew-jgt"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal">
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="3" maxY="0.0"/>
+                        <state key="normal" title="2222" image="积分.png">
                             <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
@@ -59,15 +60,15 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="yNR-LI-OKb" secondAttribute="trailing" constant="8" id="EFi-qd-xhX"/>
+                <constraint firstAttribute="trailing" secondItem="5RC-6b-5tn" secondAttribute="trailing" constant="8" id="H75-2w-K6R"/>
                 <constraint firstAttribute="bottom" secondItem="u0M-Kd-sQD" secondAttribute="bottom" constant="6" id="LvI-OO-XhP"/>
                 <constraint firstItem="pXs-Yo-Yf8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Qn0-1B-MYN"/>
+                <constraint firstAttribute="bottom" secondItem="5RC-6b-5tn" secondAttribute="bottom" constant="8" id="UZC-2P-u6A"/>
                 <constraint firstItem="yNR-LI-OKb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="eVS-g4-Y1g"/>
-                <constraint firstAttribute="bottom" secondItem="5RC-6b-5tn" secondAttribute="bottom" constant="7" id="j4e-Od-K00"/>
                 <constraint firstAttribute="trailing" secondItem="pXs-Yo-Yf8" secondAttribute="trailing" constant="8" id="nRJ-AE-3Zn"/>
                 <constraint firstItem="u0M-Kd-sQD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="pmj-wC-vhP"/>
                 <constraint firstItem="yNR-LI-OKb" firstAttribute="top" secondItem="pXs-Yo-Yf8" secondAttribute="bottom" constant="3" id="r3U-aM-fb6"/>
                 <constraint firstItem="pXs-Yo-Yf8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="sfs-cO-8j3"/>
-                <constraint firstAttribute="trailing" secondItem="5RC-6b-5tn" secondAttribute="trailing" constant="8" id="xMN-Eu-IqA"/>
             </constraints>
             <size key="customSize" width="155" height="123"/>
             <connections>
@@ -79,4 +80,7 @@
             <point key="canvasLocation" x="232.5" y="240.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="积分.png" width="10" height="10"/>
+    </resources>
 </document>

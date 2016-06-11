@@ -19,7 +19,7 @@
         self.center = CGPointMake(kScreenWidth/2, kScreenHeight/2);
     
         
-        self.clearView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        self.clearView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64)];
         self.clearView.backgroundColor = [UIColor blackColor];
         self.clearView.alpha = .7;
         

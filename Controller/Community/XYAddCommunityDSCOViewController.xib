@@ -7,6 +7,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XYAddCommunityDSCOViewController">
             <connections>
+                <outlet property="coachCommunityStart" destination="PO6-wf-01s" id="ZxS-6D-05x"/>
+                <outlet property="coachCommunityTV" destination="Vno-kl-bBf" id="fai-md-r2m"/>
+                <outlet property="coachCommunityTVLabel" destination="GwC-9Q-ray" id="UaC-Zo-e3Z"/>
+                <outlet property="coachDriverSchoolLabel" destination="eoO-X5-TNK" id="pgV-cj-JKi"/>
+                <outlet property="coachHistoryLabel" destination="FdZ-Zn-nqe" id="7cV-NS-vUl"/>
+                <outlet property="coachImageView" destination="QLr-3N-VUL" id="g9e-HV-SF1"/>
+                <outlet property="coachLikeBtn" destination="lcF-Kt-v0f" id="nKL-wj-9wD"/>
+                <outlet property="coachNameLabel" destination="Z61-1Y-UsH" id="s8p-TL-77k"/>
+                <outlet property="coachPassBtn" destination="cSm-3v-Xax" id="umD-T7-6gz"/>
+                <outlet property="coachPassLabel" destination="T3G-6y-tha" id="T2e-BS-fF6"/>
+                <outlet property="coachPraiseBtn" destination="0fd-01-Onb" id="g1i-hi-X5h"/>
+                <outlet property="coachSubmitBtn" destination="v4Y-rx-G3h" id="Aq7-pr-buR"/>
+                <outlet property="coachUnlikeBtn" destination="xEz-Pf-pur" id="uHm-7l-wgh"/>
+                <outlet property="coachUnpassBtn" destination="cn3-ak-Tap" id="nd2-cf-5EV"/>
+                <outlet property="coachUnpraiseBtn" destination="fAe-BE-wbi" id="HHD-Mr-jZM"/>
+                <outlet property="driverSchoolCommunityTV" destination="1QY-4m-Oeg" id="eUU-sn-oxi"/>
+                <outlet property="driverSchoolCommunityTVLabel" destination="vpd-Tz-Etn" id="oL8-QL-tmQ"/>
+                <outlet property="driverSchoolSubmitBtn" destination="AHe-fe-Xxz" id="RpF-gP-vas"/>
+                <outlet property="drvierSchoolEnvironmentStart" destination="s7B-fq-Sb3" id="0oi-nz-gtA"/>
+                <outlet property="drvierSchoolImageView" destination="ryr-ww-MdP" id="4L2-Uf-WAB"/>
+                <outlet property="drvierSchoolNameLabel" destination="Lg4-wK-Pdb" id="4bh-uW-2i3"/>
+                <outlet property="drvierSchoolServerStart" destination="QRU-Du-qtU" id="PTF-Z9-k3S"/>
+                <outlet property="drvierSchoolStart" destination="mKM-qW-d7h" id="5oC-Mt-x7s"/>
+                <outlet property="environmentCarStart" destination="KG6-bx-Z9p" id="rkS-w6-hg4"/>
+                <outlet property="scrollView" destination="h8q-LC-Jye" id="zJP-QE-O85"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,10 +40,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8q-LC-Jye">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8q-LC-Jye">
                     <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2a-YY-NZt">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2a-YY-NZt" customClass="XYEndEidtView">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="621"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82I-D8-Y3p">
@@ -40,7 +65,7 @@
                                                 <constraint firstAttribute="height" constant="20" id="ViU-eU-sKO"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRU-Du-qtU" customClass="CWStarRateView">
@@ -59,7 +84,7 @@
                                                 <constraint firstAttribute="width" constant="42" id="qzO-zf-VQb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7B-fq-Sb3" customClass="CWStarRateView">
@@ -78,7 +103,7 @@
                                                 <constraint firstAttribute="width" constant="42" id="rLj-T4-PPH"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-bx-Z9p" customClass="CWStarRateView">
@@ -97,20 +122,23 @@
                                                 <constraint firstAttribute="width" constant="42" id="hB8-6s-GJK"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1QY-4m-Oeg">
-                                            <rect key="frame" x="83" y="183" width="207" height="75"/>
+                                            <rect key="frame" x="83" y="178" width="207" height="75"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75" id="lGj-cN-ZWS"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="e8c-Eg-vo1"/>
+                                            </connections>
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-fe-Xxz">
-                                            <rect key="frame" x="95" y="266" width="130" height="30"/>
+                                            <rect key="frame" x="95" y="261" width="130" height="30"/>
                                             <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="1qo-wO-ZCB"/>
@@ -119,6 +147,9 @@
                                             <state key="normal" title="确认评价">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="clickDriverSchoolSubmitBtn:" destination="-1" eventType="touchUpInside" id="4gc-m5-0ob"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKM-qW-d7h" customClass="CWStarRateView">
                                             <rect key="frame" x="105" y="48" width="136" height="20"/>
@@ -129,21 +160,20 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写下" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpd-Tz-Etn">
-                                            <rect key="frame" x="83" y="183" width="42" height="20"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <rect key="frame" x="83" y="182" width="42" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="42" id="a6M-dm-gYj"/>
                                                 <constraint firstAttribute="height" constant="20" id="pEF-qb-prb"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg4-wK-Pdb">
                                             <rect key="frame" x="105" y="8" width="36" height="17"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -151,13 +181,13 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="1QY-4m-Oeg" secondAttribute="trailing" constant="30" id="8m6-pM-lvW"/>
                                         <constraint firstItem="ryr-ww-MdP" firstAttribute="leading" secondItem="82I-D8-Y3p" secondAttribute="leading" constant="30" id="9Jf-Z8-59s"/>
-                                        <constraint firstItem="vpd-Tz-Etn" firstAttribute="top" secondItem="KG6-bx-Z9p" secondAttribute="bottom" constant="11" id="EQ4-sd-0ji"/>
+                                        <constraint firstItem="vpd-Tz-Etn" firstAttribute="top" secondItem="KG6-bx-Z9p" secondAttribute="bottom" constant="10" id="EQ4-sd-0ji"/>
                                         <constraint firstItem="Nw2-df-y53" firstAttribute="leading" secondItem="82I-D8-Y3p" secondAttribute="leading" constant="30" id="J94-UE-Lfz"/>
                                         <constraint firstAttribute="height" constant="310" id="LM0-FM-co2"/>
                                         <constraint firstItem="Ace-kS-ffu" firstAttribute="top" secondItem="Nw2-df-y53" secondAttribute="bottom" constant="8" id="Pp4-Dv-RjZ"/>
                                         <constraint firstItem="KG6-bx-Z9p" firstAttribute="leading" secondItem="aLw-vy-Imj" secondAttribute="trailing" constant="11" id="TNF-7F-WDD"/>
                                         <constraint firstItem="s7B-fq-Sb3" firstAttribute="top" secondItem="QRU-Du-qtU" secondAttribute="bottom" constant="8" id="UHm-M3-qpF"/>
-                                        <constraint firstItem="1QY-4m-Oeg" firstAttribute="top" secondItem="KG6-bx-Z9p" secondAttribute="bottom" constant="11" id="WLR-0D-VBg"/>
+                                        <constraint firstItem="1QY-4m-Oeg" firstAttribute="top" secondItem="KG6-bx-Z9p" secondAttribute="bottom" constant="6" id="WLR-0D-VBg"/>
                                         <constraint firstItem="7lc-KI-8h5" firstAttribute="top" secondItem="aLw-vy-Imj" secondAttribute="bottom" constant="8" id="WnB-6i-lws"/>
                                         <constraint firstItem="Ace-kS-ffu" firstAttribute="leading" secondItem="82I-D8-Y3p" secondAttribute="leading" constant="30" id="YlI-ub-I9x"/>
                                         <constraint firstItem="Lg4-wK-Pdb" firstAttribute="top" secondItem="82I-D8-Y3p" secondAttribute="top" constant="8" id="Za8-Wc-ShQ"/>
@@ -198,7 +228,7 @@
                                                 <constraint firstAttribute="height" constant="20" id="Oke-9V-1YQ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-wf-01s" customClass="CWStarRateView">
@@ -217,6 +247,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="wJE-RZ-yJi"/>
+                                            </connections>
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4Y-rx-G3h">
                                             <rect key="frame" x="95" y="266" width="130" height="30"/>
@@ -228,24 +261,30 @@
                                             <state key="normal" title="确认评价">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="clickCoachSubmitBtn:" destination="-1" eventType="touchUpInside" id="1y8-TA-5wf"/>
+                                            </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="写下" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwC-9Q-ray">
-                                            <rect key="frame" x="83" y="183" width="42" height="20"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写下" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwC-9Q-ray">
+                                            <rect key="frame" x="83" y="190" width="26" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z61-1Y-UsH">
                                             <rect key="frame" x="105" y="8" width="36" height="17"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcF-Kt-v0f">
                                             <rect key="frame" x="167" y="33" width="25" height="15"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="OTG-7X-KlP"/>
+                                                <constraint firstAttribute="width" constant="25" id="rci-Sa-knB"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <state key="normal" title="20" image="顶.png">
                                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -275,6 +314,10 @@
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEz-Pf-pur">
                                             <rect key="frame" x="200" y="33" width="25" height="15"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="DE4-OA-Flz"/>
+                                                <constraint firstAttribute="height" constant="15" id="Ii3-3P-F8d"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <state key="normal" title="20" image="踩.png">
                                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -288,12 +331,12 @@
                                                 <constraint firstAttribute="width" constant="84" id="j8P-oL-QdW"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fd-01-Onb">
                                             <rect key="frame" x="112" y="78" width="43" height="41"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.9253229167" green="0.9253229167" blue="0.9253229167" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="43" id="Now-pG-3Rm"/>
                                                 <constraint firstAttribute="height" constant="41" id="T9h-8u-H73"/>
@@ -304,6 +347,9 @@
                                             <state key="normal" title="顶一下" image="顶副本.png">
                                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="clickCoachPraiseBtn:" destination="-1" eventType="touchUpInside" id="Qjl-kn-gUk"/>
+                                            </connections>
                                         </button>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAe-BE-wbi">
                                             <rect key="frame" x="167" y="78" width="43" height="41"/>
@@ -318,24 +364,33 @@
                                             <state key="normal" title="踩一下" image="踩副本.png">
                                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="clickCoachUnpraiseBtn:" destination="-1" eventType="touchUpInside" id="ptB-us-bcR"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSm-3v-Xax">
                                             <rect key="frame" x="122" y="127" width="42" height="18"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="通过" image="未选中.png">
-                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <state key="normal" title="通过" image="选中.png">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
-                                            <state key="highlighted" title="通过" image="选中.png"/>
+                                            <state key="highlighted" image="未选中.png"/>
+                                            <connections>
+                                                <action selector="clickCoachPassBtn:" destination="-1" eventType="touchUpInside" id="XMS-ay-oCZ"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn3-ak-Tap">
+                                        <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn3-ak-Tap">
                                             <rect key="frame" x="173" y="127" width="54" height="18"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="未通过" image="未选中.png">
-                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <state key="normal" title="未通过" image="选中.png">
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
-                                            <state key="highlighted" image="选中.png"/>
+                                            <state key="highlighted" image="未选中.png"/>
+                                            <connections>
+                                                <action selector="clickCoachUnpassBtn:" destination="-1" eventType="touchUpInside" id="dye-U8-naJ"/>
+                                            </connections>
                                         </button>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Bw-aM-zbF">
                                             <rect key="frame" x="160" y="0.0" width="0.0" height="128"/>
@@ -364,6 +419,7 @@
                                         <constraint firstItem="0fd-01-Onb" firstAttribute="top" secondItem="FdZ-Zn-nqe" secondAttribute="bottom" constant="8" id="OHF-YI-VLB"/>
                                         <constraint firstItem="FdZ-Zn-nqe" firstAttribute="leading" secondItem="QLr-3N-VUL" secondAttribute="trailing" constant="5" id="P2a-nv-XTl"/>
                                         <constraint firstItem="v4Y-rx-G3h" firstAttribute="top" secondItem="Vno-kl-bBf" secondAttribute="bottom" constant="8" id="P55-Hj-xW9"/>
+                                        <constraint firstItem="GwC-9Q-ray" firstAttribute="top" secondItem="PO6-wf-01s" secondAttribute="bottom" constant="15" id="Qo5-QV-d3M"/>
                                         <constraint firstItem="5Bw-aM-zbF" firstAttribute="leading" secondItem="0fd-01-Onb" secondAttribute="trailing" constant="5" id="T1T-oh-0BO"/>
                                         <constraint firstItem="xEz-Pf-pur" firstAttribute="leading" secondItem="lcF-Kt-v0f" secondAttribute="trailing" constant="8" id="UOZ-ez-c3s"/>
                                         <constraint firstItem="Z61-1Y-UsH" firstAttribute="top" secondItem="58K-0X-0oV" secondAttribute="top" constant="8" id="VMq-Mc-GHX"/>
@@ -378,6 +434,7 @@
                                         <constraint firstItem="fAe-BE-wbi" firstAttribute="leading" secondItem="5Bw-aM-zbF" secondAttribute="trailing" constant="7" id="iUY-aW-XZm"/>
                                         <constraint firstItem="PO6-wf-01s" firstAttribute="top" secondItem="fZ0-Qj-FiT" secondAttribute="bottom" constant="8" id="iln-QX-PZD"/>
                                         <constraint firstItem="FdZ-Zn-nqe" firstAttribute="top" secondItem="eoO-X5-TNK" secondAttribute="bottom" constant="6" id="lGd-6C-lyn"/>
+                                        <constraint firstItem="GwC-9Q-ray" firstAttribute="leading" secondItem="58K-0X-0oV" secondAttribute="leading" constant="83" id="sDI-Ec-0J0"/>
                                         <constraint firstItem="Vno-kl-bBf" firstAttribute="leading" secondItem="58K-0X-0oV" secondAttribute="leading" constant="83" id="siw-ua-Kn4"/>
                                         <constraint firstItem="fZ0-Qj-FiT" firstAttribute="top" secondItem="QLr-3N-VUL" secondAttribute="bottom" constant="49" id="tYZ-vB-bvy"/>
                                         <constraint firstItem="5Bw-aM-zbF" firstAttribute="centerX" secondItem="58K-0X-0oV" secondAttribute="centerX" id="uy1-U8-1de"/>
@@ -416,7 +473,7 @@
                 <constraint firstItem="h8q-LC-Jye" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="UWe-EI-Wey"/>
                 <constraint firstAttribute="bottom" secondItem="h8q-LC-Jye" secondAttribute="bottom" id="eMq-Jp-GD2"/>
             </constraints>
-            <point key="canvasLocation" x="410" y="298"/>
+            <point key="canvasLocation" x="414" y="299"/>
         </view>
     </objects>
     <resources>
