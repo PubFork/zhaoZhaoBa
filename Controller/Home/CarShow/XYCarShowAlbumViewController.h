@@ -9,5 +9,5 @@
 #import "XYRootViewController.h"
 
 @interface XYCarShowAlbumViewController : XYRootViewController
-
+@property (nonatomic, strong)id carID;
 @end

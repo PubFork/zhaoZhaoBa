@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -25,27 +25,24 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQN-zK-Qo1">
-                        <rect key="frame" x="12" y="10" width="18" height="22"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="未选中.png" highlightedImage="选中.png" translatesAutoresizingMaskIntoConstraints="NO" id="9ng-FI-AHf">
+                        <rect key="frame" x="15" y="13" width="18" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="18" id="0Lt-vh-nbq"/>
-                            <constraint firstAttribute="height" constant="22" id="Co2-Ns-yeu"/>
+                            <constraint firstAttribute="width" constant="18" id="LkA-yC-YSf"/>
+                            <constraint firstAttribute="height" constant="18" id="tJP-fI-q3W"/>
                         </constraints>
-                        <state key="normal" image="未选中.png"/>
-                        <state key="highlighted" image="选中.png"/>
-                    </button>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="9ng-FI-AHf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="5UP-XD-BxQ"/>
                     <constraint firstItem="bUL-3G-4Lv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="AGQ-dq-M1D"/>
-                    <constraint firstItem="nQN-zK-Qo1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="Uiz-U0-w87"/>
+                    <constraint firstItem="9ng-FI-AHf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FNe-he-9y4"/>
                     <constraint firstItem="bUL-3G-4Lv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="YNb-Yx-MI0"/>
-                    <constraint firstItem="nQN-zK-Qo1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="mWp-V6-ESW"/>
-                    <constraint firstItem="bUL-3G-4Lv" firstAttribute="leading" secondItem="nQN-zK-Qo1" secondAttribute="trailing" constant="11" id="zwv-0S-OvU"/>
+                    <constraint firstItem="bUL-3G-4Lv" firstAttribute="leading" secondItem="9ng-FI-AHf" secondAttribute="trailing" constant="8" id="xuQ-yQ-SkH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="selectBtn" destination="nQN-zK-Qo1" id="acD-8y-0P8"/>
+                <outlet property="selectImageView" destination="9ng-FI-AHf" id="U9U-Uq-t61"/>
                 <outlet property="titleLabel" destination="bUL-3G-4Lv" id="UbJ-ct-KOn"/>
             </connections>
         </tableViewCell>

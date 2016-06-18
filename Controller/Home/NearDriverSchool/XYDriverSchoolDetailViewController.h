@@ -10,4 +10,6 @@
 
 @interface XYDriverSchoolDetailViewController : XYRootViewController
 @property (nonatomic, assign)NSInteger driverSchoolID;
+
+@property (nonatomic, strong)id token;
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^ClickCarTypeLabelBlock)(NSInteger index, BOOL isHighlighted);
+typedef void(^ClickCarTypeLabelBlock)(NSInteger index, BOOL isHighlighted, NSString * title);
 
 static NSInteger car_show_type_label_tag = 100009;
 

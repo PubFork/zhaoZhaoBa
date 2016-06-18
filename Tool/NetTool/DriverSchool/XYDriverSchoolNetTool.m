@@ -83,6 +83,37 @@
 }
 
 
+
+/**
+ *  我的驾校
+ *
+ *  @param token          token description
+ *  @param isRefresh      是否刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)getMyDriverSchoolWithToken:(id)token
+                         isRefresh:(BOOL)isRefresh
+                    viewController:(XYRootViewController *)viewController
+                           success:(nullable void (^)(NSDictionary * dic))success
+                           failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/mydrivershcool.htm"];
+    
+    NSDictionary * parmeters = @{@"token":token};
+    
+    
+    [XYNetTool postWithUrl:url
+                parameters:parmeters
+                 isRefresh:isRefresh
+            viewController:viewController
+                   success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                       success ? success(responseObject[@"data"]) : 0;
+                   }   failure:failure];
+    
+}
+
 /**
  *  驾校详情 评论  列表
  *
@@ -177,7 +208,7 @@
     
     
     
-    NSDictionary * parmeters = @{@"pd_uid":[kUserD valueForKey:user_info_userID],
+    NSDictionary * parmeters = @{@"pd_uid":[kUserD valueForKey:user_info_key][user_info_au_id],
                                  @"files":files,
                                  @"pd_dsid":pd_dsid,
                                  @"pd_content":content,
@@ -213,7 +244,7 @@
     
     
     
-    NSMutableDictionary * parmeters = @{ @"r_uid":[kUserD valueForKey:user_info_userID],
+    NSMutableDictionary * parmeters = @{ @"r_uid":[kUserD valueForKey:user_info_key][user_info_au_id],
                                          @"r_content":content,
                                          @"pdid":communityID
                                          }.mutableCopy;

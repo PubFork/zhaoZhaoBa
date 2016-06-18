@@ -12,6 +12,7 @@
 
 #import "XYCarousePicture.h"
 #import "XYWebViewViewController.h"
+#import "XYCoachViewController.h"
 
 
 @interface XYSignUpViewController () 
@@ -24,12 +25,18 @@
 @property (weak, nonatomic) IBOutlet UITextField *IDCardTF;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 
+@property (weak, nonatomic) IBOutlet UILabel *coachLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carTypeLabel;
 
 @property (nonatomic, copy)NSString * carTypeID;
 
 
 @property (nonatomic, copy)NSString * img_link_1;
 @property (nonatomic, copy)NSString * img_link_2;
+
+
+
+@property (nonatomic, strong)NSDictionary * coachDic;
 
 @end
 
@@ -44,8 +51,9 @@
 
     [self.signUpSelectCarTypeView addSignUpSelectCarTypeViewWithSuperView:self.view];
     WeakSelf(weakSelf);
-    [self.signUpSelectCarTypeView getSelectCarTypeWithBlock:^(NSString *carTypeID) {
-        weakSelf.carTypeID = carTypeID;
+    [self.signUpSelectCarTypeView getSelectCarTypeWithBlock:^(NSDictionary *carType) {
+        weakSelf.carTypeID = carType[sign_up_ct_id];
+        weakSelf.carTypeLabel.text = carType[sign_up_ct_title];
     }];
     
     [self requestData];
@@ -62,9 +70,11 @@
 - (void)requestData
 {
     WeakSelf(weakSelf);
-    [XYSignUpNetTool getCareTypeWithIsRefresh:YES viewController:self success:^(NSArray * _Nonnull array) {
+    [XYSignUpNetTool getCareTypeWithIsRefresh:NO driverSchoolID:self.driverSchoolID viewController:self success:^(NSArray * _Nonnull array) {
         weakSelf.signUpSelectCarTypeView.groupArray = array;
-    } failure:nil];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+    }];
     
     
     
@@ -97,18 +107,40 @@
 
 - (IBAction)clickSignUpBtn:(id)sender {
     
-//    [XYSignUpNetTool signUpWithName:self.nameTf.text
-//                             IDCard:self.IDCardTF.text
-//                              phone:self.phoneTF.text
-//                     driverSchoolID:<#(nonnull NSString *)#>
-//                             userID:<#(nonnull NSString *)#>
-//                            coachID:<#(nonnull NSString *)#>
-//                            carType:self.carTypeID
-//                           sRefresh:YES
-//                     viewController:self
-//                            success:^{
-//                                
-//                            } failure:nil];
+    if (self.nameTf.text.length <= 1) {
+        [kShowLabel setText:@"请填写姓名"];
+        return;
+    }
+    
+    if ([kManager valiMobile:self.phoneTF.text]) {
+        [kShowLabel setText:[kManager valiMobile:self.phoneTF.text]];
+        return;
+    }
+    
+    if ([kManager idCardWithID:self.IDCardTF.text]) {
+        [kShowLabel setText:[kManager idCardWithID:self.IDCardTF.text]];
+        return;
+    }
+    
+    if (!self.coachDic) {
+        [kShowLabel setText:@"请选择教练"];
+        return;
+    }
+    
+    if (!self.carTypeID) {
+        [kShowLabel setText:@"请选择车型"];
+        return;
+    }
+    
+    
+    WeakSelf(weakSelf);
+    [XYSignUpNetTool signUpWithName:self.nameTf.text IDCard:self.IDCardTF.text phone:self.phoneTF.text driverSchoolID:self.driverSchoolID userID:@"0" coachID:self.coachDic[coach_c_id] carType:self.carTypeID su_payselect:self.su_payselect isRefresh:YES viewController:self success:^{
+        
+        [kShowLabel setText:@"报名成功"];
+        
+    } failure:nil];
+    
+   
 }
 
 
@@ -125,6 +157,19 @@
     [self.navigationController pushViewController:wb animated:YES];
 }
 
+- (IBAction)clickCoachBtn:(id)sender {
+    
+    XYCoachViewController * coachVC = [[XYCoachViewController alloc] init];
+    coachVC.isSelect = YES;
+    coachVC.drvierSchoolID = self.driverSchoolID;
+    [self.navigationController pushViewController:coachVC animated:YES];
+    
+    WeakSelf(weakSelf);
+    [coachVC selectCoachWithBlock:^(NSDictionary *coachDic) {
+        weakSelf.coachLabel.text = coachDic[coach_c_name];
+        weakSelf.coachDic = coachDic;
+    }];
+}
 #pragma mark -------------------------------------------------------
 #pragma mark Lazy Loading
 

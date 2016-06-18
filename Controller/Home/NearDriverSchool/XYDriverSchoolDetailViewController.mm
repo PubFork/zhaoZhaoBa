@@ -161,12 +161,25 @@
 - (void)requestData
 {
     WeakSelf(weakSelf);
-    [XYDriverSchoolNetTool getDriverSchoolDetailWithID:self.driverSchoolID
-                                             isRefresh:YES
-                                        viewController:self
-                                               success:^(NSDictionary * _Nonnull dic) {
-                                                   [weakSelf layout:dic];
-                                               } failure:nil];
+    if (self.driverSchoolID) {
+        [XYDriverSchoolNetTool getDriverSchoolDetailWithID:self.driverSchoolID
+                                                 isRefresh:YES
+                                            viewController:self
+                                                   success:^(NSDictionary * _Nonnull dic) {
+                                                       [weakSelf layout:dic];
+                                                   } failure:nil];
+
+        return;
+    }
+    
+    if (self.token) {
+        [XYDriverSchoolNetTool getMyDriverSchoolWithToken:self.token isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+             [weakSelf layout:dic];
+        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+            
+        }];
+    }
+    
 }
 
 - (void)layout:(NSDictionary *)dic
@@ -509,10 +522,14 @@
 
 - (IBAction)studyTime:(id)sender {
     XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
+    signVc.su_payselect = 1;
+    signVc.driverSchoolID = @(self.driverSchoolID);
     [self.navigationController pushViewController:signVc animated:YES];
 }
 - (IBAction)allPrice:(id)sender {
     XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
+    signVc.su_payselect = 2;
+    signVc.driverSchoolID = @(self.driverSchoolID);
     [self.navigationController pushViewController:signVc animated:YES];
 }
 - (IBAction)feed:(id)sender {

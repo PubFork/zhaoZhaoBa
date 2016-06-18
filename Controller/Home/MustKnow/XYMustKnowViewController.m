@@ -8,8 +8,9 @@
 
 #import "XYMustKnowViewController.h"
 #import "XYMustKnowTableViewCell.h"
-#import "XYMustKnowDetailViewController.h"
 #import "XYMustKnowNetTool.h"
+#import "XYWebViewViewController.h"
+
 
 @interface XYMustKnowViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -84,9 +85,12 @@ static NSString * cellKey = @"cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XYMustKnowDetailViewController * detailVC = [[XYMustKnowDetailViewController alloc] init];
-    detailVC.mustKnowID = [self.groupArray[indexPath.row][mustKown_mk_id] integerValue];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    XYWebViewViewController * webView = [XYWebViewViewController shareXYWebViewViewController];
+    webView.url = [NSString stringWithFormat:@"%@%@?mkId=%@",root_URL,@"DrivingSchool/api/noviceroaddetail.htm",self.groupArray[indexPath.row][mustKown_mk_id]];
+    [webView setTitle:@"必知晓"];
+    [self.navigationController pushViewController:webView animated:YES];
+   
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

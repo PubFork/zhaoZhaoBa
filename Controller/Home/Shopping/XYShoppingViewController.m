@@ -11,8 +11,12 @@
 #import "XYShoppingCollectionViewCell.h"
 #import "XYShoppingHeaderCollectionViewCell.h"
 #import "XYShoppingNetTool.h"
+#import "XYShoppingDetaikViewController.h"
+#import "XYHomeNetTool.h"
+#import "XYWebViewViewController.h"
 
 @interface XYShoppingViewController ()
+@property (nonatomic, strong)NSArray * array;
 @end
 
 
@@ -52,6 +56,12 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [weakSelf endRefresh];
     }];
+    
+    
+    [XYHomeNetTool getCarousePictureWithBannerType:CarousePictureBannerType_shop isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        weakSelf.array = array;
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    }];
 }
 
 
@@ -85,6 +95,14 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
 {
     if (indexPath.section == 0) {
         XYShoppingHeaderCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:shopping_header_cell_key forIndexPath:indexPath];
+        cell.carousePicture.groupArray = self.array;
+        
+        [cell.carousePicture carousePictureClickPictureWithBlock:^(NSString *url) {
+            XYWebViewViewController * webView = [[XYWebViewViewController alloc] init];
+            webView.url = url;
+            [self.navigationController pushViewController:webView animated:YES];
+        }];
+        
         return cell;
     }
     
@@ -92,6 +110,15 @@ static NSString * shopping_cell_key = @"shopping_cell_key";
     cell.myData = self.groupArray[indexPath.row];
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    XYShoppingDetaikViewController * detail = [[XYShoppingDetaikViewController alloc] init];
+    detail.shoppingID = self.groupArray[indexPath.row][shopping_sm_id];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
+
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {

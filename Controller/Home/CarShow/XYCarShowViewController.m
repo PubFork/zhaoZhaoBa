@@ -13,6 +13,7 @@
 #import "XYCarShowOneTypeTableView.h"
 #import "XYCarShowAlbumViewController.h"
 #import "XYCareShowNetTool.h"
+#import "XYWebViewViewController.h"
 
 
 @interface XYCarShowViewController ()
@@ -25,6 +26,9 @@
 
 
 @property (nonatomic, strong)NSNumber * selectCarID;
+
+
+@property (nonatomic, strong)NSDictionary * myData;
 @end
 
 
@@ -68,9 +72,11 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
 - (void)requestData
 {
     WeakSelf(weakSelf);
-    [XYCareShowNetTool getCareShowIsRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
+    [XYCareShowNetTool getCareShowIsRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
         
         NSMutableDictionary * newDic = @{}.mutableCopy;
+        weakSelf.myData = dic;
+        dic = dic[car_show_all_key];
         for (NSString * key in dic.allKeys) {
             NSArray * array = dic[key];
             array.count ? [newDic setValue:array forKey:key] : 0;
@@ -163,13 +169,28 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
 - (XYCarShowTypeView *)carShowTypeView
 {
     if (!_carShowTypeView) {
+        
         _carShowTypeView = [[XYCarShowTypeView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, 30)];
-        [_carShowTypeView ClickCarTypeLabelWithBlock:^(NSInteger index, BOOL isHighlighted) {
+        
+        WeakSelf(weakSelf);
+        [_carShowTypeView ClickCarTypeLabelWithBlock:^(NSInteger index, BOOL isHighlighted, NSString *title) {
             [self.showOneTableView hidden];
             //如果点击的不是高亮的，那么做数据的处理，如果是高亮 不做任何动作
             if (!isHighlighted) {
                 NSLog(@"处理数据。。。 --- %ld",(long)index);
-
+                
+                NSString * key;
+                switch (index) {
+                    case 0: return;
+                    case 1: key = car_show_tow_car;     break;
+                    case 2: key = car_show_tow_house;   break;
+                    case 3: key = car_show_choose_car;  break;
+                }
+                
+                XYWebViewViewController * webViewVC = [[XYWebViewViewController alloc] init];
+                webViewVC.url = weakSelf.myData[key];
+                webViewVC.title = title;
+                [weakSelf.navigationController pushViewController:webViewVC animated:YES];
             }
         }];
     }
@@ -196,12 +217,11 @@ static NSString * car_show_cell_key = @"car_show_cell_key";
     if (!_showOneTableView) {
         _showOneTableView = [[XYCarShowOneTypeTableView alloc] initWithFrame:CGRectMake(kScreenWidth, self.tableView.mj_y, kScreenWidth - 80, self.tableView.height)];
         WeakSelf(weakSelf);
-        [_showOneTableView getDidSelectItemWtihBlock:^(XYCarShowOneTypeTableView *carShowOneTypeTV) {
-            
+        [_showOneTableView getDidSelectItemWtihBlock:^(XYCarShowOneTypeTableView *carShowOneTypeTV, id ID, NSString *title) {
             XYCarShowAlbumViewController * vc = [[XYCarShowAlbumViewController alloc] init];
-            
+            vc.title = title;
+            vc.carID = ID;
             [weakSelf.navigationController pushViewController:vc animated:YES];
-
         }];
         
         

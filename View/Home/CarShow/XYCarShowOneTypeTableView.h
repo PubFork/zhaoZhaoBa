@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class XYCarShowOneTypeTableView;
-typedef void(^DidSelectItemBlock)(XYCarShowOneTypeTableView * carShowOneTypeTV);
+typedef void(^DidSelectItemBlock)(XYCarShowOneTypeTableView * carShowOneTypeTV, id ID, NSString * title);
 
 @interface XYCarShowOneTypeTableView : UITableView
 

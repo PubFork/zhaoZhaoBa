@@ -51,6 +51,24 @@ NS_ASSUME_NONNULL_BEGIN
                             success:(nullable void (^)(NSDictionary * dic))success
                             failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+
+
+/**
+ *  我的驾校
+ *
+ *  @param token          token description
+ *  @param isRefresh      是否刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)getMyDriverSchoolWithToken:(id)token
+                         isRefresh:(BOOL)isRefresh
+                    viewController:(XYRootViewController *)viewController
+                           success:(nullable void (^)(NSDictionary * dic))success
+                           failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+
 /**
  *  驾校详情 评论  列表
  *

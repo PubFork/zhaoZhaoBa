@@ -1,35 +1,23 @@
 //
-//  XYNoviceOfRoadDetailViewController.m
+//  XYNotificationCenterViewController.m
 //  zhaoZhaoBa
 //
-//  Created by apple on 16/5/21.
+//  Created by apple on 16/6/18.
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
-#import "XYNoviceOfRoadDetailViewController.h"
-#import "XYNoviceOfRoadNetTool.h"
+#import "XYNotificationCenterViewController.h"
 
-@interface XYNoviceOfRoadDetailViewController ()
+@interface XYNotificationCenterViewController ()
 
 @end
 
-@implementation XYNoviceOfRoadDetailViewController
+@implementation XYNotificationCenterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    [self requestData];
-}
-
-- (void)requestData
-{
-    [XYNoviceOfRoadNetTool getNoviceOfRoadDetailWithID:self.noviceOfRoadID isRefresh:YES viewController:self success:^(NSDictionary * _Nonnull dic) {
-        NSLog(@" -- %@",dic);
-        
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-        
-    }];
+    [self setTitleLabelText:@"通知中心"];
 }
 
 - (void)didReceiveMemoryWarning {

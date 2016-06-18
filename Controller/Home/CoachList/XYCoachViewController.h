@@ -8,9 +8,19 @@
 
 #import "XYSelectViewController.h"
 
+typedef void(^SelectCoachBlock) (NSDictionary * coachDic);
 /**
  *  教练
  */
 @interface XYCoachViewController : XYSelectViewController
 @property (nonatomic, strong)NSNumber * drvierSchoolID;
+
+/**
+ *  是否是选择模式
+ */
+@property (nonatomic, assign)BOOL isSelect;
+
+
+@property (nonatomic, copy)SelectCoachBlock selectCoachBlock;
+- (void)selectCoachWithBlock:(SelectCoachBlock)block;
 @end

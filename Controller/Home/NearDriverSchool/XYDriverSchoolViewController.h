@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, driverSchoolType) {
      *  驾校好评
      */
     driverSchoolType_Praise = 0x11,
+    
 };
 
 

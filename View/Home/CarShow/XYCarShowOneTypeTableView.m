@@ -110,7 +110,7 @@ static NSString * car_show_one_type_cell_key = @"car_show_one_type_cell_key d";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.didSelectItemBlock ? self.didSelectItemBlock(self) : 0;
+    self.didSelectItemBlock ? self.didSelectItemBlock(self, self.groupDic[car_show_list_key][indexPath.row][car_show_type_list_ID] ,self.groupDic[car_show_typename]) : 0;
 }
 
 

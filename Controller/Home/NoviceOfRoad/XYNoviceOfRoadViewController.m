@@ -9,8 +9,8 @@
 #import "XYNoviceOfRoadViewController.h"
 #import "XYNoviceOfRoadTableViewCell.h"
 #import "XYNoviceOfRoadTableViewCell1.h"
-#import "XYNoviceOfRoadDetailViewController.h"
 #import "XYNoviceOfRoadNetTool.h"
+#import "XYWebViewViewController.h"
 
 @interface XYNoviceOfRoadViewController ()
 @end
@@ -88,9 +88,10 @@ static NSString * novice_of_road_cell1_key = @"novice_of_road_cell1_key";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XYNoviceOfRoadDetailViewController * detailVC = [[XYNoviceOfRoadDetailViewController alloc] init];
-    detailVC.noviceOfRoadID = self.groupArray[indexPath.section][novice_of_road_nr_id];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    XYWebViewViewController * webView = [XYWebViewViewController shareXYWebViewViewController];
+    webView.url = [NSString stringWithFormat:@"%@%@?nrid=%@",root_URL,@"DrivingSchool/api/noviceroaddetail.htm",self.groupArray[indexPath.section][novice_of_road_nr_id]];
+    [webView setTitle:@"新手上路"];
+    [self.navigationController pushViewController:webView animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -93,7 +93,7 @@
     
     
     
-    NSDictionary * parmeters = @{@"ct_uid":[kUserD valueForKey:user_info_userID],
+    NSDictionary * parmeters = @{@"ct_uid":[kUserD valueForKey:user_info_key][user_info_au_id],
                                  @"files":files,
                                  @"ct_content":content};
     
@@ -126,7 +126,7 @@
     
     
     
-    NSMutableDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_userID],
+    NSMutableDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_key][user_info_au_id],
                                  @"r_content":content,
                                  @"r_comid":communityID}.mutableCopy;
     
@@ -190,7 +190,7 @@
 
     
     NSDictionary * parmeters = @{
-                                 dic_user_key:[kUserD valueForKey:user_info_userID],
+                                 dic_user_key:[kUserD valueForKey:user_info_key][user_info_au_id],
                                  dic_key:ID
                                  };
 

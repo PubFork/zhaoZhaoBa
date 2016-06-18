@@ -23,17 +23,39 @@
     return wbVC;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+    [self addActiveIVToMySelfView];
+    [self setTitleLabelText:self.title];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, kNavigationBar_Height, kScreenWidth, kScreenHeight - kNavigationBar_Height)];
     [self.view addSubview:self.webView];
     self.webView.delegate = self;
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+    
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self removeActiveIVFromSelfView];
+
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self removeActiveIVFromSelfView];
+    [kShowLabel setText:@"网络错误"];
+}
 
 
 - (void)didReceiveMemoryWarning {

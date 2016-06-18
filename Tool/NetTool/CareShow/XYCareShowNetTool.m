@@ -74,7 +74,7 @@
     NSDictionary * parameters = @{@"carid":carTypeID};
     
     [XYNetTool postWithUrl:url parameters:parameters isRefresh:isRefresh viewController:viewController success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        success ? success(responseObject[@"data"]) : 0;
+        success ? success(responseObject) : 0;
     } failure:failure];
 
 }

@@ -74,4 +74,48 @@
     
 
 }
+
+
+/**
+ *  上传用户数据
+ *
+ *  @param token          token
+ *  @param files          头像
+ *  @param au_name        姓名
+ *  @param au_sex         性别
+ *  @param isRefresh      是否刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)updateUserInfoWithToken:(id)token
+                          files:(id)files
+                        au_name:(id)au_name
+                         au_sex:(id)au_sex
+                         au_age:(id)au_age
+                      isRefresh:(BOOL)isRefresh
+                 viewController:(XYRootViewController *)viewController
+                        success:(nullable void (^)(NSDictionary * dic))success
+                        failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/updateappuser.htm"];
+    
+    NSMutableDictionary * parmeters = @{@"token":token}.mutableCopy;
+    
+    files   ? parmeters[@"files"]   = files    : 0;
+    au_name ? parmeters[@"au_name"] = au_name  : 0;
+    au_sex  ? parmeters[@"au_sex"]  = au_sex   : 0;
+    au_age  ? parmeters[@"au_age"]  = au_age   : 0;
+    
+    
+    [XYNetTool postWithUrl:url
+                parameters:parmeters
+                 isRefresh:isRefresh
+            viewController:viewController
+                   success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                       success ? success(responseObject[@"data"]) : 0;
+                   }   failure:failure];
+}
+
+
 @end

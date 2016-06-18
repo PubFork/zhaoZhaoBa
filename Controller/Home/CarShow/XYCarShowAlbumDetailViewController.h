@@ -9,5 +9,7 @@
 #import "XYRootViewController.h"
 #import "XYCarShowAlubumCollectionViewCell.h"
 @interface XYCarShowAlbumDetailViewController : XYRootViewController
+@property (nonatomic, strong)id carID;
+@property (nonatomic, strong)id carTypeID;
 
 @end

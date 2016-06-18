@@ -9,11 +9,13 @@
 #import "XYAlbumViewController.h"
 #import "XYAlbumCollectionViewCell.h"
 
+
 @interface XYAlbumViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate>
 
 {
     UICollectionView * _collectionView;
 }
+@property (nonatomic, strong)UILabel *countLabel;
 
 @end
 
@@ -39,18 +41,26 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.collectionView];
     
-//    self.groupArray = @[@"picture1",@"picture2",@"picture3"].mutableCopy;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
 
     self.collectionView.contentOffset = CGPointMake(kScreenWidth * self.index, 0);
+    
+    self.countLabel.text = [NSString stringWithFormat:@"%ld/%lu",(long)self.index,(unsigned long)self.groupArray.count];
 }
 
+
+#pragma mark -------------------------------------------------------
+#pragma mark ScrollView Delegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
+    self.countLabel.text = [NSString stringWithFormat:@"%ld/%lu",(long)index,(unsigned long)self.groupArray.count];
+}
 
 
 
@@ -73,8 +83,17 @@
 {
     
     XYAlbumCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"a" forIndexPath:indexPath];
-    [cell.imageView setImageURL:[NSURL URLWithString:self.groupArray[indexPath.row][@"pl_img"]]];
-//    cell.imgName = self.groupArray[indexPath.row];
+    
+    NSString * imageUrl;
+    
+    if ([self.groupArray[indexPath.row] isKindOfClass:NSString.class]) {
+        imageUrl = self.groupArray[indexPath.row];
+    } else if ([self.groupArray[indexPath.row] isKindOfClass:NSDictionary.class]) {
+        imageUrl = self.groupArray[indexPath.row][@"pl_img"];
+
+    }
+    
+    [cell.imageView setImageURL:[NSURL URLWithString:imageUrl]];
     
     WeakSelf(weakSelf);
     
@@ -93,6 +112,9 @@
 }
 
 
+
+#pragma mark -------------------------------------------------------
+#pragma mark Lazy Loading
 
 
 - (UICollectionView *)collectionView
@@ -116,6 +138,18 @@
         [_collectionView registerClass:XYAlbumCollectionViewCell.class forCellWithReuseIdentifier:@"a"];
     }
     return _collectionView;
+}
+
+- (UILabel *)countLabel
+{
+    if (!_countLabel) {
+        _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kScreenHeight - 50, kScreenWidth, 20)];
+        _countLabel.textAlignment = NSTextAlignmentCenter;
+        _countLabel.textColor = kWhiteColor;
+        _countLabel.font = [UIFont systemFontOfSize:15];
+        
+    }
+    return _countLabel;
 }
 
 

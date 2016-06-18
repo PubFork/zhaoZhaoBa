@@ -10,8 +10,13 @@
 #import "XYMyTableViewCell.h"
 #import "XYMyMessageTableViewCell.h"
 #import "XYShareGetMoneyViewController.h"
+#import "XYMyMessageViewController.h"
+#import "XYShoppingViewController.h"
+#import "XYNotificationCenterViewController.h"
 
-@interface XYMyViewController ()
+#import "XYDriverSchoolDetailViewController.h"
+
+@interface XYMyViewController () <UIAlertViewDelegate>
 /**
  *  section 1
  */
@@ -34,6 +39,14 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
     });
     return myVC;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -77,6 +90,10 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
                              @{my_vc_custom_imageUrl:@"在线反馈",
                                my_vc_custom_title:@"在线反馈"}
                              ];
+    
+    
+    
+    
 }
 
 
@@ -101,7 +118,7 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
     if (indexPath.section == 0) {
         XYMyMessageTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:myMessage_cell_key forIndexPath:indexPath];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
+        [cell reloadData];
         return cell;
     }
     
@@ -157,18 +174,19 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
     
     switch (indexPath.section) {
         case 0: {
-            
+            vc = [[XYMyMessageViewController alloc] init];
             break;
         }
         case 1: {
             
             switch (indexPath.row) {
                 case 0: {
-                    
+                    vc = [[XYDriverSchoolDetailViewController alloc] init];
+                    [(XYDriverSchoolDetailViewController *)vc setToken:@13312];
                     break;
                 }
                 case 1: {
-                   
+                    vc = [[XYShoppingViewController alloc] init];
                     break;
                 }
                 case 2: {
@@ -182,12 +200,13 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
         case 2: {
             switch (indexPath.row) {
                 case 0: {
-                    
+                    vc = [[XYNotificationCenterViewController alloc] init];
                     break;
                 }
                 case 1: {
-                    
-                    break;
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"" message:@"确定要清理数据吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                    [alert show];
+                    return;
                 }
                 case 2: {
                     
@@ -209,6 +228,31 @@ static NSString * myMessage_cell_key = @"myMessage_cell_key";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark Alert Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex) {
+        YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+        // 清空磁盘缓存，带进度回调
+        [cache.diskCache removeAllObjectsWithProgressBlock:^(int removedCount, int totalCount) {
+            // progress
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [kShowLabel setTextNoTime:[NSString stringWithFormat:@"%.2f%%",(CGFloat)removedCount / totalCount]];
+            });
+        } endBlock:^(BOOL error) {
+            // end
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [kShowLabel setText:@"缓存已清空"];
+            });
+        }];
+        
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -27,6 +27,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    if (![kUserD valueForKey:user_info_key]) {
+        [kUserD setValue:@{user_info_au_id:@1} forKey:user_info_key];
+        [kUserD synchronize];
+    }
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[XYRootTabBarViewController alloc]init];

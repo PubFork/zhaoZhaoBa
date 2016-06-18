@@ -39,5 +39,31 @@
                 }   failure:failure];
 }
 
+/**
+ *  获取城市列表
+ *
+ *  @param isRefresh      是否刷新
+ *  @param viewController 控制器
+ *  @param success        成功
+ *  @param failure        失败
+ */
++ (void)getCityWithIsRefresh:(BOOL)isRefresh
+              viewController:(XYRootViewController *)viewController
+                     success:(nullable void (^)(NSArray * array))success
+                     failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    NSString * url = [NSString stringWithFormat:@"%@%@",root_URL,@"DrivingSchool/api/citylist.htm"];
+    
+    
+    [XYNetTool postWithUrl:url
+                parameters:nil
+                 isRefresh:isRefresh
+            viewController:viewController
+                   success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+                       NSLog(@"Carouse Picture -> msg = %@ \n type = %@",responseObject[@"msg"],responseObject);
+                       NSArray * array = responseObject[@"data"];
+                       success ? success(array) : 0;
+                   }   failure:failure];
 
+}
 @end

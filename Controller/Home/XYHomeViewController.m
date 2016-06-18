@@ -25,6 +25,8 @@
 #import "XYShoppingViewController.h"
 #import "XYCarShowViewController.h"
 
+#import "XYNotificationCenterViewController.h"
+
 #import <CoreLocation/CoreLocation.h>
 
 
@@ -173,6 +175,12 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
         [self isEndRefresh];
     }];
     
+    [XYHomeNetTool getCityWithIsRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        weakSelf.cityTableView.groupArray = array;
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+    }];
+    
 }
 
 - (void)isEndRefresh
@@ -200,7 +208,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
     
     [self.homeNaviBar clickCityBtn_block:^(XYHomeNaviBar *homeNavBar) {
         [weakSelf.cityTableView isShow:homeNavBar.cityBtn.isShow selectIsShow:^(BOOL isShow, NSString * selectCity) {
-            homeNavBar.cityBtn.isShow = isShow;
+            [homeNavBar.cityBtn touchesEnded];
             [homeNavBar.cityBtn setTitle:selectCity];
         }];
     }];
@@ -218,9 +226,11 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 
     
     [self.homeNaviBar clickMessageBtn_block:^(XYHomeNaviBar *homeNavBar) {
-        
+        XYNotificationCenterViewController * notiCenterVC = [[XYNotificationCenterViewController alloc] init];
+        notiCenterVC.hidesBottomBarWhenPushed = YES;
+        [weakSelf.navigationController pushViewController:notiCenterVC animated:YES];
     }];
-    }
+}
 
 - (void)pushWebViewWithUrl:(NSString *)url
 {

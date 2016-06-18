@@ -12,6 +12,8 @@ typedef void(^selectIsShow)(BOOL isShow, NSString * selectCity);
 
 @interface XYCityTableView : UIView
 
+@property (nonatomic, strong)NSArray * groupArray;
+
 /**
  *  控件的 高度
  */

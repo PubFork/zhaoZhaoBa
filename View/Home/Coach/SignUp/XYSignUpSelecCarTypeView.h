@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-typedef void(^SelectCarTypeBlock)(NSString * carTypeID);
+typedef void(^SelectCarTypeBlock)(NSDictionary * carType);
 
 
 static CGFloat signUpSelectCarType_animalTime = .4;

@@ -69,19 +69,29 @@
     }
 }
 
+
+/**
+ *  没有定时器
+ *
+ */
+- (void)setTextNoTime:(NSString *)text
+{
+    [super setText:text];
+    self.hidden = NO;
+}
+
 - (void)setText:(NSString *)text
 {
     [super setText:text];
+    if (!self.superview) {
+        [kWindow addSubview:self];
+    } else {
+        self.hidden = NO;
+    }
     
-    [kWindow addSubview:self];
     
     [self layoutSelf];
-    
-    
 
-   
-   
-    
     [self.timer invalidate];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(removeSelf:) userInfo:nil repeats:NO];
@@ -89,8 +99,8 @@
 
 - (void)removeSelf:(NSTimer *)timer
 {
-    [self removeFromSuperview];
-    [self layoutSelf];
+    self.hidden = YES;
+//    [self layoutSelf];
 }
 - (CGFloat)getStringWidthWithString:(NSString *)string
 {

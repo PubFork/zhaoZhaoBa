@@ -233,8 +233,29 @@ static NSString * my_shareGetMoney_vc_shareCell_title = @"my_shareGetMoney_vc_sh
 #pragma mark 用户数据
 ////////////////////////////////// 用户数据 ////////////////////////////////////////
 
-static NSString * user_info_userID = @"user_info_userID";
+/**
+ *  存放在 UserDefault 中的key
+ */
+static NSString * user_info_key = @"user_info_key";
 
+
+static NSString * user_info_au_id = @"au_id";
+
+
+static NSString * user_info_au_img = @"au_img";
+
+/**
+ *  积分
+ */
+static NSString * user_info_au_integral = @"au_integral";
+
+static NSString * user_info_au_name = @"au_name";
+
+static NSString * user_info_au_phone = @"au_phone";
+
+static NSString * user_info_au_sex  = @"au_sex";
+
+static NSString * user_info_au_age = @"au_age"; 
 
 #pragma mark -------------------------------------------------------
 #pragma mark 轮播图
@@ -424,6 +445,26 @@ static NSString * novice_of_road_nr_time = @"nr_time";
 ////////////////////////////////// 车展 ////////////////////////////////////////
 
 /**
+ *  车展列表 总key
+ */
+static NSString * car_show_all_key = @"newcar";
+
+/**
+ *  二手车
+ */
+static NSString * car_show_tow_car = @"sh_car";
+
+/**
+ *  二手房
+ */
+static NSString * car_show_tow_house = @"sh_house";
+
+/**
+ *  如何选车
+ */
+static NSString * car_show_choose_car = @"sh_chooseCar";
+
+/**
  *  车展ID
  */
 static NSString * car_show_typeid = @"typeid";
@@ -437,6 +478,26 @@ static NSString * car_show_logo = @"logo";
  *  车展 名字
  */
 static NSString * car_show_typename = @"typename";
+
+/**
+ *  车展图片列表 title
+ */
+static NSString * car_show_name = @"name";
+
+/**
+ *  车展图片列表 图片数组
+ */
+static NSString * car_show_list = @"list";
+
+/**
+ *  车展图片详情 列表
+ */
+static NSString * car_show_piclist = @"piclist";
+
+/**
+ *  车展图片列表 数量
+ */
+static NSString * car_show_num = @"num";
 
 /**
  *  车展型号  列表 key
@@ -578,6 +639,12 @@ static NSString * shopping_sm_price = @"sm_price";
  *  商城 标题
  */
 static NSString * shopping_sm_title = @"sm_title";
+
+/**
+ *  商城 描述
+ */
+static NSString * shopping_sm_describe = @"sm_describe";
+
 
 
 

@@ -11,7 +11,7 @@
 #import "XYAddActionView.h"
 
 @interface XYSignUpSelecCarTypeView ()
-
+@property (nonatomic, strong)XYSignUpTableViewCell * selectCell;
 @end
 
 static NSString * signUp_cell_key = @"signUp_cell_key";
@@ -88,6 +88,8 @@ static NSString * signUp_cell_key = @"signUp_cell_key";
 
 - (void)clickSureBtn
 {
+    self.selectCarTypeBlock ? self.selectCarTypeBlock(self.selectCell.myData) : 0;
+
     [self hiddenView];
 }
 
@@ -110,15 +112,20 @@ static NSString * signUp_cell_key = @"signUp_cell_key";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XYSignUpTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:signUp_cell_key forIndexPath:indexPath];
+    cell.myData = self.groupArray[indexPath.row];
     cell.titleLabel.text = self.groupArray[indexPath.row][sign_up_ct_title];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+{    
+    self.selectCell.selectImageView.highlighted = NO;
     
-    self.selectCarTypeBlock ? self.selectCarTypeBlock([kManager getStringWithObj:self.groupArray[indexPath.row][sign_up_ct_id]]) : 0;
+    XYSignUpTableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.selectImageView.highlighted = YES;
+    
+    self.selectCell = cell;
 }
 
 

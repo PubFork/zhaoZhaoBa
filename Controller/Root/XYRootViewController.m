@@ -37,6 +37,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = kDefaultBackgroudColor;
     
@@ -49,7 +51,8 @@
     
     [self.view addSubview:self.naviBar];
     
-    
+    [self setTitleLabelText:self.title];
+
 }
 
 
@@ -180,7 +183,7 @@
 
 - (void)setRightBtnWithText:(NSString *)text
 {
-    
+    [self.rightBtn setTitle:text forState:UIControlStateNormal];
 }
 - (void)setRightBtnWithImageName:(NSString *)imageName
 {
@@ -348,6 +351,14 @@
         _titleLabel.center = CGPointMake(kScreenWidth / 2, 42);
         [_naviBar addSubview:_titleLabel];
         
+        
+        self.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_rightBtn setTitleColor:kNavigationBarTextColor forState:UIControlStateNormal];
+        _rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        _rightBtn.frame = CGRectMake(0, 0, 50, 25);
+        _rightBtn.center = CGPointMake(kScreenWidth - 40, 20 + 12 + 10);
+        [_rightBtn addTarget:self action:@selector(clickRightBtn) forControlEvents:UIControlEventTouchUpInside];
+        [_naviBar addSubview:_rightBtn];
         
         
         UIView * lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 63, kScreenWidth, 1)];

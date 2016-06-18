@@ -111,12 +111,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.isSelect) {
+        self.selectCoachBlock ? self.selectCoachBlock(self.groupArray[indexPath.section]) : 0;
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
     XYCoachDetailViewController * coachDetailVC = [[XYCoachDetailViewController alloc] init];
     coachDetailVC.coachID = self.groupArray[indexPath.section][coach_c_id];
 
     [self.navigationController pushViewController:coachDetailVC animated:YES];
 }
 
+
+- (void)selectCoachWithBlock:(SelectCoachBlock)block
+{
+    self.selectCoachBlock = block;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

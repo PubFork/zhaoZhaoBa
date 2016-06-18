@@ -74,4 +74,20 @@
                                      width:(NSInteger)width
                                       size:(NSInteger)size
                                otherHeight:(NSInteger)otherHeight;
+
+
+/**
+ *  电话
+ *
+ *  @param mobile <#mobile description#>
+ *
+ *  @return <#return value description#>
+ */
+- (NSString *)valiMobile:(NSString *)mobile;
+
+
+/**
+ *  身份证
+ */
+- (NSString *)idCardWithID:(NSString *)ID;
 @end

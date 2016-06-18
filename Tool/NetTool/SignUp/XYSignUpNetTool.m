@@ -20,6 +20,7 @@
  *  @param failure        失败
  */
 + (void)getCareTypeWithIsRefresh:(BOOL)isRefresh
+                  driverSchoolID:(id)driverSchoolID
                   viewController:(XYRootViewController *)viewController
                          success:(nullable void (^)(NSArray * array))success
                          failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
@@ -29,7 +30,7 @@
     
     
     [XYNetTool postWithUrl:url
-                parameters:nil
+                parameters:@{@"dsid":driverSchoolID}
                  isRefresh:isRefresh
             viewController:viewController
                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -62,6 +63,7 @@
                 userID:(NSString *)userID
                coachID:(NSString *)coachID
                carType:(NSString *)carType
+          su_payselect:(NSInteger)su_payselect
              isRefresh:(BOOL)isRefresh
         viewController:(XYRootViewController *)viewController
                success:(nullable void (^)())success
@@ -75,7 +77,8 @@
                                  sign_up_su_dsid    :driverSchoolID,
                                  sign_up_su_uid     :userID,
                                  sign_up_su_coach   :coachID,
-                                 sign_up_su_carType :carType};
+                                 sign_up_su_carType :carType,
+                                 sign_up_su_payselect: @(su_payselect)};
     
     [XYNetTool postWithUrl:url
                 parameters:parmeters

@@ -56,7 +56,7 @@
             }
            
             
-            weakSelf.clickCarTypeLabel ? weakSelf.clickCarTypeLabel(view.tag - car_show_type_label_tag,[(XYSelectLabel *)view isHighlighted]) : 0;
+            weakSelf.clickCarTypeLabel ? weakSelf.clickCarTypeLabel(view.tag - car_show_type_label_tag,[(XYSelectLabel *)view isHighlighted], [(UILabel *)view text]) : 0;
         }];
         [self addSubview:label];
         

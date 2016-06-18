@@ -166,7 +166,7 @@
     
     
     
-    NSDictionary * parmeters = @{@"pc_uid":[kUserD valueForKey:user_info_userID],
+    NSDictionary * parmeters = @{@"pc_uid":[kUserD valueForKey:user_info_key][user_info_au_id],
                                  @"pc_cid":pd_dsid,
                                  @"pc_content":content,
                                  @"pc_star":@(pc_star),
@@ -202,7 +202,7 @@
     
     
     
-    NSMutableDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_userID],
+    NSMutableDictionary * parmeters = @{@"r_uid":[kUserD valueForKey:user_info_key][user_info_au_id],
                                  @"r_content":content,
                                  @"pcid":communityID}.mutableCopy;
     repleUserID ? parmeters[@"r_repid"] = repleUserID : 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -116,13 +116,13 @@
                             <constraint firstAttribute="height" constant="40" id="t0H-QQ-BYg"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-7f-O6e">
-                        <rect key="frame" x="0.0" y="0.0" width="302" height="118"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ii5-8M-6Pa" customClass="XYCarousePicture">
+                        <rect key="frame" x="0.0" y="0.0" width="302" height="121"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </button>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -130,25 +130,25 @@
             <constraints>
                 <constraint firstItem="5Vd-3j-4Nh" firstAttribute="leading" secondItem="u6n-Y6-BZ6" secondAttribute="trailing" constant="1" id="27b-kV-8BV"/>
                 <constraint firstItem="SRY-md-lNc" firstAttribute="top" secondItem="cBb-7m-0hb" secondAttribute="bottom" constant="1" id="37V-SV-Wwh"/>
+                <constraint firstItem="cBb-7m-0hb" firstAttribute="top" secondItem="ii5-8M-6Pa" secondAttribute="bottom" id="9I8-Q3-P3L"/>
                 <constraint firstAttribute="trailing" secondItem="cBb-7m-0hb" secondAttribute="trailing" id="AsJ-PO-vti"/>
-                <constraint firstAttribute="trailing" secondItem="5gT-7f-O6e" secondAttribute="trailing" id="D7q-PA-fA4"/>
-                <constraint firstItem="5gT-7f-O6e" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="E6y-3C-W20"/>
                 <constraint firstItem="SRY-md-lNc" firstAttribute="top" secondItem="u6n-Y6-BZ6" secondAttribute="bottom" constant="1" id="Sbh-yM-Drd"/>
-                <constraint firstItem="5gT-7f-O6e" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VCz-ZZ-VKG"/>
                 <constraint firstItem="SRY-md-lNc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XGZ-JY-i2r"/>
+                <constraint firstItem="ii5-8M-6Pa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XJk-tL-fLi"/>
                 <constraint firstAttribute="bottom" secondItem="SRY-md-lNc" secondAttribute="bottom" id="Yej-pg-uVf"/>
                 <constraint firstAttribute="trailing" secondItem="SRY-md-lNc" secondAttribute="trailing" id="Yhn-og-l0N"/>
                 <constraint firstItem="u6n-Y6-BZ6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Zfa-vl-xag"/>
                 <constraint firstItem="SRY-md-lNc" firstAttribute="top" secondItem="5Vd-3j-4Nh" secondAttribute="bottom" constant="1" id="ah4-pk-MIq"/>
                 <constraint firstItem="5Vd-3j-4Nh" firstAttribute="width" secondItem="u6n-Y6-BZ6" secondAttribute="width" id="fSh-qY-jeE"/>
-                <constraint firstItem="cBb-7m-0hb" firstAttribute="top" secondItem="5gT-7f-O6e" secondAttribute="bottom" constant="3" id="iGZ-ah-Z6p"/>
                 <constraint firstItem="cBb-7m-0hb" firstAttribute="leading" secondItem="5Vd-3j-4Nh" secondAttribute="trailing" constant="1" id="n2B-kg-QLx"/>
                 <constraint firstItem="cBb-7m-0hb" firstAttribute="width" secondItem="u6n-Y6-BZ6" secondAttribute="width" id="oZv-tJ-Uzu"/>
+                <constraint firstAttribute="trailing" secondItem="ii5-8M-6Pa" secondAttribute="trailing" id="pBS-pD-26L"/>
+                <constraint firstItem="ii5-8M-6Pa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yc4-nn-NJE"/>
             </constraints>
             <size key="customSize" width="357" height="215"/>
             <connections>
+                <outlet property="carousePicture" destination="ii5-8M-6Pa" id="8VS-ks-Gze"/>
                 <outlet property="exchangeRecordView" destination="5Vd-3j-4Nh" id="dn2-c8-F9p"/>
-                <outlet property="imageBtn" destination="5gT-7f-O6e" id="Ie5-di-qhQ"/>
                 <outlet property="integralRuleView" destination="cBb-7m-0hb" id="Ffp-tB-C5P"/>
                 <outlet property="integralView" destination="u6n-Y6-BZ6" id="bjf-i8-BdU"/>
             </connections>

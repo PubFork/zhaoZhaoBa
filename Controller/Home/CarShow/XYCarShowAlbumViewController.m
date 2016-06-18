@@ -9,9 +9,9 @@
 #import "XYCarShowAlbumViewController.h"
 #import "XYCarShowAlbumDetailViewController.h"
 #import "XYCarShowAlbumCollectionReusableView.h"
+#import "XYCareShowNetTool.h"
 
 @interface XYCarShowAlbumViewController ()
-
 @end
 
 static NSString * car_show_album_cell_key = @"car_show_album_cell_key";
@@ -27,6 +27,26 @@ static NSString * car_show_album_header_key = @"car_show_album_header_key";
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"XYCarShowAlubumCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:car_show_album_cell_key];
     [self.collectionView registerNib:[UINib nibWithNibName:@"XYCarShowAlbumCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:car_show_album_header_key];
+    self.collectionView.backgroundColor = kWhiteColor;
+    
+    [self addMJHeader];
+    [self.collectionView.mj_header beginRefreshing];
+}
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark HTTP
+- (void)requestData
+{
+    WeakSelf(weakSelf);
+    [XYCareShowNetTool getCareImageListWithCarTypeID:self.carID isRefresh:NO viewController:self success:^(NSDictionary * _Nonnull dic) {
+        
+        weakSelf.groupArray = dic[@"data"];
+        [weakSelf.collectionView reloadData];
+        [weakSelf endRefresh];
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        [weakSelf endRefresh];
+    }];
 }
 
 
@@ -35,12 +55,12 @@ static NSString * car_show_album_header_key = @"car_show_album_header_key";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 2;
+    return self.groupArray.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return [self.groupArray[section][car_show_list] count];
 }
 
 
@@ -58,6 +78,8 @@ static NSString * car_show_album_header_key = @"car_show_album_header_key";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     XYCarShowAlbumCollectionReusableView * view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:car_show_album_header_key forIndexPath:indexPath];
+    view.titleLabel.text = self.groupArray[indexPath.section][car_show_name];
+    view.numberLabel.text = [NSString stringWithFormat:@"共%@张",self.groupArray[indexPath.section][car_show_num]];
     return view;
     
 }
@@ -65,7 +87,7 @@ static NSString * car_show_album_header_key = @"car_show_album_header_key";
 {
     
     XYCarShowAlubumCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:car_show_album_cell_key forIndexPath:indexPath];
-    cell.imageView.backgroundColor = [UIColor orangeColor];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:self.groupArray[indexPath.section][car_show_list][indexPath.row]] placeholder:kDefaultImage];
     return cell;
 }
 
@@ -77,6 +99,9 @@ static NSString * car_show_album_header_key = @"car_show_album_header_key";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XYCarShowAlbumDetailViewController * detailVC = [[XYCarShowAlbumDetailViewController alloc] init];
+    detailVC.carTypeID = self.groupArray[indexPath.section][car_show_typeid];
+    detailVC.carID = self.carID;
+    detailVC.title = self.groupArray[indexPath.section][car_show_name];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

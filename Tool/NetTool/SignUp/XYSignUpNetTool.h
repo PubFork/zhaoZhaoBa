@@ -22,6 +22,12 @@ static NSString * _Nonnull sign_up_su_idNumber = @"su_idNumber";
  *  手机
  */
 static NSString * _Nonnull sign_up_su_phone = @"su_phone";
+
+/**
+ *  支付方式
+ */
+static NSString * _Nonnull sign_up_su_payselect = @"su_payselect";
+
 /**
  *  驾校id
  */
@@ -30,18 +36,18 @@ static NSString * _Nonnull sign_up_su_dsid = @"su_dsid";
 /**
  * 用户ID
  */
-static NSString * _Nonnull sign_up_su_uid = @"su_uid";
+static NSString * _Nonnull sign_up_su_uid = @"token";
 
 
 /**
  * 教练ID
  */
-static NSString * _Nonnull sign_up_su_coach = @"su_coach";
+static NSString * _Nonnull sign_up_su_coach = @"cid";
 
 /**
  * 车型ID
  */
-static NSString * _Nonnull sign_up_su_carType = @"su_carType";
+static NSString * _Nonnull sign_up_su_carType = @"ctid";
 
 
 
@@ -58,6 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure        失败
  */
 + (void)getCareTypeWithIsRefresh:(BOOL)isRefresh
+                  driverSchoolID:(id)driverSchoolID
                   viewController:(XYRootViewController *)viewController
                          success:(nullable void (^)(NSArray * array))success
                          failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure;
@@ -84,6 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
                 userID:(NSString *)userID
                coachID:(NSString *)coachID
                carType:(NSString *)carType
+          su_payselect:(NSInteger)su_payselect
              isRefresh:(BOOL)isRefresh
         viewController:(XYRootViewController *)viewController
                success:(nullable void (^)())success

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface XYMyMessageTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+
+- (void)reloadData;
 
 @end

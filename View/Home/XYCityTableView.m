@@ -13,8 +13,10 @@
 
 @property (nonatomic, weak)UITableViewCell * cell;
 
-@property (nonatomic, strong)NSMutableDictionary * groupDic;
-@property (nonatomic, strong)NSMutableArray * allKeys;
+//@property (nonatomic, strong)NSMutableDictionary * groupDic;
+//@property (nonatomic, strong)NSMutableArray * allKeys;
+
+@property (nonatomic, strong)NSArray * selectArray;
 @end
 
 
@@ -60,39 +62,36 @@ static NSString * cellIndentifier = @"cell";
         self.selfHeight = frame.size.height;
         self.backgroundColor = backgroudColor;
         
-        
-       
-        
         [self addSubview:self.provinceTableView];
         [self addSubview:self.municipalityTableView];
         
-     
-        NSDictionary * dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"]];
-        
-        self.groupDic = @{}.mutableCopy;
-        self.allKeys = @[].mutableCopy;
-
-        for (int i = 0 ; i < dic.allKeys.count; i ++) {
-            NSDictionary * rootDic = dic[[NSString stringWithFormat:@"%d",i]];
-            
-            for (NSString * province in rootDic.allKeys) {
-                NSDictionary * oneDic = rootDic[province];
-                NSMutableArray * cityArray = @[].mutableCopy;
-                for (int i = 0 ; i < oneDic.allKeys.count; i ++) {
-                    NSDictionary * cityDic = oneDic[[NSString stringWithFormat:@"%d",i]];
-                    for (NSString * city  in cityDic.allKeys) {
-                        [cityArray addObject:city];
-                    }
-                }
-                [self.groupDic setValue:cityArray forKey:province];
-                [self.allKeys addObject:province];
-            }
-        }
-        
-        [self.provinceTableView reloadData];
-        self.cell = [self.provinceTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        self.cell.backgroundColor = municipalityCellBackgroudColor;
-        [self.municipalityTableView reloadData];
+//     
+//        NSDictionary * dic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"]];
+//        
+//        self.groupDic = @{}.mutableCopy;
+//        self.allKeys = @[].mutableCopy;
+//
+//        for (int i = 0 ; i < dic.allKeys.count; i ++) {
+//            NSDictionary * rootDic = dic[[NSString stringWithFormat:@"%d",i]];
+//            
+//            for (NSString * province in rootDic.allKeys) {
+//                NSDictionary * oneDic = rootDic[province];
+//                NSMutableArray * cityArray = @[].mutableCopy;
+//                for (int i = 0 ; i < oneDic.allKeys.count; i ++) {
+//                    NSDictionary * cityDic = oneDic[[NSString stringWithFormat:@"%d",i]];
+//                    for (NSString * city  in cityDic.allKeys) {
+//                        [cityArray addObject:city];
+//                    }
+//                }
+//                [self.groupDic setValue:cityArray forKey:province];
+//                [self.allKeys addObject:province];
+//            }
+//        }
+//        
+//        [self.provinceTableView reloadData];
+//        self.cell = [self.provinceTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+//        self.cell.backgroundColor = municipalityCellBackgroudColor;
+//        [self.municipalityTableView reloadData];
     }
     
     
@@ -118,10 +117,20 @@ static NSString * cellIndentifier = @"cell";
     [UIView animateWithDuration:kHomeCityAnimate_time animations:^{
         self.mj_y = height;
     }];
+    
 }
 
+- (void)setGroupArray:(NSArray *)groupArray
+{
+    _groupArray = groupArray;
+    
+    
+    [self.provinceTableView reloadData];
+    
+    
+    [self tableView:self.provinceTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
-
+}
 
 #pragma mark -------------------------------------------------------
 #pragma mark TableView DataSourec & Delegate
@@ -129,9 +138,11 @@ static NSString * cellIndentifier = @"cell";
 {
     //如果是 市区
     if (tableView == self.municipalityTableView) {
-        return [self.groupDic[self.cell.textLabel.text] count];
+        return self.selectArray.count;
+//        return [self.groupDic[self.cell.textLabel.text] count];
     }
-    return self.allKeys.count;
+    return self.groupArray.count;
+//    return self.allKeys.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -150,14 +161,17 @@ static NSString * cellIndentifier = @"cell";
         cell.backgroundColor = municipalityCellBackgroudColor;
         cell.textLabel.textColor = municipalityTextColor;
         
-        cell.textLabel.text = self.groupDic[self.cell.textLabel.text][indexPath.section];
+        cell.textLabel.text = self.selectArray[indexPath.section];
+//        cell.textLabel.text = self.groupDic[self.cell.textLabel.text][indexPath.section];
 
     } else {
         cell.backgroundColor = provinceCellBackgroudColor;
         cell.textLabel.textColor = provinceTextColor;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        cell.textLabel.text = self.allKeys[indexPath.section];
+
+        cell.textLabel.text = [self.groupArray[indexPath.section] allKeys].firstObject;
+
+//        cell.textLabel.text = self.allKeys[indexPath.section];
     }
     
     return cell;
@@ -177,6 +191,8 @@ static NSString * cellIndentifier = @"cell";
     
     cell.backgroundColor = municipalityCellBackgroudColor;
     self.cell = cell;
+    
+    self.selectArray = self.groupArray[indexPath.section][[self.groupArray[indexPath.section] allKeys].firstObject];
     
     [self.municipalityTableView reloadData];
     

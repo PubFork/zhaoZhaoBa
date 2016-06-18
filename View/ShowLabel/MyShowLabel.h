@@ -29,11 +29,18 @@
   默认在下面
  */
 - (void)setText:(NSString *)text;
-
+- (void)removeSelf:(NSTimer *)timer;
 
 /**
  *  计时器 该视图在 1秒后 消失
  */
 @property (nonatomic,strong)NSTimer * timer;
+
+
+/**
+ *  没有定时器
+ *
+ */
+- (void)setTextNoTime:(NSString *)text;
 
 @end
