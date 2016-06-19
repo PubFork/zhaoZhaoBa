@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIImage+Utility.h"
 
 @interface Manager : NSObject
 
@@ -90,4 +91,34 @@
  *  身份证
  */
 - (NSString *)idCardWithID:(NSString *)ID;
+
+
+
+
+/**
+ *  给头像 切圆
+ *
+ */
++ (YYWebImageManager *)avatarImageManager;
+
+/**
+ *  给图片 切圆角
+ *
+ */
++ (YYWebImageManager *)avatarImageManagerWithRadius:(CGFloat)radius;
+
+/**
+ *  生活圈  图片
+ *  根据 imageView 宽度 切图片
+ */
++ (YYWebImageManager *)getImageManagerWithImageViewSize:(CGSize)size;
+
+
++ (void)setImageWithImageUrl:(NSString *)url imageView:(UIImageView *)imageView;
++ (void)setImageWithImageUrl:(NSString *)url button:(UIButton *)button;
+
+
++ (void)setRadiusImageWithImageUrl:(NSString *)url imageView:(UIImageView *)imageView;
++ (void)setRadiusImageWithImageUrl:(NSString *)url button:(UIButton *)button;
+
 @end

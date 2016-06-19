@@ -32,11 +32,11 @@
     //如果到了最后一张
     if (page >= self.groupArray.count) {
         self.pageControl.currentPage = 0;
-        
     } else {
         self.pageControl.currentPage = page - 1;
     }
     
+    NSLog(@" ---- %d --- %d",page,self.groupArray.count);
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:page inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
     
@@ -176,8 +176,8 @@
     if (!_pageControl) {
         _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.collectionView.frame.size.height - 20, self.width, 20)];
         _pageControl.currentPage = 0;
-        _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
-        _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+        _pageControl.currentPageIndicatorTintColor = kNavigationBarTextColor;
+        _pageControl.pageIndicatorTintColor = [UIColor grayColor];
     }
     return _pageControl;
 }

@@ -266,4 +266,53 @@
     return returnImage;
 }
 
+
+
+- (UIImage *)getImageWithRadiu:(NSInteger)radiu
+{
+    UIImage * image = self;
+    // 截取 图片中间 的 正方形 部分
+    CGFloat chengShu = radiu / 100.0;
+    CGFloat line = image.size.width > image.size.height ? image.size.height : image.size.width;
+    CGFloat x = image.size.width > image.size.height ? image.size.width / 2 - line / 2 : 0;
+    CGFloat y = image.size.width > image.size.height ? 0 : image.size.height / 2 - line / 2;
+    
+    image = [image imageByCropToRect:CGRectMake(x, y, line, line)];
+    //对图片 进行 切圆角
+    image = [image imageByRoundCornerRadius:line * chengShu];
+    return image;
+}
+
+
+- (UIImage *)getImageWithImageViewSize:(CGSize)imageViewSize
+{
+    UIImage * image = self;
+    // 截取 图片中间 的 正方形 部分
+    
+    
+    CGSize size;
+    CGRect crop;
+    
+    CGFloat image_height = image.size.height;
+    CGFloat image_width  = image.size.width;
+    
+    CGFloat imageView_height = imageViewSize.height;
+    CGFloat imageView_width  = imageViewSize.width;
+    
+    if ((image_width / image_height) > (imageView_width / imageView_height)) {
+        size = CGSizeMake(image_height * (imageView_width / imageView_height), image_height);
+        crop.origin = CGPointMake(image_width / 2 - size.width / 2, 0);
+    } else {
+        size = CGSizeMake(image_width, image_width * (imageView_height / imageView_width));
+        crop.origin = CGPointMake(0, image_height  / 2 - size.height / 2);
+    }
+    crop.size = size;
+    
+    image = [image imageByCropToRect:crop];
+    
+    return image;
+    
+}
+
+
 @end

@@ -286,7 +286,7 @@
     </objects>
     <resources>
         <image name="common_icon_arrow.png" width="12" height="12"/>
-        <image name="头像.png" width="15" height="15"/>
+        <image name="头像.png" width="350" height="48"/>
         <image name="年龄.png" width="15" height="15"/>
         <image name="性别.png" width="15" height="15"/>
         <image name="昵称.png" width="15" height="15"/>

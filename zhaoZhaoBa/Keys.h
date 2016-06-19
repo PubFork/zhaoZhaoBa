@@ -772,6 +772,54 @@ static NSString * comment_userimg = @"userimg";
 
 
 
+#pragma mark -------------------------------------------------------
+#pragma mark 试题
+////////////////////////////////// 试题 ////////////////////////////////////////
+
+
+/**
+ *  轮播图 数组
+ */
+static NSString * test_questions_banner = @"banner";
+
+
+/**
+ *  用户头像数组
+ */
+static NSString * test_questions_userpiclist = @"userpiclist";
+
+
+
+#pragma mark -------------------------------------------------------
+#pragma mark video
+
+////////////////////////////////// 视频 ////////////////////////////////////////
+
+/**
+ *  视频封面
+ */
+static NSString * video_ev_cover = @"ev_cover";
+
+/**
+ *  是否是 独家拍摄
+ */
+static NSString * video_ev_exclphotos = @"ev_exclphotos";
+
+/**
+ *  标题
+ */
+static NSString * video_ev_title = @"ev_title";
+/**
+ *  地址
+ */
+static NSString * video_ev_videourl = @"ev_videourl";
+
+
+/**
+ *  详情
+ */
+static NSString * video_ev_describe = @"ev_describe";
+
 
 
 

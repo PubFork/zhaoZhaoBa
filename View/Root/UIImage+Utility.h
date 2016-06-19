@@ -25,4 +25,11 @@
 
 - (UIImage*)gaussBlur:(CGFloat)blurLevel;       //  {blurLevel | 0 ≤ t ≤ 1}
 
+
+
+
+- (UIImage *)getImageWithRadiu:(NSInteger)radiu;
+
+- (UIImage *)getImageWithImageViewSize:(CGSize)imageViewSize;
+
 @end

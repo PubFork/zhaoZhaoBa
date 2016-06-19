@@ -29,6 +29,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>YES</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>打开定位服务，才能自动定位城市。</string>
 	<key>UILaunchStoryboardName</key>

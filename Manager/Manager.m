@@ -184,4 +184,105 @@
         return @"身份证号码错误";
     }
 }
+
+
+
+
+/**
+ *  给头像 切圆
+ *
+ */
++ (YYWebImageManager *)avatarImageManager {
+    static YYWebImageManager *manager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *path = [[UIApplication sharedApplication].cachesPath stringByAppendingPathComponent:@"weibo.avatar"];
+        YYImageCache *cache = [[YYImageCache alloc] initWithPath:path];
+        manager = [[YYWebImageManager alloc] initWithCache:cache queue:[YYWebImageManager sharedManager].queue];
+        manager.sharedTransformBlock = ^(UIImage *image, NSURL *url) {
+            if (!image) return image;
+            image = [image imageByResizeToSize:CGSizeMake(100, 100)];
+            return [image imageByRoundCornerRadius:100];
+        };
+    });
+    return manager;
+}
+
+/**
+ *  给图片 切圆角
+ *
+ */
++ (YYWebImageManager *)avatarImageManagerWithRadius:(CGFloat)radius
+{
+    static YYWebImageManager *manager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *path = [[UIApplication sharedApplication].cachesPath stringByAppendingPathComponent:@"weibo.avatar"];
+        YYImageCache *cache = [[YYImageCache alloc] initWithPath:path];
+        manager = [[YYWebImageManager alloc] initWithCache:cache queue:[YYWebImageManager sharedManager].queue];
+        manager.sharedTransformBlock = ^(UIImage *image, NSURL *url) {
+            if (!image) return image;
+            return [image getImageWithRadiu:radius];
+        };
+    });
+    return manager;
+}
+
+/**
+ *  给图片 切圆角
+ *
+ */
++ (YYWebImageManager *)getImageManagerWithImageViewSize:(CGSize)size
+{
+    static YYWebImageManager *manager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *path = [[UIApplication sharedApplication].cachesPath stringByAppendingPathComponent:@"weibo.avatar"];
+        YYImageCache *cache = [[YYImageCache alloc] initWithPath:path];
+        manager = [[YYWebImageManager alloc] initWithCache:cache queue:[YYWebImageManager sharedManager].queue];
+        manager.sharedTransformBlock = ^(UIImage *image, NSURL *url) {
+            if (!image) return image;
+            return [image getImageWithImageViewSize:size];
+        };
+    });
+    return manager;
+}
+
++ (void)setImageWithImageUrl:(NSString *)url imageView:(UIImageView *)imageView
+{
+    [imageView setImageWithURL:[NSURL URLWithString:url]
+                   placeholder:kDefaultImage];
+}
+
++ (void)setImageWithImageUrl:(NSString *)url button:(UIButton *)button
+{
+    [button setImageWithURL:[NSURL URLWithString:url]
+                   forState:UIControlStateNormal
+                placeholder:kDefaultImage];
+
+}
+
++ (void)setRadiusImageWithImageUrl:(NSString *)url imageView:(UIImageView *)imageView
+{
+    [imageView setImageWithURL:[NSURL URLWithString:url]
+                   placeholder:kDefaultImage
+                       options:kNilOptions
+                       manager:[Manager avatarImageManager]
+                      progress:nil
+                     transform:nil
+                    completion:nil];
+}
++ (void)setRadiusImageWithImageUrl:(NSString *)url button:(UIButton *)button
+{
+    [button setImageWithURL:[NSURL URLWithString:url]
+                   forState:UIControlStateNormal
+                placeholder:kDefaultImage
+                    options:kNilOptions
+                    manager:[Manager avatarImageManager]
+                   progress:nil
+                  transform:nil
+                 completion:nil];
+
+}
+
 @end

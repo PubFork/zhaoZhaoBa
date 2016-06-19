@@ -161,6 +161,49 @@
 		1830798A1D02D8A10063925C /* 选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 183079841D02D8A10063925C /* 选中@2x.png */; };
 		1830798B1D02D8A10063925C /* 选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 183079851D02D8A10063925C /* 选中@3x.png */; };
 		1830798D1D02D8AB0063925C /* 占位图.png in Resources */ = {isa = PBXBuildFile; fileRef = 1830798C1D02D8AB0063925C /* 占位图.png */; };
+		184443BE1D161DAF0042B64C /* XYTestQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184443BC1D161DAF0042B64C /* XYTestQuestionsViewController.m */; };
+		184443BF1D161DAF0042B64C /* XYTestQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184443BD1D161DAF0042B64C /* XYTestQuestionsViewController.xib */; };
+		184443EB1D161E210042B64C /* 背题模式.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C11D161E210042B64C /* 背题模式.png */; };
+		184443EC1D161E210042B64C /* 背题模式@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C21D161E210042B64C /* 背题模式@2x.png */; };
+		184443ED1D161E210042B64C /* 背题模式@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C31D161E210042B64C /* 背题模式@3x.png */; };
+		184443EE1D161E210042B64C /* 答题技巧.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C41D161E210042B64C /* 答题技巧.png */; };
+		184443EF1D161E210042B64C /* 答题技巧@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C51D161E210042B64C /* 答题技巧@2x.png */; };
+		184443F01D161E210042B64C /* 答题技巧@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C61D161E210042B64C /* 答题技巧@3x.png */; };
+		184443F11D161E210042B64C /* 空间.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C71D161E210042B64C /* 空间.png */; };
+		184443F21D161E210042B64C /* 空间@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C81D161E210042B64C /* 空间@2x.png */; };
+		184443F31D161E210042B64C /* 空间@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443C91D161E210042B64C /* 空间@3x.png */; };
+		184443F41D161E210042B64C /* 模拟考试.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443CA1D161E210042B64C /* 模拟考试.png */; };
+		184443F51D161E210042B64C /* 模拟考试@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443CB1D161E210042B64C /* 模拟考试@2x.png */; };
+		184443F61D161E210042B64C /* 模拟考试@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443CC1D161E210042B64C /* 模拟考试@3x.png */; };
+		184443F71D161E210042B64C /* 排除收藏.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443CD1D161E210042B64C /* 排除收藏.png */; };
+		184443F81D161E210042B64C /* 排除收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443CE1D161E210042B64C /* 排除收藏@2x.png */; };
+		184443F91D161E210042B64C /* 排除收藏@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443CF1D161E210042B64C /* 排除收藏@3x.png */; };
+		184443FA1D161E210042B64C /* 朋友圈.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D01D161E210042B64C /* 朋友圈.png */; };
+		184443FB1D161E210042B64C /* 朋友圈@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D11D161E210042B64C /* 朋友圈@2x.png */; };
+		184443FC1D161E210042B64C /* 朋友圈@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D21D161E210042B64C /* 朋友圈@3x.png */; };
+		184443FD1D161E210042B64C /* 顺序练习.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D31D161E210042B64C /* 顺序练习.png */; };
+		184443FE1D161E210042B64C /* 顺序练习@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D41D161E210042B64C /* 顺序练习@2x.png */; };
+		184443FF1D161E210042B64C /* 顺序练习@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D51D161E210042B64C /* 顺序练习@3x.png */; };
+		184444001D161E210042B64C /* 随机练习.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D61D161E210042B64C /* 随机练习.png */; };
+		184444011D161E210042B64C /* 随机练习@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D71D161E210042B64C /* 随机练习@2x.png */; };
+		184444021D161E210042B64C /* 随机练习@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443D81D161E210042B64C /* 随机练习@3x.png */; };
+		184444061D161E210042B64C /* 微信.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443DC1D161E210042B64C /* 微信.png */; };
+		184444071D161E210042B64C /* 微信@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443DD1D161E210042B64C /* 微信@2x.png */; };
+		184444081D161E210042B64C /* 微信@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443DE1D161E210042B64C /* 微信@3x.png */; };
+		184444091D161E210042B64C /* 我的错题.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443DF1D161E210042B64C /* 我的错题.png */; };
+		1844440A1D161E210042B64C /* 我的错题@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E01D161E210042B64C /* 我的错题@2x.png */; };
+		1844440B1D161E210042B64C /* 我的错题@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E11D161E210042B64C /* 我的错题@3x.png */; };
+		1844440C1D161E210042B64C /* 专项练习.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E21D161E210042B64C /* 专项练习.png */; };
+		1844440D1D161E210042B64C /* 专项练习@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E31D161E210042B64C /* 专项练习@2x.png */; };
+		1844440E1D161E210042B64C /* 专项练习@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E41D161E210042B64C /* 专项练习@3x.png */; };
+		1844440F1D161E210042B64C /* 自我动态.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E51D161E210042B64C /* 自我动态.png */; };
+		184444101D161E210042B64C /* 自我动态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E61D161E210042B64C /* 自我动态@2x.png */; };
+		184444111D161E210042B64C /* 自我动态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E71D161E210042B64C /* 自我动态@3x.png */; };
+		184444121D161E210042B64C /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E81D161E210042B64C /* qq.png */; };
+		184444131D161E210042B64C /* qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443E91D161E210042B64C /* qq@2x.png */; };
+		184444141D161E210042B64C /* qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184443EA1D161E210042B64C /* qq@3x.png */; };
+		184444181D161FE60042B64C /* XYTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184444171D161FE60042B64C /* XYTouchView.m */; };
+		1844441C1D16326B0042B64C /* XYTestQuestionsNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1844441B1D16326B0042B64C /* XYTestQuestionsNetTool.m */; };
 		184C14101CDDE40100C7D7BB /* XYShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C140F1CDDE40100C7D7BB /* XYShareTool.m */; };
 		184C14141CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C14121CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m */; };
 		184C14151CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184C14131CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.xib */; };
@@ -311,6 +354,16 @@
 		18BC61ED1CD5B3A500AE8747 /* QRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BC61EA1CD5B3A500AE8747 /* QRItem.m */; };
 		18BC61F21CD5BC9B00AE8747 /* qr_scan_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61F11CD5BC9B00AE8747 /* qr_scan_line@2x.png */; };
 		18BC61F41CD5BF2B00AE8747 /* Scan_Success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18BC61F31CD5BF2B00AE8747 /* Scan_Success@2x.png */; };
+		18C3F9451D16426400E28968 /* XYSelectTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F9441D16426400E28968 /* XYSelectTextView.m */; };
+		18C3F94A1D166E5800E28968 /* XYTestQuestionsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F9481D166E5800E28968 /* XYTestQuestionsCollectionViewCell.m */; };
+		18C3F94B1D166E5800E28968 /* XYTestQuestionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C3F9491D166E5800E28968 /* XYTestQuestionsCollectionViewCell.xib */; };
+		18C3F9501D16750800E28968 /* XYVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F94E1D16750800E28968 /* XYVideoViewController.m */; };
+		18C3F9511D16750800E28968 /* XYVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C3F94F1D16750800E28968 /* XYVideoViewController.xib */; };
+		18C3F9581D1678A600E28968 /* prepareLoadBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C3F9561D1678A600E28968 /* prepareLoadBtn@2x.png */; };
+		18C3F9591D1678A600E28968 /* finishedLoadBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C3F9571D1678A600E28968 /* finishedLoadBtn@2x.png */; };
+		18C3F95D1D167A4B00E28968 /* XYVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F95B1D167A4B00E28968 /* XYVideoListViewController.m */; };
+		18C3F95E1D167A4B00E28968 /* XYVideoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C3F95C1D167A4B00E28968 /* XYVideoListViewController.xib */; };
+		18C3F9621D16891900E28968 /* XYDownloadNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C3F9611D16891900E28968 /* XYDownloadNetTool.m */; };
 		18D3581B1CD5F1C100E539E7 /* XYMustKnowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D358191CD5F1C100E539E7 /* XYMustKnowViewController.m */; };
 		18D3581C1CD5F1C100E539E7 /* XYMustKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D3581A1CD5F1C100E539E7 /* XYMustKnowViewController.xib */; };
 		18D358211CD5F54700E539E7 /* XYMustKnowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D3581F1CD5F54700E539E7 /* XYMustKnowTableViewCell.m */; };
@@ -531,6 +584,52 @@
 		183079841D02D8A10063925C /* 选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中@2x.png"; sourceTree = "<group>"; };
 		183079851D02D8A10063925C /* 选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中@3x.png"; sourceTree = "<group>"; };
 		1830798C1D02D8AB0063925C /* 占位图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "占位图.png"; sourceTree = "<group>"; };
+		184443BB1D161DAF0042B64C /* XYTestQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTestQuestionsViewController.h; sourceTree = "<group>"; };
+		184443BC1D161DAF0042B64C /* XYTestQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTestQuestionsViewController.m; sourceTree = "<group>"; };
+		184443BD1D161DAF0042B64C /* XYTestQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYTestQuestionsViewController.xib; sourceTree = "<group>"; };
+		184443C11D161E210042B64C /* 背题模式.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背题模式.png"; sourceTree = "<group>"; };
+		184443C21D161E210042B64C /* 背题模式@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背题模式@2x.png"; sourceTree = "<group>"; };
+		184443C31D161E210042B64C /* 背题模式@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背题模式@3x.png"; sourceTree = "<group>"; };
+		184443C41D161E210042B64C /* 答题技巧.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "答题技巧.png"; sourceTree = "<group>"; };
+		184443C51D161E210042B64C /* 答题技巧@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "答题技巧@2x.png"; sourceTree = "<group>"; };
+		184443C61D161E210042B64C /* 答题技巧@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "答题技巧@3x.png"; sourceTree = "<group>"; };
+		184443C71D161E210042B64C /* 空间.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空间.png"; sourceTree = "<group>"; };
+		184443C81D161E210042B64C /* 空间@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空间@2x.png"; sourceTree = "<group>"; };
+		184443C91D161E210042B64C /* 空间@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "空间@3x.png"; sourceTree = "<group>"; };
+		184443CA1D161E210042B64C /* 模拟考试.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "模拟考试.png"; sourceTree = "<group>"; };
+		184443CB1D161E210042B64C /* 模拟考试@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "模拟考试@2x.png"; sourceTree = "<group>"; };
+		184443CC1D161E210042B64C /* 模拟考试@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "模拟考试@3x.png"; sourceTree = "<group>"; };
+		184443CD1D161E210042B64C /* 排除收藏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排除收藏.png"; sourceTree = "<group>"; };
+		184443CE1D161E210042B64C /* 排除收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排除收藏@2x.png"; sourceTree = "<group>"; };
+		184443CF1D161E210042B64C /* 排除收藏@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排除收藏@3x.png"; sourceTree = "<group>"; };
+		184443D01D161E210042B64C /* 朋友圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "朋友圈.png"; sourceTree = "<group>"; };
+		184443D11D161E210042B64C /* 朋友圈@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "朋友圈@2x.png"; sourceTree = "<group>"; };
+		184443D21D161E210042B64C /* 朋友圈@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "朋友圈@3x.png"; sourceTree = "<group>"; };
+		184443D31D161E210042B64C /* 顺序练习.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顺序练习.png"; sourceTree = "<group>"; };
+		184443D41D161E210042B64C /* 顺序练习@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顺序练习@2x.png"; sourceTree = "<group>"; };
+		184443D51D161E210042B64C /* 顺序练习@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顺序练习@3x.png"; sourceTree = "<group>"; };
+		184443D61D161E210042B64C /* 随机练习.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "随机练习.png"; sourceTree = "<group>"; };
+		184443D71D161E210042B64C /* 随机练习@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "随机练习@2x.png"; sourceTree = "<group>"; };
+		184443D81D161E210042B64C /* 随机练习@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "随机练习@3x.png"; sourceTree = "<group>"; };
+		184443DC1D161E210042B64C /* 微信.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信.png"; sourceTree = "<group>"; };
+		184443DD1D161E210042B64C /* 微信@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信@2x.png"; sourceTree = "<group>"; };
+		184443DE1D161E210042B64C /* 微信@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信@3x.png"; sourceTree = "<group>"; };
+		184443DF1D161E210042B64C /* 我的错题.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的错题.png"; sourceTree = "<group>"; };
+		184443E01D161E210042B64C /* 我的错题@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的错题@2x.png"; sourceTree = "<group>"; };
+		184443E11D161E210042B64C /* 我的错题@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的错题@3x.png"; sourceTree = "<group>"; };
+		184443E21D161E210042B64C /* 专项练习.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "专项练习.png"; sourceTree = "<group>"; };
+		184443E31D161E210042B64C /* 专项练习@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "专项练习@2x.png"; sourceTree = "<group>"; };
+		184443E41D161E210042B64C /* 专项练习@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "专项练习@3x.png"; sourceTree = "<group>"; };
+		184443E51D161E210042B64C /* 自我动态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "自我动态.png"; sourceTree = "<group>"; };
+		184443E61D161E210042B64C /* 自我动态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "自我动态@2x.png"; sourceTree = "<group>"; };
+		184443E71D161E210042B64C /* 自我动态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "自我动态@3x.png"; sourceTree = "<group>"; };
+		184443E81D161E210042B64C /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
+		184443E91D161E210042B64C /* qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qq@2x.png"; sourceTree = "<group>"; };
+		184443EA1D161E210042B64C /* qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qq@3x.png"; sourceTree = "<group>"; };
+		184444161D161FE60042B64C /* XYTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTouchView.h; sourceTree = "<group>"; };
+		184444171D161FE60042B64C /* XYTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTouchView.m; sourceTree = "<group>"; };
+		1844441A1D16326B0042B64C /* XYTestQuestionsNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTestQuestionsNetTool.h; sourceTree = "<group>"; };
+		1844441B1D16326B0042B64C /* XYTestQuestionsNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTestQuestionsNetTool.m; sourceTree = "<group>"; };
 		184C140E1CDDE40100C7D7BB /* XYShareTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShareTool.h; sourceTree = "<group>"; };
 		184C140F1CDDE40100C7D7BB /* XYShareTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYShareTool.m; sourceTree = "<group>"; wrapsLines = 0; };
 		184C14111CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYShareGetMoneyViewController.h; sourceTree = "<group>"; };
@@ -746,6 +845,21 @@
 		18BC61EA1CD5B3A500AE8747 /* QRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRItem.m; sourceTree = "<group>"; };
 		18BC61F11CD5BC9B00AE8747 /* qr_scan_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_scan_line@2x.png"; sourceTree = "<group>"; };
 		18BC61F31CD5BF2B00AE8747 /* Scan_Success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Scan_Success@2x.png"; sourceTree = "<group>"; };
+		18C3F9431D16426400E28968 /* XYSelectTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSelectTextView.h; sourceTree = "<group>"; };
+		18C3F9441D16426400E28968 /* XYSelectTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSelectTextView.m; sourceTree = "<group>"; };
+		18C3F9471D166E5800E28968 /* XYTestQuestionsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTestQuestionsCollectionViewCell.h; sourceTree = "<group>"; };
+		18C3F9481D166E5800E28968 /* XYTestQuestionsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTestQuestionsCollectionViewCell.m; sourceTree = "<group>"; };
+		18C3F9491D166E5800E28968 /* XYTestQuestionsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYTestQuestionsCollectionViewCell.xib; sourceTree = "<group>"; };
+		18C3F94D1D16750800E28968 /* XYVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYVideoViewController.h; sourceTree = "<group>"; };
+		18C3F94E1D16750800E28968 /* XYVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYVideoViewController.m; sourceTree = "<group>"; };
+		18C3F94F1D16750800E28968 /* XYVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYVideoViewController.xib; sourceTree = "<group>"; };
+		18C3F9561D1678A600E28968 /* prepareLoadBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prepareLoadBtn@2x.png"; sourceTree = "<group>"; };
+		18C3F9571D1678A600E28968 /* finishedLoadBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finishedLoadBtn@2x.png"; sourceTree = "<group>"; };
+		18C3F95A1D167A4B00E28968 /* XYVideoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYVideoListViewController.h; sourceTree = "<group>"; };
+		18C3F95B1D167A4B00E28968 /* XYVideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYVideoListViewController.m; sourceTree = "<group>"; };
+		18C3F95C1D167A4B00E28968 /* XYVideoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYVideoListViewController.xib; sourceTree = "<group>"; };
+		18C3F9601D16891900E28968 /* XYDownloadNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDownloadNetTool.h; sourceTree = "<group>"; };
+		18C3F9611D16891900E28968 /* XYDownloadNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDownloadNetTool.m; sourceTree = "<group>"; };
 		18D358181CD5F1C100E539E7 /* XYMustKnowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMustKnowViewController.h; sourceTree = "<group>"; };
 		18D358191CD5F1C100E539E7 /* XYMustKnowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMustKnowViewController.m; sourceTree = "<group>"; };
 		18D3581A1CD5F1C100E539E7 /* XYMustKnowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYMustKnowViewController.xib; sourceTree = "<group>"; };
@@ -1160,6 +1274,84 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		184443BA1D161D950042B64C /* TestQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				184443BB1D161DAF0042B64C /* XYTestQuestionsViewController.h */,
+				184443BC1D161DAF0042B64C /* XYTestQuestionsViewController.m */,
+				184443BD1D161DAF0042B64C /* XYTestQuestionsViewController.xib */,
+				18C3F94C1D1674F600E28968 /* Video */,
+			);
+			path = TestQuestions;
+			sourceTree = "<group>";
+		};
+		184443C01D161E140042B64C /* TestQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				18C3F9561D1678A600E28968 /* prepareLoadBtn@2x.png */,
+				18C3F9571D1678A600E28968 /* finishedLoadBtn@2x.png */,
+				184443C11D161E210042B64C /* 背题模式.png */,
+				184443C21D161E210042B64C /* 背题模式@2x.png */,
+				184443C31D161E210042B64C /* 背题模式@3x.png */,
+				184443C41D161E210042B64C /* 答题技巧.png */,
+				184443C51D161E210042B64C /* 答题技巧@2x.png */,
+				184443C61D161E210042B64C /* 答题技巧@3x.png */,
+				184443C71D161E210042B64C /* 空间.png */,
+				184443C81D161E210042B64C /* 空间@2x.png */,
+				184443C91D161E210042B64C /* 空间@3x.png */,
+				184443CA1D161E210042B64C /* 模拟考试.png */,
+				184443CB1D161E210042B64C /* 模拟考试@2x.png */,
+				184443CC1D161E210042B64C /* 模拟考试@3x.png */,
+				184443CD1D161E210042B64C /* 排除收藏.png */,
+				184443CE1D161E210042B64C /* 排除收藏@2x.png */,
+				184443CF1D161E210042B64C /* 排除收藏@3x.png */,
+				184443D01D161E210042B64C /* 朋友圈.png */,
+				184443D11D161E210042B64C /* 朋友圈@2x.png */,
+				184443D21D161E210042B64C /* 朋友圈@3x.png */,
+				184443D31D161E210042B64C /* 顺序练习.png */,
+				184443D41D161E210042B64C /* 顺序练习@2x.png */,
+				184443D51D161E210042B64C /* 顺序练习@3x.png */,
+				184443D61D161E210042B64C /* 随机练习.png */,
+				184443D71D161E210042B64C /* 随机练习@2x.png */,
+				184443D81D161E210042B64C /* 随机练习@3x.png */,
+				184443DC1D161E210042B64C /* 微信.png */,
+				184443DD1D161E210042B64C /* 微信@2x.png */,
+				184443DE1D161E210042B64C /* 微信@3x.png */,
+				184443DF1D161E210042B64C /* 我的错题.png */,
+				184443E01D161E210042B64C /* 我的错题@2x.png */,
+				184443E11D161E210042B64C /* 我的错题@3x.png */,
+				184443E21D161E210042B64C /* 专项练习.png */,
+				184443E31D161E210042B64C /* 专项练习@2x.png */,
+				184443E41D161E210042B64C /* 专项练习@3x.png */,
+				184443E51D161E210042B64C /* 自我动态.png */,
+				184443E61D161E210042B64C /* 自我动态@2x.png */,
+				184443E71D161E210042B64C /* 自我动态@3x.png */,
+				184443E81D161E210042B64C /* qq.png */,
+				184443E91D161E210042B64C /* qq@2x.png */,
+				184443EA1D161E210042B64C /* qq@3x.png */,
+			);
+			path = TestQuestions;
+			sourceTree = "<group>";
+		};
+		184444151D161FDC0042B64C /* TouchView */ = {
+			isa = PBXGroup;
+			children = (
+				184444161D161FE60042B64C /* XYTouchView.h */,
+				184444171D161FE60042B64C /* XYTouchView.m */,
+			);
+			path = TouchView;
+			sourceTree = "<group>";
+		};
+		184444191D1632520042B64C /* TestQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				1844441A1D16326B0042B64C /* XYTestQuestionsNetTool.h */,
+				1844441B1D16326B0042B64C /* XYTestQuestionsNetTool.m */,
+			);
+			name = TestQuestions;
+			path = TouchView;
+			sourceTree = "<group>";
+		};
 		184C140C1CDDE19600C7D7BB /* ShareGetMoney */ = {
 			isa = PBXGroup;
 			children = (
@@ -1209,6 +1401,7 @@
 		18581FB41CCE0E6500A191BF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				184443C01D161E140042B64C /* TestQuestions */,
 				185E42731D0AA2230079DFC3 /* Shopping */,
 				185E426C1D0AA1D40079DFC3 /* DriverSchool */,
 				1830797F1D02D88F0063925C /* SignUp */,
@@ -1396,6 +1589,8 @@
 		1890514A1CCCD595003697A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18C3F9421D16425B00E28968 /* SelectTextView */,
+				184444151D161FDC0042B64C /* TouchView */,
 				180BE2CE1D14DF8300815C18 /* PickerView */,
 				180A4BAD1CE6EB8F0033E5BD /* EndEidtView */,
 				180A4B981CE6BCBC0033E5BD /* XYCoachCollectionView */,
@@ -1424,6 +1619,7 @@
 				189051601CCCD7CB003697A2 /* XYHomeViewController.h */,
 				189051611CCCD7CB003697A2 /* XYHomeViewController.m */,
 				189051621CCCD7CB003697A2 /* XYHomeViewController.xib */,
+				184443BA1D161D950042B64C /* TestQuestions */,
 				18A952211CF9527300CBF26D /* CarShow */,
 				180667691CF049E000CCC3CF /* Shopping */,
 				180667081CF00F0100CCC3CF /* NoviceOfRoad */,
@@ -1451,6 +1647,7 @@
 				185820221CCE247200A191BF /* XYHomeNaviBar.m */,
 				1890653D1CD1FF0C00597FFE /* XYCityTableView.h */,
 				1890653E1CD1FF0C00597FFE /* XYCityTableView.m */,
+				18C3F9461D166E4800E28968 /* TestQuestions */,
 				18A952271CF9533A00CBF26D /* CarShow */,
 				18A952161CF94B2200CBF26D /* Shopping */,
 				1806670E1CF00F3500CCC3CF /* NoviceOfRoad */,
@@ -1641,6 +1838,8 @@
 			children = (
 				18A07C301CDCAE1000725B8E /* XYNetTool.h */,
 				18A07C311CDCAE1000725B8E /* XYNetTool.m */,
+				18C3F95F1D16890300E28968 /* Download */,
+				184444191D1632520042B64C /* TestQuestions */,
 				180BE2D51D14E6A300815C18 /* Update */,
 				185E42521D0A58210079DFC3 /* Shopping */,
 				18960CD91D0410610062583F /* CareShow */,
@@ -1854,6 +2053,48 @@
 			path = ScanCode;
 			sourceTree = "<group>";
 		};
+		18C3F9421D16425B00E28968 /* SelectTextView */ = {
+			isa = PBXGroup;
+			children = (
+				18C3F9431D16426400E28968 /* XYSelectTextView.h */,
+				18C3F9441D16426400E28968 /* XYSelectTextView.m */,
+			);
+			path = SelectTextView;
+			sourceTree = "<group>";
+		};
+		18C3F9461D166E4800E28968 /* TestQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				18C3F9471D166E5800E28968 /* XYTestQuestionsCollectionViewCell.h */,
+				18C3F9481D166E5800E28968 /* XYTestQuestionsCollectionViewCell.m */,
+				18C3F9491D166E5800E28968 /* XYTestQuestionsCollectionViewCell.xib */,
+			);
+			path = TestQuestions;
+			sourceTree = "<group>";
+		};
+		18C3F94C1D1674F600E28968 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				18C3F94D1D16750800E28968 /* XYVideoViewController.h */,
+				18C3F94E1D16750800E28968 /* XYVideoViewController.m */,
+				18C3F94F1D16750800E28968 /* XYVideoViewController.xib */,
+				18C3F95A1D167A4B00E28968 /* XYVideoListViewController.h */,
+				18C3F95B1D167A4B00E28968 /* XYVideoListViewController.m */,
+				18C3F95C1D167A4B00E28968 /* XYVideoListViewController.xib */,
+			);
+			name = Video;
+			path = Vodeo;
+			sourceTree = "<group>";
+		};
+		18C3F95F1D16890300E28968 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				18C3F9601D16891900E28968 /* XYDownloadNetTool.h */,
+				18C3F9611D16891900E28968 /* XYDownloadNetTool.m */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
 		18D358171CD5F1AC00E539E7 /* MustKnow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1987,6 +2228,7 @@
 					181529AA1CCCCE940060E4FC = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4MUMJ6BUER;
+						ProvisioningStyle = Automatic;
 					};
 					181529C31CCCCE940060E4FC = {
 						CreatedOnToolsVersion = 7.3;
@@ -2024,6 +2266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A952961CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib in Resources */,
+				184443F61D161E210042B64C /* 模拟考试@3x.png in Resources */,
 				180666C61CEFEF4D00CCC3CF /* 定位.png in Resources */,
 				1826FA471CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.xib in Resources */,
 				180666B61CEFEE9C00CCC3CF /* 踩@3x.png in Resources */,
@@ -2038,10 +2281,12 @@
 				183079741D02A69F0063925C /* 社区汇@3x.png in Resources */,
 				1890519B1CCCFE05003697A2 /* progress_7.png in Resources */,
 				18581FFD1CCE0E6500A191BF /* 消息1@2x.png in Resources */,
+				1844440E1D161E210042B64C /* 专项练习@3x.png in Resources */,
 				18A9521B1CF94B3900CBF26D /* XYShoppingHeaderCollectionViewCell.xib in Resources */,
 				180666D81CEFF66D00CCC3CF /* 社区汇赞.png in Resources */,
 				185E42811D0AC1300079DFC3 /* 踩副本.png in Resources */,
 				183079671D028A690063925C /* b27_icon_star_gray@2x.png in Resources */,
+				184444011D161E210042B64C /* 随机练习@2x.png in Resources */,
 				180667011CF0041300CCC3CF /* 添加图片@3x.png in Resources */,
 				180667181CF0102900CCC3CF /* XYNoviceOfRoadTableViewCell1.xib in Resources */,
 				18A952261CF9529600CBF26D /* XYCarShowViewController.xib in Resources */,
@@ -2056,6 +2301,7 @@
 				180666A51CEFEAAF00CCC3CF /* 报名@2x.png in Resources */,
 				1806675C1CF045A800CCC3CF /* 我的驾校@3x.png in Resources */,
 				18581FE61CCE0E6500A191BF /* 下角标.png in Resources */,
+				18C3F9581D1678A600E28968 /* prepareLoadBtn@2x.png in Resources */,
 				180667521CF045A800CCC3CF /* 版本介绍@2x.png in Resources */,
 				1830796C1D02A6940063925C /* 我的.png in Resources */,
 				1806675D1CF045A800CCC3CF /* 我的消息.png in Resources */,
@@ -2070,15 +2316,19 @@
 				18D3581C1CD5F1C100E539E7 /* XYMustKnowViewController.xib in Resources */,
 				1858200D1CCE0E6500A191BF /* 附近驾校.png in Resources */,
 				185820081CCE0E6500A191BF /* 试题@2x.png in Resources */,
+				184443BF1D161DAF0042B64C /* XYTestQuestionsViewController.xib in Resources */,
 				180BE2CD1D14DC1900815C18 /* XYNotificationCenterViewController.xib in Resources */,
 				1806675A1CF045A800CCC3CF /* 我的驾校.png in Resources */,
 				180666B81CEFEE9C00CCC3CF /* 顶（灰）.png in Resources */,
 				180667671CF045A800CCC3CF /* 在线反馈@2x.png in Resources */,
+				184443FA1D161E210042B64C /* 朋友圈.png in Resources */,
 				183079891D02D8A10063925C /* 选中.png in Resources */,
 				183079731D02A69F0063925C /* 社区汇@2x.png in Resources */,
 				180666B41CEFEE9C00CCC3CF /* 踩.png in Resources */,
 				180667531CF045A800CCC3CF /* 版本介绍@3x.png in Resources */,
 				1830797A1D02A6AB0063925C /* 首页@3x.png in Resources */,
+				18C3F9511D16750800E28968 /* XYVideoViewController.xib in Resources */,
+				184443F71D161E210042B64C /* 排除收藏.png in Resources */,
 				180667561CF045A800CCC3CF /* 分享赚现金@3x.png in Resources */,
 				181529BE1CCCCE940060E4FC /* LaunchScreen.storyboard in Resources */,
 				180666E51CEFF9A700CCC3CF /* XYCommunityDetailViewController.xib in Resources */,
@@ -2091,11 +2341,13 @@
 				18A952911CF9948800CBF26D /* XYCarShowAlubumCollectionViewCell.xib in Resources */,
 				180666A41CEFEAAF00CCC3CF /* 报名.png in Resources */,
 				189051841CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.xib in Resources */,
+				184443F11D161E210042B64C /* 空间.png in Resources */,
 				18581FFA1CCE0E6500A191BF /* 新手上路@3x.png in Resources */,
 				181476221CDD89CA004980B1 /* XYMyMessageViewController.xib in Resources */,
 				180A4BA01CE6C2AB0033E5BD /* XYCoachCollectionViewCell.xib in Resources */,
 				18581FF31CCE0E6500A191BF /* 搜索标签@2x.png in Resources */,
 				181476171CDD823C004980B1 /* XYMyTableViewCell.xib in Resources */,
+				184443F21D161E210042B64C /* 空间@2x.png in Resources */,
 				180666FB1CF0036100CCC3CF /* 回顶部@3x.png in Resources */,
 				18581FF91CCE0E6500A191BF /* 新手上路@2x.png in Resources */,
 				1806672D1CF0438C00CCC3CF /* 昵称@2x.png in Resources */,
@@ -2106,6 +2358,7 @@
 				18581FFB1CCE0E6500A191BF /* 消息.png in Resources */,
 				1890516E1CCCD80F003697A2 /* XYCommunityViewController.xib in Resources */,
 				185820141CCE0E6500A191BF /* 驾校好评@2x.png in Resources */,
+				1844440C1D161E210042B64C /* 专项练习.png in Resources */,
 				18581FFF1CCE0E6500A191BF /* 消息@2x.png in Resources */,
 				18581FEF1CCE0E6500A191BF /* 扫一扫.png in Resources */,
 				1858200C1CCE0E6500A191BF /* 车展@3x.png in Resources */,
@@ -2115,9 +2368,11 @@
 				189051951CCCFE05003697A2 /* progress_1.png in Resources */,
 				18BC61F21CD5BC9B00AE8747 /* qr_scan_line@2x.png in Resources */,
 				180666F91CF0036100CCC3CF /* 回顶部.png in Resources */,
+				184444071D161E210042B64C /* 微信@2x.png in Resources */,
 				18581FAE1CCE072C00A191BF /* XYCarousePictureCollectionCell.xib in Resources */,
 				180666D61CEFF66D00CCC3CF /* 社区汇评论@2x.png in Resources */,
 				18A9528B1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.xib in Resources */,
+				184443FB1D161E210042B64C /* 朋友圈@2x.png in Resources */,
 				185820041CCE0E6500A191BF /* 积分兑换.png in Resources */,
 				189051641CCCD7CB003697A2 /* XYHomeViewController.xib in Resources */,
 				184C141B1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib in Resources */,
@@ -2129,6 +2384,7 @@
 				180667681CF045A800CCC3CF /* 在线反馈@3x.png in Resources */,
 				18581FF81CCE0E6500A191BF /* 新手上路.png in Resources */,
 				183079781D02A6AB0063925C /* 首页.png in Resources */,
+				184444081D161E210042B64C /* 微信@3x.png in Resources */,
 				1806675F1CF045A800CCC3CF /* 我的消息@3x.png in Resources */,
 				1806670D1CF00F1900CCC3CF /* XYNoviceOfRoadViewController.xib in Resources */,
 				18581FF51CCE0E6500A191BF /* 教练榜.png in Resources */,
@@ -2141,6 +2397,7 @@
 				180666C81CEFEF4D00CCC3CF /* 定位@3x.png in Resources */,
 				180667341CF0438C00CCC3CF /* 头像@3x.png in Resources */,
 				18581FE91CCE0E6500A191BF /* 必知晓.png in Resources */,
+				184444091D161E210042B64C /* 我的错题.png in Resources */,
 				180666B71CEFEE9C00CCC3CF /* 顶.png in Resources */,
 				1890517F1CCCF473003697A2 /* XYHomeTableViewCell.xib in Resources */,
 				180666EF1CEFFC1D00CCC3CF /* XYCommunityDetailTableViewCell.xib in Resources */,
@@ -2149,6 +2406,7 @@
 				180666D71CEFF66D00CCC3CF /* 社区汇评论@3x.png in Resources */,
 				18A07C4D1CDCB9EB00725B8E /* XYDriverSchoolDetailViewController.xib in Resources */,
 				181529BB1CCCCE940060E4FC /* Assets.xcassets in Resources */,
+				184443EB1D161E210042B64C /* 背题模式.png in Resources */,
 				180667621CF045A800CCC3CF /* 我们在这@3x.png in Resources */,
 				1806675E1CF045A800CCC3CF /* 我的消息@2x.png in Resources */,
 				1806672C1CF0438C00CCC3CF /* 昵称.png in Resources */,
@@ -2157,17 +2415,28 @@
 				180666EA1CEFFA3600CCC3CF /* XYAddCommunityViewController.xib in Resources */,
 				18581FF21CCE0E6500A191BF /* 搜索标签.png in Resources */,
 				180BE2DA1D14F23F00815C18 /* common_icon_arrow@2x.png in Resources */,
+				18C3F94B1D166E5800E28968 /* XYTestQuestionsCollectionViewCell.xib in Resources */,
 				180667361CF0438C00CCC3CF /* 性别@2x.png in Resources */,
+				184443FD1D161E210042B64C /* 顺序练习.png in Resources */,
 				180667541CF045A800CCC3CF /* 分享赚现金.png in Resources */,
 				183079871D02D8A10063925C /* 未选中@3x.png in Resources */,
 				183079791D02A6AB0063925C /* 首页@2x.png in Resources */,
+				184443FC1D161E210042B64C /* 朋友圈@3x.png in Resources */,
+				18C3F9591D1678A600E28968 /* finishedLoadBtn@2x.png in Resources */,
+				184444111D161E210042B64C /* 自我动态@3x.png in Resources */,
+				184444141D161E210042B64C /* qq@3x.png in Resources */,
+				184443F51D161E210042B64C /* 模拟考试@2x.png in Resources */,
 				1830798A1D02D8A10063925C /* 选中@2x.png in Resources */,
 				1826FA421CE8229E002D30D1 /* XYCoachDetailHeaderTableViewCell.xib in Resources */,
 				180667071CF0041900CCC3CF /* 提交@3x.png in Resources */,
+				1844440B1D161E210042B64C /* 我的错题@3x.png in Resources */,
+				184444021D161E210042B64C /* 随机练习@3x.png in Resources */,
 				180667351CF0438C00CCC3CF /* 性别.png in Resources */,
 				180666E01CEFF89100CCC3CF /* 添加@3x.png in Resources */,
+				184443ED1D161E210042B64C /* 背题模式@3x.png in Resources */,
 				185820061CCE0E6500A191BF /* 积分兑换@3x.png in Resources */,
 				180666BC1CEFEE9C00CCC3CF /* 顶@3x.png in Resources */,
+				184443F41D161E210042B64C /* 模拟考试.png in Resources */,
 				180667581CF045A800CCC3CF /* 积分商城@2x.png in Resources */,
 				185E42791D0AA2280079DFC3 /* 积分@3x.png in Resources */,
 				189051971CCCFE05003697A2 /* progress_3.png in Resources */,
@@ -2175,26 +2444,39 @@
 				180667601CF045A800CCC3CF /* 我们在这.png in Resources */,
 				18581FF01CCE0E6500A191BF /* 扫一扫@2x.png in Resources */,
 				1806675B1CF045A800CCC3CF /* 我的驾校@2x.png in Resources */,
+				18C3F95E1D167A4B00E28968 /* XYVideoListViewController.xib in Resources */,
 				183079861D02D8A10063925C /* 未选中.png in Resources */,
 				1858200B1CCE0E6500A191BF /* 车展@2x.png in Resources */,
 				185E42771D0AA2280079DFC3 /* 积分.png in Resources */,
 				183079721D02A69F0063925C /* 社区汇.png in Resources */,
+				184443EC1D161E210042B64C /* 背题模式@2x.png in Resources */,
+				184444061D161E210042B64C /* 微信.png in Resources */,
+				184443F91D161E210042B64C /* 排除收藏@3x.png in Resources */,
 				180666C11CEFEEC200CCC3CF /* 教练加V@2x.png in Resources */,
 				1890519C1CCCFE05003697A2 /* progress_8.png in Resources */,
 				1830798D1D02D8AB0063925C /* 占位图.png in Resources */,
+				184443F31D161E210042B64C /* 空间@3x.png in Resources */,
 				189051761CCCEF5B003697A2 /* navigationBar_backgroudImage@2x.png in Resources */,
 				183079681D028A690063925C /* b27_icon_star_gray@3x.png in Resources */,
 				180667311CF0438C00CCC3CF /* 年龄@3x.png in Resources */,
 				180667651CF045A800CCC3CF /* 一键清理@3x.png in Resources */,
+				184443EF1D161E210042B64C /* 答题技巧@2x.png in Resources */,
+				1844440D1D161E210042B64C /* 专项练习@2x.png in Resources */,
+				184443FE1D161E210042B64C /* 顺序练习@2x.png in Resources */,
+				184443FF1D161E210042B64C /* 顺序练习@3x.png in Resources */,
 				185820051CCE0E6500A191BF /* 积分兑换@2x.png in Resources */,
+				184443EE1D161E210042B64C /* 答题技巧.png in Resources */,
 				185820071CCE0E6500A191BF /* 试题.png in Resources */,
+				184444001D161E210042B64C /* 随机练习.png in Resources */,
 				184C14201CDDEC9B00C7D7BB /* XYShareGetMoneyTableViewCell.xib in Resources */,
 				180667371CF0438C00CCC3CF /* 性别@3x.png in Resources */,
+				184444101D161E210042B64C /* 自我动态@2x.png in Resources */,
 				180667641CF045A800CCC3CF /* 一键清理@2x.png in Resources */,
 				180667661CF045A800CCC3CF /* 在线反馈.png in Resources */,
 				180667001CF0041300CCC3CF /* 添加图片@2x.png in Resources */,
 				1890519A1CCCFE05003697A2 /* progress_6.png in Resources */,
 				180BE2DF1D15334C00815C18 /* XYShoppingDetaikViewController.xib in Resources */,
+				184444121D161E210042B64C /* qq.png in Resources */,
 				180666A91CEFED2E00CCC3CF /* back@2x.png in Resources */,
 				180667591CF045A800CCC3CF /* 积分商城@3x.png in Resources */,
 				180667321CF0438C00CCC3CF /* 头像.png in Resources */,
@@ -2202,12 +2484,15 @@
 				185820151CCE0E6500A191BF /* 驾校好评@3x.png in Resources */,
 				180667551CF045A800CCC3CF /* 分享赚现金@2x.png in Resources */,
 				18A07C4F1CDCB9EB00725B8E /* XYDriverSchoolViewController.xib in Resources */,
+				184444131D161E210042B64C /* qq@2x.png in Resources */,
 				1858200E1CCE0E6500A191BF /* 附近驾校@2x.png in Resources */,
 				185820001CCE0E6500A191BF /* 消息@3x.png in Resources */,
 				183079661D028A690063925C /* b27_icon_star_gray.png in Resources */,
 				180666DF1CEFF89100CCC3CF /* 添加@2x.png in Resources */,
 				1830798B1D02D8A10063925C /* 选中@3x.png in Resources */,
+				184443F01D161E210042B64C /* 答题技巧@3x.png in Resources */,
 				18A952361CF962DE00CBF26D /* XYCarShowTableViewCell.xib in Resources */,
+				1844440A1D161E210042B64C /* 我的错题@2x.png in Resources */,
 				180666D91CEFF66D00CCC3CF /* 社区汇赞@2x.png in Resources */,
 				1830796E1D02A6940063925C /* 我的@3x.png in Resources */,
 				185E42821D0AC1300079DFC3 /* 顶副本.png in Resources */,
@@ -2216,11 +2501,13 @@
 				180666B51CEFEE9C00CCC3CF /* 踩@2x.png in Resources */,
 				185E426B1D0A7A550079DFC3 /* mapapi.bundle in Resources */,
 				180666BA1CEFEE9C00CCC3CF /* 顶（灰）@3x.png in Resources */,
+				184443F81D161E210042B64C /* 排除收藏@2x.png in Resources */,
 				180666A61CEFEAAF00CCC3CF /* 报名@3x.png in Resources */,
 				18A07C691CDCC1B900725B8E /* XYSelectViewController.xib in Resources */,
 				180A4BAC1CE6DAE00033E5BD /* XYSignUpViewController.xib in Resources */,
 				18A952201CF94B4200CBF26D /* XYShoppingCollectionViewCell.xib in Resources */,
 				180667051CF0041900CCC3CF /* 提交.png in Resources */,
+				1844440F1D161E210042B64C /* 自我动态.png in Resources */,
 				18A07C6F1CDCC7F000725B8E /* XYCoachTableViewCell.xib in Resources */,
 				183079641D028A690063925C /* b27_icon_star_yellow@2x.png in Resources */,
 				185E427E1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib in Resources */,
@@ -2307,8 +2594,10 @@
 				18153EDB1CF13BAF00119811 /* XYMustKnowNetTool.m in Sources */,
 				180BE2D11D14DF8E00815C18 /* XYPickerView.m in Sources */,
 				189051631CCCD7CB003697A2 /* XYHomeViewController.m in Sources */,
+				18C3F9451D16426400E28968 /* XYSelectTextView.m in Sources */,
 				18A07C321CDCAE1000725B8E /* XYNetTool.m in Sources */,
 				18A9522A1CF954FC00CBF26D /* XYCarShowTypeView.m in Sources */,
+				18C3F9501D16750800E28968 /* XYVideoViewController.m in Sources */,
 				18BC61EC1CD5B3A500AE8747 /* QRMenu.m in Sources */,
 				1887EE001CCE36F5006DED7A /* XYButton.m in Sources */,
 				180BE2DE1D15334C00815C18 /* XYShoppingDetaikViewController.m in Sources */,
@@ -2316,6 +2605,7 @@
 				18153ED71CF130BF00119811 /* XYUserNetTool.m in Sources */,
 				1890516D1CCCD80F003697A2 /* XYCommunityViewController.m in Sources */,
 				1858201A1CCE1F5100A191BF /* XYSearchBar.m in Sources */,
+				184444181D161FE60042B64C /* XYTouchView.m in Sources */,
 				189051571CCCD79E003697A2 /* XYRootViewController.m in Sources */,
 				1890653C1CD1FA5F00597FFE /* XYAddActionView.m in Sources */,
 				180667121CF00F4000CCC3CF /* XYNoviceOfRoadTableViewCell.m in Sources */,
@@ -2331,10 +2621,12 @@
 				185820231CCE247200A191BF /* XYHomeNaviBar.m in Sources */,
 				18A9523A1CF9678C00CBF26D /* XYTableIndexView.m in Sources */,
 				18153EDF1CF1494900119811 /* XYSignUpNetTool.m in Sources */,
+				1844441C1D16326B0042B64C /* XYTestQuestionsNetTool.m in Sources */,
 				1830797E1D02CD230063925C /* XYCommunityNetTool.m in Sources */,
 				1858201F1CCE222100A191BF /* DispatchQueueManager.m in Sources */,
 				180666E41CEFF9A700CCC3CF /* XYCommunityDetailViewController.m in Sources */,
 				18BC61ED1CD5B3A500AE8747 /* QRItem.m in Sources */,
+				18C3F95D1D167A4B00E28968 /* XYVideoListViewController.m in Sources */,
 				189051831CCCF5CB003697A2 /* XYHomeFuncationTableViewCell.m in Sources */,
 				185E427D1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.m in Sources */,
 				18A9521F1CF94B4200CBF26D /* XYShoppingCollectionViewCell.m in Sources */,
@@ -2342,6 +2634,7 @@
 				180A4BB01CE6EB980033E5BD /* XYEndEidtView.m in Sources */,
 				18A9529F1CF99A6100CBF26D /* XYAlbumCollectionViewCell.m in Sources */,
 				18A07C5E1CDCBFAA00725B8E /* XYCoachDetailViewController.m in Sources */,
+				184443BE1D161DAF0042B64C /* XYTestQuestionsViewController.m in Sources */,
 				180666E91CEFFA3600CCC3CF /* XYAddCommunityViewController.m in Sources */,
 				18A9529A1CF9985D00CBF26D /* XYAlbumViewController.m in Sources */,
 				180BE2CC1D14DC1900815C18 /* XYNotificationCenterViewController.m in Sources */,
@@ -2349,6 +2642,7 @@
 				180A4B541CE6AAE70033E5BD /* XYPictureView.m in Sources */,
 				18A07C681CDCC1B900725B8E /* XYSelectViewController.m in Sources */,
 				18A07C4E1CDCB9EB00725B8E /* XYDriverSchoolViewController.m in Sources */,
+				18C3F9621D16891900E28968 /* XYDownloadNetTool.m in Sources */,
 				185E42551D0A58300079DFC3 /* XYShoppingNetTool.m in Sources */,
 				18A9528A1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m in Sources */,
 				180A4BAB1CE6DAE00033E5BD /* XYSignUpViewController.m in Sources */,
@@ -2385,6 +2679,7 @@
 				18581FB31CCE08F300A191BF /* XYCarousePicture.m in Sources */,
 				1806670C1CF00F1900CCC3CF /* XYNoviceOfRoadViewController.m in Sources */,
 				185E42681D0A7A130079DFC3 /* UIImage+Rotate.m in Sources */,
+				18C3F94A1D166E5800E28968 /* XYTestQuestionsCollectionViewCell.m in Sources */,
 				18581FAD1CCE072C00A191BF /* XYCarousePictureCollectionCell.m in Sources */,
 				1890517E1CCCF473003697A2 /* XYHomeTableViewCell.m in Sources */,
 				18A07C4C1CDCB9EB00725B8E /* XYDriverSchoolDetailViewController.mm in Sources */,
@@ -2534,8 +2829,8 @@
 			baseConfigurationReference = 08B4B600780B2ECF1A1DA6E7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2547,7 +2842,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4a3f098c-4e78-40f6-9be9-61b40705022e";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2556,8 +2852,8 @@
 			baseConfigurationReference = DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2569,7 +2865,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4a3f098c-4e78-40f6-9be9-61b40705022e";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
