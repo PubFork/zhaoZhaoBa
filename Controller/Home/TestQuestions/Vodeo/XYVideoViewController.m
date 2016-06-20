@@ -11,7 +11,7 @@
 #import "XYDownloadNetTool.h"
 #import "XYTestQuestionsNetTool.h"
 
-#import <MediaPlayer/MediaPlayer.h>
+#import "XYPlayViewViewController.h"
 
 @interface XYVideoViewController () <UIWebViewDelegate>
 
@@ -26,7 +26,8 @@
 
 //@property (nonatomic, strong)AVPlayer * player;
 
-@property (nonatomic, strong)MPMoviePlayerController * playerController;
+@property (nonatomic, strong)XYPlayViewViewController * playVC;
+
 @end
 
 @implementation XYVideoViewController
@@ -47,17 +48,14 @@
     
     WeakSelf(weakSelf);
     
-    XYDownloadModel * model = [XYDownloadNetTool getDownloadDic][self.myData[video_ev_videourl]];
+    XYDownloadModel * model = [XYDownloadNetTool getDownloadModelWithDic:self.myData];
 
 
     [self.videoImageView clickView:^(UIImageView *view) {
         //play
         if (view.highlighted) {
-            
-            weakSelf.playerController.contentURL = model.localURL;
-            
-            [weakSelf.playerController play];
-            
+            weakSelf.playVC.URL = model.localURL;
+            [weakSelf presentViewController:self.playVC animated:YES completion:nil];
         } else {
             if (weakSelf.downloading) {
                 [XYDownloadNetTool suspendWithDownloadTask:weakSelf.downloadTask url:weakSelf.myData[video_ev_videourl]];
@@ -128,28 +126,15 @@
 }
 
 
-- (MPMoviePlayerController *)playerController
+- (XYPlayViewViewController *)playVC
 {
-    
-    if (_playerController == nil) {
-    
-
-        _playerController = [[MPMoviePlayerController alloc] init];
-        _playerController.view.frame = self.view.frame;
-        _playerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-
-        _playerController.controlStyle = MPMovieControlStyleFullscreen;
-        
-//        CGAffineTransform landscapeTransform = CGAffineTransformMakeRotation(M_PI / 2);
-//        _playerController.view.transform = landscapeTransform;
-//        _playerController.scalingMode = MPMovieScalingModeAspectFill;
-        
-        [self.view addSubview:_playerController.view];
-
-
+    if (!_playVC) {
+        _playVC = [[XYPlayViewViewController alloc] init];
     }
-    return _playerController;
+    return _playVC;
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

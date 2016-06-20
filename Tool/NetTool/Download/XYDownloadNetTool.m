@@ -206,6 +206,7 @@ static NSString * archiver_key = @"archiver_key";
         }
         finish ? finish(filePath.absoluteString) : 0;
         model.isFinish = YES;
+        [XYDownloadNetTool saveToDiskOfDownloadDic];
     }];
     //开始
     [downloadTask resume];
@@ -268,6 +269,7 @@ static NSString * archiver_key = @"archiver_key";
         }
         finish ? finish(filePath.absoluteString) : 0;
         model.isFinish = YES;
+        [XYDownloadNetTool saveToDiskOfDownloadDic];
     }];
     
        //开始
@@ -287,7 +289,6 @@ static NSString * archiver_key = @"archiver_key";
  */
 + (void)suspendWithDownloadTask:(NSURLSessionDownloadTask *)downloadTask url:(NSString *)url
 {
-    [XYDownloadNetTool saveDownloadDataWithURL:url downloadTask:downloadTask];
     [downloadTask suspend];
 }
 

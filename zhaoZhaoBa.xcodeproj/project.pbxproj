@@ -285,6 +285,8 @@
 		185E427E1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185E427C1D0ABCCF0079DFC3 /* XYAddCommunityDSCOViewController.xib */; };
 		185E42811D0AC1300079DFC3 /* 踩副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E427F1D0AC1300079DFC3 /* 踩副本.png */; };
 		185E42821D0AC1300079DFC3 /* 顶副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E42801D0AC1300079DFC3 /* 顶副本.png */; };
+		1864A1C11D1833D500A9EBED /* XYPlayViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864A1BF1D1833D500A9EBED /* XYPlayViewViewController.m */; };
+		1864A1C21D1833D500A9EBED /* XYPlayViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1864A1C01D1833D500A9EBED /* XYPlayViewViewController.xib */; };
 		1887EE001CCE36F5006DED7A /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887EDFF1CCE36F5006DED7A /* XYButton.m */; };
 		188AEB8D1D180FA4000D2590 /* XYVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188AEB8B1D180FA4000D2590 /* XYVideoTableViewCell.m */; };
 		188AEB8E1D180FA4000D2590 /* XYVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188AEB8C1D180FA4000D2590 /* XYVideoTableViewCell.xib */; };
@@ -739,6 +741,9 @@
 		185E427F1D0AC1300079DFC3 /* 踩副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "踩副本.png"; sourceTree = "<group>"; };
 		185E42801D0AC1300079DFC3 /* 顶副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顶副本.png"; sourceTree = "<group>"; };
 		186094F31CCF72CE00E5C8F9 /* Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
+		1864A1BE1D1833D500A9EBED /* XYPlayViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPlayViewViewController.h; sourceTree = "<group>"; };
+		1864A1BF1D1833D500A9EBED /* XYPlayViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPlayViewViewController.m; sourceTree = "<group>"; };
+		1864A1C01D1833D500A9EBED /* XYPlayViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYPlayViewViewController.xib; sourceTree = "<group>"; };
 		1887EDFE1CCE36F5006DED7A /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
 		1887EDFF1CCE36F5006DED7A /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
 		188AEB8A1D180FA4000D2590 /* XYVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYVideoTableViewCell.h; sourceTree = "<group>"; };
@@ -2127,6 +2132,9 @@
 				18C3F95A1D167A4B00E28968 /* XYVideoListViewController.h */,
 				18C3F95B1D167A4B00E28968 /* XYVideoListViewController.m */,
 				18C3F95C1D167A4B00E28968 /* XYVideoListViewController.xib */,
+				1864A1BE1D1833D500A9EBED /* XYPlayViewViewController.h */,
+				1864A1BF1D1833D500A9EBED /* XYPlayViewViewController.m */,
+				1864A1C01D1833D500A9EBED /* XYPlayViewViewController.xib */,
 			);
 			name = Video;
 			path = Vodeo;
@@ -2294,7 +2302,7 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4MUMJ6BUER;
 						DevelopmentTeamName = "CNWIR BJ";
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -2364,6 +2372,7 @@
 				18A952261CF9529600CBF26D /* XYCarShowViewController.xib in Resources */,
 				1858200A1CCE0E6500A191BF /* 车展.png in Resources */,
 				1806676E1CF049E800CCC3CF /* XYShoppingViewController.xib in Resources */,
+				1864A1C21D1833D500A9EBED /* XYPlayViewViewController.xib in Resources */,
 				185820091CCE0E6500A191BF /* 试题@3x.png in Resources */,
 				189051981CCCFE05003697A2 /* progress_4.png in Resources */,
 				1806672F1CF0438C00CCC3CF /* 年龄.png in Resources */,
@@ -2730,6 +2739,7 @@
 				18C3F9621D16891900E28968 /* XYDownloadNetTool.m in Sources */,
 				185E42551D0A58300079DFC3 /* XYShoppingNetTool.m in Sources */,
 				18A9528A1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.m in Sources */,
+				1864A1C11D1833D500A9EBED /* XYPlayViewViewController.m in Sources */,
 				180A4BAB1CE6DAE00033E5BD /* XYSignUpViewController.m in Sources */,
 				180666F51CF0021200CCC3CF /* XYAddCommunityUpdatePictureView.m in Sources */,
 				1826FA411CE8229E002D30D1 /* XYCoachDetailHeaderTableViewCell.m in Sources */,
@@ -2916,7 +2926,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2928,8 +2938,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3846697e-c4eb-48bb-b6db-a954bed1bbfa";
-				PROVISIONING_PROFILE_SPECIFIER = 4MUMJ6BUER/zhaoZhaoBaHoccc;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2939,7 +2949,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2951,8 +2961,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3846697e-c4eb-48bb-b6db-a954bed1bbfa";
-				PROVISIONING_PROFILE_SPECIFIER = 4MUMJ6BUER/zhaoZhaoBaHoccc;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
