@@ -2,17 +2,67 @@
 //  XYVideoTableViewCell.m
 //  zhaoZhaoBa
 //
-//  Created by Xinyu Qiang on 16/6/20.
+//  Created by apple on 16/6/20.
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
 #import "XYVideoTableViewCell.h"
+#import "XYDownloadNetTool.h"
+
+static NSInteger download_speed_view_width = 117;
 
 @implementation XYVideoTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    // Initialization codes
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    WeakSelf(weakSelf);
+    
+    [self.playImageView clickView:^(UIImageView *view) {
+        XYDownloadModel * model = [XYDownloadNetTool getDownloadModelWithDic:weakSelf.myData];
+
+        if (!view.isHighlighted) {
+            view.highlighted = YES;
+            [XYDownloadNetTool downloadFileURL:weakSelf.myData[video_ev_videourl] speed:^(NSString *download) {
+            } finish:^{
+                
+            }];
+        } else {
+            if (!model.isFinish) {
+                view.highlighted = NO;
+                [XYDownloadNetTool suspendWithDownloadTask:model.downloadTask url:model.httpUrl];
+            }
+        }
+    }];
+}
+
+
+- (void)setMyData:(NSMutableDictionary *)myData
+{
+    _myData = myData;
+    
+    XYDownloadModel * model = [XYDownloadNetTool getDownloadModelWithDic:myData];
+    
+    [self.videoImageView setImageWithURL:[NSURL URLWithString:myData[video_ev_cover]] placeholder:kDefaultImage];
+    self.nameLabel.text = myData[video_ev_title];
+    
+    
+    self.downloadLabel.text = model.downloadSpeed;
+    
+    self.downloadSpeedViewWidth.constant = isnan(model.speed) ? 0 : model.speed * download_speed_view_width;
+    
+    
+    if (!model) {
+        model = [XYDownloadModel createDownLoadModeWithDic:self.myData];
+    }
+    model.speedViewWidth = self.downloadSpeedViewWidth;
+    model.label = self.downloadLabel;
+
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

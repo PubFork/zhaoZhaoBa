@@ -14,6 +14,7 @@
 @property (nonatomic, strong)NSURLSessionDownloadTask * downloadTask;
 
 @property (nonatomic, copy)NSString * downloadSpeed;
+@property (nonatomic, assign)CGFloat speed;
 
 @property (nonatomic, strong)NSURL * localURL;
 @property (nonatomic, strong)NSURL * fialLocalURL;
@@ -22,6 +23,15 @@
 
 @property (nonatomic, assign)BOOL isFinish;
 
+
+@property (nonatomic, strong)UILabel * label;
+@property (nonatomic, strong)NSLayoutConstraint * speedViewWidth;
+
+- (void)save;
+
+
++ (XYDownloadModel *)createDownLoadModeWithDic:(NSDictionary *)dic;
++ (XYDownloadModel *)createDownLoadModeWithUrl:(NSString *)url;
 @end
 
 
@@ -30,6 +40,9 @@
 
 + (NSMutableDictionary *)getDownloadDic;
 
+
++ (XYDownloadModel *)getDownloadModelWithDic:(NSDictionary *)dic;
++ (XYDownloadModel *)getDownloadModelWithKey:(NSString *)key;
 
 
 /**

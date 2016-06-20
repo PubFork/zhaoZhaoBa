@@ -84,6 +84,12 @@
     self.downLabel.text = model.downloadSpeed;
     
     
+    if (!model) {
+        model = [XYDownloadModel createDownLoadModeWithDic:self.myData];
+    }
+    
+    model.label = self.downLabel;
+
     [self addActiveIVToMySelfView];
     
 }
@@ -99,7 +105,7 @@
     WeakSelf(weakSelf);
     self.downloadTask = [XYDownloadNetTool  downloadFileURL:self.myData[video_ev_videourl] speed:^(NSString *download) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.downLabel.text = download;
+//            weakSelf.downLabel.text = download;
         });
     } finish:^(NSString *filePath) {
         dispatch_async(dispatch_get_main_queue(), ^{

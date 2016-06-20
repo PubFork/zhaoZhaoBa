@@ -40,6 +40,7 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
 
 @property (weak, nonatomic) IBOutlet UIView *videoView;
 @property (weak, nonatomic) IBOutlet UICollectionView *videoCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *videoViewTitleLabel;
 
 ////////////////////////////////// 按钮 ////////////////////////////////////////
 /**
@@ -67,7 +68,6 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
 
 
 
-@property (nonatomic, assign)NSInteger subjectType;
 
 
 @end
@@ -109,7 +109,8 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
         weakSelf.groupArray = isSubjectOneOrFour ? weakSelf.groupArray : index == 1 ? weakSelf.subjectTowVideos : weakSelf.subjectThreeVideos;
         
         [weakSelf.videoCollectionView reloadData];
-        weakSelf.subjectType = index;
+        
+        weakSelf.videoViewTitleLabel.text = [NSString stringWithFormat:@"科目%@教学视频",!isSubjectOneOrFour ? index == 1 ? @"二" : @"三" : @""];
     }];
     
     
@@ -196,8 +197,8 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
 - (IBAction)clickDownloadBtn:(id)sender {
     
     XYVideoListViewController * videoList = [[XYVideoListViewController alloc] init];
-    videoList.type = self.subjectType;
-    videoList.groupArray = self.groupArray;
+    videoList.subjectTowVideos = self.subjectTowVideos;
+    videoList.subjectThreeVideos = self.subjectThreeVideos;
     [self.navigationController pushViewController:videoList animated:YES];
 }
 

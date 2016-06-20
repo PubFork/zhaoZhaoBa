@@ -138,6 +138,18 @@
 		1826FA421CE8229E002D30D1 /* XYCoachDetailHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1826FA401CE8229E002D30D1 /* XYCoachDetailHeaderTableViewCell.xib */; };
 		1826FA461CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1826FA441CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.m */; };
 		1826FA471CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1826FA451CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.xib */; };
+		1828C55D1D1806020094BB1E /* 播放.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5511D1806020094BB1E /* 播放.png */; };
+		1828C55E1D1806020094BB1E /* 播放@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5521D1806020094BB1E /* 播放@2x.png */; };
+		1828C55F1D1806020094BB1E /* 播放@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5531D1806020094BB1E /* 播放@3x.png */; };
+		1828C5601D1806020094BB1E /* 离线.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5541D1806020094BB1E /* 离线.png */; };
+		1828C5611D1806020094BB1E /* 离线@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5551D1806020094BB1E /* 离线@2x.png */; };
+		1828C5621D1806020094BB1E /* 离线@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5561D1806020094BB1E /* 离线@3x.png */; };
+		1828C5631D1806020094BB1E /* 下载.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5571D1806020094BB1E /* 下载.png */; };
+		1828C5641D1806020094BB1E /* 下载@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5581D1806020094BB1E /* 下载@2x.png */; };
+		1828C5651D1806020094BB1E /* 下载@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C5591D1806020094BB1E /* 下载@3x.png */; };
+		1828C5661D1806020094BB1E /* 暂停.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C55A1D1806020094BB1E /* 暂停.png */; };
+		1828C5671D1806020094BB1E /* 暂停@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C55B1D1806020094BB1E /* 暂停@2x.png */; };
+		1828C5681D1806020094BB1E /* 暂停@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1828C55C1D1806020094BB1E /* 暂停@3x.png */; };
 		183079631D028A690063925C /* b27_icon_star_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1830795D1D028A690063925C /* b27_icon_star_yellow.png */; };
 		183079641D028A690063925C /* b27_icon_star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1830795E1D028A690063925C /* b27_icon_star_yellow@2x.png */; };
 		183079651D028A690063925C /* b27_icon_star_yellow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1830795F1D028A690063925C /* b27_icon_star_yellow@3x.png */; };
@@ -274,6 +286,8 @@
 		185E42811D0AC1300079DFC3 /* 踩副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E427F1D0AC1300079DFC3 /* 踩副本.png */; };
 		185E42821D0AC1300079DFC3 /* 顶副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 185E42801D0AC1300079DFC3 /* 顶副本.png */; };
 		1887EE001CCE36F5006DED7A /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887EDFF1CCE36F5006DED7A /* XYButton.m */; };
+		188AEB8D1D180FA4000D2590 /* XYVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188AEB8B1D180FA4000D2590 /* XYVideoTableViewCell.m */; };
+		188AEB8E1D180FA4000D2590 /* XYVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188AEB8C1D180FA4000D2590 /* XYVideoTableViewCell.xib */; };
 		188FBF0E1CFAD35D0014B79E /* XYWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FBF0C1CFAD35D0014B79E /* XYWebViewViewController.m */; };
 		188FBF0F1CFAD35D0014B79E /* XYWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188FBF0D1CFAD35D0014B79E /* XYWebViewViewController.xib */; };
 		188FBF131CFAEBE80014B79E /* XYCoachNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FBF121CFAEBE80014B79E /* XYCoachNetTool.m */; };
@@ -368,8 +382,6 @@
 		18D3581C1CD5F1C100E539E7 /* XYMustKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D3581A1CD5F1C100E539E7 /* XYMustKnowViewController.xib */; };
 		18D358211CD5F54700E539E7 /* XYMustKnowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D3581F1CD5F54700E539E7 /* XYMustKnowTableViewCell.m */; };
 		18D358221CD5F54700E539E7 /* XYMustKnowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D358201CD5F54700E539E7 /* XYMustKnowTableViewCell.xib */; };
-		29A2A34C1D17A82B0034B205 /* XYVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A2A34A1D17A82B0034B205 /* XYVideoTableViewCell.m */; };
-		29A2A34D1D17A82B0034B205 /* XYVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A2A34B1D17A82B0034B205 /* XYVideoTableViewCell.xib */; };
 		29D7ECDE1D17DD640079648F /* NSObject+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D7ECDD1D17DD640079648F /* NSObject+NSCoding.m */; };
 		6F66DBAEEBD3F4D846791F53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73E4F5F113F0080CD28BE16 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -563,6 +575,18 @@
 		1826FA431CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCoachDetailCommentListTableViewCell.h; sourceTree = "<group>"; };
 		1826FA441CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCoachDetailCommentListTableViewCell.m; sourceTree = "<group>"; };
 		1826FA451CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYCoachDetailCommentListTableViewCell.xib; sourceTree = "<group>"; };
+		1828C5511D1806020094BB1E /* 播放.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "播放.png"; sourceTree = "<group>"; };
+		1828C5521D1806020094BB1E /* 播放@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "播放@2x.png"; sourceTree = "<group>"; };
+		1828C5531D1806020094BB1E /* 播放@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "播放@3x.png"; sourceTree = "<group>"; };
+		1828C5541D1806020094BB1E /* 离线.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "离线.png"; sourceTree = "<group>"; };
+		1828C5551D1806020094BB1E /* 离线@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "离线@2x.png"; sourceTree = "<group>"; };
+		1828C5561D1806020094BB1E /* 离线@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "离线@3x.png"; sourceTree = "<group>"; };
+		1828C5571D1806020094BB1E /* 下载.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载.png"; sourceTree = "<group>"; };
+		1828C5581D1806020094BB1E /* 下载@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载@2x.png"; sourceTree = "<group>"; };
+		1828C5591D1806020094BB1E /* 下载@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载@3x.png"; sourceTree = "<group>"; };
+		1828C55A1D1806020094BB1E /* 暂停.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂停.png"; sourceTree = "<group>"; };
+		1828C55B1D1806020094BB1E /* 暂停@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂停@2x.png"; sourceTree = "<group>"; };
+		1828C55C1D1806020094BB1E /* 暂停@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "暂停@3x.png"; sourceTree = "<group>"; };
 		1830795D1D028A690063925C /* b27_icon_star_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b27_icon_star_yellow.png; sourceTree = "<group>"; };
 		1830795E1D028A690063925C /* b27_icon_star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b27_icon_star_yellow@2x.png"; sourceTree = "<group>"; };
 		1830795F1D028A690063925C /* b27_icon_star_yellow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b27_icon_star_yellow@3x.png"; sourceTree = "<group>"; };
@@ -717,6 +741,9 @@
 		186094F31CCF72CE00E5C8F9 /* Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		1887EDFE1CCE36F5006DED7A /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
 		1887EDFF1CCE36F5006DED7A /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
+		188AEB8A1D180FA4000D2590 /* XYVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYVideoTableViewCell.h; sourceTree = "<group>"; };
+		188AEB8B1D180FA4000D2590 /* XYVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYVideoTableViewCell.m; sourceTree = "<group>"; };
+		188AEB8C1D180FA4000D2590 /* XYVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYVideoTableViewCell.xib; sourceTree = "<group>"; };
 		188FBF0B1CFAD35D0014B79E /* XYWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYWebViewViewController.h; sourceTree = "<group>"; };
 		188FBF0C1CFAD35D0014B79E /* XYWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWebViewViewController.m; sourceTree = "<group>"; };
 		188FBF0D1CFAD35D0014B79E /* XYWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYWebViewViewController.xib; sourceTree = "<group>"; };
@@ -869,9 +896,6 @@
 		18D3581E1CD5F54700E539E7 /* XYMustKnowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMustKnowTableViewCell.h; sourceTree = "<group>"; };
 		18D3581F1CD5F54700E539E7 /* XYMustKnowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMustKnowTableViewCell.m; sourceTree = "<group>"; };
 		18D358201CD5F54700E539E7 /* XYMustKnowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYMustKnowTableViewCell.xib; sourceTree = "<group>"; };
-		29A2A3491D17A82B0034B205 /* XYVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYVideoTableViewCell.h; sourceTree = "<group>"; };
-		29A2A34A1D17A82B0034B205 /* XYVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYVideoTableViewCell.m; sourceTree = "<group>"; };
-		29A2A34B1D17A82B0034B205 /* XYVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYVideoTableViewCell.xib; sourceTree = "<group>"; };
 		29D7ECDC1D17DD640079648F /* NSObject+NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSCoding.h"; sourceTree = "<group>"; };
 		29D7ECDD1D17DD640079648F /* NSObject+NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSCoding.m"; sourceTree = "<group>"; };
 		DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1296,6 +1320,18 @@
 		184443C01D161E140042B64C /* TestQuestions */ = {
 			isa = PBXGroup;
 			children = (
+				1828C5511D1806020094BB1E /* 播放.png */,
+				1828C5521D1806020094BB1E /* 播放@2x.png */,
+				1828C5531D1806020094BB1E /* 播放@3x.png */,
+				1828C5541D1806020094BB1E /* 离线.png */,
+				1828C5551D1806020094BB1E /* 离线@2x.png */,
+				1828C5561D1806020094BB1E /* 离线@3x.png */,
+				1828C5571D1806020094BB1E /* 下载.png */,
+				1828C5581D1806020094BB1E /* 下载@2x.png */,
+				1828C5591D1806020094BB1E /* 下载@3x.png */,
+				1828C55A1D1806020094BB1E /* 暂停.png */,
+				1828C55B1D1806020094BB1E /* 暂停@2x.png */,
+				1828C55C1D1806020094BB1E /* 暂停@3x.png */,
 				18C3F9561D1678A600E28968 /* prepareLoadBtn@2x.png */,
 				18C3F9571D1678A600E28968 /* finishedLoadBtn@2x.png */,
 				184443C11D161E210042B64C /* 背题模式.png */,
@@ -2152,9 +2188,9 @@
 		29A2A3481D17A7D40034B205 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				29A2A3491D17A82B0034B205 /* XYVideoTableViewCell.h */,
-				29A2A34A1D17A82B0034B205 /* XYVideoTableViewCell.m */,
-				29A2A34B1D17A82B0034B205 /* XYVideoTableViewCell.xib */,
+				188AEB8A1D180FA4000D2590 /* XYVideoTableViewCell.h */,
+				188AEB8B1D180FA4000D2590 /* XYVideoTableViewCell.m */,
+				188AEB8C1D180FA4000D2590 /* XYVideoTableViewCell.xib */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -2258,7 +2294,7 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4MUMJ6BUER;
 						DevelopmentTeamName = "CNWIR BJ";
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -2302,6 +2338,7 @@
 			files = (
 				18A952961CF994A100CBF26D /* XYCarShowAlbumCollectionReusableView.xib in Resources */,
 				184443F61D161E210042B64C /* 模拟考试@3x.png in Resources */,
+				1828C5631D1806020094BB1E /* 下载.png in Resources */,
 				180666C61CEFEF4D00CCC3CF /* 定位.png in Resources */,
 				1826FA471CE822CE002D30D1 /* XYCoachDetailCommentListTableViewCell.xib in Resources */,
 				180666B61CEFEE9C00CCC3CF /* 踩@3x.png in Resources */,
@@ -2312,7 +2349,6 @@
 				18581FFC1CCE0E6500A191BF /* 消息1.png in Resources */,
 				180666C71CEFEF4D00CCC3CF /* 定位@2x.png in Resources */,
 				1806672E1CF0438C00CCC3CF /* 昵称@3x.png in Resources */,
-				29A2A34D1D17A82B0034B205 /* XYVideoTableViewCell.xib in Resources */,
 				1890515F1CCCD7C3003697A2 /* XYMyViewController.xib in Resources */,
 				183079741D02A69F0063925C /* 社区汇@3x.png in Resources */,
 				1890519B1CCCFE05003697A2 /* progress_7.png in Resources */,
@@ -2333,6 +2369,7 @@
 				1806672F1CF0438C00CCC3CF /* 年龄.png in Resources */,
 				185E42701D0AA1DF0079DFC3 /* 置顶.png in Resources */,
 				180666CD1CEFF05A00CCC3CF /* XYCommunityTableViewCell.xib in Resources */,
+				1828C5611D1806020094BB1E /* 离线@2x.png in Resources */,
 				180666BB1CEFEE9C00CCC3CF /* 顶@2x.png in Resources */,
 				180666A51CEFEAAF00CCC3CF /* 报名@2x.png in Resources */,
 				1806675C1CF045A800CCC3CF /* 我的驾校@3x.png in Resources */,
@@ -2371,6 +2408,8 @@
 				18A07C5A1CDCBF8900725B8E /* XYCoachViewController.xib in Resources */,
 				180667331CF0438C00CCC3CF /* 头像@2x.png in Resources */,
 				180667301CF0438C00CCC3CF /* 年龄@2x.png in Resources */,
+				1828C5661D1806020094BB1E /* 暂停.png in Resources */,
+				1828C5671D1806020094BB1E /* 暂停@2x.png in Resources */,
 				18BC61F41CD5BF2B00AE8747 /* Scan_Success@2x.png in Resources */,
 				180667631CF045A800CCC3CF /* 一键清理.png in Resources */,
 				180667061CF0041900CCC3CF /* 提交@2x.png in Resources */,
@@ -2405,6 +2444,7 @@
 				18BC61F21CD5BC9B00AE8747 /* qr_scan_line@2x.png in Resources */,
 				180666F91CF0036100CCC3CF /* 回顶部.png in Resources */,
 				184444071D161E210042B64C /* 微信@2x.png in Resources */,
+				188AEB8E1D180FA4000D2590 /* XYVideoTableViewCell.xib in Resources */,
 				18581FAE1CCE072C00A191BF /* XYCarousePictureCollectionCell.xib in Resources */,
 				180666D61CEFF66D00CCC3CF /* 社区汇评论@2x.png in Resources */,
 				18A9528B1CF9929B00CBF26D /* XYCarShowAlbumDetailViewController.xib in Resources */,
@@ -2413,6 +2453,7 @@
 				189051641CCCD7CB003697A2 /* XYHomeViewController.xib in Resources */,
 				184C141B1CDDEC5600C7D7BB /* XYShareGetMoneyShareTableViewCell.xib in Resources */,
 				18581FF71CCE0E6500A191BF /* 教练榜@3x.png in Resources */,
+				1828C5681D1806020094BB1E /* 暂停@3x.png in Resources */,
 				180666FF1CF0041300CCC3CF /* 添加图片.png in Resources */,
 				18581FF61CCE0E6500A191BF /* 教练榜@2x.png in Resources */,
 				185820131CCE0E6500A191BF /* 驾校好评.png in Resources */,
@@ -2429,6 +2470,7 @@
 				183079631D028A690063925C /* b27_icon_star_yellow.png in Resources */,
 				1814761C1CDD8247004980B1 /* XYMyMessageTableViewCell.xib in Resources */,
 				180666AA1CEFED2E00CCC3CF /* back@3x.png in Resources */,
+				1828C55E1D1806020094BB1E /* 播放@2x.png in Resources */,
 				18581FA51CCE058700A191BF /* XYHomeHeaderTableViewCell.xib in Resources */,
 				180666C81CEFEF4D00CCC3CF /* 定位@3x.png in Resources */,
 				180667341CF0438C00CCC3CF /* 头像@3x.png in Resources */,
@@ -2464,6 +2506,7 @@
 				184443F51D161E210042B64C /* 模拟考试@2x.png in Resources */,
 				1830798A1D02D8A10063925C /* 选中@2x.png in Resources */,
 				1826FA421CE8229E002D30D1 /* XYCoachDetailHeaderTableViewCell.xib in Resources */,
+				1828C55D1D1806020094BB1E /* 播放.png in Resources */,
 				180667071CF0041900CCC3CF /* 提交@3x.png in Resources */,
 				1844440B1D161E210042B64C /* 我的错题@3x.png in Resources */,
 				184444021D161E210042B64C /* 随机练习@3x.png in Resources */,
@@ -2477,13 +2520,16 @@
 				185E42791D0AA2280079DFC3 /* 积分@3x.png in Resources */,
 				189051971CCCFE05003697A2 /* progress_3.png in Resources */,
 				18581FE81CCE0E6500A191BF /* 下角标@3x.png in Resources */,
+				1828C5601D1806020094BB1E /* 离线.png in Resources */,
 				180667601CF045A800CCC3CF /* 我们在这.png in Resources */,
 				18581FF01CCE0E6500A191BF /* 扫一扫@2x.png in Resources */,
 				1806675B1CF045A800CCC3CF /* 我的驾校@2x.png in Resources */,
 				18C3F95E1D167A4B00E28968 /* XYVideoListViewController.xib in Resources */,
 				183079861D02D8A10063925C /* 未选中.png in Resources */,
+				1828C5651D1806020094BB1E /* 下载@3x.png in Resources */,
 				1858200B1CCE0E6500A191BF /* 车展@2x.png in Resources */,
 				185E42771D0AA2280079DFC3 /* 积分.png in Resources */,
+				1828C55F1D1806020094BB1E /* 播放@3x.png in Resources */,
 				183079721D02A69F0063925C /* 社区汇.png in Resources */,
 				184443EC1D161E210042B64C /* 背题模式@2x.png in Resources */,
 				184444061D161E210042B64C /* 微信.png in Resources */,
@@ -2496,6 +2542,7 @@
 				183079681D028A690063925C /* b27_icon_star_gray@3x.png in Resources */,
 				180667311CF0438C00CCC3CF /* 年龄@3x.png in Resources */,
 				180667651CF045A800CCC3CF /* 一键清理@3x.png in Resources */,
+				1828C5641D1806020094BB1E /* 下载@2x.png in Resources */,
 				184443EF1D161E210042B64C /* 答题技巧@2x.png in Resources */,
 				1844440D1D161E210042B64C /* 专项练习@2x.png in Resources */,
 				184443FE1D161E210042B64C /* 顺序练习@2x.png in Resources */,
@@ -2534,6 +2581,7 @@
 				185E42821D0AC1300079DFC3 /* 顶副本.png in Resources */,
 				18581FF11CCE0E6500A191BF /* 扫一扫@3x.png in Resources */,
 				180666DE1CEFF89100CCC3CF /* 添加.png in Resources */,
+				1828C5621D1806020094BB1E /* 离线@3x.png in Resources */,
 				180666B51CEFEE9C00CCC3CF /* 踩@2x.png in Resources */,
 				185E426B1D0A7A550079DFC3 /* mapapi.bundle in Resources */,
 				180666BA1CEFEE9C00CCC3CF /* 顶（灰）@3x.png in Resources */,
@@ -2672,6 +2720,7 @@
 				18A07C5E1CDCBFAA00725B8E /* XYCoachDetailViewController.m in Sources */,
 				184443BE1D161DAF0042B64C /* XYTestQuestionsViewController.m in Sources */,
 				180666E91CEFFA3600CCC3CF /* XYAddCommunityViewController.m in Sources */,
+				188AEB8D1D180FA4000D2590 /* XYVideoTableViewCell.m in Sources */,
 				18A9529A1CF9985D00CBF26D /* XYAlbumViewController.m in Sources */,
 				180BE2CC1D14DC1900815C18 /* XYNotificationCenterViewController.m in Sources */,
 				188FBF0E1CFAD35D0014B79E /* XYWebViewViewController.m in Sources */,
@@ -2724,7 +2773,6 @@
 				180666F21CF0016100CCC3CF /* Manager.m in Sources */,
 				180BE2D81D14E6B300815C18 /* XYUpdateNetTool.m in Sources */,
 				18A07C591CDCBF8900725B8E /* XYCoachViewController.m in Sources */,
-				29A2A34C1D17A82B0034B205 /* XYVideoTableViewCell.m in Sources */,
 				18A07C6E1CDCC7F000725B8E /* XYCoachTableViewCell.m in Sources */,
 				184C14141CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m in Sources */,
 				18D3581B1CD5F1C100E539E7 /* XYMustKnowViewController.m in Sources */,
@@ -2867,8 +2915,8 @@
 			baseConfigurationReference = 08B4B600780B2ECF1A1DA6E7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2880,8 +2928,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3846697e-c4eb-48bb-b6db-a954bed1bbfa";
+				PROVISIONING_PROFILE_SPECIFIER = 4MUMJ6BUER/zhaoZhaoBaHoccc;
 			};
 			name = Debug;
 		};
@@ -2890,8 +2938,8 @@
 			baseConfigurationReference = DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: lingwei wang (D79TTCTL42)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CNWIR BJ (4MUMJ6BUER)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2903,8 +2951,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qxy.zhaoZhaoBa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3846697e-c4eb-48bb-b6db-a954bed1bbfa";
+				PROVISIONING_PROFILE_SPECIFIER = 4MUMJ6BUER/zhaoZhaoBaHoccc;
 			};
 			name = Release;
 		};

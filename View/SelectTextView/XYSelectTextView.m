@@ -29,6 +29,9 @@ static NSInteger tag_label = 1000920;
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
+
     [self addSubview:self.lineView];
 }
 
@@ -92,7 +95,7 @@ static NSInteger tag_label = 1000920;
     if (!_lineView) {
         _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 1)];
         _lineView.backgroundColor = self.selectColor;
-        _lineView.center = CGPointMake(kScreenWidth / 8, self.height - 10);
+        _lineView.center = CGPointMake(kScreenWidth / 8,30);
     }
     return _lineView;
 }

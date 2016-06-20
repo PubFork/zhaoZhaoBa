@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^clickView)(UIView * view);
+typedef void(^clickLabel)(UILabel * view);
 
 @interface XYAddActionLabel : UILabel
-@property (nonatomic, copy)clickView clickView;
+@property (nonatomic, copy)clickLabel clickView;
 
-- (void)clickView:(void(^)(UIView * view))clickView;
+- (void)clickView:(clickLabel)clickView;
 @end

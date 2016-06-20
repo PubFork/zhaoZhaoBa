@@ -28,8 +28,47 @@ static NSString * archiver_key = @"archiver_key";
     
 }
 
+- (void)setDownloadSpeed:(NSString *)downloadSpeed
+{
+    _downloadTask = downloadSpeed.copy;
+    
+    NSArray * array = [downloadSpeed componentsSeparatedByString:@"/"];
+    
+    NSString * str1 = array.firstObject;
+    NSString * str2 = array.lastObject;
+    
+    self.speed = str1.floatValue / str2.floatValue;
+    
+    NSLog(@" self.speed  % f = str1.floatValue  %f / str2.floatValue %f;  ", self.speed , str1.floatValue , str2.floatValue);
+
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.label.text = downloadSpeed;
+        NSLog(@"%@ --- %@",self,self.label);
+        
+        if (!isnan(self.speed)) {
+            self.speedViewWidth.constant = self.speed * 117;
+
+        }
+        
+        NSLog(@" self.speedViewWidth.constant = %f",self.speedViewWidth.constant);
+    });
+    
+    
+    
+    
+}
+
+- (void)setLabel:(UILabel *)label
+{
+    _label = label;
+    NSLog(@" == %@",self);
+}
+
+
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
+    [[XYDownloadNetTool getDownloadDic] setValue:self forKey:self.httpUrl];
     [self autoEncodeWithCoder:aCoder];
 }
 
@@ -42,6 +81,31 @@ static NSString * archiver_key = @"archiver_key";
 }
 
 
+- (void)save
+{
+    NSLog(@" %@  -- %@",[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl],[[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl] label]);
+    
+    [[XYDownloadNetTool getDownloadDic] setValue:self forKey:self.httpUrl];
+    
+    NSLog(@" %@  -- %@",[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl],[[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl] label]);
+
+}
+
++ (XYDownloadModel *)createDownLoadModeWithDic:(NSDictionary *)dic
+{
+    XYDownloadModel * model = [[XYDownloadModel alloc] init];
+    model.httpUrl = dic[video_ev_videourl];
+    [model save];
+    return model;
+}
+
++ (XYDownloadModel *)createDownLoadModeWithUrl:(NSString *)url
+{
+    XYDownloadModel * model = [[XYDownloadModel alloc] init];
+    model.httpUrl = url;
+    [model save];
+    return model;
+}
 @end
 
 @implementation XYDownloadNetTool
@@ -59,6 +123,20 @@ static NSString * archiver_key = @"archiver_key";
         }
     });
     return downloadDic;
+}
+
+
++ (XYDownloadModel *)getDownloadModelWithDic:(NSDictionary *)dic
+{
+    NSString * key = dic[video_ev_videourl];
+    if ([key isKindOfClass:NSString.class]) {
+        return [XYDownloadNetTool getDownloadDic][key];
+    }
+    return nil;
+}
++ (XYDownloadModel *)getDownloadModelWithKey:(NSString *)key
+{
+    return [XYDownloadNetTool getDownloadDic][key];
 }
 
 /**
@@ -79,9 +157,7 @@ static NSString * archiver_key = @"archiver_key";
     
     XYDownloadModel * model = downloadDic[aUrl];
     if (!model) {
-        model = [[XYDownloadModel alloc] init];
-        model.httpUrl = aUrl;
-        [downloadDic setValue:model forKey:aUrl];
+        model = [XYDownloadModel createDownLoadModeWithUrl:aUrl];
     } else {
         if (model.isFinish) {
             finish ? finish() : 0;
@@ -107,7 +183,7 @@ static NSString * archiver_key = @"archiver_key";
         if (resumeData.length > 0) {
             NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:aUrl];
             BOOL success = [resumeData writeToFile:[XYDownloadNetTool getPathWithURL:URL] atomically:YES];
-            NSLog(@" success--- %d",success);
+            NSLog(@"all  success--- %d",success);
         }
     }];
     
@@ -119,6 +195,7 @@ static NSString * archiver_key = @"archiver_key";
         NSString * download = [XYDownloadNetTool getDownloadSpeedWithProgress:downloadProgress];
         speed ? speed(download) : 0;
         model.downloadSpeed = download;
+        model.speed = downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         return model.localURL;
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
@@ -138,7 +215,6 @@ static NSString * archiver_key = @"archiver_key";
     
     model.downloadTask = downloadTask;
     model.httpUrl = aUrl;
-    
     
     
     return downloadTask;
@@ -175,7 +251,7 @@ static NSString * archiver_key = @"archiver_key";
         if (resumeData.length > 0) {
             NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:url];
             BOOL success = [resumeData writeToFile:[XYDownloadNetTool getPathWithURL:URL] atomically:YES];
-            NSLog(@" success--- %d",success);
+            NSLog(@"fail success--- %d",success);
         }
     }];
     
@@ -183,6 +259,7 @@ static NSString * archiver_key = @"archiver_key";
         NSString * download = [XYDownloadNetTool getDownloadSpeedWithProgress:downloadProgress];
         speed ? speed(download) : 0;
         model.downloadSpeed = download;
+        model.speed = downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         return model.localURL;
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {

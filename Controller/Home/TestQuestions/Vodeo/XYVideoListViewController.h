@@ -10,9 +10,9 @@
 
 @interface XYVideoListViewController : XYRootViewController
 
-//2 => 科目二
-@property (nonatomic, assign)NSInteger type;
 
+@property (nonatomic, strong)NSMutableArray * subjectTowVideos;
+@property (nonatomic, strong)NSMutableArray * subjectThreeVideos;
 
 
 @end
