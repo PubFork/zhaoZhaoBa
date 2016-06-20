@@ -46,12 +46,15 @@
     
     
     WeakSelf(weakSelf);
+    
+    XYDownloadModel * model = [XYDownloadNetTool getDownloadDic][self.myData[video_ev_videourl]];
+
 
     [self.videoImageView clickView:^(UIImageView *view) {
         //play
         if (view.highlighted) {
             
-            weakSelf.playerController.contentURL = [XYDownloadNetTool getVideoURLWithUrl:weakSelf.myData[video_ev_videourl]];
+            weakSelf.playerController.contentURL = model.localURL;
             
             [weakSelf.playerController play];
             
@@ -75,9 +78,11 @@
     
     
 
+    XYDownloadModel * model = [XYDownloadNetTool getDownloadDic][self.myData[video_ev_videourl]];
+    self.videoImageView.highlighted = model.isFinish;
+    self.downLabel.hidden = model.isFinish;
+    self.downLabel.text = model.downloadSpeed;
     
-    NSURL * url = [XYDownloadNetTool getVideoURLWithUrl:self.myData[video_ev_videourl]];
-    self.videoImageView.highlighted = url;
     
     [self addActiveIVToMySelfView];
     

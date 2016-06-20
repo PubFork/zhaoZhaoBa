@@ -8,7 +8,58 @@
 
 #import "XYDownloadNetTool.h"
 
+
+//保存视频的 文件夹
+static NSString * documents_video_path = @"video";
+
+static NSString * archiver_key = @"archiver_key";
+
+
+
+@implementation XYDownloadModel
+
+
+- (void)setHttpUrl:(NSString *)httpUrl
+{
+    _httpUrl = httpUrl.copy;
+    
+    self.localURL = [XYDownloadNetTool getDownloadURLWith:httpUrl];
+    self.fialLocalURL = [XYDownloadNetTool getFialDownloadURLWith:httpUrl];
+    
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [self autoEncodeWithCoder:aCoder];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if ([super init]) {
+        [self autoDecode:aDecoder];
+    }
+    return self;
+}
+
+
+@end
+
 @implementation XYDownloadNetTool
+
+
++ (NSMutableDictionary *)getDownloadDic
+{
+    static NSMutableDictionary * downloadDic = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        downloadDic = [XYDownloadNetTool getDownloadDicWithDisk];
+        NSLog(@"downloadDic ==> %@",downloadDic);
+        if (!downloadDic) {
+            downloadDic = @{}.mutableCopy;
+        }
+    });
+    return downloadDic;
+}
 
 /**
  *  下载文件
@@ -21,35 +72,55 @@
  */
 + (NSURLSessionDownloadTask *)downloadFileURL:(NSString *)aUrl
                                         speed:(void(^)(NSString * download))speed
-                                       finish:(void(^)(NSString * filePath))finish;
+                                       finish:(void(^)())finish;
 {
     
-    NSURL * downloadURL = [XYDownloadNetTool getVideoURLWithUrl:aUrl];
-    if (downloadURL) {
-        finish ? finish(downloadURL.absoluteString) : 0;
-        return nil;
+    NSMutableDictionary * downloadDic = [XYDownloadNetTool getDownloadDic];
+    
+    XYDownloadModel * model = downloadDic[aUrl];
+    if (!model) {
+        model = [[XYDownloadModel alloc] init];
+        model.httpUrl = aUrl;
+        [downloadDic setValue:model forKey:aUrl];
+    } else {
+        if (model.isFinish) {
+            finish ? finish() : 0;
+            return nil;
+        }
     }
     
+    
+    NSData * data = [NSData dataWithContentsOfURL:model.fialLocalURL];
+    if (data) {
+        return [XYDownloadNetTool downloadFileData:data url:aUrl speed:speed finish:finish];
+    }
+
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     
-    NSData * data = [XYDownloadNetTool getVideoDataURLWithUrl:aUrl];
     
-    if (data) {
-        return [XYDownloadNetTool downloadFileData:data url:aUrl speed:speed finish:finish];
-    }
+    [manager setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
+        // **** 下载出错，缓存已经下载的数据到指定的缓存文件中
+        NSData *resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData];
+        if (resumeData.length > 0) {
+            NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:aUrl];
+            BOOL success = [resumeData writeToFile:[XYDownloadNetTool getPathWithURL:URL] atomically:YES];
+            NSLog(@" success--- %d",success);
+        }
+    }];
     
-    
+
     NSURL *URL = [NSURL URLWithString:[aUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
 
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         NSString * download = [XYDownloadNetTool getDownloadSpeedWithProgress:downloadProgress];
         speed ? speed(download) : 0;
+        model.downloadSpeed = download;
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        return [XYDownloadNetTool getDownloadURLWith:aUrl];
+        return model.localURL;
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         NSLog(@"File downloaded to: %@", filePath);
         
@@ -57,10 +128,18 @@
             return ;
         }
         finish ? finish(filePath.absoluteString) : 0;
-
+        model.isFinish = YES;
     }];
     //开始
     [downloadTask resume];
+    
+    
+    
+    
+    model.downloadTask = downloadTask;
+    model.httpUrl = aUrl;
+    
+    
     
     return downloadTask;
 
@@ -82,19 +161,36 @@
                                          speed:(void(^)(NSString *))speed
                                         finish:(void(^)(NSString * filePath))finish
 {
+    
+    NSMutableDictionary * downloadDic = [XYDownloadNetTool getDownloadDic];
+    
+    XYDownloadModel * model = downloadDic[url];
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    [manager setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
+        // **** 下载出错，缓存已经下载的数据到指定的缓存文件中
+        NSData *resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData];
+        if (resumeData.length > 0) {
+            NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:url];
+            BOOL success = [resumeData writeToFile:[XYDownloadNetTool getPathWithURL:URL] atomically:YES];
+            NSLog(@" success--- %d",success);
+        }
+    }];
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithResumeData:data progress:^(NSProgress * _Nonnull downloadProgress) {
         NSString * download = [XYDownloadNetTool getDownloadSpeedWithProgress:downloadProgress];
         speed ? speed(download) : 0;
+        model.downloadSpeed = download;
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        return [XYDownloadNetTool getDownloadURLWith:url];
+        return model.localURL;
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if ([filePath.description isEqualToString:@"(null)"] || !filePath) {
             return ;
         }
         finish ? finish(filePath.absoluteString) : 0;
+        model.isFinish = YES;
     }];
     
        //开始
@@ -109,7 +205,7 @@
 
 /**
  *  暂停
- *
+ *  会保存到本地
  *  @param downloadTask downloadTask description
  */
 + (void)suspendWithDownloadTask:(NSURLSessionDownloadTask *)downloadTask url:(NSString *)url
@@ -119,43 +215,12 @@
 }
 
 
-/**
- *  根据下载地址 检查本地
- *
- *  @param url 下载地址
- *
- *  @return 本地地址
- */
-+ (NSURL *)getVideoURLWithUrl:(NSString *)url
-{
-    NSURL * URL = [XYDownloadNetTool getDownloadURLWith:url];
-    
-    NSFileManager * fileManager = [NSFileManager defaultManager];
-   
-    if ([fileManager fileExistsAtPath:[XYDownloadNetTool getPathWithURL:URL]]) {
-        return URL;
-    }
-    return nil;
-}
-
 
 
 
 
 ////////////////////////////////// 没下载完的 ////////////////////////////////////////
 
-/**
- *  获取没下载完的 视频
- *
- *  @param url
- *
- *  @return
- */
-+ (NSData *)getVideoDataURLWithUrl:(NSString *)url
-{
-    NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:url];
-    return [NSData dataWithContentsOfURL:URL];
-}
 
 //存 下载一半的 数据
 + (void)saveDownloadDataWithURL:(NSString *)url downloadTask:(NSURLSessionDownloadTask *)downloadTask
@@ -173,15 +238,18 @@
 #pragma mark -------------------------------------------------------
 #pragma mark Inner Method
 
+//计算 进度
 + (NSString *)getDownloadSpeedWithProgress:(NSProgress *)downloadProgress
 {
     return [NSString stringWithFormat:@"%.2fM/%.2fM",downloadProgress.completedUnitCount / 1000000.0,downloadProgress.totalUnitCount / 1000000.0];
 }
 
+
 //获取 完成 视频地址
 + (NSURL *)getDownloadURLWith:(NSString *)url
 {
     NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+    documentsDirectoryURL = [documentsDirectoryURL URLByAppendingPathComponent:documents_video_path];
     NSURL * newURL = [documentsDirectoryURL URLByAppendingPathComponent:[XYDownloadNetTool getStringWithUrl:url]];
    
     return newURL;
@@ -192,10 +260,13 @@
 + (NSURL *)getFialDownloadURLWith:(NSString *)url
 {
     NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+    documentsDirectoryURL = [documentsDirectoryURL URLByAppendingPathComponent:documents_video_path];
     NSURL * newURL = [documentsDirectoryURL URLByAppendingPathComponent:[[XYDownloadNetTool getStringWithUrl:url] stringByAppendingString:@".data"]];
     
     return newURL;
 }
+
+
 
 
 /**
@@ -215,4 +286,85 @@
 
 
 
+
+//////////////////////////////////// 对下载队列的操作 //////////////////////////////////////
+
++ (void)saveToDiskOfDownloadDic
+{
+    NSMutableDictionary * dic = [XYDownloadNetTool getDownloadDic];
+    
+    
+    
+    for (NSString * key in dic.allKeys) {
+        XYDownloadModel * model = dic[key];
+        
+        NSMutableData *data = [[NSMutableData alloc] init];
+        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+        [archiver encodeObject:model forKey:archiver_key];
+        [archiver finishEncoding];
+        
+        BOOL isSuccess = [data writeToFile:[[XYDownloadNetTool getDownloadDicPath] stringByAppendingString:@".data"] atomically:YES];
+        
+        NSLog(@" data save %@",isSuccess ? @"Success" : @"Fial");
+        
+        [dic setValue:data forKey:key];
+    }
+    NSLog(@"dic => %@",dic);
+    BOOL success = [dic writeToFile:[XYDownloadNetTool getDownloadDicPath] atomically:NO];
+    
+    if (success) {
+        NSLog(@" download dic save success!!!");
+    } else {
+        NSLog(@" download dic save fail !!!");
+    }
+}
+
+
++ (NSMutableDictionary *)getDownloadDicWithDisk
+{
+    NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithContentsOfFile:[XYDownloadNetTool getDownloadDicPath]];
+    
+    for (NSString * key in dic.allKeys) {
+        NSData * data = dic[key];
+        
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        
+        //解档出数据模型Student
+        XYDownloadModel * model = [unarchiver decodeObjectForKey:archiver_key];
+        [unarchiver finishDecoding];
+        
+        [dic setValue:model forKey:key];
+    }
+    return dic;
+}
+
+
+/**
+ * 获取队列路径
+ */
++ (NSString *)getDownloadDicPath
+{
+    NSString * documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString * directory = [documents stringByAppendingPathComponent:documents_video_path];
+    documents = [directory stringByAppendingPathComponent:@"downloadDic.data"];
+    
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:documents]) {
+        
+        if(![fileManager createDirectoryAtPath:directory withIntermediateDirectories:YES attributes:nil error:nil] ) {
+            NSLog(@"create directory fail");
+            NSLog(@"Error was code: %d - message: %s", errno, strerror(errno));
+            return documents;
+        }
+        NSLog(@"create directory success");
+        if (![fileManager createFileAtPath:documents contents:[NSData data] attributes:nil]) {
+            NSLog(@"create File Fail");
+            NSLog(@"Error was code: %d - message: %s", errno, strerror(errno));
+            return documents;
+        }
+        NSLog(@"create file success");
+    }
+    
+    return documents;
+}
 @end

@@ -7,9 +7,28 @@
 //
 
 #import "XYNetTool.h"
+#import "NSObject+NSCoding.h"
+
+@interface XYDownloadModel : NSObject <NSCoding>
+
+@property (nonatomic, strong)NSURLSessionDownloadTask * downloadTask;
+
+@property (nonatomic, copy)NSString * downloadSpeed;
+
+@property (nonatomic, strong)NSURL * localURL;
+@property (nonatomic, strong)NSURL * fialLocalURL;
+
+@property (nonatomic, copy)NSString * httpUrl;
+
+@property (nonatomic, assign)BOOL isFinish;
+
+@end
+
 
 @interface XYDownloadNetTool : XYNetTool
 
+
++ (NSMutableDictionary *)getDownloadDic;
 
 
 
@@ -24,10 +43,7 @@
  */
 + (NSURLSessionDownloadTask *)downloadFileURL:(NSString *)aUrl
                                         speed:(void(^)(NSString * download))speed
-                                       finish:(void(^)(NSString * filePath))finish;
-
-
-
+                                       finish:(void(^)())finish;
 
 /**
  *  暂停
@@ -37,21 +53,23 @@
 + (void)suspendWithDownloadTask:(NSURLSessionDownloadTask *)downloadTask url:(NSString *)url;
 
 
-/**
- *  根据下载地址 检查本地
- *
- *  @param url 下载地址
- *
- *  @return 本地地址
- */
-+ (NSURL *)getVideoURLWithUrl:(NSString *)url;
 
-/**
- *  获取没下载完的 视频
- *
- *  @param url
- *
- *  @return
- */
-+ (NSData *)getVideoDataURLWithUrl:(NSString *)url;
+
+
+//////////////////////////////////// 本地URL 文件不一定存在 //////////////////////////////////////
+
+//获取 完成 视频地址
++ (NSURL *)getDownloadURLWith:(NSString *)url;
+
+//获取 未完成 视频地址
++ (NSURL *)getFialDownloadURLWith:(NSString *)url;
+
+
+
+
+//////////////////////////////////// 对下载队列的操作 //////////////////////////////////////
+
++ (void)saveToDiskOfDownloadDic;
+
+
 @end
