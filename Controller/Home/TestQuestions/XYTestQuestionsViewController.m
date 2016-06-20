@@ -14,6 +14,7 @@
 #import "XYSelectTextView.h"
 #import "XYTestQuestionsCollectionViewCell.h"
 #import "XYVideoViewController.h"
+#import "XYVideoListViewController.h"
 
 static NSInteger community_top_detault = 394;
 static NSInteger community_top_height = 476;
@@ -64,6 +65,11 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
 @property (nonatomic, strong)NSMutableArray * subjectTowVideos;
 @property (nonatomic, strong)NSMutableArray * subjectThreeVideos;
 
+
+
+@property (nonatomic, assign)NSInteger subjectType;
+
+
 @end
 
 @implementation XYTestQuestionsViewController
@@ -103,6 +109,7 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
         weakSelf.groupArray = isSubjectOneOrFour ? weakSelf.groupArray : index == 1 ? weakSelf.subjectTowVideos : weakSelf.subjectThreeVideos;
         
         [weakSelf.videoCollectionView reloadData];
+        weakSelf.subjectType = index;
     }];
     
     
@@ -124,15 +131,23 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
         
     }];
     
-    [XYTestQuestionsNetTool getVideoWithPage:self.page type:2 isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
-        [weakSelf.subjectTowVideos addObjectsFromArray:array];
+    [XYTestQuestionsNetTool getVideoWithPage:1 type:2 isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        
+
+        for (NSDictionary * dic in array) {
+            [weakSelf.subjectTowVideos addObject:dic.mutableCopy];
+        }
+        
+        [weakSelf.videoCollectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         
     }];
     
-    [XYTestQuestionsNetTool getVideoWithPage:self.page type:3 isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
-        [weakSelf.subjectThreeVideos addObjectsFromArray:array];
-
+    [XYTestQuestionsNetTool getVideoWithPage:1 type:3 isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
+        for (NSDictionary * dic in array) {
+            [weakSelf.subjectThreeVideos addObject:dic.mutableCopy];
+        }
+        [weakSelf.videoCollectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         
     }];
@@ -178,6 +193,13 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
 }
 - (IBAction)clickSpace:(id)sender {
 }
+- (IBAction)clickDownloadBtn:(id)sender {
+    
+    XYVideoListViewController * videoList = [[XYVideoListViewController alloc] init];
+    videoList.type = self.subjectType;
+    videoList.groupArray = self.groupArray;
+    [self.navigationController pushViewController:videoList animated:YES];
+}
 
 
 
@@ -208,7 +230,13 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    XYVideoViewController * videoVC = [[XYVideoViewController alloc] init];
+    XYVideoViewController * videoVC = self.groupArray[indexPath.row][download_text_key];
+    if (videoVC) {
+        [self.navigationController pushViewController:videoVC animated:YES];
+        return;
+    }
+    
+    videoVC = [[XYVideoViewController alloc] init];
     videoVC.myData = self.groupArray[indexPath.row];
     [self.navigationController pushViewController:videoVC animated:YES];
 }

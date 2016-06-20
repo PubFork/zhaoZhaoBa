@@ -13,7 +13,7 @@
 
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface XYVideoViewController ()
+@interface XYVideoViewController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *imageBtn;
 @property (weak, nonatomic) IBOutlet XYAddActionImageView *videoImageView;
@@ -31,6 +31,11 @@
 
 @implementation XYVideoViewController
 
+- (void)dealloc
+{
+    NSLog(@"video dealloc");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -40,42 +45,24 @@
     [self layoutSubViews];
     
     
+    WeakSelf(weakSelf);
+
     [self.videoImageView clickView:^(UIImageView *view) {
         //play
         if (view.highlighted) {
             
-            self.playerController.contentURL = [XYDownloadNetTool getVideoURLWithUrl:self.myData[video_ev_videourl]];
+            weakSelf.playerController.contentURL = [XYDownloadNetTool getVideoURLWithUrl:weakSelf.myData[video_ev_videourl]];
             
-            [self.playerController play];
+            [weakSelf.playerController play];
             
         } else {
-            
-            if (self.downloading) {
-                [XYDownloadNetTool suspendWithDownloadTask:self.downloadTask url:self.myData[video_ev_videourl]];
-                self.downloading = NO;
+            if (weakSelf.downloading) {
+                [XYDownloadNetTool suspendWithDownloadTask:weakSelf.downloadTask url:weakSelf.myData[video_ev_videourl]];
+                weakSelf.downloading = NO;
+                [self.myData setValue:nil forKey:download_text_key];
             } else {
-                self.downloading = YES;
-                self.downLabel.hidden = NO;
-                WeakSelf(weakSelf);
-                
-                self.downloadTask = [XYDownloadNetTool  downloadFileURL:self.myData[video_ev_videourl] speed:^(NSString *download) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        weakSelf.downLabel.text = download;
-                    });
-                } finish:^(NSString *filePath) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        NSURL * URL = [NSURL URLWithString:filePath];
-                        self.playerController.contentURL = URL;
-                        
-                        [self.playerController play];
-                        
-                        weakSelf.downLabel.hidden = YES;
-                        view.highlighted = YES;
-                    });
-                }];
+                [weakSelf downloadVideo];
             }
-           
-
         }
     }];
 }
@@ -87,9 +74,46 @@
     [self.webView loadHTMLString:self.myData[video_ev_describe] baseURL:nil];
     
     
+
+    
     NSURL * url = [XYDownloadNetTool getVideoURLWithUrl:self.myData[video_ev_videourl]];
     self.videoImageView.highlighted = url;
     
+    [self addActiveIVToMySelfView];
+    
+}
+
+
+- (void)downloadVideo
+{
+    [self.myData setValue:self forKey:download_text_key];
+
+    self.downloading = YES;
+    self.downLabel.hidden = NO;
+    
+    WeakSelf(weakSelf);
+    self.downloadTask = [XYDownloadNetTool  downloadFileURL:self.myData[video_ev_videourl] speed:^(NSString *download) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.downLabel.text = download;
+        });
+    } finish:^(NSString *filePath) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.downLabel.hidden = YES;
+            weakSelf.videoImageView.highlighted = YES;
+            [weakSelf.myData setValue:nil forKey:download_text_key];
+        });
+    }];
+}
+
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self removeActiveIVFromSelfView];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self removeActiveIVFromSelfView];
 }
 
 

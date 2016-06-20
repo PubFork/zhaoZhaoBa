@@ -368,6 +368,8 @@
 		18D3581C1CD5F1C100E539E7 /* XYMustKnowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D3581A1CD5F1C100E539E7 /* XYMustKnowViewController.xib */; };
 		18D358211CD5F54700E539E7 /* XYMustKnowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D3581F1CD5F54700E539E7 /* XYMustKnowTableViewCell.m */; };
 		18D358221CD5F54700E539E7 /* XYMustKnowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D358201CD5F54700E539E7 /* XYMustKnowTableViewCell.xib */; };
+		29A2A34C1D17A82B0034B205 /* XYVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A2A34A1D17A82B0034B205 /* XYVideoTableViewCell.m */; };
+		29A2A34D1D17A82B0034B205 /* XYVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A2A34B1D17A82B0034B205 /* XYVideoTableViewCell.xib */; };
 		6F66DBAEEBD3F4D846791F53 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E73E4F5F113F0080CD28BE16 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -866,6 +868,9 @@
 		18D3581E1CD5F54700E539E7 /* XYMustKnowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMustKnowTableViewCell.h; sourceTree = "<group>"; };
 		18D3581F1CD5F54700E539E7 /* XYMustKnowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMustKnowTableViewCell.m; sourceTree = "<group>"; };
 		18D358201CD5F54700E539E7 /* XYMustKnowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYMustKnowTableViewCell.xib; sourceTree = "<group>"; };
+		29A2A3491D17A82B0034B205 /* XYVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYVideoTableViewCell.h; sourceTree = "<group>"; };
+		29A2A34A1D17A82B0034B205 /* XYVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYVideoTableViewCell.m; sourceTree = "<group>"; };
+		29A2A34B1D17A82B0034B205 /* XYVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYVideoTableViewCell.xib; sourceTree = "<group>"; };
 		DBC5443C81517E30782EBF69 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E73E4F5F113F0080CD28BE16 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2068,6 +2073,7 @@
 				18C3F9471D166E5800E28968 /* XYTestQuestionsCollectionViewCell.h */,
 				18C3F9481D166E5800E28968 /* XYTestQuestionsCollectionViewCell.m */,
 				18C3F9491D166E5800E28968 /* XYTestQuestionsCollectionViewCell.xib */,
+				29A2A3481D17A7D40034B205 /* Video */,
 			);
 			path = TestQuestions;
 			sourceTree = "<group>";
@@ -2137,6 +2143,16 @@
 			);
 			name = DriverSchool;
 			path = NearDriverSchool;
+			sourceTree = "<group>";
+		};
+		29A2A3481D17A7D40034B205 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				29A2A3491D17A82B0034B205 /* XYVideoTableViewCell.h */,
+				29A2A34A1D17A82B0034B205 /* XYVideoTableViewCell.m */,
+				29A2A34B1D17A82B0034B205 /* XYVideoTableViewCell.xib */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		5F69259A61E69FBB352C6717 /* Pods */ = {
@@ -2228,6 +2244,7 @@
 					181529AA1CCCCE940060E4FC = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4MUMJ6BUER;
+						DevelopmentTeamName = "CNWIR BJ";
 						ProvisioningStyle = Automatic;
 					};
 					181529C31CCCCE940060E4FC = {
@@ -2277,6 +2294,7 @@
 				18581FFC1CCE0E6500A191BF /* 消息1.png in Resources */,
 				180666C71CEFEF4D00CCC3CF /* 定位@2x.png in Resources */,
 				1806672E1CF0438C00CCC3CF /* 昵称@3x.png in Resources */,
+				29A2A34D1D17A82B0034B205 /* XYVideoTableViewCell.xib in Resources */,
 				1890515F1CCCD7C3003697A2 /* XYMyViewController.xib in Resources */,
 				183079741D02A69F0063925C /* 社区汇@3x.png in Resources */,
 				1890519B1CCCFE05003697A2 /* progress_7.png in Resources */,
@@ -2687,6 +2705,7 @@
 				180666F21CF0016100CCC3CF /* Manager.m in Sources */,
 				180BE2D81D14E6B300815C18 /* XYUpdateNetTool.m in Sources */,
 				18A07C591CDCBF8900725B8E /* XYCoachViewController.m in Sources */,
+				29A2A34C1D17A82B0034B205 /* XYVideoTableViewCell.m in Sources */,
 				18A07C6E1CDCC7F000725B8E /* XYCoachTableViewCell.m in Sources */,
 				184C14141CDDEBBC00C7D7BB /* XYShareGetMoneyViewController.m in Sources */,
 				18D3581B1CD5F1C100E539E7 /* XYMustKnowViewController.m in Sources */,

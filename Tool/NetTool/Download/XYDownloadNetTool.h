@@ -46,5 +46,12 @@
  */
 + (NSURL *)getVideoURLWithUrl:(NSString *)url;
 
-
+/**
+ *  获取没下载完的 视频
+ *
+ *  @param url
+ *
+ *  @return
+ */
++ (NSData *)getVideoDataURLWithUrl:(NSString *)url;
 @end

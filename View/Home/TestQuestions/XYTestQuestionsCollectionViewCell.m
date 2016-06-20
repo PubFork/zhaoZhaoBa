@@ -16,7 +16,7 @@
 }
 
 
-- (void)setMyData:(NSDictionary *)myData
+- (void)setMyData:(NSMutableDictionary *)myData
 {
     _myData = myData;
     

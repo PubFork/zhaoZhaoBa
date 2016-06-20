@@ -9,5 +9,5 @@
 #import "XYRootViewController.h"
 
 @interface XYVideoViewController : XYRootViewController
-@property (nonatomic, strong)NSDictionary * myData;
+@property (nonatomic, strong)NSMutableDictionary * myData;
 @end

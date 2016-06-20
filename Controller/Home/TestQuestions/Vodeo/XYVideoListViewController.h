@@ -10,4 +10,9 @@
 
 @interface XYVideoListViewController : XYRootViewController
 
+//2 => 科目二
+@property (nonatomic, assign)NSInteger type;
+
+
+
 @end

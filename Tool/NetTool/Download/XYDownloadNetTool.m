@@ -23,7 +23,6 @@
                                         speed:(void(^)(NSString * download))speed
                                        finish:(void(^)(NSString * filePath))finish;
 {
-    aUrl = [aUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL * downloadURL = [XYDownloadNetTool getVideoURLWithUrl:aUrl];
     if (downloadURL) {
@@ -43,7 +42,7 @@
     }
     
     
-    NSURL *URL = [NSURL URLWithString:aUrl];
+    NSURL *URL = [NSURL URLWithString:[aUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
 
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -53,9 +52,6 @@
         return [XYDownloadNetTool getDownloadURLWith:aUrl];
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         NSLog(@"File downloaded to: %@", filePath);
-        
-        NSData * data = [NSData dataWithContentsOfFile:filePath.absoluteString];
-        NSData * data1 = [NSData dataWithContentsOfURL:filePath];
         
         if ([filePath.description isEqualToString:@"(null)"] || !filePath) {
             return ;
@@ -133,15 +129,15 @@
 + (NSURL *)getVideoURLWithUrl:(NSString *)url
 {
     NSURL * URL = [XYDownloadNetTool getDownloadURLWith:url];
-    NSData * data = [NSData dataWithContentsOfURL:URL];
     
     NSFileManager * fileManager = [NSFileManager defaultManager];
-    
-    if ([fileManager fileExistsAtPath:URL.absoluteString]) {
+   
+    if ([fileManager fileExistsAtPath:[XYDownloadNetTool getPathWithURL:URL]]) {
         return URL;
     }
     return nil;
 }
+
 
 
 
@@ -165,14 +161,9 @@
 + (void)saveDownloadDataWithURL:(NSString *)url downloadTask:(NSURLSessionDownloadTask *)downloadTask
 {
     [downloadTask cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
-        
         NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:url];
-        NSFileManager * fileManager = [NSFileManager defaultManager];
-        
-        if ([fileManager fileExistsAtPath:URL.absoluteString]) {
-            BOOL success = [resumeData writeToFile:URL.absoluteString atomically:YES];
-            NSLog(@" success--- %d",success);
-        }
+        BOOL success = [resumeData writeToFile:[XYDownloadNetTool getPathWithURL:URL] atomically:YES];
+        NSLog(@" success--- %d",success);
     }];
 }
 
@@ -190,21 +181,20 @@
 //获取 完成 视频地址
 + (NSURL *)getDownloadURLWith:(NSString *)url
 {
-    url = [XYDownloadNetTool getStringWithUrl:url];
-    NSString * doucments = [XYDownloadNetTool getDocuments];
-    url = [doucments stringByAppendingPathComponent:url];
-    NSURL * URL = [NSURL URLWithString:url];
-    return URL;
+    NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+    NSURL * newURL = [documentsDirectoryURL URLByAppendingPathComponent:[XYDownloadNetTool getStringWithUrl:url]];
+   
+    return newURL;
 }
 
 
 //获取 未完成 视频地址
 + (NSURL *)getFialDownloadURLWith:(NSString *)url
 {
-    url = [[XYDownloadNetTool getStringWithUrl:url] stringByAppendingString:@".data"];
-    NSString * doucments = [XYDownloadNetTool getDocuments];
-    url = [doucments stringByAppendingPathComponent:url];
-    return [NSURL URLWithString:url];
+    NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+    NSURL * newURL = [documentsDirectoryURL URLByAppendingPathComponent:[[XYDownloadNetTool getStringWithUrl:url] stringByAppendingString:@".data"]];
+    
+    return newURL;
 }
 
 
@@ -213,15 +203,15 @@
  */
 + (NSString *)getStringWithUrl:(NSString *)url
 {
-    return [[[[[url stringByReplacingOccurrencesOfString:@"/" withString:@""] stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"." withString:@""] stringByReplacingOccurrencesOfString:@":" withString:@""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return [url componentsSeparatedByString:@"/"].lastObject;
 }
 
-
-+ (NSString *)getDocuments
+//反UTF8，然后去掉 file://
++ (NSString *)getPathWithURL:(NSURL *)URL
 {
-    return  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString * newUrl = [URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return [newUrl stringByReplacingOccurrencesOfString:@"file://" withString:@""];
 }
-
 
 
 

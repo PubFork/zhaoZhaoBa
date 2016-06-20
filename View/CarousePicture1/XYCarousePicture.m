@@ -36,7 +36,6 @@
         self.pageControl.currentPage = page - 1;
     }
     
-    NSLog(@" ---- %d --- %d",page,self.groupArray.count);
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:page inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
     

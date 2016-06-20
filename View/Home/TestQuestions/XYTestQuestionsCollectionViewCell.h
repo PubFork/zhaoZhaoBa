@@ -14,6 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *myLabel;
 
-@property (nonatomic, strong)NSDictionary * myData;
+@property (nonatomic, strong)NSMutableDictionary * myData;
 
 @end

@@ -29,6 +29,9 @@ static NSString * shareSina_AppName = @"@找找吧";
 #pragma mark -------------------------------------------------------
 #pragma mark 本地
 
+// 下载进度
+static NSString * download_text_key = @"download_text_key";
+
 /**
  *  cell 的高度
  */
