@@ -66,8 +66,7 @@
 {
     [Manager setImageWithImageUrl:self.myData[video_ev_cover] button:self.imageBtn];
     
-    [self.webView loadHTMLString:self.myData[video_ev_describe] baseURL:nil];
-    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://examplezzb.ngrok.cc/DrivingSchool/api/examevideodetail.htm?evid=%@",self.myData]]]];
     
 
     XYDownloadModel * model = [XYDownloadModel downloadModelWithDic:self.myData];

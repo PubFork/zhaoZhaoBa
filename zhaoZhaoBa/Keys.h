@@ -9,6 +9,11 @@
 #ifndef Keys_h
 #define Keys_h
 
+#pragma mark -------------------------------------------------------
+#pragma mark 用户数据
+////////////////////////////////// 用户数据 ////////////////////////////////////////
+
+static NSString * ns_user_detault_user_is_sign = @"user_detault_user_is_sign";
 
 
 

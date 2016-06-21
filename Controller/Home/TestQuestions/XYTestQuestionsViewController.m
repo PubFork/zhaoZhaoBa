@@ -142,12 +142,9 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
     }];
     
     [XYTestQuestionsNetTool getVideoWithPage:1 type:2 isRefresh:NO viewController:self success:^(NSArray * _Nonnull array) {
-        
-
         for (NSDictionary * dic in array) {
             [weakSelf.subjectTowVideos addObject:dic.mutableCopy];
         }
-        
         [weakSelf.videoCollectionView reloadData];
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         

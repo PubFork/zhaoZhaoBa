@@ -23,6 +23,6 @@
     [Manager setImageWithImageUrl:myData[video_ev_cover] imageView:self.imageView];
     self.nameLabel.text = myData[video_ev_title];
     
-    self.myLabel.hidden = ![myData[video_ev_exclphotos] boolValue];
+//    self.myLabel.hidden = ![myData[video_ev_exclphotos] boolValue];
 }
 @end

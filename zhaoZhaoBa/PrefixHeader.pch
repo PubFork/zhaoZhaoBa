@@ -23,8 +23,10 @@
 #import "UIView+MJExtension.h"
 #import "DispatchQueueManager.h"
 #import "Manager.h"
+#import "XYUserManager.h"
 
 #define kManager [Manager shareManager]
+#define kUserManager [XYUserManager shareUserManager]
 
 #define kShowLabel [MyShowLabel shareShowLabel]
 

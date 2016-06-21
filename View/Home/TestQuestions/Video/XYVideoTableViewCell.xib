@@ -60,6 +60,16 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="独家实拍" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-ID-Xjm">
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="FOh-gC-GEv"/>
+                            <constraint firstAttribute="width" constant="47" id="MYM-EY-gHe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -67,7 +77,9 @@
                     <constraint firstAttribute="bottomMargin" secondItem="Oik-kh-abo" secondAttribute="bottom" constant="3" id="Gi5-bo-6XV"/>
                     <constraint firstItem="Oik-kh-abo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="113" id="I0d-XB-ayT"/>
                     <constraint firstItem="c0a-uh-w9M" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IKf-qd-Zsx"/>
+                    <constraint firstItem="rpR-ID-Xjm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="Pzo-La-pVa"/>
                     <constraint firstItem="50z-Ho-UJM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QnS-vb-dn3"/>
+                    <constraint firstItem="SJN-bJ-tUa" firstAttribute="leading" secondItem="rpR-ID-Xjm" secondAttribute="trailing" constant="8" id="XD7-xw-5sB"/>
                     <constraint firstItem="fLG-x0-nBK" firstAttribute="leading" secondItem="50z-Ho-UJM" secondAttribute="trailing" constant="8" id="mkG-H9-enS"/>
                     <constraint firstItem="SJN-bJ-tUa" firstAttribute="leading" secondItem="50z-Ho-UJM" secondAttribute="trailing" constant="8" id="neb-eY-aOl"/>
                     <constraint firstAttribute="leadingMargin" secondItem="50z-Ho-UJM" secondAttribute="leading" id="xLX-Xb-f64"/>

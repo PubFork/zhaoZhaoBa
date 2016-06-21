@@ -14,6 +14,7 @@
 
 #import "XYCommunityNetTool.h"
 #import "XYDriverSchoolNetTool.h"
+#import "XYSignInViewController.h"
 
 @interface XYCommunityViewController ()
 
@@ -108,18 +109,24 @@ static NSString * community_cell_key = @"community_cell_key";
 }
 
 - (IBAction)clickAddBtn:(id)sender {
-    
-    if (self.style == CommunityStyle_Default) {
-        XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
-        [self.navigationController pushViewController:addCommuntiyVC animated:YES];
-        return;
+    if ([kUserManager userIsSign]) {
+        if (self.style == CommunityStyle_Default) {
+            XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+            [self.navigationController pushViewController:addCommuntiyVC animated:YES];
+            return;
+        }
+        
+        
+        XYAddCommunityDSCOViewController * addDSVC = [[XYAddCommunityDSCOViewController alloc] init];
+        addDSVC.coachID = self.coachID;
+        addDSVC.driverSchoolID = self.dsID;
+        [self.navigationController pushViewController:addDSVC animated:YES];
+    } else {
+        [XYSignInViewController showSignViewControllerWithViewController:self];
     }
     
-    
-    XYAddCommunityDSCOViewController * addDSVC = [[XYAddCommunityDSCOViewController alloc] init];
-    addDSVC.coachID = self.coachID;
-    addDSVC.driverSchoolID = self.dsID;
-    [self.navigationController pushViewController:addDSVC animated:YES];
+
+   
     
 }
 
@@ -162,11 +169,18 @@ static NSString * community_cell_key = @"community_cell_key";
     }];
     
     [cell clickCommunityBtnWithBlock:^(id communityID) {
-        XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
-        addCommuntiyVC.communityID = communityID;
-        addCommuntiyVC.style = self.style;
-        addCommuntiyVC.type = AddCommunityType_Reply;
-        [self.navigationController pushViewController:addCommuntiyVC animated:YES];
+        
+        if ([kUserManager userIsSign]) {
+            XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+            addCommuntiyVC.communityID = communityID;
+            addCommuntiyVC.style = self.style;
+            addCommuntiyVC.type = AddCommunityType_Reply;
+            [self.navigationController pushViewController:addCommuntiyVC animated:YES];
+        } else {
+            [XYSignInViewController showSignViewControllerWithViewController:weakSelf];
+        }
+        
+       
     }];
     return cell;
 }

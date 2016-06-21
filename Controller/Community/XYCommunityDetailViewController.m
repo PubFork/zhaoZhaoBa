@@ -12,6 +12,7 @@
 #import "XYCommunityNetTool.h"
 #import "XYDriverSchoolNetTool.h"
 #import "XYCoachNetTool.h"
+#import "XYSignInViewController.h"
 
 @interface XYCommunityDetailViewController ()
 @property (nonatomic, strong)NSMutableDictionary * groupDic;
@@ -107,11 +108,17 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
 
 - (IBAction)clickAddCommunity:(id)sender {
     
-    XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
-    addCommuntiyVC.style = self.style;
-    addCommuntiyVC.communityID = self.communityID;
-    addCommuntiyVC.type = AddCommunityType_Reply;
-    [self.navigationController pushViewController:addCommuntiyVC animated:YES];
+    if ([kUserManager userIsSign]) {
+        
+        XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+        addCommuntiyVC.style = self.style;
+        addCommuntiyVC.communityID = self.communityID;
+        addCommuntiyVC.type = AddCommunityType_Reply;
+        [self.navigationController pushViewController:addCommuntiyVC animated:YES];
+    } else {
+        [XYSignInViewController showSignViewControllerWithViewController:self];
+    }
+    
 
 }
 
@@ -150,12 +157,18 @@ static NSString * communtiy_detail_cell_key = @"communtiy_detail_cell_key";
     
     WeakSelf(weakSelf);
     [cell clickCommunityBtnWithBlock:^(NSNumber *replyID) {
-        XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
-        addCommuntiyVC.style = self.style;
-        addCommuntiyVC.communityID = self.communityID;
-        addCommuntiyVC.repleUserID = replyID;
-        addCommuntiyVC.type = AddCommunityType_Reply;
-        [weakSelf.navigationController pushViewController:addCommuntiyVC animated:YES];
+        
+        if ([kUserManager userIsSign]) {
+            XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+            addCommuntiyVC.style = weakSelf.style;
+            addCommuntiyVC.communityID = weakSelf.communityID;
+            addCommuntiyVC.repleUserID = replyID;
+            addCommuntiyVC.type = AddCommunityType_Reply;
+            [weakSelf.navigationController pushViewController:addCommuntiyVC animated:YES];
+        } else {
+            [XYSignInViewController showSignViewControllerWithViewController:weakSelf];
+        }
+        
     }];
     return cell;
 }

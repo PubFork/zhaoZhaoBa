@@ -25,7 +25,7 @@
 #import "XYShoppingViewController.h"
 #import "XYCarShowViewController.h"
 #import "XYTestQuestionsViewController.h"
-
+#import "XYSignInViewController.h"
 #import "XYNotificationCenterViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
@@ -95,9 +95,7 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
         tableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [homeVC requestData];
         }];
-        
-//        tableview.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        }];
+
         
         homeVC.tableView = tableview;
     });
@@ -227,9 +225,14 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
 
     
     [self.homeNaviBar clickMessageBtn_block:^(XYHomeNaviBar *homeNavBar) {
-        XYNotificationCenterViewController * notiCenterVC = [[XYNotificationCenterViewController alloc] init];
-        notiCenterVC.hidesBottomBarWhenPushed = YES;
-        [weakSelf.navigationController pushViewController:notiCenterVC animated:YES];
+        if ([kUserManager userIsSign]) {
+            XYNotificationCenterViewController * notiCenterVC = [[XYNotificationCenterViewController alloc] init];
+            notiCenterVC.hidesBottomBarWhenPushed = YES;
+            [weakSelf.navigationController pushViewController:notiCenterVC animated:YES];
+        } else {
+            [XYSignInViewController showSignViewControllerWithViewController:weakSelf];
+        }
+        
     }];
 }
 
@@ -311,7 +314,13 @@ static NSString * home_headerCell_key = @"home_headerCell_key";
                     break;
                 }
                 case 5: {
-                    vc = [[XYShoppingViewController alloc] init];
+                    if ([kUserManager userIsSign]) {
+                        vc = [[XYShoppingViewController alloc] init];
+                    } else {
+                        [XYSignInViewController showSignViewControllerWithViewController:weakSelf];
+                        return ;
+                    }
+                    
                     break;
                 }
                 case 6: {

@@ -25,6 +25,8 @@
 
 #import "UIImage+Rotate.h"
 
+#import "XYSignInViewController.h"
+
 #define MYBUNDLE_NAME @ "mapapi.bundle"
 #define MYBUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: MYBUNDLE_NAME]
 #define MYBUNDLE [NSBundle bundleWithPath: MYBUNDLE_PATH]
@@ -521,18 +523,33 @@
 }
 
 - (IBAction)studyTime:(id)sender {
-    XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
-    signVc.su_payselect = 1;
-    signVc.driverSchoolID = @(self.driverSchoolID);
-    [self.navigationController pushViewController:signVc animated:YES];
+    if ([kUserManager userIsSign]) {
+        XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
+        signVc.su_payselect = 1;
+        signVc.driverSchoolID = @(self.driverSchoolID);
+        [self.navigationController pushViewController:signVc animated:YES];
+    } else {
+        [XYSignInViewController showSignViewControllerWithViewController:self];
+    }
+    
 }
 - (IBAction)allPrice:(id)sender {
-    XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
-    signVc.su_payselect = 2;
-    signVc.driverSchoolID = @(self.driverSchoolID);
-    [self.navigationController pushViewController:signVc animated:YES];
+    if ([kUserManager userIsSign]) {
+        XYSignUpViewController * signVc = [[XYSignUpViewController alloc] init];
+        signVc.su_payselect = 2;
+        signVc.driverSchoolID = @(self.driverSchoolID);
+        [self.navigationController pushViewController:signVc animated:YES];
+    } else {
+        [XYSignInViewController showSignViewControllerWithViewController:self];
+    }
+    
 }
 - (IBAction)feed:(id)sender {
+    if ([kUserManager userIsSign]) {
+        
+    } else {
+        [XYSignInViewController showSignViewControllerWithViewController:self];
+    }
 }
 
 - (IBAction)upUp:(id)sender {

@@ -13,6 +13,8 @@
 
 #import "XYRootNavigationController.h"
 
+#import "XYSignInViewController.h"
+
 @interface XYRootTabBarViewController () <UITabBarDelegate,UITabBarControllerDelegate>
 @property (nonatomic, strong)XYRootNavigationController * homeNV;
 @end
@@ -59,8 +61,13 @@
         [XYCommunityViewController shareCommunityViewController].hidesBottomBarWhenPushed = YES;
         [self.homeNV pushViewController: [XYCommunityViewController shareCommunityViewController] animated:YES];
     } else if ([item.title isEqualToString:@"我的"]) {
-        [XYMyViewController shareMyViewController].hidesBottomBarWhenPushed = YES;
-        [self.homeNV pushViewController: [XYMyViewController shareMyViewController] animated:YES];
+        if ([kUserManager userIsSign]) {
+            [XYMyViewController shareMyViewController].hidesBottomBarWhenPushed = YES;
+            [self.homeNV pushViewController: [XYMyViewController shareMyViewController] animated:YES];
+        } else {
+            [XYSignInViewController showSignViewControllerWithViewController:self.homeNV];
+        }
+        
     }
     
     
