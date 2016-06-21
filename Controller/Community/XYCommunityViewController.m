@@ -112,6 +112,7 @@ static NSString * community_cell_key = @"community_cell_key";
     if ([kUserManager userIsSign]) {
         if (self.style == CommunityStyle_Default) {
             XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+            addCommuntiyVC.type = AddCommunityType_Release;
             [self.navigationController pushViewController:addCommuntiyVC animated:YES];
             return;
         }

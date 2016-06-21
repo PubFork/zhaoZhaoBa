@@ -17,6 +17,8 @@
 #import "XYVideoListViewController.h"
 #import "XYCommunityViewController.h"
 
+#import "XYAddCommunityViewController.h"
+
 static NSInteger community_top_detault = 394;
 static NSInteger community_top_height = 476;
 
@@ -128,6 +130,47 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
     }];
     
     
+    //顺序联系
+    [self.orderTestView clickView:^(UIView *view) {
+        
+    }];
+    
+    //随机练习
+    [self.randomTestView clickView:^(UIView *view) {
+        
+    }];
+    
+    //专项联系
+    [self.sepcialTestView clickView:^(UIView *view) {
+        
+    }];
+    
+    //排除收藏
+    [self.excludeTestView clickView:^(UIView *view) {
+        
+    }];
+    
+    //背题模式
+    [self.memoryQuestionsView clickView:^(UIView *view) {
+        
+    }];
+    
+    //我的错题
+    [self.myErrorQiestionsView clickView:^(UIView *view) {
+        
+    }];
+    
+    //答题技巧
+    [self.questionsSkillView clickView:^(UIView *view) {
+        
+    }];
+    
+    //我的动态
+    [self.myActivityView clickView:^(UIView *view) {
+        XYAddCommunityViewController * addCommuntiyVC = [[XYAddCommunityViewController alloc] init];
+        addCommuntiyVC.type = AddCommunityType_Release;
+        [weakSelf.navigationController pushViewController:addCommuntiyVC animated:YES];
+    }];
 }
 
 - (void)requestData
