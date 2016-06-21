@@ -20,10 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UILabel *downLabel;
 
-
-@property (nonatomic, assign)BOOL downloading;
-@property (nonatomic, strong)NSURLSessionDownloadTask * downloadTask;
-
 //@property (nonatomic, strong)AVPlayer * player;
 
 @property (nonatomic, strong)XYPlayViewViewController * playVC;
@@ -48,24 +44,21 @@
     
     WeakSelf(weakSelf);
     
-    XYDownloadModel * model = [XYDownloadNetTool getDownloadModelWithDic:self.myData];
-
+    XYDownloadModel * model = [XYDownloadModel downloadModelWithDic:self.myData];
 
     [self.videoImageView clickView:^(UIImageView *view) {
-        
-        //play
-        if (view.highlighted) {
-            weakSelf.playVC.URL = model.localURL;
-            [weakSelf presentViewController:self.playVC animated:YES completion:nil];
-        } else {
-            if (weakSelf.downloading) {
-                [XYDownloadNetTool suspendWithDownloadTask:weakSelf.downloadTask url:weakSelf.myData[video_ev_videourl]];
-                weakSelf.downloading = NO;
-                [self.myData setValue:nil forKey:download_text_key];
-            } else {
-                [weakSelf downloadVideo];
-            }
-        }
+        [model clickImageViewWithPlayBlock:^(NSURL *url) {
+            weakSelf.playVC.URL = url;
+            [weakSelf presentViewController:weakSelf.playVC animated:YES completion:nil];
+        } suspendBlock:^{
+            
+        } downloadBlock:^{
+            weakSelf.downLabel.hidden = NO;
+            [weakSelf.myData setValue:weakSelf forKey:download_text_key];
+        } finishBolick:^{
+            weakSelf.downLabel.hidden = YES;
+            [weakSelf.myData setValue:nil forKey:download_text_key];
+        }];
     }];
 }
 
@@ -77,15 +70,11 @@
     
     
 
-    XYDownloadModel * model = [XYDownloadNetTool getDownloadDic][self.myData[video_ev_videourl]];
+    XYDownloadModel * model = [XYDownloadModel downloadModelWithDic:self.myData];
     self.videoImageView.highlighted = model.isFinish;
     self.downLabel.hidden = model.isFinish;
     self.downLabel.text = model.downloadSpeed;
-    
-    
-    if (!model) {
-        model = [XYDownloadModel createDownLoadModeWithDic:self.myData];
-    }
+
     
     model.label = self.downLabel;
     model.imageView = self.videoImageView;
@@ -93,27 +82,6 @@
     [self addActiveIVToMySelfView];
     
 }
-
-
-- (void)downloadVideo
-{
-    [self.myData setValue:self forKey:download_text_key];
-
-    self.downloading = YES;
-    self.downLabel.hidden = NO;
-    
-    WeakSelf(weakSelf);
-    self.downloadTask = [XYDownloadNetTool  downloadFileURL:self.myData[video_ev_videourl] speed:^(NSString *download) {
-
-    } finish:^(NSString *filePath) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.downLabel.hidden = YES;
-            weakSelf.videoImageView.highlighted = YES;
-            [weakSelf.myData setValue:nil forKey:download_text_key];
-        });
-    }];
-}
-
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {

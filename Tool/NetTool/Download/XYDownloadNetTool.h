@@ -30,6 +30,10 @@ typedef NS_ENUM(NSInteger, DownloadModelType) {
      *  完成
      */
     DownloadModelType_Finish    = 3,
+    /**
+     *  取消，在 挂起后 一段时间不恢复 会自动断开连接
+     */
+    DownloadModelType_Cancle    = 4,
 };
 
 @interface XYDownloadModel : NSObject <NSCoding>
@@ -67,6 +71,8 @@ typedef NS_ENUM(NSInteger, DownloadModelType) {
 
 
 
+
+
 @property (nonatomic, assign)DownloadModelType type;
 
 
@@ -78,23 +84,20 @@ typedef NS_ENUM(NSInteger, DownloadModelType) {
 
 - (void)save;
 
++ (XYDownloadModel *)downloadModelWithDic:(NSDictionary *)dic;
++ (XYDownloadModel *)downloadModelWithKey:(NSString *)key;
 
-+ (XYDownloadModel *)createDownLoadModeWithDic:(NSDictionary *)dic;
-+ (XYDownloadModel *)createDownLoadModeWithUrl:(NSString *)url;
-
-
-//暂停 图片切换为 下载
-- (void)suspend;
 
 //开始下载 图片换为 暂停
-- (void)download;
-
-//完成 图片切换为 播放
-- (void)finish;
+- (void)downloadWithFinishBolick:(void(^)())finishBlock;
 
 
 
-- (void)clickImageView;
+- (void)clickImageViewWithPlayBlock:(void(^)(NSURL * url))playBlock
+                       suspendBlock:(void(^)())suspendBlock
+                      downloadBlock:(void(^)())downloadBlock
+                       finishBolick:(void(^)())finishBlock;
+
 @end
 
 
@@ -104,8 +107,6 @@ typedef NS_ENUM(NSInteger, DownloadModelType) {
 + (NSMutableDictionary *)getDownloadDic;
 
 
-+ (XYDownloadModel *)getDownloadModelWithDic:(NSDictionary *)dic;
-+ (XYDownloadModel *)getDownloadModelWithKey:(NSString *)key;
 
 
 /**
@@ -118,17 +119,23 @@ typedef NS_ENUM(NSInteger, DownloadModelType) {
  *  @return  NSURLSessionDownloadTask
  */
 + (NSURLSessionDownloadTask *)downloadFileURL:(NSString *)aUrl
+                                        model:(XYDownloadModel *)model
                                         speed:(void(^)(NSString * download))speed
                                        finish:(void(^)())finish;
-
 /**
- *  暂停
+ *  下载未完成的文件
  *
- *  @param downloadTask
+ *  @param aUrl   网络地址
+ *  @param speed  进度回调
+ *  @param finish 完成
+ *
+ *  @return  NSURLSessionDownloadTask
  */
-+ (void)suspendWithDownloadTask:(NSURLSessionDownloadTask *)downloadTask url:(NSString *)url;
-
-
++ (NSURLSessionDownloadTask *)downloadFileData:(NSData *)data
+                                           url:(NSString *)url
+                                         model:(XYDownloadModel *)model
+                                         speed:(void(^)(NSString * speed))speed
+                                        finish:(void(^)(NSString * filePath))finish;
 
 
 

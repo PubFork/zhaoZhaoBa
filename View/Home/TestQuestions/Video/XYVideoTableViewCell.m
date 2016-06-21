@@ -22,18 +22,8 @@ static NSInteger download_speed_view_width = 117;
     WeakSelf(weakSelf);
     
     [self.playImageView clickView:^(UIImageView *view) {
-        XYDownloadModel * model = [XYDownloadNetTool getDownloadModelWithDic:weakSelf.myData];
-
-        if (!view.isHighlighted) {
-            [XYDownloadNetTool downloadFileURL:weakSelf.myData[video_ev_videourl] speed:^(NSString *download) {
-            } finish:^{
-                
-            }];
-        } else {
-            if (!model.isFinish) {
-                [XYDownloadNetTool suspendWithDownloadTask:model.downloadTask url:model.httpUrl];
-            }
-        }
+        XYDownloadModel * model = [XYDownloadModel downloadModelWithDic:weakSelf.myData];
+        [model clickImageViewWithPlayBlock:nil suspendBlock:nil downloadBlock:nil finishBolick:nil];
     }];
 }
 
@@ -42,7 +32,7 @@ static NSInteger download_speed_view_width = 117;
 {
     _myData = myData;
     
-    XYDownloadModel * model = [XYDownloadNetTool getDownloadModelWithDic:myData];
+    XYDownloadModel * model = [XYDownloadModel downloadModelWithDic:myData];
     
     [self.videoImageView setImageWithURL:[NSURL URLWithString:myData[video_ev_cover]] placeholder:kDefaultImage];
     self.nameLabel.text = myData[video_ev_title];
@@ -53,12 +43,10 @@ static NSInteger download_speed_view_width = 117;
     self.downloadSpeedViewWidth.constant = isnan(model.speed) ? 0 : model.speed * download_speed_view_width;
     
     if (model.isFinish) {
+        self.downloadLabel.text = @"完成";
         self.downloadSpeedViewWidth.constant = download_speed_view_width;
     }
     
-    if (!model) {
-        model = [XYDownloadModel createDownLoadModeWithDic:self.myData];
-    }
     model.speedViewWidth = self.downloadSpeedViewWidth;
     model.label = self.downloadLabel;
     model.imageView = self.playImageView;

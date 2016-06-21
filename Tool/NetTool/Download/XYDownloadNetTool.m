@@ -34,6 +34,24 @@ static NSString * archiver_key = @"archiverkey";
     return self;
 }
 
++ (XYDownloadModel *)downloadModelWithDic:(NSDictionary *)dic
+{
+    XYDownloadModel * model = [XYDownloadNetTool getDownloadDic][dic[video_ev_videourl]];
+    if (!model) {
+        model = [XYDownloadModel createDownLoadModeWithDic:dic];
+    }
+    return model;
+}
++ (XYDownloadModel *)downloadModelWithKey:(NSString *)key
+{
+    XYDownloadModel * model = [XYDownloadNetTool getDownloadDic][key];
+    if (!model) {
+        model = [XYDownloadModel createDownLoadModeWithUrl:key];
+    }
+    return model;
+}
+
+
 
 #pragma mark -----------------------------------------------------------
 #pragma mark - Setting
@@ -50,7 +68,7 @@ static NSString * archiver_key = @"archiverkey";
 
 - (void)setDownloadSpeed:(NSString *)downloadSpeed
 {
-    _downloadTask = downloadSpeed.copy;
+    _downloadSpeed = downloadSpeed.copy;
     
     NSArray * array = [downloadSpeed componentsSeparatedByString:@"/"];
     
@@ -67,23 +85,43 @@ static NSString * archiver_key = @"archiverkey";
 
     dispatch_async(dispatch_get_main_queue(), ^{
         self.label.text = downloadSpeed;
-        NSLog(@"%@ --- %@",self,self.label);
         
         if (!isnan(self.speed)) {
             self.speedViewWidth.constant = (int)(self.speed * download_speed_view_width);
-            NSLog(@"self.speed * download_speed_view_width = %d",(int)(self.speed * download_speed_view_width));
+            NSLog(@"self.speed (%f)* download_speed_view_width (%ld) = %f",self.speed,(long)download_speed_view_width,(self.speed * download_speed_view_width));
         }
-        
-        NSLog(@" self.speedViewWidth.constant = %f",self.speedViewWidth.constant);
     });
 }
-
-- (void)setIsFinish:(BOOL)isFinish
+- (void)setType:(DownloadModelType)type
 {
-    _isFinish = isFinish;
+    _type = type;
     
-    if (isFinish) {
-        [self finish];
+    switch (type) {
+        case DownloadModelType_None: {
+           
+            break;
+        }
+        case DownloadModelType_Download: {
+            self.imageView.image = [self getImageWithType:1];
+            break;
+        }
+        case DownloadModelType_Suspent: {
+            [self.downloadTask suspend];
+            self.imageView.image = [self getImageWithType:0];
+            break;
+        }
+        case DownloadModelType_Finish: {
+            self.imageView.image = [self getImageWithType:2];
+            self.speed = 1;
+            self.downloadSpeed = @"完成";
+            self.isFinish = YES;
+            [XYDownloadNetTool saveToDiskOfDownloadDic];
+            break;
+        }
+        case DownloadModelType_Cancle: {
+            self.imageView.image = [self getImageWithType:0];
+            break;
+        }
     }
 }
 
@@ -92,12 +130,7 @@ static NSString * archiver_key = @"archiverkey";
 
 - (void)save
 {
-    NSLog(@" %@  -- %@",[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl],[[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl] label]);
-    
     [[XYDownloadNetTool getDownloadDic] setValue:self forKey:self.httpUrl];
-    
-    NSLog(@" %@  -- %@",[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl],[[[XYDownloadNetTool getDownloadDic] valueForKey:self.httpUrl] label]);
-
 }
 
 + (XYDownloadModel *)createDownLoadModeWithDic:(NSDictionary *)dic
@@ -119,55 +152,65 @@ static NSString * archiver_key = @"archiverkey";
 
 
 
-
-//暂停 图片切换为 下载
-- (void)suspend
-{
-    [self.downloadTask suspend];
-    self.type = DownloadModelType_Suspent;
-    self.imageView.image = [self getImageWithType:0];
-}
-
 //开始下载 图片换为 暂停
-- (void)download
+- (void)downloadWithFinishBolick:(void(^)())finishBlock
 {
     WeakSelf(weakSelf);
-    [XYDownloadNetTool downloadFileURL:self.httpUrl speed:^(NSString *download) {
-        
-    } finish:^{
-        [weakSelf finish];
-    }];
+    
+    if (self.type == DownloadModelType_None) {
+        [XYDownloadNetTool downloadFileURL:self.httpUrl model:self speed:^(NSString *download) {
+            weakSelf.downloadSpeed = download;
+        } finish:^{
+            finishBlock ? finishBlock() : 0;
+            weakSelf.type = DownloadModelType_Finish;
+        }];
+    } else if(self.type == DownloadModelType_Cancle) {
+        NSData * data = [NSData dataWithContentsOfURL:self.fialLocalURL];
+        if (!data) {
+            return;
+        }
+        [XYDownloadNetTool downloadFileData:data url:self.httpUrl model:self speed:^(NSString *speed) {
+            weakSelf.downloadSpeed = speed;
+        } finish:^(NSString *filePath) {
+            finishBlock ? finishBlock() : 0;
+            weakSelf.type = DownloadModelType_Finish;
+        }];
+    } else {
+        [self.downloadTask resume];
+    }
     
     self.type = DownloadModelType_Download;
-    self.imageView.image = [self getImageWithType:1];
-}
-
-//完成 图片切换为 播放
-- (void)finish
-{
-    self.isFinish = YES;
-    self.type = DownloadModelType_Finish;
-    self.imageView.image = [self getImageWithType:2];
 }
 
 
-- (void)clickImageView
+
+- (void)clickImageViewWithPlayBlock:(void(^)(NSURL * url))playBlock
+                       suspendBlock:(void(^)())suspendBlock
+                      downloadBlock:(void(^)())downloadBlock
+                       finishBolick:(void(^)())finishBlock;
 {
     switch (self.type) {
         case DownloadModelType_None: {
-            [self download];
-            
+            [self downloadWithFinishBolick:finishBlock];
+            downloadBlock ? downloadBlock() : 0;
             break;
         }
         case DownloadModelType_Download: {
-            [self suspend];
+            self.type = DownloadModelType_Suspent;
+            suspendBlock ? suspendBlock() : 0;
             break;
         }
         case DownloadModelType_Suspent: {
-            [self download];
+            [self downloadWithFinishBolick:finishBlock];
+            downloadBlock ? downloadBlock() : 0;
             break;
         }
         case DownloadModelType_Finish: {
+            playBlock ? playBlock(self.localURL) : 0;
+            break;
+        }
+        case DownloadModelType_Cancle: {
+            [self downloadWithFinishBolick:finishBlock];
             break;
         }
     }
@@ -217,19 +260,6 @@ static NSString * archiver_key = @"archiverkey";
 }
 
 
-+ (XYDownloadModel *)getDownloadModelWithDic:(NSDictionary *)dic
-{
-    NSString * key = dic[video_ev_videourl];
-    if ([key isKindOfClass:NSString.class]) {
-        return [XYDownloadNetTool getDownloadDic][key];
-    }
-    return nil;
-}
-+ (XYDownloadModel *)getDownloadModelWithKey:(NSString *)key
-{
-    return [XYDownloadNetTool getDownloadDic][key];
-}
-
 /**
  *  下载文件
  *
@@ -240,45 +270,14 @@ static NSString * archiver_key = @"archiverkey";
  *  @return  NSURLSessionDownloadTask
  */
 + (NSURLSessionDownloadTask *)downloadFileURL:(NSString *)aUrl
+                                        model:(XYDownloadModel *)model
                                         speed:(void(^)(NSString * download))speed
                                        finish:(void(^)())finish;
 {
-    
-    NSMutableDictionary * downloadDic = [XYDownloadNetTool getDownloadDic];
-    
-    XYDownloadModel * model = downloadDic[aUrl];
-    if (!model) {
-        model = [XYDownloadModel createDownLoadModeWithUrl:aUrl];
-    } else {
-        if (model.isFinish) {
-            finish ? finish() : 0;
-            return nil;
-        }
-    }
-    
-    
-    
-    NSData * data = [NSData dataWithContentsOfURL:model.fialLocalURL];
-    if (data) {
-        return [XYDownloadNetTool downloadFileData:data url:aUrl speed:speed finish:finish];
-    }
-
-    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    
-    
-    [manager setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
-        // **** 下载出错，缓存已经下载的数据到指定的缓存文件中
-        NSData *resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData];
-        if (resumeData.length > 0) {
-            NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:aUrl];
-            BOOL success = [resumeData writeToFile:[XYDownloadNetTool getPathWithURL:URL] atomically:YES];
-            NSLog(@"all  success--- %d",success);
-        }
-    }];
-    
+    [XYDownloadNetTool setTaskDidCompleteWithManager:manager model:model];
 
     NSURL *URL = [NSURL URLWithString:[aUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
@@ -286,8 +285,6 @@ static NSString * archiver_key = @"archiverkey";
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         NSString * download = [XYDownloadNetTool getDownloadSpeedWithProgress:downloadProgress];
         speed ? speed(download) : 0;
-        model.downloadSpeed = download;
-        model.speed = downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         return model.localURL;
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
@@ -297,23 +294,15 @@ static NSString * archiver_key = @"archiverkey";
             return ;
         }
         finish ? finish(filePath.absoluteString) : 0;
-        model.isFinish = YES;
-        [XYDownloadNetTool saveToDiskOfDownloadDic];
     }];
     //开始
     [downloadTask resume];
     
-    
-    
-    
     model.downloadTask = downloadTask;
-    model.httpUrl = aUrl;
-    
     
     return downloadTask;
 
 }
-
 
 
 /**
@@ -327,32 +316,19 @@ static NSString * archiver_key = @"archiverkey";
  */
 + (NSURLSessionDownloadTask *)downloadFileData:(NSData *)data
                                            url:(NSString *)url
-                                         speed:(void(^)(NSString *))speed
+                                         model:(XYDownloadModel *)model
+                                         speed:(void(^)(NSString * speed))speed
                                         finish:(void(^)(NSString * filePath))finish
 {
-    
-    NSMutableDictionary * downloadDic = [XYDownloadNetTool getDownloadDic];
-    
-    XYDownloadModel * model = downloadDic[url];
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    [manager setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
-        // **** 下载出错，缓存已经下载的数据到指定的缓存文件中
-        NSData *resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData];
-        if (resumeData.length > 0) {
-            NSURL * URL = [XYDownloadNetTool getFialDownloadURLWith:url];
-            BOOL success = [resumeData writeToFile:[XYDownloadNetTool getPathWithURL:URL] atomically:YES];
-            NSLog(@"fail success--- %d",success);
-        }
-    }];
+    [XYDownloadNetTool setTaskDidCompleteWithManager:manager model:model];
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithResumeData:data progress:^(NSProgress * _Nonnull downloadProgress) {
         NSString * download = [XYDownloadNetTool getDownloadSpeedWithProgress:downloadProgress];
         speed ? speed(download) : 0;
-        model.downloadSpeed = download;
-        model.speed = downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         return model.localURL;
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
@@ -360,32 +336,13 @@ static NSString * archiver_key = @"archiverkey";
             return ;
         }
         finish ? finish(filePath.absoluteString) : 0;
-        model.isFinish = YES;
-        [XYDownloadNetTool saveToDiskOfDownloadDic];
     }];
     
        //开始
     [downloadTask resume];
-    
 
     return downloadTask;
 }
-
-
-
-
-/**
- *  暂停
- *  会保存到本地
- *  @param downloadTask downloadTask description
- */
-+ (void)suspendWithDownloadTask:(NSURLSessionDownloadTask *)downloadTask url:(NSString *)url
-{
-    [downloadTask suspend];
-}
-
-
-
 
 
 
@@ -407,6 +364,23 @@ static NSString * archiver_key = @"archiverkey";
 
 #pragma mark -------------------------------------------------------
 #pragma mark Inner Method
+
+
++ (void)setTaskDidCompleteWithManager:(AFURLSessionManager *)manager model:(XYDownloadModel *)model
+{
+    [manager setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
+        
+        NSLog(@"fail error--- %@",error);
+
+        model.type = DownloadModelType_Cancle;
+        // **** 下载出错，缓存已经下载的数据到指定的缓存文件中
+        NSData *resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData];
+        if (resumeData.length > 0) {
+            BOOL success = [resumeData writeToURL:model.fialLocalURL atomically:YES];
+            NSLog(@"fail success--- %d",success);
+        }
+    }];
+}
 
 //计算 进度
 + (NSString *)getDownloadSpeedWithProgress:(NSProgress *)downloadProgress

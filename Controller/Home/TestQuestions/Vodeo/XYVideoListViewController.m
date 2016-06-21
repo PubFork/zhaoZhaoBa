@@ -163,7 +163,7 @@ static NSString * video_cell_key = @"video_cell_key";
         _subjectThreeLabel.center = CGPointMake(kScreenWidth / 4 * 3, 20 + 44 / 2);
         _subjectThreeLabel.text = @"科三";
     }
-    return _subjectTowLabel;
+    return _subjectThreeLabel;
 }
 
 

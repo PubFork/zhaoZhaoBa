@@ -15,6 +15,7 @@
 #import "XYTestQuestionsCollectionViewCell.h"
 #import "XYVideoViewController.h"
 #import "XYVideoListViewController.h"
+#import "XYCommunityViewController.h"
 
 static NSInteger community_top_detault = 394;
 static NSInteger community_top_height = 476;
@@ -118,6 +119,14 @@ static NSString * test_questions_cell_key = @"test_questions_cell_key";
     
     ////////////////////////////////// 按钮 ////////////////////////////////////////
 
+    
+    
+    
+    [self.communityView clickView:^(UIView *view) {
+        XYCommunityViewController * communityVC = [XYCommunityViewController shareCommunityViewController];
+        [weakSelf.navigationController pushViewController:communityVC animated:YES];
+    }];
+    
     
 }
 
