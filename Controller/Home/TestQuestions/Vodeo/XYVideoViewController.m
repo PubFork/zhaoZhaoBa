@@ -52,6 +52,7 @@
 
 
     [self.videoImageView clickView:^(UIImageView *view) {
+        
         //play
         if (view.highlighted) {
             weakSelf.playVC.URL = model.localURL;
@@ -87,6 +88,7 @@
     }
     
     model.label = self.downLabel;
+    model.imageView = self.videoImageView;
 
     [self addActiveIVToMySelfView];
     
@@ -102,9 +104,7 @@
     
     WeakSelf(weakSelf);
     self.downloadTask = [XYDownloadNetTool  downloadFileURL:self.myData[video_ev_videourl] speed:^(NSString *download) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-//            weakSelf.downLabel.text = download;
-        });
+
     } finish:^(NSString *filePath) {
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.downLabel.hidden = YES;

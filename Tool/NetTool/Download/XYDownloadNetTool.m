@@ -8,15 +8,35 @@
 
 #import "XYDownloadNetTool.h"
 
+static NSInteger download_speed_view_width = 117;
+
 
 //保存视频的 文件夹
 static NSString * documents_video_path = @"video";
 
-static NSString * archiver_key = @"archiver_key";
+static NSString * archiver_key = @"archiverkey";
 
 
 
 @implementation XYDownloadModel
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [[XYDownloadNetTool getDownloadDic] setValue:self forKey:self.httpUrl];
+    [self autoEncodeWithCoder:aCoder];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if ([super init]) {
+        [self autoDecode:aDecoder];
+    }
+    return self;
+}
+
+
+#pragma mark -----------------------------------------------------------
+#pragma mark - Setting
 
 
 - (void)setHttpUrl:(NSString *)httpUrl
@@ -37,6 +57,9 @@ static NSString * archiver_key = @"archiver_key";
     NSString * str1 = array.firstObject;
     NSString * str2 = array.lastObject;
     
+    str1 = [str1 stringByReplacingOccurrencesOfString:@"M" withString:@""];
+    str2 = [str2 stringByReplacingOccurrencesOfString:@"M" withString:@""];
+    
     self.speed = str1.floatValue / str2.floatValue;
     
     NSLog(@" self.speed  % f = str1.floatValue  %f / str2.floatValue %f;  ", self.speed , str1.floatValue , str2.floatValue);
@@ -47,39 +70,25 @@ static NSString * archiver_key = @"archiver_key";
         NSLog(@"%@ --- %@",self,self.label);
         
         if (!isnan(self.speed)) {
-            self.speedViewWidth.constant = self.speed * 117;
-
+            self.speedViewWidth.constant = (int)(self.speed * download_speed_view_width);
+            NSLog(@"self.speed * download_speed_view_width = %d",(int)(self.speed * download_speed_view_width));
         }
         
         NSLog(@" self.speedViewWidth.constant = %f",self.speedViewWidth.constant);
     });
-    
-    
-    
-    
 }
 
-- (void)setLabel:(UILabel *)label
+- (void)setIsFinish:(BOOL)isFinish
 {
-    _label = label;
-    NSLog(@" == %@",self);
-}
-
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [[XYDownloadNetTool getDownloadDic] setValue:self forKey:self.httpUrl];
-    [self autoEncodeWithCoder:aCoder];
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if ([super init]) {
-        [self autoDecode:aDecoder];
+    _isFinish = isFinish;
+    
+    if (isFinish) {
+        [self finish];
     }
-    return self;
 }
 
+#pragma mark -----------------------------------------------------------
+#pragma mark - Method
 
 - (void)save
 {
@@ -106,6 +115,88 @@ static NSString * archiver_key = @"archiver_key";
     [model save];
     return model;
 }
+
+
+
+
+
+//暂停 图片切换为 下载
+- (void)suspend
+{
+    [self.downloadTask suspend];
+    self.type = DownloadModelType_Suspent;
+    self.imageView.image = [self getImageWithType:0];
+}
+
+//开始下载 图片换为 暂停
+- (void)download
+{
+    WeakSelf(weakSelf);
+    [XYDownloadNetTool downloadFileURL:self.httpUrl speed:^(NSString *download) {
+        
+    } finish:^{
+        [weakSelf finish];
+    }];
+    
+    self.type = DownloadModelType_Download;
+    self.imageView.image = [self getImageWithType:1];
+}
+
+//完成 图片切换为 播放
+- (void)finish
+{
+    self.isFinish = YES;
+    self.type = DownloadModelType_Finish;
+    self.imageView.image = [self getImageWithType:2];
+}
+
+
+- (void)clickImageView
+{
+    switch (self.type) {
+        case DownloadModelType_None: {
+            [self download];
+            
+            break;
+        }
+        case DownloadModelType_Download: {
+            [self suspend];
+            break;
+        }
+        case DownloadModelType_Suspent: {
+            [self download];
+            break;
+        }
+        case DownloadModelType_Finish: {
+            break;
+        }
+    }
+}
+
+
+// 0 => 下载  1 => 暂停  2 => 播放
+- (UIImage *)getImageWithType:(NSInteger)type
+{
+    static UIImage * downloadImage = nil;
+    static UIImage * suspendImage = nil;
+    static UIImage * playImage = nil;
+
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        downloadImage = kImage(@"下载");
+        suspendImage = kImage(@"暂停");
+        playImage = kImage(@"播放");
+    });
+    
+    switch (type) {
+        case 0: return downloadImage;
+        case 1: return suspendImage;
+        case 2: return playImage;
+    }
+    return kDefaultImage;
+}
+
 @end
 
 @implementation XYDownloadNetTool
@@ -164,6 +255,7 @@ static NSString * archiver_key = @"archiver_key";
             return nil;
         }
     }
+    
     
     
     NSData * data = [NSData dataWithContentsOfURL:model.fialLocalURL];
@@ -372,23 +464,22 @@ static NSString * archiver_key = @"archiver_key";
     NSMutableDictionary * dic = [XYDownloadNetTool getDownloadDic];
     
     
+    NSMutableDictionary * newDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+    
     
     for (NSString * key in dic.allKeys) {
-        XYDownloadModel * model = dic[key];
+        XYDownloadModel * model = newDic[key];
         
         NSMutableData *data = [[NSMutableData alloc] init];
         NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
         [archiver encodeObject:model forKey:archiver_key];
         [archiver finishEncoding];
-        
-        BOOL isSuccess = [data writeToFile:[[XYDownloadNetTool getDownloadDicPath] stringByAppendingString:@".data"] atomically:YES];
-        
-        NSLog(@" data save %@",isSuccess ? @"Success" : @"Fial");
-        
-        [dic setValue:data forKey:key];
+         
+        [newDic setValue:data forKey:key];
     }
-    NSLog(@"dic => %@",dic);
-    BOOL success = [dic writeToFile:[XYDownloadNetTool getDownloadDicPath] atomically:NO];
+    NSLog(@"dic => %@",newDic);
+    BOOL success = [newDic writeToFile:[XYDownloadNetTool getDownloadDicPath] atomically:NO];
+    
     
     if (success) {
         NSLog(@" download dic save success!!!");
@@ -403,11 +494,11 @@ static NSString * archiver_key = @"archiver_key";
     NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithContentsOfFile:[XYDownloadNetTool getDownloadDicPath]];
     
     for (NSString * key in dic.allKeys) {
+        
         NSData * data = dic[key];
         
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
         
-        //解档出数据模型Student
         XYDownloadModel * model = [unarchiver decodeObjectForKey:archiver_key];
         [unarchiver finishDecoding];
         

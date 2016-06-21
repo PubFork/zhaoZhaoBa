@@ -74,6 +74,18 @@
                         //如果属性是UIImage类型的，不进行归档
                         break;
                     }
+                    if ([className isEqualToString:@"UILabel"]) {
+                        //如果属性是UIImage类型的，不进行反归档   warning
+                        break;
+                    }
+                    if ([className isEqualToString:@"UIImageView"]) {
+                        //如果属性是UIImage类型的，不进行反归档   warning
+                        break;
+                    }
+                    if ([className isEqualToString:@"NSLayoutConstraint"]) {
+                        //如果属性是UIImage类型的，不进行反归档   warning
+                        break;
+                    }
                     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -86,7 +98,7 @@
                     }
                 }
                 break;
-            case 'c':   // bool
+            case 'B':   // bool
                 [invocation invoke];
                 [invocation getReturnValue:&boolValue];
                 [coder encodeObject:[NSNumber numberWithBool:boolValue] forKey:key];
@@ -166,7 +178,18 @@
                         //如果属性是UIImage类型的，不进行反归档   warning
                         break;
                     }
-
+                    if ([className isEqualToString:@"UILabel"]) {
+                        //如果属性是UIImage类型的，不进行反归档   warning
+                        break;
+                    }
+                    if ([className isEqualToString:@"UIImageView"]) {
+                        //如果属性是UIImage类型的，不进行反归档   warning
+                        break;
+                    }
+                    if ([className isEqualToString:@"NSLayoutConstraint"]) {
+                        //如果属性是UIImage类型的，不进行反归档   warning
+                        break;
+                    }
                     // only decode if the property conforms to NSCoding
                     if ([class conformsToProtocol:@protocol(NSCoding )]){
                         value = [coder decodeObjectForKey:key];
@@ -174,7 +197,7 @@
                     }
                 }
                 break;
-            case 'c':   // bool
+            case 'B':   // bool
                 number = [coder decodeObjectForKey:key];
                 b = [number boolValue];
                 [self setValue:@(b) forKey:key];

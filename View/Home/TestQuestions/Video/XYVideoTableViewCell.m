@@ -25,14 +25,12 @@ static NSInteger download_speed_view_width = 117;
         XYDownloadModel * model = [XYDownloadNetTool getDownloadModelWithDic:weakSelf.myData];
 
         if (!view.isHighlighted) {
-            view.highlighted = YES;
             [XYDownloadNetTool downloadFileURL:weakSelf.myData[video_ev_videourl] speed:^(NSString *download) {
             } finish:^{
                 
             }];
         } else {
             if (!model.isFinish) {
-                view.highlighted = NO;
                 [XYDownloadNetTool suspendWithDownloadTask:model.downloadTask url:model.httpUrl];
             }
         }
@@ -54,13 +52,16 @@ static NSInteger download_speed_view_width = 117;
     
     self.downloadSpeedViewWidth.constant = isnan(model.speed) ? 0 : model.speed * download_speed_view_width;
     
+    if (model.isFinish) {
+        self.downloadSpeedViewWidth.constant = download_speed_view_width;
+    }
     
     if (!model) {
         model = [XYDownloadModel createDownLoadModeWithDic:self.myData];
     }
     model.speedViewWidth = self.downloadSpeedViewWidth;
     model.label = self.downloadLabel;
-
+    model.imageView = self.playImageView;
     
     
 }
